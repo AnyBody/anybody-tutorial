@@ -1,0 +1,27 @@
+  // Todo: Write a small description of your model here
+
+Main = {
+
+  // The actual body model goes in this folder
+  AnyFolder ArmModel = {
+
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+
+      // Todo: Add points for grounding of the model here
+
+    };  // Global reference frame
+
+    // Todo. Add the model elements such as
+    //       segments, joints, and muscles here.
+
+  }; // ArmModel
+
+  // The study: Operations to be performed on the model
+  AnyBodyStudy ArmStudy = {
+    AnyFolder &Model = .ArmModel;
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0};
+  };
+
+};  // Main
