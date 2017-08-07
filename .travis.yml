@@ -5,7 +5,7 @@ python:
 
 env:
   global:
-    - secure: "SeIArR+Z4WpmSYgdHADIpsWT4+uphTC5KccHMZoh4bTRSpxBGULm5AA72AFdxdr+TQhryGCJYqrAsf1fUjGF8Yey2cT+Jc7tCvOVA57XLYvs/RSC4TXi/GupUZ8CBgoFo3Jl/dZK3HuKNi8hh9McPNOhZkHMUXtHAFeUZH48qaXRMMqZZgEIm/WQl7bpkCSIgEE1jngKNr6vyY2rkrubZ3z066dLqlHaPK0Ls86oK/tXU/6LV0K/0bGEDqNMm2HwicK99VAjM/9whKnnIxQ1fymryvufeaumgJSCoqSLF1fytiszbd0Koy3nAPOxOFUvAcm7aE8anmNbtZOn0F30z0LTqgKvQJvn/USYQf98zgAGqxkq2YPMlnuu3PVlKqi+a/3sNg1zEufQ1Vo4a1wNymV0EAHXS9+TDxvQutFKDfvJMtywkwEychEwwzHCXzr7lsfjgQc2MFCI8tIe2peJ3D5TXlwjr5EWQoOiGy/6ZpkmoiriZ984Dcnb3+/xdVaRNdZ6FYevKxYHVPCS5HVz8wCjwCBOCBAkptUPX9QHAJT7i513kupmeWVArsc81PJ9oJOTdhv0PJLYGAk2OoDMLiM9oiEH54JyEsXodEVfjQql9qy0LC1hPgiagHXXpkqfkh9RW3zu2XiQbUxCnjWm4z1sWxrdculz5MnkjTIQvuE="
+    - secure: "DkQV013KPaaMxpEMVxGSV9YjHUIRao6hRXx6qzFvQH1RxsUNj1o8qHY/0AniQnX5mYP2RV8fc71gjoplTwfVFFkIVWtRHCGjp2zO+0c7SlEPZWCrE9jcr7gDfKWEvgWZnlZGKv0aV0BuNDrTq/ASrbpy8672EjyNGiGjC5f5iZek9knGr2UzF5KdSbmYC1alDq/BvmLyTJ7GxCJMEUZtQIL1StuqlVwciC1QjmdH3PZagtuxlRMhtDYbHozCYGtEZieeeo/0FhU0O0aORj0+YbCP5zDFdY0T9Zb9LcF6NLd+jMRxA017zkc6jNX+S5K6hAVlTdURJbtGgzMPJZQDigCnlVrVgmLgGA0lygtOQ/Db7Q+PhhjGcXk3wOfb3jA7q/T9cPplWZq74e6/CfbcveKnZWdjYXZrXrDBr7mlAqbYE5Ko4qQc42xl5r57Ww2/9XrbsKmjXCnn7QM4R6pYgZm5oyK7vC0sh9ZN4iTpfwXtGurkqJytZVACr/OsZIzEtXaJWf+oGqQu0Mf3cRvRpfXdyrTCIXB/nuoLdxeRgKW3mVOnggc0U7EJqZ0JjVdCtBT28uuoe5S0P7BNeHhwoZBKGlZcCkZV/aN6xpLN58cFt3sJvJbgI4xK26IOBHiSfWxhn1OxoEfmaslo1JL2OY6RwY9Nc4VLJCkf/ptzRbA="
 
 
 install:
@@ -27,7 +27,7 @@ before_script:
 script:
   - set -e
   - make html-dev;
-  - doctr deploy --deploy-repo AnyBody/anybody-tutorials dev;
+  - doctr deploy --deploy-repo AnyBody/tutorials dev;
   - git checkout $(git describe --tags `git rev-list --tags --max-count=1`);
   - make clean html;
-  - doctr deploy --deploy-repo AnyBody/anybody-tutorials .;
+  - doctr deploy --deploy-repo AnyBody/tutorials .;
