@@ -20,19 +20,14 @@ install:
   - conda create -q -n doc-build-environment python=3.6 sphinx pandoc cloud_sptheme doctr pygments_anyscript
   - source activate doc-build-environment
   - pip install sphinxcontrib-fulltoc
-  - python setup.py install
 
 before_script:
   - rvm get head || true
 
 script:
   - set -e
-  - cd docs;
   - make html-dev;
-  - cd ..;
   - doctr deploy --deploy-repo AnyBody/anybody-tutorials dev;
   - git checkout $(git describe --tags `git rev-list --tags --max-count=1`);
-  - cd docs;
   - make clean html;
-  - cd ..;
   - doctr deploy --deploy-repo AnyBody/anybody-tutorials .;
