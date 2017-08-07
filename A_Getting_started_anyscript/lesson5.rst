@@ -234,8 +234,8 @@ the driver to zero. This is how it's done for the shoulder:
 
            AnyKinEqSimpleDriver ShoulderMotion = {
              AnyRevoluteJoint &Jnt = ..Jnts.Shoulder;
-             DriverPos = {-100\*pi/180};
-             DriverVel = {30\*pi/180};
+             DriverPos = {-100*pi/180};
+             DriverVel = {30*pi/180};
              §Reaction.Type = {Off};§
            }; // Shoulder driver
 
