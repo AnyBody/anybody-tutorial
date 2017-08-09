@@ -1,0 +1,21 @@
+ 
+                             License Certificate
+
+Use of this source code and material is covered by the AnyBody Technology A/S
+Software License Agreement under the same terms as the "AnyBody Managed Model 
+Repository" (AMMR) stated in the Agreement.
+
+See: https://www.anybodytech.com/legal/software-license-agreement/
+
+One exception applies. It is allowed to create and modify Forks (i.e. copies) of
+this repository on GitHub.com provided that the 'Fork':
+
+* is created with GitHub's Fork system, so they are tracked by the WebUI.
+* is forked from the original repository hosted at https://github.com/anybody
+* retains this License Certificate or any other licences it may contain.
+
+Contributing back to the orignal repository requires that contributor agrees to
+and signs the AnyScript Contributor License Agreement.
+See https://anyscript.org/cla
+
+Copyright 2017, AnyBody Technology. All rights reserved.
