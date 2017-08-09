@@ -11,7 +11,6 @@ Mannequin file structure
 ------------------------
 
 .. code-block:: AnyScriptDoc
-
     
     …
     
@@ -73,7 +72,6 @@ value (in degrees), and when you reload the model, it will change its
 posture accordingly. Please make sure that the values are as follows:
 
 .. code-block:: AnyScriptDoc
-
     
      …
      AnyFolder Right = {

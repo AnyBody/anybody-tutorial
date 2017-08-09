@@ -27,18 +27,18 @@ download the file and start from there.
 
 This tutorial consists of the following lessons:
 
--  :doc:`*Lesson 1: Basic concepts* <lesson1>`
+-  :doc:`Lesson 1: Basic concepts <lesson1>`
 
--  :doc:`*Lesson 2: Defining segments and displaying the
-   model* <lesson2>`
+-  :doc:`Lesson 2: Defining segments and displaying the
+   model <lesson2>`
 
--  :doc:`*Lesson 3: Connecting segments by joints* <lesson3>`
+-  :doc:`Lesson 3: Connecting segments by joints <lesson3>`
 
--  :doc:`*Lesson 4: Definition of movement* <lesson4>`
+-  :doc:`Lesson 4: Definition of movement <lesson4>`
 
--  :doc:`*Lesson 5: Definition of muscles and external
-   forces* <lesson5>`
+-  :doc:`Lesson 5: Definition of muscles and external
+   forces <lesson5>`
 
--  :doc:`*Lesson 6: Adding real bone geometries* <lesson6>`
+-  :doc:`Lesson 6: Adding real bone geometries <lesson6>`
 
-Let's get started with :doc:`*Lesson 1: Basic concepts* <lesson1>`
+Let's get started with :doc:`Lesson 1: Basic concepts <lesson1>`

@@ -1,9 +1,9 @@
 Lesson 1: Basic Concepts
 ========================
 
-**To follow this tutorial** **it is recommended first to watch the**
-**introductory video found in Help -> AnyBody Assistant, which visually
-demonstrates several important GUI features.**
+.. note:: To follow this tutorial it is recommended first to watch the
+    introductory video found in Help -> AnyBody Assistant, which visually
+    demonstrates several important GUI features.
 
 |AnyBody Assistent|
 
@@ -25,7 +25,6 @@ about most of the text and comments, the overall structure of the model
 looks like this:
 
 .. code-block:: AnyScriptDoc
-
     
     Main = {
     
@@ -128,18 +127,18 @@ and select “Load Model”.
 
 |Load model right click menu|
 
-You may get a similar message in the Output Window.
+You may get a similar message in the Output Window.::
 
-**Loading Main : "C:\\...\\NewModel.main.any"
-Scanning...
-Parsing...
-Constructing model tree...
-Linking identifiers...
-Evaluating constants...
-Configuring model...
-Evaluating model...
-Loaded successfully.
-Elapsed Time : 0.063000**
+    Loading Main : "C:\\...\\NewModel.main.any"
+    Scanning...
+    Parsing...
+    Constructing model tree...
+    Linking identifiers...
+    Evaluating constants...
+    Configuring model...
+    Evaluating model...
+    Loaded successfully.
+    Elapsed Time : 0.063000
 
  
 
@@ -149,10 +148,10 @@ Basic troubleshooting
 If you mistype something, you will get an error message. A common
 mistake is to forget a semicolon somewhere. Try removing the last
 semicolon in the AnyScript file, and load again. You get a message
-saying something like:
+saying something like: ::
 
-**ERROR(SCR.PRS11) : C:\\...\\NewModel.main.any(26) : 'EOF' unexpected
-Model loading skipped**
+    ERROR(SCR.PRS11) : C:\\...\\NewModel.main.any(26) : 'EOF' unexpected
+    Model loading skipped
 
 First, there is a message ID, then a file location and finally the body
 of the message. The former two are written in blue and underlined to

@@ -77,7 +77,6 @@ To adjust the posture of the human model, let us open your Mannequin.any
 file and change the PelvisThoraxExtension value from 0 to -60.
 
 .. code-block:: AnyScriptDoc
-
     
     AnyFolder Mannequin = {
     

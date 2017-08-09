@@ -1,8 +1,8 @@
 Lesson 4: Imparting movement with Drivers
 =========================================
 
-Here's an AnyScript file to start on if you have not completed the
-previous lesson: :download:`*demo.lesson4.any* <Downloads/demo.lesson4.any>`.
+.. note:: Here's an AnyScript file to start on if you have not completed the
+    previous lesson: :download:`*demo.lesson4.any* <Downloads/demo.lesson4.any>`.
 
 |ModelView Arm2D initial load|
 
@@ -91,8 +91,10 @@ that if some property of the globally defined joint changes, then the
 local version changes with it.
 
 The specifications of DriverPos and DriverVel are the starting value of
-the driver and the constant velocity, respectively. **Since these
-drivers drive angles, the units are radians and radians/sec.**
+the driver and the constant velocity, respectively. 
+
+.. note:: Since these drivers drive angles, the units are radians and
+    radians/sec.
 
 Try loading the model again by hitting F7. If you did not mistype
 anything, you should get the message "Loaded successfully" and no

@@ -1,9 +1,8 @@
 Lesson 5: Definition of Muscles and External Forces
 ===================================================
 
-Here's an AnyScript file to start on if you have not completed the
-previous lesson:
-:download:`demo.lesson5.any <Downloads/demo.lesson5.any>`.
+.. note:: Here's an AnyScript file to start on if you have not completed the
+    previous lesson: :download:`demo.lesson5.any <Downloads/demo.lesson5.any>`.
 
 We have seen that models in AnyBody can move even though they do not
 have any muscles. This is because we can ask the system to perform a
@@ -332,10 +331,10 @@ The muscle force is obviously much larger than before, and the
 development is also different. It now reaches a maximum during the
 movement and drops off again.
 
-**Applied forces do not have to be constant. They can change with time
-and other properties in the model.** Please refer to the :doc:`tutorial on
-forces <../chap6_The_mechanical_elements/intro>` for more
-details.
+.. note:: Applied forces do not have to be constant. They can change with time
+    and other properties in the model.  Please refer to the :doc:`tutorial on
+    forces <../chap6_The_mechanical_elements/intro>` for more
+    details.
 
 While the model described here was anatomically simplified, it can be a
 comprehensive job to define a realistic body model which is exactly why

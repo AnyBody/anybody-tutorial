@@ -1,9 +1,8 @@
 Lesson 3: Connecting Segments by Joints
 =======================================
 
-Here's an AnyScript file to start on if you have not completed the
-previous lesson:
-:download:`demo.lesson3.any <Downloads/demo.lesson3.any>`.
+.. note:: Here's an AnyScript file to start on if you have not completed the
+    previous lesson: :download:`demo.lesson3.any <Downloads/demo.lesson3.any>`.
 
 Some quick theory
 -----------------
@@ -174,11 +173,11 @@ the two segments can be adjusted by rotating the reference frames of the
 nodes being connected. This is relevant if you want one of the segments
 to rotate about some skewed axis.
 
-**Important note:** According to default settings, the first of the two
-nodes declared in the joint (in this case GroundNode) becomes the
-default reference frame for the joint. When directly accessing the
-post-simulation values of constraint reaction forces etc., you must
-remember to interpret them in the joint’s default reference frame.
+.. warning:: **Important note:** According to default settings, the first of the two
+    nodes declared in the joint (in this case GroundNode) becomes the
+    default reference frame for the joint. When directly accessing the
+    post-simulation values of constraint reaction forces etc., you must
+    remember to interpret them in the joint’s default reference frame.
 
 Creating a revolute elbow joint
 -------------------------------
@@ -235,18 +234,16 @@ line below to obtain this:
 
            AnyRevoluteJoint Elbow = {
              Axis = z;
-             AnyRefNode &UpperArmNode =
-      §Main.ArmModel.Segs.UpperArm.ElbowNode§;
-             AnyRefNode &ForeArmNode =
-      §Main.ArmModel.Segs.ForeArm.ElbowNode§;
+             AnyRefNode &UpperArmNode = §Main.ArmModel.Segs.UpperArm.ElbowNode§;
+             AnyRefNode &ForeArmNode =  §Main.ArmModel.Segs.ForeArm.ElbowNode§;
            }; // Elbow joint
 
 
 It seems like everything is connected now. So why do we still get the
 annoying error message when we reload the model?:
 
-**Model Warning: Study 'Main.ArmStudy' contains too few kinematic
-constraints to be kinematically determinate.**
+.. warning:: Model Warning: Study 'Main.ArmStudy' contains too few kinematic
+    constraints to be kinematically determinate.
 
 The explanation is that we have connected the model, but we have not
 specified its position yet. Each of the two joints can still take any

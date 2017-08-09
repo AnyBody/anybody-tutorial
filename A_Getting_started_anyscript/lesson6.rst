@@ -1,9 +1,8 @@
 Lesson 6: Adding Real Bone Geometries
 =====================================
 
-Here's an AnyScript file to start on if you have not completed the
-previous lesson:
-:download:`*demo.lesson6.any* <Downloads/demo.lesson6.any>`.
+.. note:: Here's an AnyScript file to start on if you have not completed the
+    previous lesson: :download:`*demo.lesson6.any* <Downloads/demo.lesson6.any>`.
 
 So far, the graphics of the model you have developed is what we can call
 a stick figure representation. You may be wondering how you can add
@@ -136,7 +135,6 @@ reference:
 
 .. code-block:: AnyScriptDoc
 
-    
              AnyDrawSTL DrwSTL = {
                FileName = "dumbbell.stl";
                ScaleXYZ = {0.001, 0.001, 0.001};
@@ -153,7 +151,7 @@ produces a dull blue shade.
 
 This completes the Getting Started with AnyScript tutorial. The final
 result of the efforts is in
-:download:`*demo.arm2d.any* <Downloads/demo.arm2d.any>`.
+*:download:`demo.arm2d.any <Downloads/demo.arm2d.any>`*.
 
 .. |oldleg1| image:: _static/lesson6/image1.jpeg
    :width: 2.57292in

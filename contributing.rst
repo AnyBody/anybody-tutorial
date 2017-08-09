@@ -11,7 +11,7 @@ Every contribution is most welcome. See the `repository source files hosted
 on Github <https://github.com/AnyBody/anybody-tutorial>`_ 
 
 
-The tutorials are build using ``sphinx``, which is a tool to create software
+The tutorials are build using `sphinx <http://www.sphinx-doc.org/>`_, a tool for software
 documentation. Sphinx converts reStructuredText files into html, pdf or other
 formats. reStructuredText are simple text files with extra markup to define headers
 and formating. Having the tutorials as reStructuredText makes it easy to control

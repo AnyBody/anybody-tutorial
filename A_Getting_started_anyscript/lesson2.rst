@@ -284,9 +284,10 @@ Rotation matrices in AnyBody
 
 If your spatial thinking is good, you can start figuring out unit
 vectors for the coordinate system orientation you want and insert them
-into the Axes0 specification instead of the existing ones. **Note that
-matrices in AnyBody are arranged row-wise, so {1, 0, 0} in Axes0 is the
-first row of a 3x3 matrix.**
+into the Axes0 specification instead of the existing ones. 
+
+.. note:: Note that matrices in AnyBody are arranged row-wise, so {1, 0, 0} in Axes0 is the
+    first row of a 3x3 matrix.
 
 There is an easier solution for generating the rotation matrix:
 AnyScript has a standard function named RotMat, which returns a rotation
@@ -304,13 +305,14 @@ When you reload again, you will see that the UpperArm is indeed rotated
 -90 degrees about the z axis as the function arguments indicate. Notice
 the multiplication of the angle by pi/180. AnyBody identifies the word
 "pi" as 3.14159... and dividing this with 180 gives the conversion
-factor between degrees and radians. **Angles in AnyBody are always in
-radians**.
+factor between degrees and radians. 
+
+.. note:: Angles in AnyBody are always in radians.
 
 In the next section, we will look at how joints can be used to constrain
 the movement of segments and allow them to articulate the way we desire.
-So if you are up to it, let's continue onward to :doc:`*Lesson 3: Connecting
-segments by joints* <lesson3>`.
+So if you are up to it, let's continue onward to :doc:`Lesson 3: Connecting
+segments by joints <lesson3>`.
 
 .. rubric:: Footnotes
 
