@@ -18,8 +18,8 @@ and formating. Having the tutorials as reStructuredText makes it easy to control
 changes to the documents and ensure consistent style.
 
 
-Restructured text reference guide
-*********************************
+Short reStructuredText guide
+****************************
 
 There are plenty of guides on reStructuredText available on Google. So here is just a 
 quick primer for the reST concepts which are important for the tutorials.
@@ -83,7 +83,7 @@ Highlighting code
 Highlighting AnyScript code snippets is also supported, using the ``pygments_anyscript`` 
 extension to pygments. 
 
-AnyScript highlighting is started using the :rst:dir:`code-block` 
+AnyScript highlighting is started using the ``code-block``
 directive and specifing ``AnyScriptDoc`` as the highlighting language
 
 .. rst:directive:: ..code-block:: AnyScriptDoc
@@ -154,7 +154,7 @@ available here: http://anyscript.org/tutorials/ A development version (the
 master branch) can be viewed at  http://anyscript.org/tutorials/dev
 
 Building the tutorials locally
------------------------------
+==============================
 
 It is also nice to be able to build the tutorials locally to view the layout 
 before pushing to the server. It is often not necesssary when making small fixes 
@@ -165,14 +165,14 @@ The easiest way to install the packages, is to have the Anaconda python distribu
 
 Then run the following commands to install the necesssary packages. 
 
-.. code-block:: conosle
+.. code-block:: bat
 
     conda install sphinx pandoc cloud_sptheme pygments_anyscript
     pip install sphinxcontrib-fulltoc
 
 Once the packages are install run this command s to build. 
 
-.. code-block:: conosle
+.. code-block:: bat
 
     C:\User\mel\anybody-tutorials> make html
 
