@@ -1,23 +1,26 @@
 .. image:: https://travis-ci.org/AnyBody/anybody-tutorial.svg?branch=master
     :target: https://travis-ci.org/AnyBody/anybody-tutorial
 
+.. image:: https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Tutorial_website   
+    :target: https://anyscript.org/tutorials/
+
 ##################
  AnyBody Tutorials
 ##################
 
-.. note:: This repository is a prof of concept for hosting the tutorials on GitHub as
-    reStructured text and building the tutorial webstite on Travis-CI. 
+    This repository is a prof of concept for hosting the tutorials on GitHub as
+    reStructured text and building the tutorial autmotically with open source 
+    continuous integrations servers.
 
 This is source repository of the tutorials for the AnyBody Modeling System. This
-is only the source for the tutorials, the build html files are hosted on
-https://github.com/AnyBody/tutorials and available on
-https://anyscript.org/tutorials The files are build with website is pushed 
+is only the source for the tutorials, the build html are automatically published to
+<https://anyscript.org/tutorials>. 
 
 
 Contributing
 ============
 
-See `contributing.rst` for how to contribute to the repository. 
+See `contributing.rst` for how to contribute to the tutorials.
 
 License
 ============
