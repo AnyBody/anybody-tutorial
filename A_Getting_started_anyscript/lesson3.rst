@@ -173,8 +173,8 @@ the two segments can be adjusted by rotating the reference frames of the
 nodes being connected. This is relevant if you want one of the segments
 to rotate about some skewed axis.
 
-.. warning:: **Important note:** According to default settings, the first of the two
-    nodes declared in the joint (in this case GroundNode) becomes the
+.. caution:: The first of the two
+    nodes declared in the joint (in this case ``GroundNode``) becomes the
     default reference frame for the joint. When directly accessing the
     post-simulation values of constraint reaction forces etc., you must
     remember to interpret them in the joint’s default reference frame.
@@ -240,9 +240,9 @@ line below to obtain this:
 
 
 It seems like everything is connected now. So why do we still get the
-annoying error message when we reload the model?:
+annoying error message when we reload the model?::
 
-.. warning:: Model Warning: Study 'Main.ArmStudy' contains too few kinematic
+    Model Warning: Study 'Main.ArmStudy' contains too few kinematic
     constraints to be kinematically determinate.
 
 The explanation is that we have connected the model, but we have not

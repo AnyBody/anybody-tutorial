@@ -84,17 +84,24 @@ Highlighting AnyScript code snippets is also supported, using the ``pygments_any
 extension to pygments. 
 
 AnyScript highlighting is started using the ``code-block``
-directive and specifing ``AnyScriptDoc`` as the highlighting language
+directive and specifing ``AnyScriptDoc`` as the highlighting language. 
 
-.. rst:directive:: ..code-block:: AnyScriptDoc
+.. role:: red
+.. raw:: html
 
-    Use it like this::
+    <style> .red {color:red} </style>
+
+The ``AnyScriptDoc`` is highlighter specifically for the documentation in sphinx. 
+It can highlight AnyScript code even if the syntax is not correct, and any code 
+fenced with **§** is :red:`§marked in red§`.
+
+Here is an example::
 
     .. code-block:: AnyScriptDoc
 
         AnyBodyStudy Study = {
             AnyFolder &Model = .Model;
-            Gravity = {0.0, -9.81, 0.0};
+            Gravity = {0.0, §-9.81§, 0.0};
         }; // End of study
 
 Which gives the following:
@@ -103,38 +110,18 @@ Which gives the following:
 
     AnyBodyStudy Study = {
         AnyFolder &Model = .Model;
-        Gravity = {0.0, -9.81, 0.0};
+        Gravity = {0.0, §-9.81§, 0.0};
     }; // End of study
 
-.. role:: red
-.. raw:: html
-
-    <style> .red {color:red} </style>
-
-Valid values for the highlighting language are:
+Valid values for the highlighting languages are:
 
 * ``none``: no highlighting
 * ``AnyScript``: AnyScript (Syntax must be valid)
-* ``AnyBodyDoc`` AnyScript (Allows invalid syntax, code fenched with **§** are § :red:`marked red` §)
+* ``AnyBodyDoc`` AnyScript (Allows invalid syntax)
 * ``python/c++/ruby`` Different known programming languages
 * ``rest`` reStructuredText
 * ... and any other `lexer alias that Pygments supports
   <http://pygments.org/docs/lexers/>`_.
-
-
-.. code:: rest
-
-    .. code:: AnyScriptDoc
-
-        AnyFolder Model={
-            AnyFolder &HumanModel=§.HumanModel.BodyModel§;
-
-
-.. code:: AnyScriptDoc
-
-    AnyFolder Model={
-        AnyFolder &HumanModel=§.HumanModel.BodyModel§;
-
 
 
 Building the tutorials

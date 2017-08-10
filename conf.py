@@ -71,8 +71,8 @@ index_doc = 'index'
 
 # General information about the project.
 project = 'AnyBody Tutorials'
-copyright = '2017, AnyBody Tehcnology'
-author = 'AnyBody Tehcnology'
+copyright = '2017, AnyBody Technology'
+author = 'AnyBody Technology'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -98,7 +98,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Readme.rst', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'README.rst', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 #highlight_language = 'AnyScriptDoc'
@@ -113,7 +113,6 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "cloud"
 
 html_theme_path = [cloud_sptheme.get_theme_dir()]
 
@@ -124,12 +123,30 @@ html_title = "%s v%s Documentation" % (project, release)
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
+# html_theme = "redcloud"
+# html_theme_options = {
+#     'roottarget': index_doc,
+#     'max_width': '1100px',
+#     'minimal_width': '700px',
+#     'borderless_decor': True,
+#     'lighter_header_decor': False,
+#     'sidebarwidth': "3.8in",
+#     'fontcssurl': 'https://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono',
+#     'relbarbgcolor': '#999999',
+#     'footerbgcolor': '#953337',
+#     'sidebarlinkcolor': '#953337',
+#     'headtextcolor': '#953337',
+#     'headlinkcolor': '#953337',
+# }
+
+html_theme = "cloud"
 html_theme_options = {
     'roottarget': index_doc,
-    'max_width': '1250px',
+    'max_width': '1100px',
     'minimal_width': '700px',
     'borderless_decor': True,
-    'sidebarwidth': "7 in",
+    'lighter_header_decor': False,
+    'sidebarwidth': "3.8in",
     'fontcssurl': 'https://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono',
 }
 
