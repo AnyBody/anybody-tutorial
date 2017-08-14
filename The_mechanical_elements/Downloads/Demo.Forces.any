@@ -1,0 +1,284 @@
+// -----------------------------------------------------------
+// Demo.Forces.any 
+// This model demonstrates the use of time-varying forces.
+// It is a simplified version of the SimpleArm model used
+// in the "Getting started with AnyScript" tutorial. The
+// difference is that this model is static, and that the
+// constant gravity of the dumbbell has been replaced by
+// a force that changes as a function of time.
+
+// 95% of this file if just the model. The time-varying 
+// forces are at the end of the file. There are two studies
+// defined. 
+// The first study demonstrates the use of a
+// force defined as a mathematical cosine function of
+// time. 
+// The second study demonstrates how to use an 
+// interpolation driver to drive a force. This is a typical
+// aplication for instance when force platforms are used.
+
+Main = {
+
+  // The actual body model goes in this folder
+  AnyFolder ArmModel = {
+
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+
+      AnyRefNode Shoulder = { 
+        sRel = {0,0,0}; 
+      };
+      AnyRefNode DeltodeusA = { 
+        sRel = {0.05,0,0}; 
+      };
+      AnyRefNode DeltodeusB = { 
+        sRel = {-0.05,0,0}; 
+      };
+      AnyRefNode BicepsLong = { 
+        sRel = {0.1,0,0}; 
+      };
+      AnyRefNode TricepsLong = { 
+        sRel = {-0.1,0,0}; 
+      };
+
+    };  // Global reference frame
+
+    // Segments
+    AnyFolder Segs = {
+
+      AnySeg UpperArm = {
+        r0 = {0,-0.15,0};
+        Axes0 = {{0,1,0},{-1,0,0},{0,0,1}};
+        Mass = 2.0;
+        Jii = {0.005,0.01,0.01};
+        AnyDrawSeg DrwSeg = {};
+        AnyRefNode ShoulderNode = {
+          sRel = {-0.2,0,0}; 
+        };
+        AnyRefNode ElbowNode = {
+          sRel = {0.2,0,0}; 
+        };
+        AnyRefNode DeltodeusA = { 
+          sRel = {-0.1,0.02,0}; 
+        };
+        AnyRefNode DeltodeusB = { 
+          sRel = {-0.1,-0.02,0}; 
+        };
+        AnyRefNode Brachialis = { 
+          sRel = {0.1,0.01,0}; 
+        };
+        AnyRefNode BicepsShort = { 
+          sRel = {-0.1,0.03,0}; 
+        };
+        AnyRefNode Brachioradialis = { 
+          sRel = {0.05,0.02,0}; 
+        };
+        AnyRefNode TricepsShort = { 
+          sRel = {-0.1,-0.01,0}; 
+        };
+      }; // UpperArm
+
+      AnySeg LowerArm = {
+        r0 = {0.25,-0.3,0};
+        Mass = 2.0;
+        Jii = {0.005,0.01,0.0};
+        AnyRefNode ElbowNode = {
+          sRel = {-0.2,0,0};
+        };
+        AnyRefNode HandNode = {
+          sRel = {0.2,0,0};
+        };
+        AnyRefNode Brachialis = { 
+          sRel = {-0.1,0.02,0}; 
+        };
+        AnyRefNode Brachioradialis = { 
+          sRel = {0.0,0.02,0}; 
+        };
+        AnyRefNode Biceps = { 
+          sRel = {-0.15,0.01,0}; 
+        };
+        AnyRefNode Triceps = { 
+          sRel = {-0.25,-0.05,0}; 
+        };
+        AnyRefNode PalmNode = {
+          sRel = {0.20,0,0};
+          ARel = {{0,0,1},{0,1,0},{-1,0,0}};
+        };
+        AnyDrawSeg DrwSeg = {};
+     }; // LowerArm
+
+   }; // Segs folder
+
+    AnyFolder Jnts = {
+
+      //---------------------------------
+      AnyRevoluteJoint Shoulder = {
+        Axis = z;
+        AnyRefNode &GroundNode = ..GlobalRef.Shoulder;
+        AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
+      }; // Shoulder joint
+
+      AnyRevoluteJoint Elbow = {
+        Axis = z;
+        AnyRefNode &UpperArmNode = ..Segs.UpperArm.ElbowNode;
+        AnyRefNode &LowerArmNode = ..Segs.LowerArm.ElbowNode;
+      }; // Elbow joint
+
+    }; // Jnts folder
+
+    // These drivers are static. They merely position the
+    // model with the upper arm vertical and the forearm
+    // horizontal
+    AnyFolder Drivers = {
+
+      //---------------------------------
+      AnyKinEqSimpleDriver ShoulderMotion = {
+        AnyRevoluteJoint &Jnt = ..Jnts.Shoulder;
+        DriverPos = {-1.7};
+        DriverVel = {0.0};
+        Reaction.Type = {Off};
+      }; // Shoulder driver
+
+      //---------------------------------
+      AnyKinEqSimpleDriver ElbowMotion = {
+        AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
+        DriverPos = {1.5};
+        DriverVel = {0.0};
+        Reaction.Type = {Off};
+      }; // Elbow driver
+    }; // Driver folder
+
+    AnyFolder Muscles = {
+
+      // Simple muscle model with constant strength = 300 Newton
+      AnyMuscleModel MusMdl = {
+        F0 = 300;
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle Brachialis = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.Brachialis;
+        AnyRefNode &Ins = ..Segs.LowerArm.Brachialis;
+        AnyDrawMuscle DrwMus = {Bulging = 1; MaxStress = 100000;};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle DeltodeusA = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.DeltodeusA;
+        AnyRefNode &Ins = ..Segs.UpperArm.DeltodeusA;
+        AnyDrawMuscle DrwMus = {Bulging = 1; MaxStress = 100000;};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle DeltodeusB = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.DeltodeusB;
+        AnyRefNode &Ins = ..Segs.UpperArm.DeltodeusB;
+        AnyDrawMuscle DrwMus = {Bulging = 1; MaxStress = 100000;};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle Brachioradialis = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.Brachioradialis;
+        AnyRefNode &Ins = ..Segs.LowerArm.Brachioradialis;
+        AnyDrawMuscle DrwMus = {Bulging = 1; MaxStress = 100000;};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle BicepsShort = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.BicepsShort;
+        AnyRefNode &Ins = ..Segs.LowerArm.Biceps;
+        AnyDrawMuscle DrwMus = {Bulging = 1; MaxStress = 100000;};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle TricepsShort = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.TricepsShort;
+        AnyRefNode &Ins = ..Segs.LowerArm.Triceps;
+        AnyDrawMuscle DrwMus = {Bulging = 1; MaxStress = 100000;};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle BicepsLong = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.BicepsLong;
+        AnyRefNode &Ins = ..Segs.LowerArm.Biceps;
+        AnyDrawMuscle DrwMus = {Bulging = 1; MaxStress = 100000;};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle TricepsLong = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.TricepsLong;
+        AnyRefNode &Ins = ..Segs.LowerArm.Triceps;
+        AnyDrawMuscle DrwMus = {Bulging = 1; MaxStress = 100000;};
+      };
+
+    }; // Muscles folder
+
+
+  }; // ArmModel
+
+  AnyFolder Loads = {
+    
+    // *********************************************
+    // Notice how the force below depends on time.
+    // You can use a wide and ever-growing selection
+    // of mathemtical functions to construct the
+    // variation you want.
+    // *********************************************
+    AnyForce3D MathForce = {
+      AnyRefNode &PalmNode = Main.ArmModel.Segs.LowerArm.PalmNode;
+      F = {0,-100*cos(2*pi*t),0}; // Force in Newton
+    };
+
+    // *********************************************
+    // This force is defined by means of the 
+    // position of a dummy segment driven by
+    // a kinematic driver. This is a temporary
+    // workaround. Notice that the movement of
+    // the segment becomes a nice visual
+    // representation is the variation of the
+    // force.
+    // *********************************************
+    AnyForce3D InterpForce = {
+
+      // Interpolation function. The interpolated data
+      // can also be read directly from a text file
+      AnyFunInterpol force = {
+        Type = PiecewiseLinear;
+        T = {     0.0, 0.2, 0.4, 0.6, 0.8, 1.0 };
+        Data = { {0.0, 1.0, 0.5, 2.0, 2.0, 0.0 }*100 };
+      };
+      
+      AnyRefNode &PalmNode = Main.ArmModel.Segs.LowerArm.PalmNode;
+      AnyVector Fy = force(t);
+      F = {0,Fy[0],0}; // Force in Newton
+    };
+
+  };  // Loads folder
+
+
+  // A study applying the cosine-shaped force to the wrist
+  AnyBodyStudy CosineForceStudy = {
+    AnyFolder &Model = .ArmModel;
+    AnyForce3D &Force = .Loads.MathForce;
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0};
+  };
+
+  // A study applying the interpolated force to the wrist
+  // using a detour around a dummy segment
+  AnyBodyStudy InterpForceStudy = {
+    AnyFolder &Model = .ArmModel;
+    AnyForce3D &Force = .Loads.InterpForce;
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0};
+  };
+
+};  // Main

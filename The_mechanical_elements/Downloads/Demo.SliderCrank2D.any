@@ -1,0 +1,162 @@
+/*
+Demo: SliderCrank2D
+
+This file contains a model of a planar slider-crank linkage 
+Notice that the mechanism is kinematically over-determinate
+according to the joint configuration. Motion is however 
+possible because some of the kinematic constraints are not 
+independent, i.e. the system contains redundant constraints.
+
+The model demonstrates the definition of revolute (hinge) 
+joints, spherical (ball-and-socket) joints, and prismatic 
+(translational) joints. 
+
+Notice how the Coupler's local reference axes are oriented 
+quite differently from those of the other segments (the 
+Coupler is the segment colored red). It has the y axis rather
+than the x axis normal to the mechanism's plane. 
+This is realized by use of relative orientation of a node 
+on the segment (AnyRefNode). This feature is needed in models 
+where the axes of joints are not coinciding well on the 
+connected segments; in joints rotation/translation axes are 
+typically specified by simple a x, y, or z specification 
+defining the axis on both segments. Thus proper alignment 
+must be obtained rotation of the nodes (e.g. by means of 
+AnyRefNode) the joint connects.
+*/
+
+Main = {
+
+// =======================================================
+// The mechanical components
+// =======================================================
+AnyFolder SliderCrank = {
+
+  // -----------------------------------------------------
+  // Basic Reference Frames
+  // -----------------------------------------------------
+  AnyFixedRefFrame GlobalRef = {
+    AnyDrawRefFrame DrwGlobalRef = { RGB = {0,0,1}; };
+  };
+
+
+  AnyFixedRefFrame SliderRef = {
+    Origin = {0,3.5,0};
+    AnyDrawRefFrame DrwGlobalRef = { RGB = {0,0,1}; };
+  };
+
+
+  // -----------------------------------------------------
+  // Segments
+  // -----------------------------------------------------
+  AnyFolder Segs = {
+
+    //---------------------------------
+    AnySeg Crank = {
+      Mass = 5.0;
+      Jii = {1,0.5,1};
+      AnyRefNode Tip = {
+        sRel = {0,1.5,0};
+        AnyDrawRefFrame DrwNode = {};
+      };
+      AnyDrawSeg DrwSeg= {};
+    };
+
+    //---------------------------------
+    AnySeg Coupler = {
+      //r = {0,2.5,0};
+      r0 = {0,2.5,0};
+      Mass = 5.0;
+      Jii = {0.5,1,1};
+
+      // This node has its axes re-oriented by means of the ARel
+      // property. This is the way you can determine the direction
+      // of a joint attaching to the node. This is a 2-D example,
+      // so the rotation is 90 degrees, but in a 3-D example you
+      // could use this feature to define a skew joint rotation
+      // axis.
+      AnyRefNode CrankNode = {
+        sRel = {-1,0,0};
+        ARel = {{0,1,0},{-1,0,0},{0,0,1}};
+        //sRel = {0,-1,0};
+        AnyDrawRefFrame DrwNode = { RGB = {1,0,0}; };
+      };
+      AnyRefNode SliderNode = {
+        sRel = {1,0,0};
+        //sRel = {0,1,0};
+        AnyDrawRefFrame DrwNode = { RGB = {1,0,0}; };
+      };
+      AnyDrawSeg DrwSeg= { RGB = {1,0,0}; };
+    };
+
+    //---------------------------------
+    AnySeg Slider = {
+      //r = {0,3.5,0};
+      r0 = {0,3.5,0};
+      Mass = 5.0;
+      Jii = {1,0.5,1};
+      AnyDrawSeg DrwSeg= {};
+    };
+
+
+  };
+
+  // -----------------------------------------------------
+  // Joints
+  // -----------------------------------------------------
+  AnyFolder Jnts = {
+
+    //---------------------------------
+    AnyRevoluteJoint Shaft = {
+      Axis = x;
+      AnyFixedRefFrame& Ground = Main.SliderCrank.GlobalRef;
+      AnySeg &Crank = Main.SliderCrank.Segs.Crank;
+    };
+
+    //---------------------------------
+    AnyUniversalJoint Knee = {
+      //Axis = x;
+      Axis1 = x;
+      Axis2 = z;
+      AnyRefNode &CrankNode = Main.SliderCrank.Segs.Crank.Tip;
+      AnyRefNode &CouplerNode = Main.SliderCrank.Segs.Coupler.CrankNode;
+    };
+
+    //---------------------------------
+    AnySphericalJoint Ball = {
+      AnyRefNode &CouplerNode = Main.SliderCrank.Segs.Coupler.SliderNode;
+      AnySeg &Slider = Main.SliderCrank.Segs.Slider;
+    };
+
+    //---------------------------------
+    AnyPrismaticJoint Rail = {
+      Axis = y;
+      AnyFixedRefFrame& Ground = Main.SliderCrank.SliderRef;
+      AnySeg &Slider = Main.SliderCrank.Segs.Slider;
+    };
+
+
+  };
+
+  // -----------------------------------------------------
+  // Actuator
+  // -----------------------------------------------------
+  AnyKinEqSimpleDriver Actuator = {
+    AnyRevoluteJoint &Jnt = Main.SliderCrank.Jnts.Shaft;
+    DriverPos = {0.0};
+    DriverVel = {6.28};
+  };
+
+};
+  
+// =======================================================
+// The mechanical study
+// =======================================================
+AnyMechStudy MechStudy = {
+
+  AnyFolder& Model = Main.SliderCrank;
+  Gravity = {0.0, -9.81, 0.0};
+};
+
+
+};

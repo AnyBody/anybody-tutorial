@@ -1,0 +1,10 @@
+//---------------------------------
+    AnySeg Crank = {
+      Mass = 5.0;
+      Jii = {1,0.5,1};
+      AnyRefNode Tip = {
+        sRel = {0,1.5,0};
+        AnyDrawRefFrame DrwNode = {};
+      };
+      AnyDrawSeg DrwSeg= {};
+    };

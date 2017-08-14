@@ -1,0 +1,180 @@
+// Scaling Tutorial: RBF transform appendix.
+// This model is used for demonstration of how to use AnyFunTransform3DRBF and AnyFunTransform3DSTL classes. Various settings and methods are being tested.
+// The deformation field is visualized for better understanding of how the transforms work.
+Main = {
+  
+  // The actual body model goes in this folder
+  AnyFolder MyModel = {
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+      
+      AnyFolder Scaling = {
+        AnyMatrix SourceLandmarks = {
+          {0.0709736, 0.0184485, -0.000127864}, 
+          {0.0648285, 0.0049608, 0.000451266}, 
+          {0.0621017, -0.00819697, 0.00140694}, 
+          {0.0553114, 0.0230441, -0.000445997}, 
+          {0.0393397, 0.0248069, -0.000680061}, 
+          {0.0377703, 0.0133058, -0.00105235}, 
+          {0.0360412, 0.00201606, -0.000391467}, 
+          {0.0472074, -0.00352919, -0.000413361}, 
+          {0.0550465, 0.0208449, -0.0224952}, 
+          {0.0520597, 0.00993834, -0.0203476}, 
+          {0.0489349, -0.0013904, -0.0225025}, 
+          {0.0546416, 0.0207262, 0.0225993}, 
+          {0.0528326, 0.0103044, 0.0202943}, 
+          {0.0499033, -0.00157613, 0.0225706}, 
+          {0.0359901, 0.0268197, -0.014787}, 
+          {0.034303, 0.0187035, -0.0094985}, 
+          {0.0172761, 0.0312099, -0.0202515}, 
+          {0.0305037, 0.0326659, -0.0163874}, 
+          {0.0367762, 0.026968, 0.0138197}, 
+          {0.0352582, 0.0191998, 0.00955337}, 
+          {0.0166408, 0.0316569, 0.018449}, 
+          {0.0302597, 0.0327436, 0.0168596}, 
+          {0.0257677, 0.0215728, -0.0350927}, 
+          {0.0306725, 0.0206658, -0.0314054}, 
+          {0.0287405, 0.0202933, -0.029373}, 
+          {0.0261867, 0.0213401, 0.0353598}, 
+          {0.0305148, 0.0210284, 0.0312686}, 
+          {0.028598, 0.0211475, 0.0296013}, 
+          {0.0187725, -0.00176881, -0.013463}, 
+          {0.0184676, -0.00178103, 0.0131414}, 
+          {0.00214891, 0.015245, -0.000660534}, 
+          {-0.001729, 0.0102335, -0.000314431}, 
+          {0.00463535, 0.0115322, -0.00400253}, 
+          {0.0038934, 0.0115578, 0.0037766}, 
+          {0.0195611, 0.0216146, -6.12942e-005}, 
+          {0.0142823, 0.00469346, -0.000166401}
+        };
+
+        AnyMatrix TargetLandmarks = 0.001*{
+          {-11.6256, -134.079, 34.0564}, 
+          {-11.4732, -141.378, 42.8396}, 
+          {-11.8893, -147.6, 55.5568}, 
+          {-10.9339, -149.757, 22.2911}, 
+          {-10.0394, -169.576, 15.2177}, 
+          {-10.0568, -167.821, 26.3967}, 
+          {-11.3658, -172.414, 35.9614}, 
+          {-11.1052, -161.143, 44.4721}, 
+          {16.8688, -150.921, 26.3913}, 
+          {11.4513, -156.085, 35.6888}, 
+          {11.6961, -163.765, 48.3554}, 
+          {-40.0495, -148.356, 22.7364}, 
+          {-32.158, -154.956, 33.4061}, 
+          {-37.8105, -163.072, 42.9189}, 
+          {10.2577, -166.946, 16.7679}, 
+          {4.25147, -170.334, 24.5256}, 
+          {11.4583, -186.266, 4.15902}, 
+          {9.00427, -170.432, 2.29037}, 
+          {-29.5786, -166.347, 13.1397}, 
+          {-24.1207, -168.331, 22.0858}, 
+          {-27.4179, -185.915, 3.44909}, 
+          {-29.2773, -172.733, 0.305996}, 
+          {34.5511, -177.928, 19.9739}, 
+          {26.6359, -171.323, 23.5182}, 
+          {22.3573, -180.006, 17.6042}, 
+          {-54.5362, -177.697, 16.5518}, 
+          {-44.3674, -167.961, 21.4712}, 
+          {-42.6288, -177.637, 14.5326}, 
+          {4.9324, -191.139, 37.1707}, 
+          {-27.1454, -195.058, 36.7413}, 
+          {-14.8139, -202.147, 5.60439}, 
+          {-15.0298, -213.168, 8.54038}, 
+          {-10.9629, -201.601, 13.6267}, 
+          {-16.7362, -203.051, 12.2525}, 
+          {-10.9261, -181.616, 7.78731}, 
+          {-12.5005, -196.124, 24.7113}
+        };
+        
+        AnyFunTransform3DLin2 AffineTransform = {
+          Points0 = .SourceLandmarks;
+          Points1 = .TargetLandmarks;
+        };
+        
+        AnyFunTransform3DRBF RBFTransform = 
+        {
+          PreTransforms = {&.AffineTransform};
+          RBFDef = {
+            Type = RBF_ThinPlate;
+            Param = 0.2;
+          };
+          Points0 = .SourceLandmarks;
+          PolynomDegree = 1;
+          Points1 = .TargetLandmarks;
+          BoundingBox = 
+          {
+          Type = BB_Cartesian;
+          ScaleXYZ = {2, 2, 2};
+          DivisionFactorXYZ = 2*{1, 1, 1};
+          };
+          BoundingBoxOnOff = On;
+        };
+        AnyFunTransform3DSTL STLTransform = 
+        {
+          PreTransforms = {&.RBFTransform};
+          RBFDef = {
+            Type = RBF_ThinPlate;
+            Param = 1;
+          };
+          AnyFixedRefFrame Input  = {
+            AnySurfSTL Src = {
+              FileName = "L5Src.stl";
+              ScaleXYZ = {1, 1, 1};
+            };
+            AnySurfSTL Trg = {
+              FileName = "L5Trg";
+              ScaleXYZ = {1, 1, 1}*0.001;
+            };
+          };
+          SurfaceObjects0 = {&Input.Src};
+          SurfaceObjects1 = {&Input.Trg };
+          NumPoints = 20;
+          //UseClosestPointMatchingOnOff = On;
+          PolynomDegree = 1;
+          BoundingBox = {
+            Type = BB_Cartesian;
+            ScaleXYZ = {2, 2, 2};
+            DivisionFactorXYZ = 2*{1, 1, 1};
+          };
+          BoundingBoxOnOff = On;
+        };
+  
+      };
+      
+      AnyRefNode node0 = {sRel={0,0,0};AnyDrawNode a={ScaleXYZ={1,1,1}*0.01;};};
+      #include "grid.any"
+      AnyDrawPointCloud a = 
+      {
+        RGB = {1, 0, 0};
+        Points = .Scaling.AffineTransform(.DrawGrid.A);
+      };
+      AnyDrawPointCloud b = 
+      {
+        RGB = {0, 0, 1};
+        Points = .Scaling.RBFTransform(.DrawGrid.A);
+      };
+      AnyDrawSurf src = {
+        FileName = "L5Src";
+        AnyFunTransform3D &f = .Scaling.STLTransform;
+        RGB={0,0,1};
+      };
+      AnyDrawSurf trg = {
+        FileName = "L5Trg";
+        ScaleXYZ={1,1,1}*0.001;
+        RGB={0,1,0};
+      };
+      
+    };  // Global reference frame
+    
+  }; // MyModel
+  
+  // The study: Operations to be performed on the model
+  AnyBodyStudy MyStudy = {
+    AnyFolder &Model = .MyModel;
+    Gravity = {0.0, -9.81, 0.0};
+  };
+  
+};  // Main
+
+

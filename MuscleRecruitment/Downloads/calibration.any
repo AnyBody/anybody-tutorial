@@ -1,0 +1,323 @@
+// Demo example for tendon length calibration
+
+Main = {
+  
+  // The actual body model goes in this folder
+  AnyFolder ArmModel = {
+    
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+      
+      AnyDrawRefFrame DrwGlobalRef = {
+        ScaleXYZ = {0.1, 0.1, 0.1};
+        RGB = {0,1,0};
+      };
+      AnyRefNode Shoulder = { 
+        sRel = {0,0,0}; 
+      };
+      AnyRefNode DeltodeusA = { 
+        sRel = {0.05,0,0}; 
+      };
+      AnyRefNode DeltodeusB = { 
+        sRel = {-0.05,0,0}; 
+      };
+      AnyRefNode BicepsLong = { 
+        sRel = {0.1,0,0}; 
+      };
+      AnyRefNode TricepsLong = { 
+        sRel = {-0.1,0,0}; 
+      };
+    };  // Global reference frame
+    
+    // Segments
+    AnyFolder Segs = {
+      AnySeg UpperArm = {
+        r0 = {0, 0.3, 0};
+        Axes0 =RotMat(-90*pi/180, z);
+        Mass = 2;
+        Jii = {0.001, 0.01, 0.01};
+        AnyDrawSeg drw = {};
+        
+        AnyRefNode ShoulderNode = {
+          sRel = {-0.2,0,0}; 
+        };
+        AnyRefNode ElbowNode = {
+          sRel = {0.2,0,0}; 
+        };
+        AnyRefNode DeltodeusA = { 
+          sRel = {-0.1,0,0.02}; 
+        };
+        AnyRefNode DeltodeusB = { 
+          sRel = {-0.1,0,-0.02}; 
+        };
+        AnyRefNode Brachialis = { 
+          sRel = {0.1,0,0.01}; 
+        };
+        AnyRefNode BicepsShort = { 
+          sRel = {-0.1,0,0.03}; 
+        };
+        AnyRefNode Brachioradialis = { 
+          sRel = {0.05,0,0.02}; 
+        };
+        AnyRefNode TricepsShort = { 
+          sRel = {-0.1,0,-0.01}; 
+        }; 
+      };  // UpperArm
+      
+      AnySeg ForeArm = {
+        r0 = {0.3, 0, 0};        
+        Mass = 2.0;
+        Jii = {0.001,0.01,0.01};
+        AnyRefNode ElbowNode = {
+          sRel = {-0.2,0,0};
+        };
+        AnyRefNode HandNode = {
+          sRel = {0.2,0,0};
+        };
+        AnyRefNode Brachialis = { 
+          sRel = {-0.1,0,0.02}; 
+        };
+        AnyRefNode Brachioradialis = { 
+          sRel = {0.0,0,0.02}; 
+        };
+        AnyRefNode Biceps = { 
+          sRel = {-0.15,0,0.01}; 
+        };
+        AnyRefNode Triceps = { 
+          sRel = {-0.25,0,-0.05}; 
+        };
+        AnyRefNode PalmNode = {
+          sRel = {0.27,0,0}; 
+          ARel = RotMat(90*pi/180, y);
+          AnyDrawSTL DrwSTL = {
+            FileName = "dumbbell.stl";
+            ScaleXYZ = {0.001, 0.001, 0.001};
+            RGB = {0.2,0.4,0.5};
+          };          
+        };       
+        AnyDrawSeg DrwSeg = {};
+        
+      }; // ForeArm
+      
+    }; // Segs folder
+    
+    AnyFolder Jnts = {
+      
+      //---------------------------------
+      AnyRevoluteJoint Shoulder = {
+        Axis = z;
+        AnyRefNode &GroundNode = ..GlobalRef.Shoulder;
+        AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
+      }; // Shoulder joint
+      
+      AnyRevoluteJoint Elbow = {
+        Axis = z;
+        AnyRefNode &UpperArmNode = Main.ArmModel.Segs.UpperArm.ElbowNode;
+        AnyRefNode &ForeArmNode = Main.ArmModel.Segs.ForeArm.ElbowNode;
+      }; // Elbow joint
+      
+    }; // Jnts folder
+        
+    AnyFolder Muscles = {
+      // Simple muscle model with constant strength = 300 Newton
+      AnyMuscleModel MusMdl = {
+        F0 = 300;
+      };
+      
+      AnyMuscleModel3E BicepsLongModel = {
+        AnyVar PCSA = 2.66; // Physiological cross sectional area [cm^2]
+        F0 = PCSA*30; // Presuming a maximum muscle stress of 30 N/cm^2
+        Lfbar = 0.123; //Optimum fiber length [m]
+        Lt0 = 0.26; //First guess of tendon slack length [m]
+        Gammabar = 0.3*(pi/180); //Pennation angle converted to radians
+        Epsilonbar = 0.053; //Tendon strain at F0
+        K1 = 10; //Slow twitch factor
+        K2 = 0; //Fast twitch factor(zero when no info available)
+        Fcfast = 0.4; //Percentage of fast to slow factor
+        Jt = 3.0; //Shape parameter for the tendon stiffness
+        Jpe = 3.0; //Shape parameter for the parallel stiffness
+        PEFactor = 5.0; //Parameter for influence of parallel stiffness
+      }; // End of BicepsLongModel
+      
+      AnyMuscleModel3E TricepsLongModel = {
+        AnyVar PCSA = 15; // Physiological cross sectional area [cm^2]
+        F0= PCSA*30; // Presuming a maximum muscle stress of 30 N/cm^2
+        Lfbar= 0.194; //Optimum fiber length [m]
+        Lt0 = 0.35; //First guess of tendon slack length [m]
+        Gammabar = 2.0*(pi/180); //Pennation angle converted to radians
+        Epsilonbar = 0.053; //Tendon strain at F0
+        K1 = 10.0; //Slow twitch factor
+        K2 = 0.0; //Fast twitch factor(zero when no info available)
+        Fcfast = 0.4; //Percentage of fast to slow factor
+        Jt = 3.0; //Shape parameter for the tendon stiffness
+        Jpe = 3.0; //Shape parameter for the parallel stiffness
+        PEFactor = 5.0; //Parameter for influence of parallel stiffness
+      }; // End of TricepsLongModel
+      
+      //---------------------------------
+      AnyViaPointMuscle Brachialis = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.Brachialis;
+        AnyRefNode &Ins = ..Segs.ForeArm.Brachialis;
+        AnyDrawMuscle DrwMus = {};
+      };
+      
+      //---------------------------------
+      AnyViaPointMuscle DeltodeusA = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.DeltodeusA;
+        AnyRefNode &Ins = ..Segs.UpperArm.DeltodeusA;
+        AnyDrawMuscle DrwMus = {};
+      };
+      
+      //---------------------------------
+      AnyViaPointMuscle DeltodeusB = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.DeltodeusB;
+        AnyRefNode &Ins = ..Segs.UpperArm.DeltodeusB;
+        AnyDrawMuscle DrwMus = {};
+      };
+      
+      //---------------------------------
+      AnyViaPointMuscle Brachioradialis = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.Brachioradialis;
+        AnyRefNode &Ins = ..Segs.ForeArm.Brachioradialis;
+        AnyDrawMuscle DrwMus = {};
+      };
+      
+      //---------------------------------
+      AnyViaPointMuscle BicepsShort = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.BicepsShort;
+        AnyRefNode &Ins = ..Segs.ForeArm.Biceps;
+        AnyDrawMuscle DrwMus = {};
+      };
+      
+      //---------------------------------
+      AnyViaPointMuscle TricepsShort = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.TricepsShort;
+        AnyRefNode &Ins = ..Segs.ForeArm.Triceps;
+        AnyDrawMuscle DrwMus = {};
+      };
+      
+      //---------------------------------
+      AnyViaPointMuscle BicepsLong = {
+        AnyMuscleModel &MusMdl = ..Muscles.BicepsLongModel;
+        AnyRefNode &Org = ..GlobalRef.BicepsLong;
+        AnyRefNode &Ins = ..Segs.ForeArm.Biceps;
+        AnyDrawMuscle DrwMus = {};
+      };
+      
+      //---------------------------------
+      AnyViaPointMuscle TricepsLong = {
+        AnyMuscleModel &MusMdl = ..Muscles.TricepsLongModel;
+        AnyRefNode &Org = ..GlobalRef.TricepsLong;
+        AnyRefNode &Ins = ..Segs.ForeArm.Triceps;
+        AnyDrawMuscle DrwMus = {};
+      };
+    }; // Muscles folder
+    
+    AnyFolder Loads = {
+      
+      //---------------------------------
+      AnyForce3D Dumbbell = {
+        AnyRefNode &PalmNode = ..Segs.ForeArm.PalmNode;
+        F = {0,-100,0}; // Force in Newton
+      };
+    };  // Loads folder
+    
+  }; // ArmModel
+  
+  AnyFolder Drivers = {
+    
+    //---------------------------------
+    AnyKinEqSimpleDriver ShoulderMotion = {
+      AnyRevoluteJoint &Jnt = Main.ArmModel.Jnts.Shoulder; // Changed!
+      DriverPos = {-100*pi/180};
+      DriverVel = {30*pi/180};
+      Reaction.Type = {Off};
+    }; // Shoulder driver
+    
+    //---------------------------------
+    AnyKinEqSimpleDriver ElbowMotion = {
+      AnyRevoluteJoint &Jnt = Main.ArmModel.Jnts.Elbow;  // Changed!
+      DriverPos = {90*pi/180};
+      DriverVel = {45*pi/180};
+      Reaction.Type = {Off};
+    }; // Elbow driver
+  }; // Driver folder
+  
+  // -----------------------------------------------------
+  // Calibration Drivers
+  // -----------------------------------------------------
+  AnyFolder CalibrationDrivers = {
+    
+    //---------------------------------
+    AnyKinEqSimpleDriver ShoulderMotion = {
+      AnyJoint &Jnt = Main.ArmModel.Jnts.Shoulder;
+      DriverPos = {-90*pi/180}; // Vertical upper arm
+      DriverVel = {0.0};
+      Reaction.Type = {Off};
+    };
+    //---------------------------------
+    AnyKinEqSimpleDriver ElbowMotion = {
+      AnyJoint &Jnt = Main.ArmModel.Jnts.Elbow;
+      DriverPos = {30*pi/180}; // 20 degrees elbow flexion
+      DriverVel = {0.0};
+      Reaction.Type = {Off};
+    };
+  };
+  
+  // -----------------------------------------------------
+  // Triceps Calibration Drivers
+  // -----------------------------------------------------
+  AnyFolder TricepsCalibrationDrivers = {
+    
+    //---------------------------------
+    AnyKinEqSimpleDriver ShoulderMotion = {
+      AnyJoint &Jnt = Main.ArmModel.Jnts.Shoulder;
+      DriverPos = {-90*pi/180}; // Vertical upper arm
+      DriverVel = {0.0};
+      Reaction.Type = {Off};
+    };
+    
+    //---------------------------------
+    AnyKinEqSimpleDriver ElbowMotion = {
+      AnyJoint &Jnt = Main.ArmModel.Jnts.Elbow;
+      DriverPos = {90*pi/180}; // 30 degrees elbow flexion
+      DriverVel = {0.0};
+      Reaction.Type = {Off};
+    };
+  };
+
+  // The study: Operations to be performed on the model
+  AnyBodyStudy ArmStudy = {
+    AnyFolder &Model = .ArmModel;
+    AnyFolder &Drivers = .Drivers;
+    RecruitmentSolver = MinMaxSimplex;
+    Gravity = {0.0, -9.81, 0.0};
+  };
+  
+  // A new calibration study
+  AnyBodyCalibrationStudy CalibrationStudy = {
+    AnyFolder &Model = Main.ArmModel;
+    AnyFolder &Drivers = .CalibrationDrivers;
+    nStep = 1;
+  }; // End of study
+  
+  // A calibration study for TricepsLong
+  AnyBodyCalibrationStudy TricepsCalibrationStudy = {
+    AnyFixedRefFrame &GlobalRef = Main.ArmModel.GlobalRef;
+    AnyFolder &Segs = Main.ArmModel.Segs;
+    AnyFolder &Jnts = Main.ArmModel.Jnts;
+    AnyViaPointMuscle &TricepsLong = Main.ArmModel.Muscles.TricepsLong;
+    AnyFolder& Drivers = Main.TricepsCalibrationDrivers;
+    nStep = 1;
+  }; // End of study
+    
+};  // Main
+
+
+

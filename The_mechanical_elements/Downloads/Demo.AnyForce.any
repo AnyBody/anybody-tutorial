@@ -1,0 +1,212 @@
+/*
+Demo: Force and Force Measures
+(AnyBody, version 2.0, February 2006)
+
+This file demonstrates the application of forces to a 
+mechanical system and how these loads can practically be 
+monitored.
+
+The model consist of a simple, two-link manipulator 
+with revolute joints connecting the links and the 
+base unit (ground).
+
+We apply the following loads to the end-effector:
+
+- A global force, i.e. a vector of force in 
+  global coordinates.
+- A local force, i.e. a vector in given in the 
+  reference frame of the end-effector.
+- A moment/torque, given as a vector
+
+Moreover, we eliminated gravity and intertia forces 
+by specifying very small masses. All quantities have 
+be selected simply to illustrate; they are not related
+to any practical application.
+
+We will measure the effect of the applied loads at two 
+points of interest, the end effector and the 
+base joint. We do this by the class AnyForceMomentMeasure,
+which provides us with a total equivalent load given as a
+single force and moment vector in global coordinates.
+
+To validate the results, we compute the effect of the 
+loads manually, i.e., by means of the mathematical 
+expressions. These expressions can be found in the 
+InverseDynamicAnalysis folder in the LoadStudy. Here they 
+will evaluated during the analysis, and we can find the 
+results in the Chart View.
+
+This also demonstrates the possibility generating your 
+own derived output by expressions.
+
+We have placed the AnyForceMomentMeasures directly in the 
+LoadStudy, so that you can easily compare their results 
+with the one in InverseDynamicAnalysis. 
+
+Use for instance an asteriks character in the Chart View 
+specification like "LoadStudy.Output.*.M" to compare the 
+components of the moments. Or use more than one asteriks, 
+like "LoadStudy.Output.*A*.M" to access object with names
+containing an 'A', i.e., InverseDynamicAnalysis and 
+BaseJointAndDriver.
+*/
+
+Main = {
+
+  // ------------------------------------------------------
+  // Parameters section
+  // ------------------------------------------------------
+
+  // Inertia effects can be switched off
+  AnyVar MassScale = 0.000001; 
+
+  // ------------------------------------------------------
+  // Global Reference Frame
+  // ------------------------------------------------------
+  AnyFixedRefFrame GlobalRef = {
+    AnyDrawRefFrame Drw = {};
+  };  // Global reference frame
+
+  // ------------------------------------------------------
+  // The mechanical system, i.e. segments and joints
+  // ------------------------------------------------------
+  AnyFolder Manipulator = {
+     
+    AnyVector L = {2.0, 1.0};
+ 
+    AnySeg Link1 = {
+      Mass = 1*Main.MassScale;
+      Jii = Mass*{1,2,2}*0.25;
+      AnyDrawSeg Drw = { RGB = {1,0,0}; };
+
+      AnyRefNode BaseNode = { sRel = {-..L[0]/2,0.0, 0.0}; };
+      AnyRefNode EndNode = { sRel = {..L[0]/2,0.0, 0.0}; };
+    };
+
+    AnySeg EndEffector = {
+      Mass = 1*Main.MassScale;
+      Jii = Mass*{1,2,2}*0.1;
+      AnyDrawSeg Drw = { RGB = {0,0,1}; };
+      AnyRefNode BaseNode = { sRel = {-..L[1]/2,0.0, 0.0}; };
+      AnyRefNode EndNode = { sRel = {..L[1]/2,0.0, 0.0}; };
+    };
+
+    AnyRevoluteJoint BaseJoint = {
+      AnyRefFrame &Parent = Main.GlobalRef;
+      AnyRefFrame &Child = .Link1.BaseNode;
+      Axis = z;
+    };
+
+    AnyRevoluteJoint EndJoint = {
+      AnyRefFrame &Parent = .Link1.EndNode;
+      AnyRefFrame &Child  = .EndEffector.BaseNode;
+      Axis = y;
+    };
+  }; // Manipulator
+
+
+  // ------------------------------------------------------
+  // The motion specified for the joint coordinates   
+  // ------------------------------------------------------
+  AnyKinEqSimpleDriver Driver = {
+    AnyJoint &BaseJoint = Main.Manipulator.BaseJoint;
+    AnyJoint &EndJoint = Main.Manipulator.EndJoint;
+      
+    DriverPos = {0.0, 0.0};
+    DriverVel = {pi, pi/2};
+  }; // Drivers
+      
+
+  // ------------------------------------------------------
+  // The applied loads
+  // ------------------------------------------------------
+  AnyFolder Loads = {
+    AnyRefNode &EndNode = Main.Manipulator.EndEffector.EndNode;
+
+    AnyForce3D Fglob = {
+      AnyRefFrame &Point = .EndNode;
+      F = {0.0, -1.0, 0.0};   // Applied in global coordinates
+    };
+      
+    AnyForce3D Floc = {
+      AnyRefFrame &Point = .EndNode;
+      Flocal = {0.0, -1.0, 0.0};
+    };
+
+    AnyMoment3D Mglob = {
+      AnyRefFrame &Point = .EndNode;
+      M = {0.0, 0.0, 1.0};    // Applied in global coordinates
+    };
+
+  }; // Loads
+
+
+  // ------------------------------------------------------
+  // Study of the effects of applied loads
+  // ------------------------------------------------------
+  AnyBodyStudy LoadStudy = {
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0}*0.0;  // Gravity switched off
+
+    // --------------
+    // The Model
+    // --------------
+    AnyFolder &Mechanism = Main.Manipulator;
+    AnyFolder &Motion = Main.Driver;
+    AnyFolder &Loads = Main.Loads;
+
+    // -----------------------------
+    // Output specification
+    // -----------------------------
+   
+    // Measurement of the applied loads at the end effector,
+    // The AnyForceMomentMeasure sums up all the loads applied to
+    // the referred reference frame.
+    
+    AnyForceMomentMeasure EndEffector = {
+      // If you use the global reference system as point 
+      // of interest you will get zero.
+      //AnyRefFrame &Point = Main.GlobalRef; 
+
+      AnyRefFrame &Point = Main.Manipulator.EndEffector.EndNode;
+      AnyForce3D &Fglob = Main.Loads.Fglob;
+      AnyForce3D &Floc = Main.Loads.Floc;
+      AnyMoment3D &Mglob = Main.Loads.Mglob;
+    };
+
+    // Measurement of the base joint reaction. It sums the 
+    // revolute joint reaction and the driver
+    AnyForceMomentMeasure BaseJointAndDriver= {
+      AnyRefFrame &Point = Main.GlobalRef;
+      AnyReacForce &JointForces = Main.Manipulator.BaseJoint.Constraints.Reaction;
+      AnyReacForce &DriverForces = Main.Driver.Reaction;
+    };
+
+    // This does not include the driver, so the total
+    // reaction in the base joint is not measured
+    AnyForceMomentMeasure BaseJoint= {
+      AnyRefFrame &Point = Main.GlobalRef;
+      AnyReacForce &JointForces = Main.Manipulator.BaseJoint.Constraints.Reaction;
+    };
+
+    // Mathematical expression for validation of 
+    // the effects of the applied load
+    InverseDynamics = {
+      AnyVec3 P = Main.GlobalRef.Origin;
+      AnyVec3 End = .Loads.EndNode.r;
+      AnyVec3 d = End-P;
+      AnyVec3 F = .Loads.Fglob.F + .Loads.Floc.F;
+
+      AnyVec3 M = 
+       .Loads.Mglob.M + 
+       {
+          d[1]*F[2]-d[2]*F[1],    
+        -(d[0]*F[2]-d[2]*F[0]),    
+          d[0]*F[1]-d[1]*F[0]    
+       };
+
+    };
+
+  };
+
+};  // Main

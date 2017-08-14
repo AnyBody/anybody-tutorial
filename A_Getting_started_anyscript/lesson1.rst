@@ -60,7 +60,7 @@ build. Let us change the folder name “MyModel” to “ArmModel”.
 
 The object named "MyStudy" (and of type AnyBodyStudy) is a collection of
 simulation tasks that you want to perform with your model. The :doc:`*Study
-of Studies* <../chap4_A_study_of_studies/intro>` tutorial
+of Studies* <../A_study_of_studies/intro>` tutorial
 contains much more information about these subjects. For now, let's just
 rename "MyStudy" to "ArmModelStudy".
 

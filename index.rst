@@ -14,6 +14,16 @@ do musculoskeltal modeling in the AnyBody Modeling System.
 
 .. rst-class:: emphasize-children
 
+
+.. rubric:: Contributing
+
+.. toctree::
+   :maxdepth: 2
+
+   contributing
+
+
+
 Overviev
 *********************
 

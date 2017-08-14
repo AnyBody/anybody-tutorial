@@ -58,9 +58,9 @@ value from the left-hand side of the model tree, the ‘Value’ property of
 Chart View will change accordingly.
 
 It is possible to select and display several properties simultaneously
-in Chart View by using the asterisk (\*) character. If you double- click
+in Chart View by using the asterisk (``*``) character. If you double- click
 the ‘Value’ property of your Chart View, it becomes editable. Let us
-edit the last ‘Hip\_ProximoDistalForce’ term to ‘Hip\_\*’.
+edit the last ``Hip_ProximoDistalForce`` term to ``Hip_*``.
 
 |Chart view asterix selection|
 
@@ -80,17 +80,17 @@ file and change the PelvisThoraxExtension value from 0 to -60.
     
     AnyFolder Mannequin = {
     
-    AnyFolder Posture = {
-    
-    …
-    
-    §AnyVar PelvisThoraxExtension=-60; §
-    
-    AnyVar PelvisThoraxLateralBending=0;
-    
-    AnyVar PelvisThoraxRotation=0;
-    
-    ...
+        AnyFolder Posture = {
+        
+            ...
+            
+            §AnyVar PelvisThoraxExtension=-60; §
+            
+            AnyVar PelvisThoraxLateralBending=0;
+            
+            AnyVar PelvisThoraxRotation=0;
+            
+            ...
     
 
 

@@ -11,15 +11,13 @@ Mannequin file structure
 ------------------------
 
 .. code-block:: AnyScriptDoc
-    
-    …
-    
+
+    ...
+
     // Using your own Mannequin.any file in the Model folder of your model
-    
-    #path BM\_MANNEQUIN\_FILE "Model\\Mannequin.any"
-    
-    …
-    
+    #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+
+    ...
 
 
 This line means that your model will use this Mannequin.any file which
@@ -73,49 +71,30 @@ posture accordingly. Please make sure that the values are as follows:
 
 .. code-block:: AnyScriptDoc
     
-     …
-     AnyFolder Right = {
+    ...
+    AnyFolder Right = {
     
-    //Arm
-    
-    AnyVar SternoClavicularProtraction=-23; //This value is not used for
-    initial position
-    
-    AnyVar SternoClavicularElevation=11.5; //This value is not used for
-    initial position
-    
-    AnyVar SternoClavicularAxialRotation=-20; //This value is not used for
-    initial position
-    
-    AnyVar GlenohumeralFlexion =-0;
-    
-    AnyVar GlenohumeralAbduction = 10;
-    
-    AnyVar GlenohumeralExternalRotation = 0;
-    
-    AnyVar ElbowFlexion = 0.01;
-    
-    AnyVar ElbowPronation = -20.0;
-    
-    AnyVar WristFlexion =0;
-    
-    AnyVar WristAbduction =0;
-    
-    //Leg
-    
-    AnyVar HipFlexion = 0.0;
-    
-    AnyVar HipAbduction = 5.0;
-    
-    AnyVar HipExternalRotation = 0.0;
-    
-    AnyVar KneeFlexion = 0.0;
-    
-    AnyVar AnklePlantarFlexion =0.0;
-    
-    AnyVar SubTalarEversion =0.0;
-    
-     …
+        //Arm
+        AnyVar SternoClavicularProtraction=-23; //This value is not used for initial position
+        AnyVar SternoClavicularElevation=11.5; //This value is not used for initial position
+        AnyVar SternoClavicularAxialRotation=-20; //This value is not used for initial position
+        AnyVar GlenohumeralFlexion =-0;
+        AnyVar GlenohumeralAbduction = 10;
+        AnyVar GlenohumeralExternalRotation = 0;
+        AnyVar ElbowFlexion = 0.01;
+        AnyVar ElbowPronation = -20.0;
+        AnyVar WristFlexion =0;
+        AnyVar WristAbduction =0;
+        
+        //Leg
+        AnyVar HipFlexion = 0.0;
+        AnyVar HipAbduction = 5.0;
+        AnyVar HipExternalRotation = 0.0;
+        AnyVar KneeFlexion = 0.0;
+        AnyVar AnklePlantarFlexion =0.0;
+        AnyVar SubTalarEversion =0.0;
+        
+    ...
 
 
 When these parameters are set for the right-hand side, the left-hand

@@ -298,7 +298,7 @@ can specify:
 
            AnySeg UpperArm = {
              r0 = {0, 0.3, 0};
-             §Axes0 = RotMat(-90\*pi/180, z);§
+             §Axes0 = RotMat(-90*pi/180, z);§
 
 
 When you reload again, you will see that the UpperArm is indeed rotated

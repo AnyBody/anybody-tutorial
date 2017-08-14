@@ -1,0 +1,81 @@
+ // Todo: Write a small description of your model here
+
+Main = {
+  
+  // The actual body model goes in this folder
+  AnyFolder MyModel = {
+    
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+      
+      // Todo: Add points for grounding of the model here
+      
+    };  // Global reference frame
+    
+    // Todo. Add the model elements such as
+    //       segments, joints, and muscles here.
+    AnySeg SourceFemur = 
+    {
+      Mass = 0; Jii = {0, 0, 0};
+      AnyDrawSurf Surface = 
+      {
+        FileName = "SourceFemur.stl";
+      };
+      AnyDrawSurf SurfaceMorphed = 
+      {
+        FileName = "SourceFemur.stl";
+        AnyFunTransform3D &ref = ..MyTransform3;
+      };
+    };
+    
+    AnySeg TargetFemur = 
+    {
+      AnyVec3 RGB = {1,0,1};
+      Mass = 0; Jii = {0, 0, 0};
+      AnyDrawSurf Surface = 
+      {
+        FileName = "TargetFemur.stl";
+      };
+      
+    };
+    
+    AnyFunTransform3DLin2 MyTransform = 
+    {
+      //PreTransforms = {};
+      Points0 = 
+      {{0.0138187,0.00136731,0.0273618},    // fovea capitis
+        {0.0791212,-0.397138,-0.0524235},    // lateral anterior condyle
+        {0.0940322,-0.395441,-0.0183066},    // medial anterior condyle
+        {0.0380997,-0.188645,-0.0387959},    // anterior mid shaft 
+        {0.0188325,-0.396453,-0.0204564},    // lateral posterior condyle
+        {0.0368766,-0.393677,0.0266919}};    // medial posterior condyle
+      Points1 = 
+      {{0.289913,0.420538,0.0138931},    // fovea capitis
+        {0.322038,0.433232,-0.378636},    // lateral anterior condyle
+        {0.289309,0.426839,-0.372994},    // medial anterior condyle
+        {0.328859,0.425856,-0.175012},    // anterior mid shaft 
+        {0.306293,0.487243,-0.370319},    // lateral posterior condyle
+        {0.261891,0.47585,-0.372696}};    // medial posterior condyle
+      Mode = VTK_LANDMARK_AFFINE;
+    };
+    
+    AnyFunTransform3DLin2 MyTransform2 = {
+      Points0 = .MyTransform.Points1;
+      Points1 = .MyTransform.Points0;
+      Mode = VTK_LANDMARK_RIGIDBODY;
+    };
+    
+    AnyFunTransform3DIdentity MyTransform3 = 
+    {
+      PreTransforms = {&.MyTransform,&.MyTransform2};
+    };
+    
+  }; // MyModel
+  
+  // The study: Operations to be performed on the model
+  AnyBodyStudy MyStudy = {
+    AnyFolder &Model = .MyModel;
+    Gravity = {0.0, -9.81, 0.0};
+  };
+  
+};  // Main

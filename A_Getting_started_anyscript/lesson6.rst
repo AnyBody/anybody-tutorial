@@ -121,7 +121,7 @@ degrees about the local y-axis and hence write:
 
            AnyRefNode PalmNode = {
              sRel = {0.27,0,0};
-             §ARel = RotMat(90\*pi/180, y);§
+             §ARel = RotMat(90*pi/180, y);§
              AnyDrawSTL DrwSTL = {
                FileName = "dumbbell.stl";
                ScaleXYZ = {0.001, 0.001, 0.001};

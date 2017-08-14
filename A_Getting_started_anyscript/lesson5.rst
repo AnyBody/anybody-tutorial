@@ -24,7 +24,7 @@ are important for their function. In AnyBody, you can use several
 different models for the muscles' behavior, and some of them are quite
 sophisticated. Introducing all the features of muscle modeling is a
 subject fully worthy of :doc:`its own
-tutorial <../chap5_Muscle_modeling/intro>`. Here, we shall just
+tutorial <../Muscle_modeling/intro>`. Here, we shall just
 define one very simple muscle model and use it indiscriminately for all
 the muscles of the arm we are building.
 
@@ -110,7 +110,7 @@ look at it. Make sure you have the Model View window open and hit F7.
 You should see a thick, red line connecting the muscle's origin and
 insertion points. There are other ways to visualize muscles, but we
 shall save that for the :doc:`dedicated muscle
-tutorial <../chap5_Muscle_modeling/intro>`.
+tutorial <../Muscle_modeling/intro>`.
 
 Notice that the muscle's position on the body might be a little strange
 because we have not yet positioned the segments relative to each other
@@ -333,7 +333,7 @@ movement and drops off again.
 
 .. note:: Applied forces do not have to be constant. They can change with time
     and other properties in the model.  Please refer to the :doc:`tutorial on
-    forces <../chap6_The_mechanical_elements/intro>` for more
+    forces <../The_mechanical_elements/intro>` for more
     details.
 
 While the model described here was anatomically simplified, it can be a

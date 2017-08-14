@@ -1,0 +1,118 @@
+// Model for the mocap tutorial
+
+Main = {
+
+  // The actual body model goes in this folder
+  AnyFolder MyModel = {
+
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+    };  // Global reference frame
+    
+    AnySeg Pendulum = {
+      Mass = 1;
+      Jii = {1, 0.01, 1}/15;
+      AnyRefNode Origin = {
+        sRel = {0, 0.5, 0};
+      };
+      AnyRefNode P1 = {
+        sRel = {0, -0.5, 0};
+      };
+      AnyRefNode R1 = {
+        sRel = {0.03, 0.2, 0.02};
+      };
+      AnyRefNode R2 = {
+        sRel = {-0.02, -0.1, 0.025};
+      };
+      AnyRefNode R3 = {
+        sRel = {-0.02, -0.4, -0.02};
+      };
+      
+      AnyDrawSeg drw = {};
+    };
+    
+    AnyRevoluteJoint Joint = {
+      AnyRefFrame &Ground = .GlobalRef;
+      AnyRefFrame &Pendulum = .Pendulum.Origin;
+    };
+    
+    AnyInputC3D C3D = {
+      FileName = "pendulum.c3d";
+      //ReadAllDataOnOff = On;
+      //TruncateExtraCharsInNamesOnOff = On;
+      //PointsScaleFactor = 1;
+      ConstructModelOnOff = Off;
+      //MarkerUseAllPointsOnOff = Off;
+      //MarkerUseCamMaskOnOff = On;
+      //MarkerIndices = ;
+      //MarkerLabels = ;
+      //MarkerFilterIndex = 0;
+      //ProcessedDataFilterIndex = 0;
+      //AnalogFilterIndex = -1;
+      /*Filter = 
+      {
+      z0 = ;
+      AutomaticInitialConditionOnOff = On;
+      FilterForwardBackwardOnOff = On;
+      N = 2;
+      W = ;
+      Fs = 0;
+      Fc = {10};
+      Type = LowPass;
+      };*/
+      //WriteMarkerDataToFilesOnOff = Off;
+      //MarkerScaleXYZ = {0.025, 0.025, 0.025};
+      //MarkerRGB = {0.65, 0.65, 0.65};
+      //MarkerDrawOnOff = On;
+      //MarkerInterPolType = Bspline;
+      //MarkerBsplineOrder = 8;
+    }; 
+//    
+//    AnyKinEqSimpleDriver tmp = {
+//      AnyRevoluteJoint &jnt = .Joint;
+//      DriverVel = {pi};
+//    };
+
+
+AnyKinEqPolynomialDriver Polyn = {
+  PolyCoef = {{-0.0193, -0.1162, 0.5381, -0.1508, 0.0159, -0.00063}};
+  AnyRevoluteJoint &jnt = .Joint;
+};
+
+    
+//    AnyKinMotion Driver = {
+//      //MeasureOrganizer = ;
+//      //CType = ;
+//      AnyKinLinear lin = {
+//        AnyRefFrame &Marker = ..Pendulum.P1;
+//      };
+//      AnyParamFun &fun = .C3D.Points.Markers.L000.PosInterpol;
+//    };
+
+//AnyKinMotion C3Dmotion = {
+//  //MeasureOrganizer = ;
+//  //CType = ;
+//  AnyKinLinear lin = {
+//    AnyRefFrame &Marker = ..Pendulum.P1;
+//  };
+//  AnyParamFun &Trajectory = Main.MyModel.C3D.Points.Markers.L000.PosInterpol;
+//};
+
+    
+   
+
+            
+  }; // MyModel
+
+  // The study: Operations to be performed on the model
+  AnyBodyStudy MyStudy = {
+    AnyFolder &Model = .MyModel;
+    Gravity = {0.0, -9.81, 0.0};
+    nStep = 1000;
+    tStart = 0.05;
+    tEnd = 9.95;
+//    InitialConditions.SolverType = KinSolOverDeterminate;
+//    Kinematics.SolverType = KinSolOverDeterminate;
+  };
+
+};  // Main

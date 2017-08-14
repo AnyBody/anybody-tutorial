@@ -1,0 +1,76 @@
+// Small test model for experimentation with muscle recruitment
+// Author: John Rasmussen
+
+Main = {
+
+  // The actual body model goes in this folder
+  AnyFolder MyModel = {
+
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+      AnyDrawRefFrame drw = {
+        ScaleXYZ = {1,1,1}/10;
+        RGB = {1,0,0};
+      };
+      AnyRefNode M1 = {
+        sRel = {0, 0.05, 0};
+      };
+    };  // Global reference frame
+    
+    // Just a simple arm segment hinged at its left end.
+    AnySeg Seg = {
+      Mass = 2;
+      Jii = {1, 1, 1}/1000;
+      AnyRefNode Jnt = {
+        sRel = {0, -0.1, 0};
+      };
+      AnyRefNode M = {
+        sRel = {0, 0.1, 0};
+      };
+      AnyKinPLine Draw = {
+        AnyRefFrame &r1 = .Jnt;
+        AnyRefFrame &r2 = .M;
+        AnyDrawPLine drw = {
+          Thickness = 0.005;
+          RGB = {0,0,1};
+        };
+      };
+    };
+
+    // Revolute joint hinging the arm to ground.
+    AnyRevoluteJoint Jnt = {
+      AnyRefFrame &ref1 = .GlobalRef;
+      AnyRefFrame &ref2 = .Seg.Jnt;
+    };
+
+    // Rotate the arm with constant velocity
+    AnyKinEqSimpleDriver Drv = {
+      AnyRevoluteJoint &Jnt = .Jnt;
+      DriverPos = {-120*pi/180};
+      DriverVel = {90*pi/180};
+      Reaction.Type = {Off};
+    };
+    
+    
+    AnyViaPointMuscle M1 = {
+      AnyMuscleModel Model = {
+        F0 = 100;
+      };
+      AnyRefFrame &Ori = .GlobalRef.M1;
+      AnyRefFrame &Ins = .Seg.M;
+      AnyDrawMuscle drw = {
+        Bulging = 1;
+        MaxStress = 1e5;
+      };
+    };
+    
+  }; // MyModel
+
+  // The study: Operations to be performed on the model
+  AnyBodyStudy MyStudy = {
+    AnyFolder &Model = .MyModel;
+    Gravity = {0.0, -9.81, 0.0};
+    nStep = 1000;   // Lots of time steps to make it run slowly enough
+  };
+
+};  // Main

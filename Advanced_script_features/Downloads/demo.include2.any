@@ -1,0 +1,19 @@
+ // =======================================================
+// The mechanical components
+// =======================================================
+AnyFolder SliderCrank = {
+
+  // -----------------------------------------------------
+  // Basic Reference Frames
+  // -----------------------------------------------------
+  AnyFixedRefFrame GlobalRef = {
+    AnyDrawRefFrame DrwGlobalRef = { RGB={0,0,1};};
+  };
+
+  AnyFixedRefFrame SliderRef = {
+    Origin = {1.0,3.5,0};
+    Axes = {{0.8,0.2,0},{-0.2,0.8,0},{0,0,1}};
+    AnyDrawRefFrame DrwGlobalRef = { RGB={0,0,1};};
+  };
+  
+};

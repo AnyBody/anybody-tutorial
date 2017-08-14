@@ -1,0 +1,607 @@
+/* ---------------------------------------------------------------
+This is a simple 2-D model of a body performing a squat movement.
+Only the leg muscles are considered.
+
+It is a slightly modified version of a model developed in 
+cooperation with Bruce MacWilliams, Michael Anderson, and 
+Kent Bachus of the Shriner's Hospital for Children in Salt
+Lake City in Utah.
+
+The leg has muscles with double strength, i.e., equivalent to
+two legs. The movement of the arm of the model is controlled by means
+of a Center-of-Gravity driver. This means that the arm is not
+driven explicitly but simply assumes the position necessary to
+maintain the position of the center of gravity.
+
+John Rasmussen
+Date: 17 June 2003
+------------------------------------------------------------------- */
+
+Main = {
+  
+  AnyFolder ShrineLegModel = {
+    
+    AnyFixedRefFrame GlobalRef = {
+      //AnyDrawRefFrame DrwGlobalRef = {};
+      AnyRefNode musclefront = {sRel = {0.1,0.1,0.0};};
+      AnyRefNode muscleback  = {sRel = {-0.1,0.0,0.0};};
+      
+    };
+    
+    // These parameters are used for scaling of segment masses, etc.    
+    AnyFolder WholeBodyParameters = {
+      AnyVar BodyMass = 75;
+      AnyVar BodyHeight = 1.84;
+      AnyVar Density = 1000;
+    };
+    
+    // Definitions of Pelvis, arms and HAT - Head And Trunk    
+    AnyFolder SegmentsTrunk = {
+      
+      AnySeg PelvisSeg = {
+
+        // This segment includes Sacrum, and 2 times os coxae
+        r0 = {0,0,0}; //Initial start positon
+        Mass = 0.142 * ..WholeBodyParameters.BodyMass; //Winter
+        Jii = {0.0221,0.01,0.0221}; //Only Izz is right, Ixx and Izz are rough estimations but not so
+        //important for movements in the sagital plane
+        
+        AnyRefNode L5PelvisJntNode = {sRel = {-0.015,0.0,0.0};};
+        //Old value
+        //AnyRefNode PelvisThighJntNode = {sRel = {0.0,-0.0945,0.0};};
+        
+        //Pelvis to HJc = .0976m
+        AnyRefNode PelvisThighJntNode = {sRel = {0.0,-0.0976,0.0};};
+        AnyRefNode HamNodeR = {sRel ={-0.0387,-0.0976,0.0}+.L5PelvisJntNode.sRel;};
+        
+        AnyRefNode GlutMaxNodeR = {sRel ={-0.0699,-0.0598,0.0}+.L5PelvisJntNode.sRel;};
+        AnyRefNode GlutMaxViaNode1R = {sRel ={-0.0672,-0.1336,0.0}+.L5PelvisJntNode.sRel;};
+        AnyRefNode GlutMaxViaNode2R = {sRel ={-0.055,  -0.1736,0.0}+.L5PelvisJntNode.sRel;};
+        
+        AnyRefNode Rect_FemNodeR = {sRel ={0.0562,-0.0295,0.0}+.L5PelvisJntNode.sRel;};
+        
+        AnyRefNode MusNode1 = {sRel = {0.05,-0.0945,0.0};};
+        AnyRefNode MusNode2 = {sRel = {-0.05,-0.0945,0.0};};
+        
+        AnyDrawSeg DrwSeg = {};
+        
+      }; // End of PelvisSeg
+      
+      // HeadAndTrunk segment.Body mass ratio = 68.1% - 14.2% - 10% = 43.9%
+      AnySeg HATSeg = {
+        r0 = {0.05,0.4,0.0};
+        Mass = 0.439 * ..WholeBodyParameters.BodyMass;
+        Jii = {0.6658,0.01,0.6658}; //Only Izz is right, Ixx and Izz are rough estimations but not so
+        //important for movements in the sagital plane
+        
+        // Old values
+        //AnyRefNode HATL2JntNode = {sRel = {-0.0364,-0.3145,0.0};};
+        //AnyRefNode HATL5JntNode = {sRel = {0.0,-0.132,0.0}+ .HATL2JntNode.sRel;};
+        
+        // Trunk length = PELO - HEDO measured as 0.616
+        // Assume Centroid is 1/2 Distance = .308
+        // Old Centroid - L5 distance = .3145 + .132 = 0.4465
+        // Scale down by .308/.4465 = 0.69
+        
+        AnyRefNode HATL2JntNode = {sRel = {-0.025,-0.216,0.0};};
+        AnyRefNode HATL5JntNode = {sRel = {0.0,-0.091,0.0}+ .HATL2JntNode.sRel;};
+        
+        AnyRefNode COMNode = {sRel = {0.0, 0.0, 0.0};};
+        AnyRefNode ShoulderNode = {sRel = {0.0, 0.25, 0.0};};
+        AnyRefNode MusNode = {sRel = {0.0,-0.1,0.0} + .ShoulderNode.sRel;};
+        
+        AnyRefNode MusNode1 = {sRel = {0.05,-0.35,0.0};};
+        AnyRefNode MusNode2 = {sRel = {-0.1,-0.40,0.0};};
+        
+        AnyDrawSeg DrwSeg = {};
+        
+      }; // End of HATSeg
+      
+      // Arm segment. This is used to balance the CoM into the correct position.
+      // Body mass ratio = 10%
+      AnySeg ArmSeg = {
+        r0 = {0.0,-0.3,0.0};
+        Mass = 0.1 * ..WholeBodyParameters.BodyMass;
+        AnyVar Length = 0.8; //artificially long
+        AnyVar Radius = 0.005;
+        AnyVar Iyy = 0.5*Mass*Radius*Radius;
+        AnyVar Izz = Mass*Radius*Radius/4 + Mass*Length*Length/12;
+        AnyVar Ixx = 0.124;
+        //Jii = {Ixx,Iyy,Izz};
+        //Jii = {0.124,0.002,0.124};  // Estimated by scaling the HAT segment
+        Jii = {0.124,0.002,0.124};
+        
+        //AnyRefNode ShoulderNode = {sRel = {0.0,1.8,0.0};};
+        AnyRefNode ShoulderNode = {sRel = {0.0,.Length,0.0};};
+        //AnyRefNode ShoulderNode = {sRel = {0.0,0.8,0.0};};
+        AnyRefNode MusNode1 = {sRel = {0.0,0.1,0.0} + .ShoulderNode.sRel;};
+        AnyRefNode MusNode2 = {sRel = {0.0,-0.1,0.0} + .ShoulderNode.sRel;};
+        
+        AnyDrawSeg DrwSeg = {};
+        
+      }; // End of ArmSeg
+      
+    };
+    
+    AnyFolder SegmentsLegRight = {
+      
+      AnySeg ThighSeg = {
+        r0 = {0,-0.25,0}; //Initial start positon
+        Mass = 0.198 * ..WholeBodyParameters.BodyMass; // For two legs
+        Jii = {0.1134,0.013,0.1134}; //Only Izz is right, Ixx and Izz are rough estimations but not so
+        //important for movements in the sagital plane
+        
+        // Old values, L=0.398m
+        //AnyRefNode PelvisThighJntNode = {sRel = {0.0,0.17,0};};
+        //AnyRefNode ThighShankJntNode = {sRel = {0.0,-0.228,0};};
+        
+        // Thigh length is .418m, keep relative distances from centroid
+        AnyRefNode PelvisThighJntNode = {sRel = {0.0,0.179,0};};
+        AnyRefNode ThighShankJntNode = {sRel = {0.0,-0.240,0};};
+        
+        AnyRefNode BiFemShNodeR = {sRel ={0.005,-0.2111,0.0}+.PelvisThighJntNode.sRel;};
+        
+        AnyRefNode GlutMaxNodeR = {sRel ={-0.006,-0.1419,0.0}+.PelvisThighJntNode.sRel;};
+        AnyRefNode GlutMaxViaNode2R = {sRel ={-0.055,-0.0641,0.0}+.PelvisThighJntNode.sRel;};
+        
+        AnyRefNode HamsViaNode1R = {sRel ={-0.065,-0.03,0.0}+.PelvisThighJntNode.sRel;};
+        
+        //    AnyRefNode Rect_FemViaNode1R = {sRel ={0.0334,-0.403,0.0}+.PelvisThighJntNode.sRel;};
+        AnyRefNode Rect_FemViaNode2R = {sRel ={0.0501,-0.3767,0.0}+.PelvisThighJntNode.sRel;};
+        
+        AnyRefNode VastiNodeR = {sRel ={0.0048,-0.1854,0.0}+.PelvisThighJntNode.sRel;};
+        AnyRefNode VastiViaNode1R = {sRel ={0.0269,-0.2591,0.0}+.PelvisThighJntNode.sRel;};
+        AnyRefNode VastiViaNode2R = {sRel ={0.0510,-0.3801,0.0}+.PelvisThighJntNode.sRel;};
+        //    AnyRefNode VastiViaNode3R = {sRel ={0.0253,-0.4243,0.0}+.PelvisThighJntNode.sRel;};
+        
+        AnyRefNode GasNodeR = {sRel ={0.0 ,-0.3729,0.0}+.PelvisThighJntNode.sRel;};
+        //    AnyRefNode GasViaNode1R = {sRel ={-0.0239,-0.4022,0.0}+.PelvisThighJntNode.sRel;};
+        
+        AnyDrawSeg DrwSeg = {};
+        
+      }; // End of ThighSeg
+      
+      AnySeg ShankSeg = {
+        r0 = {0,-0.5,0}; //Initial start positon
+        Mass = 0.092 * ..WholeBodyParameters.BodyMass; // For two legs
+        Jii = {0.0543,0.001,0.0543}; //Only Izz is right, Ixx and Izz are rough estimations but not so
+        //important for movements in the sagital plane
+        
+        // Old values, L= 0.43m
+        //AnyRefNode ThighShankJntNode = {sRel = {0.0,0.1867,0};};
+        //AnyRefNode ShankFootJntNode = {sRel = {0.0,-0.2433,0};};
+        
+        // Shank length is 0.409m, keep relative distances from centroid
+        AnyRefNode ThighShankJntNode = {sRel = {0.0,0.1776,0};};
+        AnyRefNode ShankFootJntNode = {sRel = {0.0,-0.2314,0};};
+        
+        AnyRefNode HamNodeR = {sRel ={-0.0081,-0.0729,0.0}+.ThighShankJntNode.sRel;};
+        
+        AnyRefNode BiFemShNodeR = {sRel ={-0.0101,-0.0725,0.0}+.ThighShankJntNode.sRel;};
+        
+        AnyRefNode Rect_FemNodeR = {sRel ={0.0601,0.0213,0.0}+.ThighShankJntNode.sRel;};
+        
+        AnyRefNode VastiNodeR = {sRel ={0.061,0.0179,0.0}+.ThighShankJntNode.sRel;};
+        
+        AnyRefNode GasViaNode2R = {sRel ={-0.0217,-0.0487,0.0}+.ThighShankJntNode.sRel;};
+        
+        AnyRefNode SolNodeR = {sRel ={-0.0024,-0.1533,0.0}+.ThighShankJntNode.sRel;};
+        
+        AnyRefNode Tib_AntNodeR = {sRel ={0.0179,-0.1624,0.0}+.ThighShankJntNode.sRel;};
+        AnyRefNode Tib_AntViaNode1R = {sRel ={0.0329,-0.3951,0.0}+.ThighShankJntNode.sRel;};
+        
+        AnyDrawSeg DrwSeg = {};
+        
+      }; // End of ShankSeg
+      
+      AnySeg FootSeg = {
+        r0 = {0,-1.0,0}; //Initial start positon
+        Mass = 0.028 * ..WholeBodyParameters.BodyMass; // For two feet
+        Jii = {0.001,0.005,0.005}; //Only Izz is right, Ixx and Izz are rough estimations but not so
+        //important for movements in the sagital plane
+        
+        // This is heel-toe marker, so toes not included, old values may be more accurate
+        AnyRefNode ShankFootJntNode = {sRel = {-0.045,0.024,0};};
+        
+        AnyRefNode GroundFootToeJntNode = {sRel = {0.0671,-0.019,0};};
+        AnyRefNode GroundFootHeelJntNode = {sRel = {-0.1095,-0.019,0};};
+        AnyRefNode ArtificialMuscleNode = {sRel = {-0.1,0.0,0.0};};
+        
+        AnyRefNode GasNodeR = {sRel ={-0.04437,-0.01095,0.0}+.ShankFootJntNode.sRel;};
+        
+        AnyRefNode SolNodeR = {sRel ={-0.04437,-0.01095,0.0}+.ShankFootJntNode.sRel;};
+        
+        AnyRefNode Tib_AntNodeR = {sRel ={0.06783,-0.02415,0.0}+.ShankFootJntNode.sRel;};
+        
+        AnyDrawSeg DrwSeg = {};
+        
+      }; // End of FootSeg
+      
+    };
+    
+    AnyFolder JointsLegRight = {
+      
+      AnyRevoluteJoint ShoulderJnt = {
+        Axis = z;
+        AnyRefNode &HATNode = ..SegmentsTrunk.HATSeg.ShoulderNode;
+        AnyRefNode &ArmNode = ..SegmentsTrunk.ArmSeg.ShoulderNode;
+      };
+      
+      AnyRevoluteJoint PelvisThighJnt = {
+        Axis = z;
+        AnyRefNode &ThighNode = ..SegmentsLegRight.ThighSeg.PelvisThighJntNode;
+        AnyRefNode &PelvisNode = ..SegmentsTrunk.PelvisSeg.PelvisThighJntNode;
+      };
+      
+      AnyRevoluteJoint ThighShankJnt = {
+        Axis = z;
+        AnyRefNode &ShankNode = ..SegmentsLegRight.ShankSeg.ThighShankJntNode;
+        AnyRefNode &ThighNode = ..SegmentsLegRight.ThighSeg.ThighShankJntNode;
+      };
+      
+      AnyRevoluteJoint ShankFootJnt = {
+        Axis = z;
+        AnyRefNode &FootNode = ..SegmentsLegRight.FootSeg.ShankFootJntNode;
+        AnyRefNode &ShankNode = ..SegmentsLegRight.ShankSeg.ShankFootJntNode;
+      };
+      
+      AnyRevoluteJoint GroundFootJnt = {
+        Axis = z;
+        AnyFixedRefFrame &GroundNode = ..GlobalRef;
+        AnyRefNode &FootNode = ..SegmentsLegRight.FootSeg.GroundFootToeJntNode;
+      };
+      
+      AnyRevoluteJoint PelvisHATJnt = {
+        Axis = z;
+        AnyRefNode &PelvisNode = ..SegmentsTrunk.PelvisSeg.L5PelvisJntNode ;
+        AnyRefNode &HATNode = ..SegmentsTrunk.HATSeg.HATL5JntNode;
+      };
+      
+      AnyKinRotational HATangle = {
+        Type = RotVector;
+        AnyRefFrame &Ground = Main.ShrineLegModel.GlobalRef;
+        AnySeg &HAT = ..SegmentsTrunk.HATSeg;
+        AngVelOnOff = On;
+      };
+      
+      AnyKinLinear HATsupport = {
+        AnyFixedRefFrame &Ground = Main.ShrineLegModel.GlobalRef;
+        AnyRefNode &HATNode = ..SegmentsTrunk.HATSeg.COMNode;
+      };
+      
+      AnyKinLinear PelvisCoM = {
+        AnyFixedRefFrame &Ground = Main.ShrineLegModel.GlobalRef;
+        AnySeg &Pelvis = ..SegmentsTrunk.PelvisSeg;
+      };
+      
+      AnyKinCoM CoM = {
+        AnyFolder &Segs1 = ..SegmentsTrunk; 
+        AnyFolder &Segs2 = ..SegmentsLegRight; 
+      };      
+      
+    };// End of Joints
+    
+    // Definitions of leg muscles    
+    AnyFolder LegMuscles = {
+      
+      AnyViaPointMuscle Ham = {
+        AnyMuscleModel &MusMdl = ..MuscleParametersLeg.HamMdl;
+        AnyRefNode &Ins = ..SegmentsLegRight.ShankSeg.HamNodeR;
+        AnyRefNode &Via1 = ..SegmentsLegRight.ThighSeg.HamsViaNode1R;
+        AnyRefNode &Org = ..SegmentsTrunk.PelvisSeg.HamNodeR;
+        AnyDrawMuscle DrwMus = {
+          Bulging = 1;
+        };
+      };
+      
+      AnyViaPointMuscle BiFemSh = {
+        AnyMuscleModel &MusMdl = ..MuscleParametersLeg.BiFemShMdl;
+        AnyRefNode &Ins = ..SegmentsLegRight.ShankSeg.BiFemShNodeR;
+        AnyRefNode &Org = ..SegmentsLegRight.ThighSeg.BiFemShNodeR;
+        AnyDrawMuscle DrwMus = {
+          Bulging = 1;
+        };
+      };
+      
+      AnyViaPointMuscle GlutMax = {
+        AnyMuscleModel &MusMdl = ..MuscleParametersLeg.GlutMaxMdl;
+        AnyRefNode &Ins = ..SegmentsLegRight.ThighSeg.GlutMaxNodeR;
+        AnyRefNode &Via3 = ..SegmentsLegRight.ThighSeg.GlutMaxViaNode2R;
+        AnyRefNode &Via2 = ..SegmentsTrunk.PelvisSeg.GlutMaxViaNode2R;
+        AnyRefNode &Via1 = ..SegmentsTrunk.PelvisSeg.GlutMaxViaNode1R;
+        AnyRefNode &Org = ..SegmentsTrunk.PelvisSeg.GlutMaxNodeR;
+        AnyDrawMuscle DrwMus = {
+          Bulging = 1;
+        };
+      };
+      
+      AnyViaPointMuscle RectFem = {
+        AnyMuscleModel &MusMdl = ..MuscleParametersLeg.RectFemMdl;
+        AnyRefNode &Ins = ..SegmentsLegRight.ShankSeg.Rect_FemNodeR;
+        AnyRefNode &Via2 = ..SegmentsLegRight.ThighSeg.Rect_FemViaNode2R;
+        AnyRefNode &Org = ..SegmentsTrunk.PelvisSeg.Rect_FemNodeR;
+        AnyDrawMuscle DrwMus = {
+          Bulging = 1;
+        };
+      };
+      
+      AnyViaPointMuscle Vasti = {
+        AnyMuscleModel &MusMdl = ..MuscleParametersLeg.VastiMdl;
+        AnyRefNode &Ins = ..SegmentsLegRight.ShankSeg.VastiNodeR;
+        AnyRefNode &Via2 = ..SegmentsLegRight.ThighSeg.VastiViaNode2R; //In SIMM one can define in which range this ViaPoint is working, which is not possible in AnyBody   
+        AnyRefNode &Via1 = ..SegmentsLegRight.ThighSeg.VastiViaNode1R;
+        AnyRefNode &Org = ..SegmentsLegRight.ThighSeg.VastiNodeR;
+        AnyDrawMuscle DrwMus = {
+          Bulging = 1;
+        };
+      };
+      
+      AnyViaPointMuscle Gas = {
+        AnyMuscleModel &MusMdl = ..MuscleParametersLeg.GasMdl;
+        AnyRefNode &Ins = ..SegmentsLegRight.FootSeg.GasNodeR;
+        AnyRefNode &Via2 = ..SegmentsLegRight.ShankSeg.GasViaNode2R;
+        //AnyRefNode &Via1 = ..SegmentsLegRight.ThighSeg.GasViaNode1R; //In SIMM one can define in which range this ViaPoint is working, which is not possible in AnyBody   
+        AnyRefNode &Org = ..SegmentsLegRight.ThighSeg.GasNodeR;
+        AnyDrawMuscle DrwMus = {
+          Bulging = 1;
+        };
+      };
+      
+      AnyViaPointMuscle Sol = {
+        AnyMuscleModel &MusMdl = ..MuscleParametersLeg.SolMdl;
+        AnyRefNode &Ins = ..SegmentsLegRight.FootSeg.SolNodeR;
+        AnyRefNode &Org = ..SegmentsLegRight.ShankSeg.SolNodeR;
+        AnyDrawMuscle DrwMus = {
+          Bulging = 1;
+        };
+      };
+      
+      AnyViaPointMuscle TibAnt = {
+        AnyMuscleModel &MusMdl = ..MuscleParametersLeg.TibAntMdl;
+        AnyRefNode &Ins = ..SegmentsLegRight.FootSeg.Tib_AntNodeR;
+        AnyRefNode &Via1 = ..SegmentsLegRight.ShankSeg.Tib_AntViaNode1R;
+        AnyRefNode &Org = ..SegmentsLegRight.ShankSeg.Tib_AntNodeR;
+        AnyDrawMuscle DrwMus = {
+          Bulging = 1;
+        };
+      };
+      
+    };
+    
+    // These artificial musles balance the model. They are made
+    // very strong so as not to disturb the recruitment of the real
+    // muscles.
+    AnyFolder ArtificialMuscles = {
+      AnyMuscleModel Artificial = {
+        F0 = 100000;
+      };
+      
+      AnyViaPointMuscle ArtificialFront = {
+        AnyMuscleModel &MusMdl = .Artificial;
+        AnyRefNode &Ins = Main.ShrineLegModel.GlobalRef.musclefront;
+        AnyRefNode &Org = ..SegmentsLegRight.FootSeg.ArtificialMuscleNode;
+      };
+      
+      AnyViaPointMuscle ArtificialBack = {
+        AnyMuscleModel &MusMdl = .Artificial;
+        AnyRefNode &Ins = Main.ShrineLegModel.GlobalRef.muscleback;
+        AnyRefNode &Org = ..SegmentsLegRight.FootSeg.ArtificialMuscleNode;
+      };
+      
+      AnyViaPointMuscle ArtificialShoulder1 = {
+        AnyMuscleModel &MusMdl = .Artificial;
+        AnyRefNode &Ins = ..SegmentsTrunk.ArmSeg.MusNode1;
+        AnyRefNode &Org = ..SegmentsTrunk.HATSeg.MusNode;
+      };
+      
+      AnyViaPointMuscle ArtificialShoulder2 = {
+        AnyMuscleModel &MusMdl = .Artificial;
+        AnyRefNode &Ins = ..SegmentsTrunk.ArmSeg.MusNode2;
+        AnyRefNode &Org = ..SegmentsTrunk.HATSeg.MusNode;
+      };
+      
+      AnyViaPointMuscle ArtificialHip1 = {
+        AnyMuscleModel &MusMdl = .Artificial;
+        AnyRefNode &Ins = ..SegmentsTrunk.PelvisSeg.MusNode1;
+        AnyRefNode &Org = ..SegmentsTrunk.HATSeg.MusNode1;
+      };
+      
+      AnyViaPointMuscle ArtificialHip2 = {
+        AnyMuscleModel &MusMdl = .Artificial;
+        AnyRefNode &Ins = ..SegmentsTrunk.PelvisSeg.MusNode2;
+        AnyRefNode &Org = ..SegmentsTrunk.HATSeg.MusNode2;
+      };
+    };
+  
+    
+    // The leg muscle parameters
+    AnyFolder MuscleParametersLeg = {
+      
+      AnyMuscleModel HamMdl     = {F0 = 4160;};
+      AnyMuscleModel BiFemShMdl = {F0 = 800;};
+      AnyMuscleModel GlutMaxMdl = {F0 = 2600;};
+      AnyMuscleModel RectFemMdl = {F0 = 1560;};
+      AnyMuscleModel VastiMdl   = {F0 = 8800;};
+      AnyMuscleModel GasMdl     = {F0 = 3210;};
+      AnyMuscleModel SolMdl     = {F0 = 5660;};
+      AnyMuscleModel TibAntMdl  = {F0 = 3210;};
+    };
+    
+  }; // End of the ShrineLeg model
+    
+  // Point-to-point drivers based on experiments by Bruce MacWilliams
+  // and co-workers
+  AnyFolder DriversHeelUp = {
+    
+    // The problem is essentially quasi-static. These times correspond to
+    // the indices of measurement points.
+    
+    AnyVector Time = { 0,10,20,30,40,50,60,70,80,90,100,110,120,130,140};
+    
+    AnyKinEqInterPolDriver FootDriver = {
+      AnyRevoluteJoint &GroundFootJoint = Main.ShrineLegModel.JointsLegRight.GroundFootJnt;
+      T = .Time;
+      Type = Bspline;
+      Data = {{0.00,
+          0.65,
+          1.86,
+          2.91,
+          4.19,
+          6.13,
+          8.35,
+          10.53,
+          12.95,
+          15.44,
+          17.88,
+          20.34,
+          22.83,
+          25.26,
+          27.44}} * pi/180 * (-1);
+      
+      Reaction.Type = {On};  // The foot is nailed to the floor
+    };
+    
+    AnyKinEqInterPolDriver AnkleDriver = {
+      AnyRevoluteJoint &ShankFootJoint = Main.ShrineLegModel.JointsLegRight.ShankFootJnt;
+      T = .Time;
+      Type = Bspline;
+      Data = {{1.58,
+          -3.12,
+          -6.44,
+          -9.89,
+          -13.02,
+          -15.46,
+          -17.49,
+          -19.37,
+          -20.81,
+          -21.95,
+          -23.13,
+          -24.22,
+          -25.22,
+          -25.92,
+          -26.55}} * pi/180;
+      
+      Reaction.Type = {Off};
+    };
+    
+    AnyKinEqInterPolDriver KneeDriver = {
+      AnyRevoluteJoint &ThighShankJoint = Main.ShrineLegModel.JointsLegRight.ThighShankJnt;
+      T = .Time;
+      Type = Bspline;
+      Data = {{0,
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          130,
+          140}} * pi/180;
+      
+      Reaction.Type = {Off};
+    };
+    
+    AnyKinEqInterPolDriver HipDriver = {
+      AnyRevoluteJoint &PelvisThighJoint = Main.ShrineLegModel.JointsLegRight.PelvisThighJnt;
+      T = .Time;
+      Type = Bspline;
+      Data = {{10.66,
+          0.80,
+          -8.31,
+          -17.24,
+          -26.45,
+          -34.95,
+          -43.35,
+          -51.60,
+          -60.17,
+          -68.51,
+          -76.95,
+          -84.83,
+          -92.31,
+          -100.03,
+          -107.79}} * pi/180;
+      
+      Reaction.Type = {Off};
+    };
+    
+    // This drives the angle of the trunk w.r.t. ground.
+    // These numbers are for pelvis angle
+    AnyKinEqInterPolDriver HATDriver = {
+      AnyKinRotational &Jnt = Main.ShrineLegModel.JointsLegRight.HATangle;
+      Type = Bspline;
+      T = .Time;
+      
+      // Raw values
+      Data = {{-10.77,
+          -5.68,
+          -1.81,
+          1.83,
+          5.66,
+          8.92,
+          11.90,
+          14.66,
+          17.33,
+          19.72,
+          21.89,
+          23.47,
+          24.48,
+          25.14,
+          25.64}} * pi/180 * (-1.0);
+      
+      MeasureOrganizer = {2}; // This associates the measure with the rotation vector
+      Reaction.Type = {Off};  // Artificial muscles on this joint
+    };
+        
+    // This drives the collective center of mass. A value of zero means that
+    // the CoM will stay vertically above global zero which happens to be the
+    // coordinate at which the foot touches the ground. A value different from
+    // zero throws the model slightly off balance. It is then supported by the
+    // artificial muscles between the foot and the ground.
+    
+    // The Data values are Mike's CoM data for the x direction with the initial
+    // foot CoP subtracted.
+    AnyKinEqInterPolDriver CoMDriverX = {
+      AnyKinCoM &Jnt = Main.ShrineLegModel.JointsLegRight.CoM;
+      MeasureOrganizer = {0}; // x=0, y=1, z=2, Rotx=3 and so on
+      Type = Bspline;
+      T = .Time;
+      
+      // Adjusted values relative to ball of foot (global referece frame):
+      Data = {{-96.47,
+               -68.13,
+               -60.72,
+               -51.98,
+               -44.39,
+               -37.38,
+               -31.09,
+               -25.57,
+               -20.99,
+               -16.82,
+               -13.35,
+                -9.91,
+                -6.77,
+                -4.49,
+                -2.93}} * (0.001);
+      
+      Reaction.Type = {Off};
+    };
+    
+  };  // ShrineModel
+  
+  AnyBodyStudy HeelUpStudy = {
+    AnyFolder &Model = Main.ShrineLegModel;
+    AnyFolder &Drivers = Main.DriversHeelUp;
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    
+    tEnd = 140;
+    nStep = 30;
+    Gravity = {0.0,-9.81,0.0};
+  }; // End of study
+    
+}; // End of file

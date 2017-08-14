@@ -1,0 +1,105 @@
+// -----------------------------------------------------
+// Muscles
+// -----------------------------------------------------
+
+AnyFolder Muscles = {
+  
+ 
+  AnyFolder  MuscleModel = { 
+    AnyMuscleModel Brachialis = {
+      F0 = 366;
+    };
+    AnyMuscleModel DeltoideusA = {
+      F0 = 615;
+    };
+    AnyMuscleModel DeltoideusB = {
+      F0 = 615;
+    };
+    AnyMuscleModel Brachioradialis = {
+      F0 = 126;
+    };
+    AnyMuscleModel BicepsShort = {
+      F0 = 172;
+    };
+    AnyMuscleModel TricepsShort = {
+      F0 = 280;
+    };
+    AnyMuscleModel BicepsLong = {
+      F0 = 178;
+    };
+    AnyMuscleModel TricepsLong = {
+      F0 = 312;
+    };
+    
+  }; //End MuscleModel folder
+  
+  AnyFolder  MuscleTopology = { 
+    
+    //---------------------------------
+    AnyViaPointMuscle DeltoideusA = {
+      AnyMuscleModel &MusMdl = ..MuscleModel.DeltoideusA;
+      AnyRefNode &Org = ...GlobalRef.DeltoideusA;
+      AnyRefNode &Ins = ...Segs.UpperArm.DeltoideusA;
+      AnyDrawMuscle DrwMus = {};
+    };
+    
+    //---------------------------------
+    AnyViaPointMuscle DeltodeusB = {
+      AnyMuscleModel &MusMdl = ..MuscleModel.DeltoideusB;
+      AnyRefNode &Org = ...GlobalRef.DeltoideusB;
+      AnyRefNode &Ins = ...Segs.UpperArm.DeltoideusB;
+      AnyDrawMuscle DrwMus = {};
+    };
+    
+    
+    //---------------------------------
+    AnyViaPointMuscle Brachialis = {
+      AnyMuscleModel &MusMdl = ..MuscleModel.Brachialis;
+      AnyRefNode &Org = ...Segs.UpperArm.Brachialis;
+      AnyRefNode &Ins = ...Segs.LowerArm.Brachialis;
+      AnyDrawMuscle DrwMus = {};
+    };
+    
+    //---------------------------------
+    AnyViaPointMuscle Brachioradialis = {
+      AnyMuscleModel &MusMdl = ..MuscleModel.Brachioradialis;
+      AnyRefNode &Org = ...Segs.UpperArm.Brachioradialis;
+      AnyRefNode &Ins = ...Segs.LowerArm.Brachioradialis;
+      AnyDrawMuscle DrwMus = {};
+    };
+    
+    //---------------------------------
+    AnyViaPointMuscle BicepsShort = {
+      AnyMuscleModel &MusMdl = ..MuscleModel.BicepsShort;
+      AnyRefNode &Org = ...Segs.UpperArm.BicepsShort;
+      AnyRefNode &Ins = ...Segs.LowerArm.Biceps;
+      AnyDrawMuscle DrwMus = {};
+    };
+    
+    //---------------------------------
+    AnyViaPointMuscle TricepsShort = {
+      AnyMuscleModel &MusMdl = ..MuscleModel.TricepsShort;
+      AnyRefNode &Org = ...Segs.UpperArm.TricepsShort;
+      AnyRefNode &Ins = ...Segs.LowerArm.Triceps;
+      AnyDrawMuscle DrwMus = {};
+    };
+    
+    //---------------------------------
+    AnyViaPointMuscle BicepsLong = {
+      AnyMuscleModel &MusMdl = ..MuscleModel.BicepsLong;
+      AnyRefNode &Org = ...GlobalRef.BicepsLong;
+      AnyRefNode &Ins = ...Segs.LowerArm.Biceps;
+      AnyDrawMuscle DrwMus = {};
+    };
+    
+    //---------------------------------
+    AnyViaPointMuscle TricepsLong = {
+      AnyMuscleModel &MusMdl = ..MuscleModel.TricepsLong;
+      AnyRefNode &Org = ...GlobalRef.TricepsLong;
+      AnyRefNode &Ins = ...Segs.LowerArm.Triceps;
+      AnyDrawMuscle DrwMus = {};
+    };
+    
+  };//End MuscleTopology folder
+
+};//End Muscle folder

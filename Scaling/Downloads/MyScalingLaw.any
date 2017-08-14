@@ -1,0 +1,132 @@
+/* This file defines a subject-specific morphing law for the Lesson 4 of Scaling tutorial*/
+
+AnyFolder MyScalingLaw = {
+  
+  AnyFunTransform3DLin Transform = {
+    ScaleMat = {{1,0,0},{0,1,0},{0,0,1}};
+    Offset = {0,0,0};
+    PreTransforms = {&.STLTransform, &.ReverseTransform};
+  };
+  
+  AnyFunTransform3DLin2 AffineTransform = 
+  {
+    //PreTransforms = {};
+    Points0 = 
+    {{0.0138187,0.00136731,0.0273618},    // fovea capitis
+      {0.0791212,-0.397138,-0.0524235},    // lateral anterior condyle
+      {0.0940322,-0.395441,-0.0183066},    // medial anterior condyle
+      {0.0380997,-0.188645,-0.0387959},    // anterior mid shaft 
+      {0.0188325,-0.396453,-0.0204564},    // lateral posterior condyle
+      {0.0368766,-0.393677,0.0266919}};    // medial posterior condyle
+    Points1 = 
+    {{0.289913,0.420538,0.0138931},    // fovea capitis
+      {0.322038,0.433232,-0.378636},    // lateral anterior condyle
+      {0.289309,0.426839,-0.372994},    // medial anterior condyle
+      {0.328859,0.425856,-0.175012},    // anterior mid shaft 
+      {0.306293,0.487243,-0.370319},    // lateral posterior condyle
+      {0.261891,0.47585,-0.372696}};    // medial posterior condyle
+    Mode = VTK_LANDMARK_AFFINE;
+  };
+  
+  AnyFunTransform3DLin2 ReverseTransform = {
+    Points0 = .AffineTransform.Points1;
+    Points1 = .AffineTransform.Points0;
+    Mode = VTK_LANDMARK_RIGIDBODY;
+  };
+  
+  AnyFunTransform3DRBF RBFTransform = 
+  {
+    PreTransforms = {&.AffineTransform};
+    RBFDef = 
+    {
+      Type = RBF_ThinPlate;
+      Param = 1;
+    };
+    Points0 = {
+      { 0.0138, 0.0014, 0.0274},
+      { 0.0791,-0.3971,-0.0524},
+      { 0.0940,-0.3954,-0.0183},
+      {-0.0242,-0.0304,-0.0628},
+      { 0.0381,-0.1886,-0.0388},
+      { 0.0188,-0.3965,-0.0205},
+      { 0.0369,-0.3937, 0.0267},
+      {-0.0127, 0.0039, 0.0290},
+      { 0.0188, 0.0092,-0.0153},
+      {-0.0012, 0.0263, 0.0048},
+      {-0.0088,-0.0583, 0.0057},
+      {-0.0311,-0.0214,-0.0227},
+      {-0.0462,-0.0078,-0.0064},
+      {-0.0286,-0.0623,-0.0460},
+      { 0.0010, 0.0013, 0.0069} 
+    };
+    PointNames = {
+      "Medial_Head_Point",
+      "Anterior_LateralCondyle_Point",
+      "Anterior_MedialCondyle_Point",
+      "Anterior_GreaterTrochanter_Point",
+      "Anterior_Shaft_Point",
+      "Posterior_LateralCondyle_Point",
+      "Posterior_MedialCondyle_Point",
+      "Posterior_Head_Point",
+      "Anterior_Head_Point",
+      "Proximal_Head_Point",
+      "Medial_LesserTrochanter_Point",
+      "Distal_TrochantericFossa_Point",
+      "Proximal_Posterior_GreaterTrochanter_Point",
+      "Lateral_Lesser_Trochanter_Point",
+      "Femoral_COR"
+    };
+    
+    Points1 = {
+      { 0.2900, 0.4205, 0.0139},
+      { 0.3220, 0.4332,-0.3786},
+      { 0.2893, 0.4268,-0.3730},
+      { 0.3599, 0.4429,-0.0050},
+      { 0.3289, 0.4259,-0.1750},
+      { 0.3062, 0.4872,-0.3703},
+      { 0.2619, 0.4759,-0.3727},
+      { 0.2900, 0.4405, 0.0139},
+      { 0.3200, 0.4095, 0.0134},
+      { 0.3100, 0.4295, 0.0314},
+      { 0.3089, 0.4599,-0.0355},
+      { 0.3349, 0.4579, 0.0050},
+      { 0.3329, 0.4679, 0.0175},
+      { 0.3519, 0.4599,-0.0355},
+      { 0.3075, 0.4235, 0.0139}
+    };
+    BoundingBox = 
+    {
+      Type = BB_Cartesian;
+      ScaleXYZ = {2, 2, 2};
+      DivisionFactorXYZ = 5*{1, 1, 1};
+    };
+    BoundingBoxOnOff = On;
+  };
+  
+  AnyFunTransform3DSTL STLTransform = 
+  {
+    PreTransforms = {&.RBFTransform};
+    RBFDef.Type = RBF_ThinPlate;
+    AnyFixedRefFrame Input = {
+      AnySurfSTL SourceSurf = {
+        FileName = "SourceFemur.stl";
+        ScaleXYZ = {1, 1, 1};
+      };
+      AnySurfSTL TargetSurf = {
+        FileName = "TargetFemur.stl";
+        ScaleXYZ = {1, 1, 1};
+      };
+    };
+    
+    SurfaceObjects0 = {&Input.SourceSurf};
+    SurfaceObjects1 = {&Input.TargetSurf};
+    //FileName0 = "SourceFemur.stl";    // such definition was used previously
+    //FileName1 = "TargetFemur.stl";    // such definition was used previously
+    NumPoints = 400;
+    BoundingBox.ScaleXYZ = {2, 2, 2};
+    BoundingBox.DivisionFactorXYZ = {1, 1, 1};
+    BoundingBoxOnOff = On;
+  };
+
+};  // MyScalingLaw
+

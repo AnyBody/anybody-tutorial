@@ -1,0 +1,128 @@
+// This model is for the FDK tutorial. It is the starting point for the 
+//definition of a simple knee with force-dependent kinematics features.
+
+Main = {
+  
+  /// The actual body model goes in this folder
+  AnyFolder MyModel = {
+    
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+    };  // Global reference frame
+
+    // Definition of the thigh segment
+    AnySeg Thigh = {
+      r0 = {0.4, 0, 0};
+      Axes0 = RotMat(pi/2,z);
+      Mass = 5;
+      Jii = {0.3, 0.01, 0.3}*0.7;
+
+      // This is the center of the nominal knee joint. Notice that
+      // the actual knee center will vary when we use FDK.
+      AnyRefNode KneeCenter = {
+        sRel = {-0.03, -0.4, 0.0};
+        
+        // Define a cylinder representing the femoral condyle. The quadriceps
+        // will wrap about this cylinder.
+        AnyRefNode SurfCenter = {
+          sRel = {0,0,-0.05};
+          AnySurfCylinder Condyle = {
+            Radius = 0.06;
+            Length = 0.1;
+            AnyDrawParamSurf drw = {
+              RGB = {0, 0, 1};
+            };
+          };
+        };
+      };
+      AnyRefNode HipCenter = {
+        sRel = {0.0, 0.4, 0.0};
+      };
+      
+      // Origin of the quadriceps muscle.
+      AnyRefNode Quadriceps = {
+        sRel = {0.06, 0.0, 0.0};
+      };      
+      AnyDrawSeg drw ={
+        Opacity = 0.5;
+      };
+    };
+    
+    AnySeg Shank = {
+      r0 = {0.8, -0.4, 0.0};
+      Mass = 4;
+      Jii = {0.4, 0.01, 0.4}*0.4;
+      AnyDrawSeg drw ={
+        Opacity = 0.5;
+        RGB = {1,0,0};
+      };
+      
+      AnyRefNode KneeCenter = {
+        sRel = {0.0, 0.4, 0.0};
+      };
+      AnyRefNode Quadriceps = {
+        sRel={0.05, 0.3, 0.0};
+      };
+    };
+
+    // Hip joint between the thigh and ground
+    AnyRevoluteJoint Hip = {
+      AnyRefFrame &ref1 =  .GlobalRef;
+      AnyRefFrame &ref2 =  .Thigh.HipCenter;      
+    };
+    
+    // Fix the hip joint at a constant angle
+    AnyKinEqSimpleDriver HipAngle = {
+      AnyRevoluteJoint &Hip = .Hip;
+      DriverPos = {pi/2};
+      DriverVel = {0};
+    };
+
+    // Knee joint. Notice that this is only going to be the nominal joint.
+    // The actual position of the knee joint center will depend on the forces
+    // acting upon it. Notice that we list the shank before the thigh. This
+    // defines the knee joint in the shank coordinate system and we can
+    // relate the reaction forces to the directon of the tibial plateau.
+    AnyRevoluteJoint KneeJoint = {
+      AnyRefFrame &Shank = .Shank.KneeCenter;
+      AnyRefFrame &Thigh = .Thigh.KneeCenter;
+    };
+
+    // Knee driver- just a simple knee extension.
+    AnyKinEqSimpleDriver KneeDriver = {
+      DriverPos = {pi/2};
+      DriverVel = {-pi/30};
+      AnyRevoluteJoint &KneeJoint = .KneeJoint;
+      Reaction.Type={Off}; // The muscles must carry this movement
+    };
+        
+    // Muscle
+    AnyShortestPathMuscle Quadriceps = {
+      AnyMuscleModel MuscleModel = {
+        F0 = 6000;
+      };
+      AnyRefFrame &org = .Thigh.Quadriceps;
+      AnyParamSurf &wrap = .Thigh.KneeCenter.SurfCenter.Condyle;
+      AnyRefFrame &ins = .Shank.Quadriceps;
+      SPLine = {
+        StringMesh = 50;
+        InitWrapPosVectors = {{0.1, 0.1, 0},{0.1, 0.2, 0}};
+      };
+      AnyDrawMuscle drw = {
+        Bulging = 1;
+        MaxStress = 2500;
+      };    
+    };    
+  }; // MyModel
+  
+  AnyBodyStudy Study = {
+    AnyFolder &Model = .MyModel;
+    Gravity = {0.0, -9.81, 0.0};
+    tStart = 1;
+    tEnd = 10;
+    nStep = 100;
+  };
+  
+};  // Main
+
+

@@ -1,0 +1,89 @@
+/* Demo: Using incude files ----------------------------
+
+This is a demonstration of the use of include files using
+a spatial slider-crank linkage as example.
+
+This is the main file it includes 
+
+- demo.include2.any containig reference frames
+
+and
+
+- demo.include3.any containing segments.
+
+The latter in turn includes 
+
+- demo.include4.any containing the crank segment.
+
+The model has no muscles. It is strictly a kinematical 
+example.
+-----------------------------------------------------------  */
+
+Main = {
+
+  #include "Demo.Include2.any"
+  
+  SliderCrank = {
+  #include "Demo.Include3.any"
+
+ 
+// -----------------------------------------------------
+  // Joints
+  // -----------------------------------------------------
+  AnyFolder Jnts = {
+
+    //---------------------------------
+    AnyRevoluteJoint Shaft = {
+      Axis = x;
+      AnyFixedRefFrame& Ground = ..GlobalRef;
+      AnySeg &Crank = ..Segs.Crank;
+    };
+
+    //---------------------------------
+    AnyUniversalJoint Knee = {
+      Axis1 = z;
+      Axis2 = x;
+      AnyRefNode &CrankNode = ..Segs.Crank.Tip;
+      AnyRefNode &CouplerNode = ..Segs.Coupler.CrankNode;
+    };
+
+    //---------------------------------
+    AnySphericalJoint Ball = {
+      AnyRefNode &CouplerNode = ..Segs.Coupler.SliderNode;
+      AnySeg &Slider = ..Segs.Slider;
+    };
+
+    //---------------------------------
+    AnyPrismaticJoint Rail = {
+      Axis = y;
+      AnyFixedRefFrame& Ground = ..SliderRef;
+      AnySeg &Slider = ..Segs.Slider;
+    };
+
+
+  };
+
+  
+  // -----------------------------------------------------
+  // Actuator
+  // -----------------------------------------------------
+  AnyKinEqSimpleDriver Actuator = {
+    AnyRevoluteJoint &Jnt = .Jnts.Shaft;
+    DriverPos = {0.0};
+    DriverVel = {6.28};
+  };
+
+};
+
+  
+// =======================================================
+// The mechanical study
+// =======================================================
+AnyMechStudy MechStudy = {
+  Gravity = {0,-9.81,0};
+  AnyFolder& Model = Main.SliderCrank;
+
+};
+
+
+}; // End of file

@@ -1,0 +1,37 @@
+// Model for the "Making Things Move" tutorial.
+
+Main = {
+  
+  // The actual body model goes in this folder
+  AnyFolder MyModel = {
+    
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+    };  // Global reference frame
+    
+    AnySeg Pendulum = {
+      Mass = 1;
+      Jii = {1, 0.01, 1}/15;
+      AnyRefNode Origin = {
+        sRel = {0, 0.5, 0};
+      };
+      AnyRefNode P1 = {
+        sRel = {0, -0.5, 0};
+      };
+      AnyDrawSeg drw = {};
+    };
+    
+    AnyRevoluteJoint Joint = {
+      AnyRefFrame &Ground = .GlobalRef;
+      AnyRefFrame &Pendulum = .Pendulum.Origin;
+    };
+    
+  }; // MyModel
+  
+  // The study: Operations to be performed on the model
+  AnyBodyStudy MyStudy = {
+    AnyFolder &Model = .MyModel;
+    Gravity = {0.0, -9.81, 0.0};    
+  };
+  
+};  // Main

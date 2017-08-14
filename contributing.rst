@@ -1,9 +1,5 @@
 .. highlight:: rest
 
-##########
-Contribute
-##########
-
 How to contribute
 *****************
 
@@ -154,14 +150,14 @@ Then run the following commands to install the necesssary packages.
 
 .. code-block:: bat
 
-    conda install sphinx pandoc cloud_sptheme pygments_anyscript
-    pip install sphinxcontrib-fulltoc
+    c:\path\to\anybody_tutorials> conda install sphinx pandoc cloud_sptheme pygments_anyscript
+    c:\path\to\anybody_tutorials> pip install sphinxcontrib-fulltoc
 
 Once the packages are install run this command s to build. 
 
 .. code-block:: bat
 
-    C:\User\mel\anybody-tutorials> make html
+    c:\path\to\anybody_tutorials> make html
 
 Once complete open the file: ``build/html/index.html`` in a browser to view 
 the result.

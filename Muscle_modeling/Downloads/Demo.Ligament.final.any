@@ -1,0 +1,80 @@
+// This model demonstrates the properties of the polynomial
+// ligament model, AnyLigamentModelPol
+
+Main = {
+  
+  AnyFolder LigModel = {
+    
+    // Global Reference Frame
+    AnyFixedRefFrame Ground = {
+      AnyRefNode OriNode = { 
+        sRel = {0.0,0.5,0}; 
+        AnyDrawNode drw = {};
+      };
+      AnyDrawRefFrame drw = {};
+    };  // Global reference frame
+    
+    // The one and only segment - an arm joined to ground
+    AnySeg Arm = {
+      Mass = 0.0;
+      Jii = {0,0,0};
+      AnyRefNode JointNode = { sRel = {-5,0,0}; };
+      AnyRefNode ViaNode = { sRel = {-4.5,0.5,0}; };
+      AnyRefNode InsNode = { sRel = {-4.0,0.0,0}; };
+      AnyDrawSeg drw = { RGB = {0,0,1}; };
+    };
+    
+    AnyRevoluteJoint Joint = {
+      AnyFixedRefFrame &Ground = Main.LigModel.Ground;
+      AnyRefNode &ArmNode = .Arm.JointNode;
+    };
+    
+    // Definition of the ligament and its model
+    AnyViaPointLigament Lig = {
+      AnyRefNode &Ori = .Ground.OriNode;
+      AnyRefNode &Via = .Arm.ViaNode;
+      AnyRefNode &Ins = .Arm.InsNode;
+      AnyLigamentModelPol &Model = .LigModel;
+      AnyDrawPLine drw = {
+        Thickness = 0.05;
+        RGB = {1,0,0};
+      };
+    };
+    
+    AnyLigamentModelPol LigModel = {
+      L0 = 1.30;   // Slack length
+      eps1 = 0.2;  // Strain where F1 is valid
+      F1 = 1000;   // Force in the ligament at strain eps1
+      a0 = 0.5;
+      a1 = 1.0;
+      LinRegionOnOff = Off;
+    }; // LigModel
+    
+  }; 
+  
+  // The study: Operations to be performed on the model
+  AnyBodyStudy LigStudy = {
+    AnyFolder &Model = .LigModel;
+    
+    // We include the driver directly in the study to be able to 
+    // exclude it from a calibration study
+    AnyKinEqSimpleDriver Movement = {
+      DriverPos = {0.0};
+      DriverVel = {-pi/2};
+      AnyRevoluteJoint &Jnt = Main.LigModel.Joint;
+    };
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0};
+  };
+  AnyBodyCalibrationStudy LigCali = {
+    AnyFolder &Model = .LigModel;
+    nStep = 1;
+    // This driver puts the joint into the calibration position
+    AnyKinEqSimpleDriver Position = {
+      DriverPos = {-pi/4};
+      DriverVel = {0.0};
+      AnyRevoluteJoint &Jnt = Main.LigModel.Joint;
+    };
+  };
+  
+  };  // Main

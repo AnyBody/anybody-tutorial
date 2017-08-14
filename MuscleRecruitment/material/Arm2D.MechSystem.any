@@ -1,0 +1,83 @@
+ // -----------------------------------------------------
+// Basic Reference Frames
+// -----------------------------------------------------
+AnyFixedRefFrame GlobalRef = {
+  //AnyDrawRefFrame DrwGlobalRef = {};
+  
+  AnyRefNode DeltoideusA = { sRel = {0.05,0,0}; };
+  AnyRefNode DeltoideusB = { sRel = {-0.05,0,0}; };
+  AnyRefNode BicepsLong = { sRel = {0.1,0,0}; };
+  AnyRefNode TricepsLong = { sRel = {-0.1,0,0}; };
+};
+
+// -----------------------------------------------------
+// Segments
+// -----------------------------------------------------
+AnyFolder Segs = {
+  
+  //---------------------------------
+  AnySeg UpperArm = {
+    r0 = {0,0,-0.2};
+    Axes0 = {{0,0,1},{0,1,0},{-1,0,0}};
+    Mass = 2.0;
+    Jii = {0.005,0.01,0.01};
+    AnyRefNode ShoulderNode = {
+      sRel = {-0.2,0,0};
+    };
+    AnyRefNode ElbowNode = {
+      sRel = {0.2,0,0};
+    };
+    AnyRefNode DeltoideusA = { sRel = {-0.1,0,0}; };
+    AnyRefNode DeltoideusB = { sRel = {-0.1,0,0}; };
+    AnyRefNode Brachialis = { sRel = {0.1,0,0}; };
+    AnyRefNode BicepsShort = { sRel = {-0.1,0,0}; };
+    AnyRefNode Brachioradialis = { sRel = {0.05,0,0}; };
+    AnyRefNode TricepsShort = { sRel = {-0.1,0,0}; };
+    
+    AnyDrawSeg DrwSeg= {};
+  };
+  
+  //---------------------------------
+  AnySeg LowerArm = {
+    r0 = {0.2,0,-0.4};
+    Mass = 2.0;
+    Jii = {0.005,0.01,0.01};
+    AnyRefNode ElbowNode = {
+      sRel = {-0.2,0,0};
+    };
+    AnyRefNode HandNode = {
+      sRel = {0.2,0,0};
+      //AnyDrawRefFrame DrwNode = {};
+    };
+    AnyRefNode Brachialis = { sRel = {-0.1,0,0}; };
+    AnyRefNode Brachioradialis = { sRel = {0.0,0,0}; };
+    AnyRefNode Biceps = { sRel = {-0.15,0,0}; };
+    AnyRefNode Triceps = { sRel = {-0.25,0,-0.05}; };
+    
+    AnyDrawSeg DrwSeg= {};
+  };
+  
+};
+
+// -----------------------------------------------------
+// Joints
+// -----------------------------------------------------
+AnyFolder Jnts = {
+  
+  //---------------------------------
+  AnyRevoluteJoint Shoulder = {
+    Axis = y;
+    AnyFixedRefFrame& Ground = ..GlobalRef;
+    AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
+  };
+  
+  //---------------------------------
+  AnyRevoluteJoint Elbow = {
+    Axis = y;
+    AnyRefNode &UpperArmNode = ..Segs.UpperArm.ElbowNode;
+    AnyRefNode &LowerArmNode = ..Segs.LowerArm.ElbowNode;
+  };
+  
+};
+
+

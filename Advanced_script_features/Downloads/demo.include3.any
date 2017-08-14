@@ -1,0 +1,34 @@
+  
+// -----------------------------------------------------
+  // Segments
+  // -----------------------------------------------------
+  AnyFolder Segs = {
+
+    #include "Demo.Include4.any"
+
+    //---------------------------------
+    AnySeg Coupler = {
+      r0 = {0,2.5,0};
+      Mass = 5.0;
+      Jii = {1,0.5,1};
+      AnyRefNode CrankNode = {
+        sRel = {0,-1,0};
+        AnyDrawRefFrame DrwNode = {};
+      };
+      AnyRefNode SliderNode = {
+        sRel = {0,1,0};
+        AnyDrawRefFrame DrwNode = {};
+      };
+      AnyDrawSeg DrwSeg= {};
+    };
+
+    //---------------------------------
+    AnySeg Slider = {
+      r0 = {0,3.5,0};
+      Mass = 5.0;
+      Jii = {1,0.5,1};
+      AnyDrawSeg DrwSeg= {};
+    };
+
+
+  };

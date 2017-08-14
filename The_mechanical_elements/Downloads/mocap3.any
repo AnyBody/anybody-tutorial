@@ -1,0 +1,82 @@
+// Model for the mocap tutorial
+
+Main = {
+
+  // The actual body model goes in this folder
+  AnyFolder MyModel = {
+
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+    };  // Global reference frame
+    
+    AnySeg Pendulum = {
+      Mass = 1;
+      Jii = {1, 0.01, 1}/10;
+      AnyRefNode Origin = {
+        sRel = {0, 0.5, 0};
+      };
+      AnyRefNode P1 = {
+        sRel = {0, -0.5, 0};
+      };
+      AnyDrawSeg drw = {};
+    };
+    
+    AnyRevoluteJoint Joint = {
+      AnyRefFrame &Ground = .GlobalRef;
+      AnyRefFrame &Pendulum = .Pendulum.Origin;
+    };
+    
+    AnyKinLinear P1Lin = {
+      //Ref = -1;
+      AnyRefFrame &LabOrigin = .GlobalRef;
+      AnyRefFrame &P1 = .Pendulum.P1;
+    };
+    
+    AnyKinLinear M1Lin = {
+      //Ref = -1;
+      AnyRefFrame &LabOrigin = .GlobalRef;
+      AnyRefFrame &M1 = .M1;
+    };
+
+    AnyKinEqInterPolDriver M1Driver = {
+      Type = Bspline;
+      BsplineOrder = 4;
+      FileName = "P2.txt";
+      AnyKinMeasure &Lin = .M1Lin;
+//      MeasureOrganizer = {0};
+      Reaction.Type = {On, On, On};
+    };
+
+    AnyKinEq MarkerBodyConstraint = {
+      AnyKinLinear lin = {
+        AnyRefFrame &Marker = ..M1;
+        AnyRefFrame &Body = ..Pendulum.P1;
+        Ref = 1;
+      };
+      MeasureOrganizer = {0};
+    };    
+    
+    AnySeg M1 = {
+      Mass = 0;
+      Jii = {0, 0, 0}/10;
+    };
+    
+    AnyKinEq RotLock = {
+      AnyKinRotational rot = {
+        Type = RotAxesAngles;
+        AnyRefFrame &ground = ..GlobalRef;
+        AnyRefFrame &Marker = ..M1;
+      };
+    };
+    
+  }; // MyModel
+
+  // The study: Operations to be performed on the model
+  AnyBodyStudy MyStudy = {
+    AnyFolder &Model = .MyModel;
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0};
+    nStep = 1000;
+  };
+
+};  // Main

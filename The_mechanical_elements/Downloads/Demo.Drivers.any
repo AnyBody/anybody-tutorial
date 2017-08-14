@@ -1,0 +1,198 @@
+/**********************************************************
+Demo: Drivers
+
+NOTICE THAT THE DRIVER APPLIED IN THIS FILE ARE A FAST 
+AND POSSIBLE TEMPORARY SOLUTION. THEY ARE NOT THOROUGHLY 
+TESTED BEYOND POSITION ANALYSIS
+
+The file demonstrates a number of special drivers derived from 
+the class AnyKinEq. The drivers are the following:
+
+1) AnyKinEqPolynomialDriver
+    It provides a polynomial function of any order, depending on 
+    the number of coefficients you supply. The function has the 
+    form: p = sum_{i=0}^{n} PolyCoef[i] t^i (LaTeX style)
+
+2) AnyKinEqFourierDriver 
+    It provides Fourier functions of any order. 
+    You can chooce between expansions containing
+    a) A cos(omega t) + B sin(omega t)
+    b) A cos(omega t + B)
+    c) A sin(omega t + B)
+    where omega = 2 PI Freq with Freq as the fundamental
+    frequency of the expansion.
+
+3) AnyKinEqInterPolDriver 
+    This driver interpolated between data points assembled 
+    in the matrix Data. Corresponding time values must be 
+    supplied in the vector T.
+    Currently this is a piecewise linear interpolation, 
+    which is not adequate for case with significant 
+    accelerations.
+
+Notice that this script declares at least one of each 
+type of driver. They are all located in the Main.Drivers 
+folder.
+You apply them by making a reference to your particular 
+choice in the Main.ArmModelStudy. One driver is already 
+included and "commented" lines show the way to include
+the others. But only include one at a time, naturally.
+
+Notice that these drivers are derived from AnyKinEq. However, 
+in the future drivers will be handled by a single driver 
+class and a library of general functions and mathematical 
+expressions, which can be used to specifying the motion.
+
+***********************************************************/
+Main = {
+
+
+  // -----------------------------------------------------
+  // Motion Drivers
+  //   Notice that the reaction force's type is set to zero 
+  //   This indicates that the reactions is inactive, 
+  //   i.e. it does not carry any load
+  // -----------------------------------------------------
+  AnyFolder Drivers = {
+
+    // Polynomial Driver ---------------------------------
+    AnyKinEqPolynomialDriver PolyDriver = {
+      AnyRevoluteJoint &Jnt = Main.ModelDef.Jnts.Shoulder;
+      PolyCoef = { {0.0, 4.0, -10.0} };
+      Reaction.Type = {Off};
+    };
+
+    // Fourier Cos-Sin Driver ---------------------------------
+    AnyKinEqFourierDriver CosSinDriver = {
+      AnyRevoluteJoint &Jnt = Main.ModelDef.Jnts.Shoulder;
+      Type = CosSin;
+      Freq = 1.0;
+      A = { {0.0, 0.0} };
+      B = { {0.0, 3.14} };
+      
+      Reaction.Type = {Off};
+    };
+
+    // Fourier Cos Driver ---------------------------------
+    AnyKinEqFourierDriver CosDriver = {
+      AnyRevoluteJoint &Jnt = Main.ModelDef.Jnts.Shoulder;
+      Type = Cos;
+      Freq = 1.0;
+      A = { {0.0, 6.28} };
+      B = { {0.0,-1.57} };
+      
+      Reaction.Type = {Off};
+    };
+
+    // Fourier Sin Driver ---------------------------------
+    AnyKinEqFourierDriver SinDriver = {
+      AnyRevoluteJoint &Jnt = Main.ModelDef.Jnts.Shoulder;
+      Type = Sin;
+      Freq = 1.0;
+      A = { {0.0, -3.14} };
+      B = { {0.0, 0.0 } };
+      
+      Reaction.Type = {Off};
+    };
+
+
+    // Interpolation Driver ---------------------------------
+    AnyKinEqInterPolDriver InterPolDriver = {
+      AnyRevoluteJoint &Jnt = Main.ModelDef.Jnts.Shoulder;
+      Type = Bspline;
+      T =      {0.00,  0.25, 0.50, 1.01 };
+      Data = { {0.00,  0.00, 3.14, 6.28 } };
+      
+      Reaction.Type = {Off};
+    };
+
+
+    //---------------------------------
+    AnyKinEqSimpleDriver SimpleDriver = {
+      AnyRevoluteJoint &Jnt = Main.ModelDef.Jnts.Shoulder;
+      DriverPos = {0};
+      DriverVel = {13};//{6.2};
+      //DriverVel = {6.2};
+      Reaction.Type = {Off};
+    };
+
+  };
+
+
+
+
+// =======================================================
+// The Model
+// =======================================================
+AnyFolder ModelDef = {
+
+  // -----------------------------------------------------
+  // Basic Reference Frames
+  // -----------------------------------------------------
+  AnyFixedRefFrame GlobalRef = {
+    AnyDrawRefFrame DrwGlobalRef = { 
+      RGB={1,0,0}; 
+      ScaleXYZ={3,0,0}; 
+    };
+
+  };
+
+
+  // -----------------------------------------------------
+  // Segments
+  // -----------------------------------------------------
+  AnyFolder Segs = {
+
+    //---------------------------------
+    AnySeg UpperArm = {
+      r0 = {1.5,0,0};
+      Mass = 2;
+      Jii = {0.5,1,1};
+      AnyRefNode ShoulderNode = {
+        sRel = {-1.5,0,0};
+      };
+
+      AnyDrawSeg DrwSeg= {};
+      //AnyDrawNodes DrwNodes= { ScaleXYZ={0.1,0,0};};
+    };
+
+  };
+
+  // -----------------------------------------------------
+  // Joints
+  // -----------------------------------------------------
+  AnyFolder Jnts = {
+
+    //---------------------------------
+    AnyRevoluteJoint Shoulder = {
+      Axis = z;
+      AnyFixedRefFrame& Ground = Main.ModelDef.GlobalRef;
+      AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
+    };
+
+  };
+
+
+};
+
+
+
+  
+// =======================================================
+// "The body study"
+// =======================================================
+AnyBodyStudy ArmModelStudy = {
+  AnyFolder& Model = .ModelDef;
+  Gravity = {0.0, -9.81, 0.0};
+  //AnyKinEqSimpleDriver& Driver = .Drivers.SimpleDriver;
+  //AnyKinEqPolynomialDriver& Driver = .Drivers.PolyDriver;
+  //AnyKinEqFourierDriver& Driver = .Drivers.CosSinDriver;
+  //AnyKinEqFourierDriver& Driver = .Drivers.CosDriver;
+  //AnyKinEqFourierDriver& Driver = .Drivers.SinDriver;
+  AnyKinEqInterPolDriver& Driver = .Drivers.InterPolDriver;
+
+  InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+};
+
+
+}; // End of file

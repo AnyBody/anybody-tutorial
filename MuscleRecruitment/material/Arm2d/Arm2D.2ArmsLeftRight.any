@@ -1,0 +1,32 @@
+AnyBodyStudy StudyLeft = {
+  AnyFolder& Model = Main.ArmModel.Left;
+  Gravity = .Study.Gravity;
+  
+  AnyFolder &MasterCriterion = .Study.InverseDynamics.Criterion;
+
+  InverseDynamics.Criterion.Type = MasterCriterion.Type;
+  InverseDynamics.Criterion.UpperBoundOnOff = MasterCriterion.UpperBoundOnOff;
+  InverseDynamics.Criterion.AuxLinearTerm.Weight = MasterCriterion.AuxLinearTerm.Weight;
+  InverseDynamics.Criterion.AuxQuadraticTerm.Weight = MasterCriterion.AuxQuadraticTerm.Weight;
+  InverseDynamics.Criterion.Power = MasterCriterion.Power; 
+};
+
+AnyBodyStudy StudyRight = {
+  AnyFolder& Model = Main.ArmModel.Right;
+  Gravity = .Study.Gravity;
+  
+  AnyFolder &MasterCriterion = .Study.InverseDynamics.Criterion;
+
+  InverseDynamics.Criterion.Type = MasterCriterion.Type;
+  InverseDynamics.Criterion.UpperBoundOnOff = MasterCriterion.UpperBoundOnOff;
+  InverseDynamics.Criterion.AuxLinearTerm.Weight = MasterCriterion.AuxLinearTerm.Weight;
+  InverseDynamics.Criterion.AuxQuadraticTerm.Weight = MasterCriterion.AuxQuadraticTerm.Weight;
+  InverseDynamics.Criterion.Power = MasterCriterion.Power;  
+};
+
+
+AnyOperationSequence RunAll = {
+  AnyOperation &Study = .Study.InverseDynamics; 
+  AnyOperation &StudyLeft = .StudyLeft.InverseDynamics; 
+  AnyOperation &StudyRight = .StudyRight.InverseDynamics; 
+};

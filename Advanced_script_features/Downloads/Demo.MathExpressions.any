@@ -1,0 +1,182 @@
+/*
+Demo: Mathematical exprssions (Version 2.0)
+
+This file demonstrates the AnyScript language capabilities
+for parsing mathematical expressions. In general AnyScript
+handles tensors of arbitrary dimension, 
+
+Topics in this file:
+
+- Scalar Expressions
+- Matrix-Vector Algebra
+- Matrix-Vector Component Initialization/Access
+- General Tensors
+
+*/
+
+Main = {
+
+  // =====================================================
+  // Scalar Expressions
+  // =====================================================
+  AnyVar v1 = 1;
+  AnyVar v2 = 2;
+
+  AnyVar v3 = -v1 + (v1+v2*v1)/(v1+v2) + 3.0;
+
+  AnyVar v4 = 4*cos(0.0);
+  AnyVar v5 = -5*sin(-pi/2);
+
+  AnyVar v6 = (6^2)^(0.5);
+
+
+  // =====================================================
+  // Matrix-Vector Algebra
+  // =====================================================
+
+  /* Definition of general matrices and vectors is done by 
+  using {}-braces to enclose arrays. Matrices are arrays
+  of arrays, where the inner array are the rows of the 
+  matrix.
+
+  A vector is naturally a single-dimensional array. The
+  matrix definition implies that vectors are row vectors, 
+  i.e., a matrix is an array of row vectors. 
+  */
+  AnyVector vec2   = {1,2};
+  AnyMatrix mat22  = {{11,12}, 
+                      {21,22}};
+
+  /* Tranposition
+  A matrix or vector can be transposed by "'" operator 
+  (like in Matlab).
+  A column vector exists as a matrix with only one 
+  column, f.ex.
+  */
+  AnyMatrix mat22t = mat22';   // Transposed (2x2) matrix
+  AnyMatrix vec2c  = vec2';    // Column vector
+
+
+  /* Matrix-vector multiplication is written by the "*"
+  operator. Below are a few examples. Notice how the 
+  transposition operation is used to change row vectors
+  into column vectors.
+  */    
+  AnyVar    dot2   = vec2*vec2';      // Inner/dot product
+  AnyVector vec2a  = (mat22*vec2')';
+  AnyVector vec2b  = vec2*mat22;
+
+
+  /* Not all standard operators are yet available. For 
+  instance is the multiplication of a column vector 
+  by a row vector still not allowed and will produce 
+  an error, though it should produce a matrix:
+  
+
+  AnyMatrix mat22a = vec2'*vec2;      // Col. by row vector multiplication
+
+  Such limitations will be adressed in future versions
+  of AnyScript.
+  */
+
+
+  /* Fixed-size vectors and matrices: Whereas AnyVector
+  and AnyMatrix can hold an arbitrary number of elements, 
+  special classes exist for fixed-size vectors and 
+  matrices. The most frequently needed are the ones for
+  geometrical representation, i.e., geometrical vectors
+  with three components and thre by three transformation 
+  matrices. Classes for holding such objects are AnyVec3
+  and AnyMat33.
+  Apart from having predefined number of elements, they 
+  do not differ from the more general classes.
+  */
+
+  AnyVec3  vec3 = {1,2,3};
+  //AnyVec3  vec3a = {1,2}; // This is an error because AnyVec3 is predefined to having 3 components 
+
+  AnyMat33 mat33 = {{11,12,13}, 
+                    {21,22,23}, 
+                    {31,32,33}};
+
+
+  // =====================================================
+  // Matrix-Vector Component Initialization/Access
+  // =====================================================
+
+  /* Values and expressions inside the braces 
+  The components of a vector or matrix can be initialized
+  by mathematical expressions inside the braces. These 
+  expressions can cover more than a single element as seen for 
+  the matrix 'matI' declared below.
+  */
+  AnyMatrix matA = {{v1, 1.0, v2+pi}, 
+                     vec3, 
+                     2*vec3*mat33};
+
+
+  /* Currently it is not possible to append vectors or 
+  matrices together. For instance will
+ 
+  AnyVector vecapp = {vec3, 1, vec3};
+
+  be a error and not, as could be expected, produce a 
+  vector with 7 elements.
+  This type of functionality will be addressed in a 
+  future release.
+  */
+
+
+  /* Component access is possible by the "[index]" 
+  operator. Notice that this operator performs in C-style
+  meaning that it takes one argument only. Elements of 
+  multiple-dimensional arrays can be accessed by several
+  operators, see the examples below.
+  Notice that all arrays (like in C) are numbered from 0.
+  */
+
+  AnyVector vecB = {0,0};
+  //AnyVector vecB;  // Not allowed without initilization
+  //vecB[0] = 10.0;  // Not allowed - double initilization
+
+  AnyVar    v7   = vecB[1];            // second element 
+  AnyVar    v8   = mat22[1][0];        // element (2,1)
+  AnyVector vecC = mat22[0];           // first row
+  AnyVector vecD = {vecB[1], vecB[0]}; // swapped elements
+
+  
+
+  // =====================================================
+  // General Tensors
+  // =====================================================
+
+  /* Tensors with more than two dimensions.
+  All floating point objects are actually derived from the 
+  class AnyFloat which is a general multi-dimensional 
+  tensor. Scalars (AnyVar), vectors, and matrices are 
+  simply special cases with restrictions on the number of
+  dimensions.
+  A matrix can be thought of as an array of vectors, and 
+  similarly a three dimensional tensor can be an array of
+  matrices (or a matrix of vectors).
+  Below we initialize some three-dimensional tensors, 
+  which illustrate these issues.
+  */
+
+  AnyFloat tensor1 = { 
+    {{111,112}, {121,122}},
+    {{211,212}, {221,222}},
+    {{311,312}, {321,322}}
+  }; 
+  AnyFloat tensor2 = { mat22, mat22, mat22 }; 
+  AnyFloat tensor3 = { {vec2, vec2}, {vec2a, vec2b} };
+
+  // Examples of 4- and 5-dimensional tensors
+  AnyFloat tensor4 = {tensor1, tensor2};
+  AnyFloat tensor5 = { {tensor1, tensor2}, {tensor1, tensor2} };
+
+  // Access to multiple dimensional tensors
+  AnyVar ElementInTensor5 = tensor5[1][1][1][1][1];
+  AnyMatrix MatrixInTensor5 = tensor5[1][1][1];
+  AnyVector MatrixFromTensor5 = vec2*tensor5[1][1][1];
+};  // Main

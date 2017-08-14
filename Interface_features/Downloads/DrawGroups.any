@@ -1,0 +1,19 @@
+  AnyFolder DrawGroups = {
+    
+    AnyDrawGroup AllSegments = {
+      Objects = ObjSearch("Main.ArmModel.Segs.*");
+    };
+    
+    AnyDrawGroup AllMuscles = {
+      Objects = ObjSearch("Main.ArmModel.Muscles.*");
+    };
+    
+    AnyDrawGroup AllDeltoidMuscles = {
+      Objects = ObjSearch("Main.ArmModel.Muscles.Del*.DrwMus");
+    };
+    
+    AnyDrawGroup All = {
+      Objects = ObjSearchRecursive("Main.ArmModel","*");
+    };
+    
+  };

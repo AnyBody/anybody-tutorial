@@ -9,7 +9,7 @@ and the BikeModel, but even those differ slightly due to their different
 creators:
 
 Typically, you can find 3 folders and one (or several) main files in the
-application. The *main file* (\*.main.any) is the file to load in
+application. The *main file* (``*.main.any``) is the file to load in
 AnyBody and from where you run the application. There is an Input folder
 that contains the data necessary as input for the application, this can
 be for example motion capture (C3D) files for a MOCAP driven model, or

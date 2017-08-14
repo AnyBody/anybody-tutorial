@@ -1,0 +1,263 @@
+Main = {
+  
+  /// The actual body model goes in this folder
+  AnyFolder MyModel = {
+    
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+      AnyDrawRefFrame drw={};
+    };  // Global reference frame
+    
+    AnyVec3 LowerArmInitPos= {1,0.0,0.0};
+    AnyVec3 UpperArmInitPos= {1.5,0.0,0.0};
+    
+    
+    AnySeg UpperArm = 
+    {
+      r0 = .UpperArmInitPos;
+      rDot0 = {0.0, 0.00, 0.00};
+      Mass = 10;
+      Jii = {0.3, 0.01, 0.3};
+      
+      AnyRefNode Elbow = {
+        sRel = {0.0,-0.4,0.0};
+        
+        AnyRefNode Attach1 = {sRel={0.0,0.0,0.1};AnyDrawNode drw ={};};        
+        AnyRefNode Attach2 = {sRel={0.0,0.0,-0.1};AnyDrawNode drw ={};};
+        
+      };
+      
+      AnyRefNode Muscle1 = {
+        sRel = {0.03,0.2,0.0};
+      };
+      
+      AnyRefNode Muscle2 = {
+        sRel = {0.03,0.00,0.05};
+      };
+      
+      AnyRefNode Muscle3 = {
+        sRel = {0.03,0.0,-0.05};
+      };
+      
+      
+      AnyDrawSeg drw ={InertiaScale=1;};
+      
+    };
+    
+    AnySeg LowerArm = 
+    {
+      r0 = .LowerArmInitPos;
+      rDot0 = {0.0, 0.00, 0.00};
+      Mass = 10.0;
+      Jii = {0.01, 0.4, 0.4};
+      AnyDrawSeg drw ={InertiaScale=1;RGB={1,0,0};};
+      
+      AnyRefNode Elbow = {
+        sRel = {-0.4,0.0,0.0};
+        
+        AnyRefNode Attach1 = {sRel={0.0,0.0,0.1};AnyDrawNode drw ={};};
+        AnyRefNode Attach2 = {sRel={0.0,0.0,-0.1};AnyDrawNode drw ={};};        
+      };
+      
+      AnyRefNode Hand = {
+        sRel = {0.4,0.0,0.0};
+        AnyDrawNode drw ={};
+      };
+      
+      AnyRefNode Muscle1 = {
+        sRel = {0.2,0.03,0.0};
+      };
+      
+      AnyRefNode Muscle2 = {
+        sRel = {0.0,0.03,0.05};
+      };
+      
+      AnyRefNode Muscle3 = {
+        sRel = {0.0,0.03,-0.05};
+      };
+      
+    };
+    
+    AnyForce3D FApp = 
+    {
+      F = {0, -200, 0};
+      AnyRefFrame &ref2 = .LowerArm.Hand; 
+    };
+    
+    AnyDrawVector DrawApp = 
+    {
+      
+      Vec = 0.0010*.FApp.F;
+      PointAway = On;
+      Line = 
+      {
+        Style = Line3DStyleFull;
+        Thickness = 0.01;
+        RGB = {0, 0, 0};
+        Start = 
+        {
+          Style = Line3DCapStyleNone;
+          RGB = {0, 0, 0};
+          Thickness = 2;
+          Length = 2;
+        };
+        End = 
+        {
+          Style = Line3DCapStyleArrow;
+          RGB = {0, 0, 0};
+          Thickness = 0.04;
+          Length = 0.03;
+        };
+      };
+      
+      AnyRefFrame &ref2 = .LowerArm.Hand; 
+      
+    };
+    
+    
+    
+    // Muscles
+    AnyMuscleModel MuscleModel = 
+    {
+      F0 = 2000;
+    };
+    
+    AnyViaPointMuscle M1 = 
+    {
+      AnyMuscleModel &model = .MuscleModel;
+      AnyRefFrame &org = .UpperArm.Muscle1;
+      AnyRefFrame &ins = .LowerArm.Muscle1;
+      AnyDrawMuscle drw = {};    
+    };
+    
+    AnyViaPointMuscle M2 = 
+    {
+      AnyMuscleModel &model = .MuscleModel;
+      AnyRefFrame &org = .UpperArm.Muscle2;
+      AnyRefFrame &ins = .LowerArm.Muscle2;
+      AnyDrawMuscle drw = {};
+    };
+    
+    AnyViaPointMuscle M3 = 
+    {
+      AnyMuscleModel &model = .MuscleModel;
+      AnyRefFrame &org = .UpperArm.Muscle3;
+      AnyRefFrame &ins = .LowerArm.Muscle3;
+      AnyDrawMuscle drw = {};      
+    };
+    
+    // Joint constraints 
+    
+    // Ground the Upper arm 
+    AnyStdJoint LockUpperArm = {
+      AnyRefFrame &ref1 =  .GlobalRef;
+      AnyRefFrame &ref2 =  .UpperArm.Elbow;      
+    };    
+    
+    
+    //   // Elbow model
+    //    AnyRevoluteJoint Elbow = 
+    //    {
+    //      Axis = z;
+    //      AnyRefFrame &ref1 = .UpperArm.Elbow;
+    //      AnyRefFrame &ref2 = .LowerArm.Elbow;
+    //      AnyDrawStdJoint drw ={};
+    //    };
+    
+    AnyVar Stiffness=1000;
+    
+    AnyForce Spring1 = 
+    {
+      F = {-.Stiffness*lin.Pos[0],-.Stiffness*lin.Pos[1],-.Stiffness*lin.Pos[2]};
+      
+      AnyKinLinear lin = 
+      {
+        //Ref = -1;
+        AnyRefFrame &ref1 = Main.MyModel.UpperArm.Elbow.Attach1;
+        AnyRefFrame &ref2 = Main.MyModel.LowerArm.Elbow.Attach1;
+        AnyDrawPLine drw ={Thickness=0.01;RGB={1,0,0};};
+      };
+      
+    };
+    
+    AnyForce Spring2 = 
+    {
+      F = {-.Stiffness*lin.Pos[0],-.Stiffness*lin.Pos[1],-.Stiffness*lin.Pos[2]};
+      
+      AnyKinLinear lin = 
+      {
+        //Ref = -1;
+        AnyRefFrame &ref1 = Main.MyModel.UpperArm.Elbow.Attach2;
+        AnyRefFrame &ref2 = Main.MyModel.LowerArm.Elbow.Attach2;
+        AnyDrawPLine drw ={Thickness=0.01;RGB={1,0,0};};
+      };
+      
+    };
+    
+    
+    
+    // Elbow driver
+    AnyKinEqSimpleDriver ElbowDriver = {
+      DriverPos = {0.0};
+      DriverVel = {pi/40};
+      
+      AnyKinMeasureOrg org = {
+        AnyKinRotational rot = {
+          Type = RotAxesAngles;
+          AnyRefFrame &ref1 = ...UpperArm.Elbow;
+          AnyRefFrame &ref2 = ...LowerArm.Elbow;          
+        };
+        MeasureOrganizer = {0};
+      };
+      Reaction.Type={Off}; // The muscles most carry this movement
+      
+    };
+    
+    AnyKinEq FDK_eq = {
+      
+      AnyKinLinear lin = {
+        //Ref = -1;
+        AnyRefFrame &ref1 = Main.MyModel.UpperArm.Elbow;
+        AnyRefFrame &ref2 = Main.MyModel.LowerArm.Elbow;
+      };
+      
+      AnyKinMeasureOrg org = {
+        MeasureOrganizer = {1,2};
+        AnyKinRotational rot = 
+        {
+          Type = RotAxesAngles;
+          //Axis1 = z;
+          //Axis2 = y;
+          //Axis3 = x;
+          //AngVelOnOff = Off;
+          //AngVelGlobal = Off;
+          AnyRefFrame &ref1 = Main.MyModel.UpperArm.Elbow;
+          AnyRefFrame &ref2 = Main.MyModel.LowerArm.Elbow;
+        };
+      };
+      
+      CType={ForceDep,ForceDep,ForceDep,ForceDep,ForceDep};
+      Reaction.Type={Off,Off,Off,Off,Off};
+      
+    };
+    
+    
+    
+  }; // MyModel
+  
+  
+  AnyBodyStudy MuscStudy = {
+    AnyFolder &Model = .MyModel;
+    Gravity = {0.0, -9.81, 0.0};
+    tStart = 1;
+    tEnd = 10;
+    nStep = 100;
+    
+    InverseDynamics.Criterion.Power=2.0;
+    InverseDynamics.ForceDepKinOnOff=On;
+    
+  };
+  
+};  // Main
+
+

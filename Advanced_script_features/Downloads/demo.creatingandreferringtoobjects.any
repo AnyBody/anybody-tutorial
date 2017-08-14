@@ -1,0 +1,128 @@
+/* Demo: Declaration of and References to Objects
+
+This demo shows examples of how to declare objects in 
+AnyScript. It illsutrates how the objects can be put into
+a tree-like data structure using the folders of 
+AnyScript, i.e., AnyFolder.
+
+After loading you can inspect the data structure in the 
+tree view left of this script.
+
+Firstly, we demonstrate declarations of objects. We will 
+limit this to declaration of simple numerical variables 
+(AnyVar), because the scope here is merely to show the 
+rules of declaration and not various special objects.
+
+Secondly, we demonstrate the referencing to existing 
+objects (here just variables and folders), i.e., how 
+you name an object so that it can be found in the data 
+structure.
+
+*/
+
+Main = {
+
+  //-------------------------------------------------------
+  // Declaration
+  //-------------------------------------------------------
+
+  // Declaration of variables in the global Main folder
+  // and the sub-folders F1 and F2.
+  AnyVar v1 = 1.0;
+
+  AnyFolder F1 = {
+    AnyVar v2 = 2.0;
+    AnyFolder F2 = {
+      AnyVar v3 = 3.0;
+    };
+  };
+
+  // You can add stuff to an existing folder in two ways
+  // (1) Either by accessing the Folder directly
+  F1 = { 
+    AnyVar v4 = 4.0; 
+    F2 = {
+      AnyVar v5 = 5.0; 
+    };
+  };
+  // Here we added variables to both F1 and F2. 
+
+  // You can also add stuff to sublevels of folders:
+  F1.F2 = { 
+    AnyVar v6=10;
+  };
+
+  // (2) or by accessing the Folder via an reference
+  // (more details about referencing follow below)
+  AnyFolder &refF1 = F1;
+  refF1 = {
+    AnyVar v7 = 7.0;
+  };
+
+  AnyFolder &refF2 = F1.F2;
+  refF2 = {
+    AnyVar v8 = 8.0;
+  };
+
+
+  //-------------------------------------------------------
+  // Referencing
+  //-------------------------------------------------------
+
+  // if your current position in the file is in the same 
+  // folder as the object you want refer to, then it is 
+  // easy. Here we are in the global folder Main:
+
+  AnyVar v9 = v1; // v9 refers/is equal to v1. 
+  // Try double-clicking on v9 in the tree view after 
+  // loading the model. It is indeed equal to v1's value.
+
+  // if your position is not on the same level as the 
+  // object you need referencing to, you can specify
+  // the "path" using '.' to separate folder levels.
+  // This is referred to as "long names" of objects.
+
+  // There are two apporaches
+  // (1) Complete name specification:
+  //     You start from Main specifying the full "path".
+  //     This is also called the complete name of the object.
+  // (2) Relative long-name specification:
+  //     You start from your current location and go to 
+  //     sub-folders by adding the sub-folder name after 
+  //     a '.'. A '.' in front move you one level up to 
+  //     the super-folders
+
+  // Here are some simple examples:
+  AnyVar v10 = Main.F1.v2;  // Global path or complete name
+  AnyVar v11 = F1.v2;       // Relative path
+
+  // Here are examples invovlving referencing to a higher 
+  // level from a folder
+  AnyFolder F3 = {
+    AnyFolder &refF1 = .F1;
+    refF1 = {
+      AnyVar v12 = ..v1; 
+      AnyVar v13 = Main.F1.v2; 
+    };
+
+  };
+
+  // Complete names imply that the word Main is 
+  // special. Avoid using this for anything else, i.e.,
+  // do not attempt to making other objects with this name.
+  // The compiler will prevent you from doing this 
+  // succesfully.
+
+  //AnyVar Main = 10.0; // Not Allowed !
+  //AnyVar v8 = Main;   // Not Allowed !
+
+  // You can also refer to things that are declared later 
+  // in the script file, for instance:
+  AnyVar v14 = v15;
+  AnyVar v15 = 15.0;
+  
+  // In this sense the place in the file does not matter.
+  // References are linked after all object are created 
+  // and put into the data structure.
+ 
+};  // Main

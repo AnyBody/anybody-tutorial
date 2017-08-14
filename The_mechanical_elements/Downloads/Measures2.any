@@ -1,0 +1,240 @@
+  // Todo: Write a small description of your model here
+
+Main = {
+
+  // The actual body model goes in this folder
+  AnyFolder ArmModel = {
+
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+
+      AnyDrawRefFrame DrwGlobalRef = {
+        ScaleXYZ = {1,1,1}/10;
+      };
+      AnyRefNode Shoulder = { 
+        sRel = {0,0,0}; 
+      };
+      AnyRefNode DeltodeusA = { 
+        sRel = {0.05,0,0}; 
+      };
+      AnyRefNode DeltodeusB = { 
+        sRel = {-0.05,0,0}; 
+      };
+      AnyRefNode BicepsLong = { 
+        sRel = {0.1,0,0}; 
+      };
+      AnyRefNode TricepsLong = { 
+        sRel = {-0.1,0,0}; 
+      };
+
+    };  // Global reference frame
+
+    // Segments
+    AnyFolder Segs = {
+     AnySeg UpperArm = {
+        r0 = {0,-0.15,0};
+        Axes0 = {{0,1,0},{-1,0,0},{0,0,1}};
+        Mass = 2.0;
+        Jii = {0.005,0.01,0.01};
+        AnyDrawSeg DrwSeg = {};
+        AnyRefNode ShoulderNode = {
+          sRel = {-0.2,0,0}; 
+        };
+        AnyRefNode ElbowNode = {
+          sRel = {0.2,0,0}; 
+        };
+        AnyRefNode DeltodeusA = { 
+          sRel = {-0.1,0,0.02}; 
+        };
+        AnyRefNode DeltodeusB = { 
+          sRel = {-0.1,0,-0.02}; 
+        };
+        AnyRefNode Brachialis = { 
+          sRel = {0.1,0,0.01}; 
+        };
+        AnyRefNode BicepsShort = { 
+          sRel = {-0.1,0,0.03}; 
+        };
+        AnyRefNode Brachioradialis = { 
+          sRel = {0.05,0,0.02}; 
+        };
+        AnyRefNode TricepsShort = { 
+          sRel = {-0.1,0,-0.01}; 
+        };
+      }; // UpperArm
+
+      AnySeg LowerArm = {
+        r0 = {0.25,-0.3,0};
+        Mass = 2.0;
+        Jii = {0.005,0.01,0.01};
+        AnyRefNode ElbowNode = {
+          sRel = {-0.2,0,0};
+        };
+        AnyRefNode HandNode = {
+          sRel = {0.2,0,0};
+        };
+        AnyRefNode Brachialis = { 
+          sRel = {-0.1,0,0.02}; 
+        };
+        AnyRefNode Brachioradialis = { 
+          sRel = {0.0,0,0.02}; 
+        };
+        AnyRefNode Biceps = { 
+          sRel = {-0.15,0,0.01}; 
+        };
+        AnyRefNode Triceps = { 
+          sRel = {-0.25,0,-0.05}; 
+        };
+
+         AnyDrawSeg DrwSeg = {};
+
+      }; // LowerArm
+    };  // Segs folder
+
+    AnyFolder Jnts = {
+
+      //---------------------------------
+      AnyRevoluteJoint Shoulder = {
+        Axis = z;
+        AnyRefNode &GroundNode = ..GlobalRef.Shoulder;
+        AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
+      }; // Shoulder joint
+
+      AnyRevoluteJoint Elbow = {
+        Axis = z;
+        AnyRefNode &UpperArmNode = ..Segs.UpperArm.ElbowNode;
+        AnyRefNode &LowerArmNode = ..Segs.LowerArm.ElbowNode;
+      }; // Elbow joint
+
+    }; // Jnts folder
+    
+    AnyFolder KinematicMeasures = {
+      AnyKinLinear WristPos = {
+        
+        // These are the nodes that the measure refers to
+        AnyFixedRefFrame &Ground = Main.ArmModel.GlobalRef;
+        AnyRefNode &UpperArmNode = Main.ArmModel.Segs.LowerArm.HandNode;
+        
+        Ref = 0;         
+      };
+      
+    }; // KinematicMeasures
+
+    AnyFolder Drivers = {
+
+      AnyKinEqSimpleDriver HandMotionXY = {
+        
+        // A driver takes any number of measures as input and concatenates
+        // the elements of the driver vectors in one long vector. In this
+        // case we wish only to drive one measure, namely the XYZmeasure
+        // defined above. This means that the driver will work on a vector
+        // with XYZdriver's three components.
+        
+        AnyKinLinear &Jnt = ..KinematicMeasures.WristPos;
+        
+        // The default is that the driver works on all the components assembled
+        // in its vector. However, in most cases we wish to drive just a 
+        // subset of the components.MeasureOrganizer picks them out for us
+        // and creates a vector that is a subset by simply referring to
+        // the components in the driver's vector. In this case, the driver's vector
+        // contains the x, y, and z coordinates of the XYZmeasure, numbered
+        // 0, 1 and 2 respectively. We want to drive only the y coordinate, 
+        // so we specify MeasureOrganizer as a vector with just one component:
+        
+        MeasureOrganizer = {0,1};
+        
+        // These parameters are the initial position, velocity and acceleration
+        // of the simple driver. Each item has two coordinates because we are 
+        // driving both x and y.
+        DriverPos = {0.4,-0.5};
+        DriverVel = {0.2,0.5};
+        DriverAcc = {0.0,0.0};
+        Reaction.Type = {Off,Off};  // The muscles must do the work
+      };
+      
+    }; // Driver folder
+
+    AnyFolder Muscles = {
+      // Simple muscle model with constant strength = 300 Newton
+      AnyMuscleModel MusMdl = {
+        F0 = 300;
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle Brachialis = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.Brachialis;
+        AnyRefNode &Ins = ..Segs.LowerArm.Brachialis;
+        AnyDrawMuscle DrwMus = {};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle DeltodeusA = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.DeltodeusA;
+        AnyRefNode &Ins = ..Segs.UpperArm.DeltodeusA;
+        AnyDrawMuscle DrwMus = {};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle DeltodeusB = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.DeltodeusB;
+        AnyRefNode &Ins = ..Segs.UpperArm.DeltodeusB;
+        AnyDrawMuscle DrwMus = {};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle Brachioradialis = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.Brachioradialis;
+        AnyRefNode &Ins = ..Segs.LowerArm.Brachioradialis;
+        AnyDrawMuscle DrwMus = {};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle BicepsShort = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.BicepsShort;
+        AnyRefNode &Ins = ..Segs.LowerArm.Biceps;
+        AnyDrawMuscle DrwMus = {};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle TricepsShort = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..Segs.UpperArm.TricepsShort;
+        AnyRefNode &Ins = ..Segs.LowerArm.Triceps;
+        AnyDrawMuscle DrwMus = {};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle BicepsLong = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.BicepsLong;
+        AnyRefNode &Ins = ..Segs.LowerArm.Biceps;
+        AnyDrawMuscle DrwMus = {};
+      };
+
+      //---------------------------------
+      AnyViaPointMuscle TricepsLong = {
+        AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
+        AnyRefNode &Org = ..GlobalRef.TricepsLong;
+        AnyRefNode &Ins = ..Segs.LowerArm.Triceps;
+        AnyDrawMuscle DrwMus = {};
+      };
+
+    }; // Muscles folder
+
+
+
+  }; // ArmModel
+
+  // The study: Operations to be performed on the model
+  AnyBodyStudy ArmModelStudy = {
+    AnyFolder &Model = .ArmModel;
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0};
+  };
+
+};  // Main

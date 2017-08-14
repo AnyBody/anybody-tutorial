@@ -44,14 +44,14 @@ For now, let's make a new folder and define two drivers:
            //---------------------------------
            AnyKinEqSimpleDriver ShoulderMotion = {
              AnyRevoluteJoint &Jnt = ..Jnts.Shoulder;
-             DriverPos = {-100\*pi/180};
-             DriverVel = {30\*pi/180};
+             DriverPos = {-100*pi/180};
+             DriverVel = {30*pi/180};
            }; // Shoulder driver
            //---------------------------------
            AnyKinEqSimpleDriver ElbowMotion = {
              AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
-             DriverPos = {90\*pi/180};
-             DriverVel = {45\*pi/180};
+             DriverPos = {90*pi/180};
+             DriverVel = {45*pi/180};
            }; // Elbow driver
          }; // Driver folder§
 

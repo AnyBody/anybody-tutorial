@@ -1,0 +1,174 @@
+Main = {
+ 
+  #define TIMELOAD
+  //#define MOTION
+  
+  AnyFolder Param = {
+    AnyVar ShoulderAngle = 1.5;
+    AnyVar ElbowAngle = -1.3;
+    AnyVar ElbowAngleVel = -pi/2.0;
+    AnyVar Load = 20;
+    AnyVar ModelWidth = 0.5;
+    AnyVar g = 0.0;
+  };
+  
+  AnyFixedRefFrame Global = {
+    AnyDrawRefFrame drw = {};
+  };
+  
+  // =======================================================
+  // The Arm Model
+  // =======================================================
+  AnyFolder ArmModel = {
+    
+    AnyFolder Right = {
+      
+      #include "Arm2D.MechSystem.any"
+      #include "Arm2D.Muscles.Simple.any"
+      
+      GlobalRef.Origin = {0,-Main.Param.ModelWidth/2.0,0};
+      
+      //---------------------------------
+      AnyKinEqSimpleDriver JointMotion = {
+        AnyJoint &Jnt1 = .Jnts.Shoulder;
+        AnyJoint &Jnt2 = .Jnts.Elbow;
+        DriverPos = {Main.Param.ShoulderAngle,Main.Param.ElbowAngle};
+        #ifdef MOTION
+        DriverVel = {0.0,Main.Param.ElbowAngleVel};
+        #else
+        DriverVel = {0.0,0.0};
+        #endif
+        Reaction.Type = {Off,Off};
+      };
+      
+      AnyForce3D HandLoad = {
+        AnyRefNode &HandNode = .Segs.LowerArm.HandNode;
+
+        #ifdef TIMELOAD
+        F = Main.ArmModel.Left.HandLoad.F*2*t;  // Global force in Newton
+        #else
+        F = Main.ArmModel.Left.HandLoad.F*2;  // Global force in Newton
+        #endif
+      };
+      
+    }; // End of Right
+    
+    AnyFolder Left = {
+      
+      #include "Arm2D.MechSystem.any"
+      #include "Arm2D.Muscles.Simple.any"
+      
+      GlobalRef.Origin = {0,Main.Param.ModelWidth/2.0,0};
+      
+      
+      //---------------------------------
+      AnyKinEqSimpleDriver JointMotion = {
+        AnyJoint &Jnt1 = .Jnts.Shoulder;
+        AnyJoint &Jnt2 = .Jnts.Elbow;
+        DriverPos = {Main.Param.ShoulderAngle,Main.Param.ElbowAngle};
+        #ifdef MOTION
+        DriverVel = {0.0,Main.Param.ElbowAngleVel};
+        #else
+        DriverVel = {0.0,0.0};
+        #endif
+        Reaction.Type = {Off,Off};
+      };
+      
+      AnyForce3D HandLoad = {
+        AnyRefNode &HandNode = .Segs.LowerArm.HandNode;
+        F = {Main.Param.Load,0,-Main.Param.Load};  // Global force in Newton
+      };
+      
+    }; // End of Left
+    
+  };//End of ArmModel
+  
+  
+  // =======================================================
+  // "The body studies"
+  // =======================================================
+  AnyOperationSequence RunAll = {
+    AnyOperation &Quadratic = .Quadratic.RunAll; 
+    AnyOperation &MinMaxStrict = .MinMaxStrict.RunAll; 
+    AnyOperation &MinMaxAux = .MinMaxAux.RunAll; 
+    AnyOperation &PNorm = .Polynomial.RunAll; 
+  };  
+
+  AnyFolder Linear = {
+    
+    AnyBodyStudy Study = {
+      AnyFolder& Model = Main.ArmModel;
+      Gravity = {0,0,Main.Param.g};
+      
+      InverseDynamics.Criterion.Type = MR_Linear;
+    };
+    
+    #include "Arm2D.2ArmsLeftRight.any"      
+  };
+
+    
+  AnyFolder Quadratic = {
+    
+    AnyBodyStudy Study = {
+      AnyFolder& Model = Main.ArmModel;
+      Gravity = {0,0,Main.Param.g};
+      
+      InverseDynamics.Criterion.Type = MR_Quadratic;
+    };
+    
+    #include "Arm2D.2ArmsLeftRight.any"      
+  };
+
+  AnyFolder QuadraticAux = {
+    
+    AnyBodyStudy Study = {
+      AnyFolder& Model = Main.ArmModel;
+      Gravity = {0,0,Main.Param.g};
+      
+      InverseDynamics.Criterion.Type = MR_QuadraticAux;
+      InverseDynamics.Criterion.AuxLinearTerm.Weight = 1.0;
+    };
+    
+    #include "Arm2D.2ArmsLeftRight.any"      
+  };
+  
+  AnyFolder MinMaxStrict = {
+    
+    AnyBodyStudy Study = {
+      AnyFolder& Model = Main.ArmModel;
+      Gravity = {0,0,Main.Param.g};
+      
+      InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    };
+    
+    #include "Arm2D.2ArmsLeftRight.any"      
+  };
+
+  AnyFolder MinMaxAux = {
+    
+    AnyBodyStudy Study = {
+      AnyFolder& Model = Main.ArmModel;
+      Gravity = {0,0,Main.Param.g};
+      
+      InverseDynamics.Criterion.Type = MR_MinMaxAux;
+      InverseDynamics.Criterion.AuxQuadraticTerm.Weight = 0.1;
+    };
+    
+    #include "Arm2D.2ArmsLeftRight.any"      
+  };
+
+  AnyFolder Polynomial = {
+    
+    AnyBodyStudy Study = {
+      AnyFolder& Model = Main.ArmModel;
+      Gravity = {0,0,Main.Param.g};
+      
+      InverseDynamics.Criterion.Type = MR_Polynomial;
+      InverseDynamics.Criterion.Power = 5;
+    };
+    
+    #include "Arm2D.2ArmsLeftRight.any"      
+  };
+  
+  
+}; // End of file
