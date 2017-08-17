@@ -1,17 +1,60 @@
-.. highlight:: rest
+Contributing
+####################
 
-How to contribute
-*****************
 
-Every contribution is most welcome. See the `repository source files hosted 
-on Github <https://github.com/AnyBody/anybody-tutorial>`_ 
+We highly encourage contributions to Tutorials! If you find typos, missing links or anything else wrong, don't hesite to fix it. 
+It is as easy as forking `the repository on GitHub <https://github.com/AnyBody/anybody-tutorial>`__ , making your changes, and issuing a pull request. 
 
+If you have any questions about this process don’t hesitate to ask.
+
+
+Building the tutorials
+**********************
 
 The tutorials are build using `sphinx <http://www.sphinx-doc.org/>`_, a tool for software
 documentation. Sphinx converts reStructuredText files into html, pdf or other
 formats. reStructuredText are simple text files with extra markup to define headers
 and formating. Having the tutorials as reStructuredText makes it easy to control
 changes to the documents and ensure consistent style.
+
+The tutorials are build automatically as soon as changes are accepted and merged in 
+the repository. The system also deploys the html files to the anyscript.org home page. 
+
+The newest released version of the tutorials are available at: 
+
+* https://anyscript.org/tutorials
+
+The newest development version (current master branch) is availble at:
+
+* https://anyscript.org/tutorials/dev
+
+
+Building the tutorials locally
+==============================
+
+Eventhought the tutorials are build automatically, it is also possible to build
+them locally to view the layout and see results before pushing changes to the
+server. It is often not necesssary when making small fixes to existing
+tutorials. But when writing major new sections it nice to view how things look. 
+
+The easiest way to install needed packages tools, is to have the [Anaconda
+python distribution](https://www.continuum.io/downloads). 
+
+Then run the following commands to install the necesssary packages. 
+
+.. code-block:: bat
+
+    c:\path\to\anybody_tutorials> conda install sphinx pandoc cloud_sptheme pygments_anyscript
+    c:\path\to\anybody_tutorials> pip install sphinxcontrib-fulltoc
+
+Once the packages are install run this command s to build. 
+
+.. code-block:: bat
+
+    c:\path\to\anybody_tutorials> make html
+
+Once complete open the file: ``build/html/index.html`` in a browser to view 
+the result.
 
 
 Short reStructuredText guide
@@ -136,28 +179,3 @@ The lates version of the tutorial which has git tag in the repository is always
 available here: http://anyscript.org/tutorials/ A development version (the
 master branch) can be viewed at  http://anyscript.org/tutorials/dev
 
-Building the tutorials locally
-==============================
-
-It is also nice to be able to build the tutorials locally to view the layout 
-before pushing to the server. It is often not necesssary when making small fixes 
-to existing tutorials. But when writing major new sections it nice to view how 
-things look. 
-
-The easiest way to install the packages, is to have the Anaconda python distribution. 
-
-Then run the following commands to install the necesssary packages. 
-
-.. code-block:: bat
-
-    c:\path\to\anybody_tutorials> conda install sphinx pandoc cloud_sptheme pygments_anyscript
-    c:\path\to\anybody_tutorials> pip install sphinxcontrib-fulltoc
-
-Once the packages are install run this command s to build. 
-
-.. code-block:: bat
-
-    c:\path\to\anybody_tutorials> make html
-
-Once complete open the file: ``build/html/index.html`` in a browser to view 
-the result.

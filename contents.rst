@@ -11,13 +11,13 @@ Table Of Contents
     A_Getting_started_modeling/intro
     Interface_features/intro
     A_study_of_studies/intro
+    Making_things_move/intro
+    MuscleRecruitment/Inverse_dynamics
+    ForceDependentKinematics/fdk
     Muscle_modeling/intro
     The_mechanical_elements/intro
     Advanced_script_features/intro
     Finite_element_analysis/intro
-    Making_things_move/intro
-    MuscleRecruitment/Inverse_dynamics
-    ForceDependentKinematics/fdk
     AnyExp4SOLIDWORKS/intro
     Scaling/intro
 

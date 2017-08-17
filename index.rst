@@ -12,16 +12,21 @@ do musculoskeltal modeling in the AnyBody Modeling System.
 .. note:: if you are completely new to the model system. Please use 7 minutes to 
     watch the introductory video.
 
-.. rst-class:: emphasize-children
-
-
 .. rubric:: Contributing
+
+We highly encourage contributions to Tutorials! If you find typos, missing links or anything else wrong, don't hesitate to fix it. 
+It is as easy as forking `the repository on GitHub <https://github.com/AnyBody/anybody-tutorial>`__ , making your changes, and issuing a pull request. 
+
+More details are in the  :doc:`how to contribute section <contributing>`.
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
 
    contributing
 
+
+.. rst-class:: emphasize-children
 
 
 Overviev
