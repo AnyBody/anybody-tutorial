@@ -5,15 +5,19 @@ Having defined the environment in the previous lesson, the next step is
 to adjust your human model. The body model is divided into individual
 body parts: legs, arms, and trunk.
 
-As we could learn from the chapter “\ :doc:`Getting started: The Model
-Repository (AMMR) <../A_Getting_started_AMMR/intro>`\ ”, you can
+.. todo:: Add a intersphinx link to AMMMR documentation on BM statments
+
+As we could learn from the chapter ``Getting started: The Model
+Repository (AMMR) <../A_Getting_started_AMMR/intro>` ``, you can
 now use various kinds of BM (Body Model) statements which can control
 the configuration of your human model. All that you should know is to
-find the proper
+find the proper 
 `parameters <../A_Getting_started_AMMR/BodyModel.defs.parameters.html>`__
 and
 `constants <../A_Getting_started_AMMR/BodyModel.defs.constants.html>`__
 for the BM statements.
+
+
 
 For this pedal model, we will adjust the human model such as:
 

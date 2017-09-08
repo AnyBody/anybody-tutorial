@@ -6,7 +6,6 @@ Table Of Contents
 
     Tutorial overview <index>
     A_Getting_started/intro 
-    A_Getting_started_AMMR/intro
     A_Getting_started_anyscript/intro
     A_Getting_started_modeling/intro
     Interface_features/intro
@@ -20,5 +19,3 @@ Table Of Contents
     Finite_element_analysis/intro
     AnyExp4SOLIDWORKS/intro
     Scaling/intro
-
-    
