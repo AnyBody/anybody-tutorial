@@ -100,6 +100,12 @@ language = 'en'
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = ['_build', 'README.rst', 'Thumbs.db', '.DS_Store']
 
+# Exclude the following tutorials
+exclude_patterns.extend([
+    'A_Getting_started_AMMR'
+])
+
+
 # The name of the Pygments (syntax highlighting) style to use.
 highlight_language = 'none'
 pygments_style = 'AnyScript'
@@ -107,12 +113,23 @@ pygments_style = 'AnyScript'
 rst_prolog = """
 .. role:: anyscript(code)
    :language: AnyScriptDoc
+
+.. |AMS_VERSION_X| replace:: 7.1.x
+.. |AMS_VERSION_FULL| replace:: 7.1.0
+.. |AMS_VERSION_SHORT| replace:: 7.1
+
 """
 
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
-
+try: 
+    subprocess.check_call(['git', 'describe', '--exact-match', 'HEAD'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+except subprocess.CalledProcessError:
+    # We are not a on a tagged commit
+    todo_include_todos = True
+else:
+    # Tagged commit, e.g. release version. Hide todos.
+    todo_include_todos = False
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -229,6 +246,3 @@ texinfo_documents = [
      author, 'AnyBodyTutorials', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-

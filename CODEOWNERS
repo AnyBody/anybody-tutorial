@@ -1,0 +1,12 @@
+# Default reviewer, until the different parts gets their own owner
+* @melund
+
+# Getting started repositories
+/A_Getting_started/* @ananth-gopalakrishnan @KasperPRasmussen
+/A_Getting_started_AMMR/* @ananth-gopalakrishnan @KasperPRasmussen
+/A_Getting_started_anyscript/* @ananth-gopalakrishnan @KasperPRasmussen
+/A_Getting_started_modeling/* @ananth-gopalakrishnan @KasperPRasmussen
+
+/AnyExp4SOLIDWORKS/* @mkjung99
+
+/Finite_element_analysis/* @pgalibarov

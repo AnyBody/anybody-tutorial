@@ -180,8 +180,10 @@ chance that some model parts are independent of each other.
 
 Let us carry on with :doc:`Lesson 7: Calibration <lesson_calibration>`
 
+
+
 References
-==========
+----------
 
 Praagman, M., Veeger, H.E.J., Chadwick, E.K., Colier, W.N., van der
 Helm, F.C. (2003). Muscle oxygen consumption, determined by NIRS, in
