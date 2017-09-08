@@ -8,7 +8,7 @@ body parts: legs, arms, and trunk.
 .. todo:: Add a intersphinx link to AMMMR documentation on BM statments
 
 As we could learn from the chapter ``Getting started: The Model
-Repository (AMMR) <../A_Getting_started_AMMR/intro>` ``, you can
+Repository (AMMR) <../A_Getting_started_AMMR/intro``, you can
 now use various kinds of BM (Body Model) statements which can control
 the configuration of your human model. All that you should know is to
 find the proper 
