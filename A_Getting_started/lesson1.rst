@@ -96,18 +96,14 @@ functions, so keyboard shortcuts have been provided:
 You can now proceed to :doc:`*Lesson 2: Controlling the
 posture* <lesson2>`.
 
-.. |Model button| image:: _static/lesson1/image1.png
+.. |Model button| image:: _static/lesson1/image_1.png
    :width: 0.29167in
-   :height: 0.30556in
-.. |ModelLoadButton| image:: _static/lesson1/image2.png
+.. |ModelLoadButton| image:: _static/lesson1/image_2.png
    :width: 4.44444in
-   :height: 0.93750in
-.. |TemplateDialog| image:: _static/lesson1/image3.png
+.. |TemplateDialog| image:: _static/lesson1/image_3.png
    :width: 4.84722in
    :height: 4.64583in
-.. |MyStandingHumanModel.main.any| image:: _static/lesson1/image4.png
+.. |MyStandingHumanModel.main.any| image:: _static/lesson1/image_4.png
    :width: 6.69444in
-   :height: 4.82639in
-.. |Model View| image:: _static/lesson1/image5.png
+.. |Model View| image:: _static/lesson1/image_5.png
    :width: 3.18056in
-   :height: 4.85417in
