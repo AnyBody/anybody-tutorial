@@ -1,0 +1,80 @@
+// This model optimizes a football kicking motion of a two-segment
+// leg. The objective is to obtain maximum impact velocity within the
+// given strength of the leg.
+
+Main = {
+
+  // The model
+  AnyFolder MyModel = {
+
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+      AnyDrawRefFrame drw = {
+        ScaleXYZ = {1,1,1}/5;
+      };
+    };  // Global reference frame
+    
+    // The thigh and shank segments both presume a center of
+    // mass placed one third of the length from their proximal 
+    // ends
+    AnySeg Thigh = {
+      AnyVar Length = 0.45;
+      Mass = 7.5;
+      Jii = Mass*{1,0.05,1}/100;
+      AnyDrawSeg drw = {};
+      r0 = {0,-Length/2,0};
+      AnyRefNode Hip = {
+        sRel = {0,.Length/3,0};
+      };
+      AnyRefNode Knee = {
+        sRel = {0,-2*.Length/3,0};
+      };
+    };
+
+    AnySeg Shank = {
+      AnyVar Length = 0.50;
+      Mass = 3.5;
+      Jii = Mass*{1,0.05,1}/100;
+      r0 = {0,-.Thigh.Length-Length/2,0};
+      AnyDrawSeg drw = {};
+      AnyRefNode Knee = {
+        sRel = {0,.Length/3,0};
+      };
+      AnyRefNode Foot = {
+        sRel = {0,-2*.Length/3,0};
+      };
+    };
+    
+    // We presume 2-D conditions and therefore use
+    // revolute joints for the hip as well as the knee.
+    AnyRevoluteJoint Hip = {
+      AnyRefFrame &Ground = .GlobalRef;
+      AnyRefFrame &Thigh = .Thigh.Hip;
+    };
+    AnyRevoluteJoint Knee = {
+      AnyRefFrame &Ground = .Thigh.Knee;
+      AnyRefFrame &Thigh = .Shank.Knee;
+    };
+    
+    AnyKinEqSimpleDriver HipDriver = {
+      DriverPos = {-90*pi/180};
+      DriverVel = {90*pi/180}/..MyStudy.tEnd;
+      AnyRevoluteJoint &Joint = .Hip;
+    };
+
+    AnyKinEqSimpleDriver KneeDriver = {
+      DriverPos = {-90*pi/180};
+      DriverVel = {90*pi/180}/..MyStudy.tEnd;
+      AnyRevoluteJoint &Joint = .Knee;
+    };
+    
+  }; // MyModel
+
+  // The study: Operations to be performed on the model
+  AnyBodyStudy MyStudy = {
+    AnyFolder &Model = .MyModel;
+    Gravity = {0.0, -9.81, 0.0};
+    nStep = 50;
+    tEnd = 0.2;
+  };
+};  // Main
