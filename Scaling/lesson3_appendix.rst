@@ -1,7 +1,7 @@
 Appendix: Scaling based on Patient-Specific Landmarks
 =====================================================
 
-This tutorial is an appendix to the :doc:`Lesson 3 <lesson3>`, where
+This tutorial is an appendix to the :doc:`Lesson 1 <lesson3>`, where
 a construction of advanced scaling laws is introduced.
 
 This lesson is a brief introduction to the usage of the transforms

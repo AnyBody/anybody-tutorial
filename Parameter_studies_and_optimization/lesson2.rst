@@ -61,9 +61,10 @@ proceed, let us briefly look at the properties of a typical
 musculoskeletal objective function and how the optimization algorithm
 solves the problem.
 
-+-----------------------------------------------------------------------------------------+------------+
- |metab.gif|   | |image1|   |
-+-----------------------------------------------------------------------------------------+------------+
+.. image:: _static/Optimization_studies/image1.gif
+   :width: 40%
+.. image:: _static/Optimization_studies/image2.gif
+   :width: 40%
 
 The two pictures above both show the result of a parameter study. The
 picture on the right is the section indicated by the magnifying glass on
@@ -389,7 +390,7 @@ the unconstrained solution: The hip position is now higher, i.e., longer
 from the crank and to achieve this it is further forward, see the
 picture below:
 
-|constrained|
+|BikeOpt2_constrained.jpg|
 
 This completes the introduction to optimization studies.
 
