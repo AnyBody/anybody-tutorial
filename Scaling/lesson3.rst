@@ -1,19 +1,19 @@
-Lesson 3: Scaling individual segments based on subject-specific data from medical images
+Lesson 1: Scaling individual segments based on subject-specific data from medical images
 ========================================================================================
 
-This tutorial presumes that you have completed :doc:`Scaling tutorial Lesson
-1: Joint to joint scaling methods <lesson1>` and :doc:`Scaling
-tutorial Lesson 2: Scaling based on external body
-measurements <lesson2>`.
+This tutorial presumes that you have read the AMMR documentation 
 
-This lesson introduces an advanced approach to scaling based on a
-sequence of affine and non-affine transformations. Each of these
-transforms is constructed based either on subject-specific geometry or
-on a set of landmarks selected on the bone surface. As opposed to
-Lessons 1 and 2, this lesson is rather methodological than conceptual
-and provides a good overview of how to pipeline and combine different 3D
-transforms to obtain subject-specific morphing and registration between
-frames of reference.
+.. 
+  on :doc:`Joint to joint scaling methods <ammr:Scaling/lesson1>` and :doc:`Scaling based on external body
+  measurements <ammr:/Scaling/lesson2>`.
+
+This lesson introduces an advanced approach to scaling based on a sequence of
+affine and non-affine transformations. Each of these transforms is constructed
+based either on subject-specific geometry or on a set of landmarks selected on
+the bone surface. As opposed to the simple scaling laws explained in the AMMR
+documentation, this lesson is rather methodological than conceptual and provides
+a good overview of how to pipeline and combine different 3D transforms to obtain
+subject-specific morphing and registration between frames of reference.
 
 Linear point-based scaling
 --------------------------
@@ -455,7 +455,7 @@ dynamics simulation. The final model can be downloaded :download:`here
     Lesson 3 appendix <lesson3_appendix>
 
 Finally, the only thing left is to include this scaling law into an
-actual model. :doc:`Lesson 4 <lesson4>` describes how this can be
+actual model. :doc:`Lesson 2 <lesson4>` describes how this can be
 done.
 
 .. rst-class:: without-title

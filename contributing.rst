@@ -27,8 +27,8 @@ pushed to the github repository. The process is handle by
 If the build fails, for example because of 
 wrong reST syntax etc, the Pull Request can not be merged.
 
-Once the pull request is accepted on Github and the changes are merged to the master 
-branch the tutorials becomes availble online. 
+Once the pull request is accepted on Github and the changes are merged to the
+master branch the tutorials becomes availble online. 
 
 The newest released version of the tutorials are available at: 
 

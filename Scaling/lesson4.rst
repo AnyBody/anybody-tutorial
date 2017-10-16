@@ -1,15 +1,16 @@
-Lesson 4: Including a Custom Scaling Law
+Lesson 2: Including a Custom Scaling Law
 ========================================
 
 This lesson explains how we can utilize our own custom scaling function
-which we designed in Lesson 3 and combine it with other scaling laws,
-e.g. the scaling laws introduced in Lesson 1 and Lesson 2.
+which we designed in Lesson 3 and combine it with other scaling laws.
 
-Preparing the model for introduction of subject-specific scaling
+.. seealso:: The section on scaling in the AMMR documentation. 
+
+Preparing for subject-specific scaling
 ----------------------------------------------------------------
 
 When creating a musculoskeletal model, we have to decide on the
-dimensions of the model components. Lessons 1 and 2 described how
+dimensions of the model components. The Scaling section in the AMMR documentation described how
 anthropometric regression equations and body measurements can be used to
 define these dimensions. However, the most precise models include
 subject-specific geometries of the bones. To explain how we can include
@@ -20,8 +21,7 @@ one of his femur bones. To increase the accuracy of our model, let us
 improve it using a subject-specific scaling for the femur.
 
 First of all, let us prepare a model matching the standard size man to
-be the basis for further subject-specific improvements. Therefore, we
-look back into :doc:`Lesson 1 <lesson1>` and use the model from the
+be the basis for further subject-specific improvements. Therefore we use the model from the
 first section **ScalingStandard,** StandingModelScalingDisplay from the
 AnyBody Managed Model Repository (AMMR). This is well suited to show how
 to use subject-specific geometry in a model.
@@ -29,32 +29,31 @@ to use subject-specific geometry in a model.
 Including custom scaling for a single bone
 ------------------------------------------
 
-Let us configure this example to use ScalingStandard. Just like in
-lesson 1, we need to define ``BM_SCALING`` as ``CONST_SCALING_STANDARD``
-and out-comment all other parts of the scaling configuration block.
-With this setting, the model is now scaled to the generic size. We can
-now include individual scaling laws for each segment, which will be
-done in a special file *CustomScaling.any*, where all the
-modifications related to individual segment morphing are supposed to
-be done. This file is already present in the example and you can
-include it as shown below:
+Let us configure this example to use ScalingStandard. We need to define
+``BM_SCALING`` as ``_SCALING_STANDARD_`` and out-comment all other parts of
+the scaling configuration block. With this setting, the model is now scaled to
+the generic size. We can now include individual scaling laws for each segment,
+which will be done in a special file *CustomScaling.any*, where all the
+modifications related to individual segment morphing are supposed to be done.
+This file is already present in the example and you can include it as shown
+below:
 
 .. code-block:: AnyScriptDoc
 
     /*------------- SCALING CONFIGURATION SECTION --------------------*/
     // Actual scaling law
-    § #define BM_SCALING CONST_SCALING_STANDARD§
+    § #define BM_SCALING _SCALING_STANDARD_§
     
     // Scaling laws using joint to joint measures
-    //  #define BM_SCALING CONST_SCALING_UNIFORM
-    //  #define BM_SCALING CONST_SCALING_LENGTHMASS
-    //  #define BM_SCALING CONST_SCALING_LENGTHMASSFAT
+    //  #define BM_SCALING _SCALING_UNIFORM_
+    //  #define BM_SCALING _SCALING_LENGTHMASS_
+    //  #define BM_SCALING _SCALING_LENGTHMASS_FAT_
     
     
     // Scaling laws using external measures
-    //  #define BM_SCALING CONST_SCALING_UNIFORM_EXTMEASUREMENTS 
-    //  #define BM_SCALING CONST_SCALING_LENGTHMASS_EXTMEASUREMENTS 
-    //  #define BM_SCALING CONST_SCALING_LENGTHMASSFAT_EXTMEASUREMENTS 
+    //  #define BM_SCALING _SCALING_UNIFORM_EXTMEASUREMENTS_ 
+    //  #define BM_SCALING _SCALING_LENGTHMASS_EXTMEASUREMENTS_ 
+    //  #define BM_SCALING _SCALING_LENGTHMASS_FAT_EXTMEASUREMENTS_ 
       
     // Anthropometric data file (unchanged files can be found in AAUHuman\Scaling\AnyFamily)
     //  #path BM_SCALING_ANTHRO_FILE "Model\AnyFamily\AnyMan.any"
@@ -83,11 +82,11 @@ used to specify individual scaling laws.
 
 
 So let us introduce a custom scaling law for the left femur from
-:download::doc:`Lesson 3 <lesson3>`. We prepared a single file
-`MyScalingLaw.any <Downloads/MyScalingLaw.any>` holding the scaling
+:doc:`Lesson 1 <lesson3>`. We prepared a single file
+:download:`MyScalingLaw.any <Downloads/MyScalingLaw.any>` holding the scaling
 transforms from the previous lesson. We also need to download the
 :download:`source <Downloads/SourceFemur.stl>` (native to AMMR) and
-`target <Downloads/TargetFemur.stl>` (courtesy of Prof. Sebastian
+:download:`target <Downloads/TargetFemur.stl>` (courtesy of Prof. Sebastian
 Dendorfer, University of Regensburg, Germany) femur surface
 geometries, and copy them to the *Model* folder of the
 StandingModelScalingDisplay example. Now, we need to make several
@@ -209,8 +208,8 @@ In this modification, we added a pre-processor command (#define) that
 notifies the model assembling block that the anthropometric scaling
 for the left thigh segment is not being used. To process other body
 parts you will need to add a similar definition, but utilize actual
-bone segment, e.g. #define CUSTOM\_SCALING\_<Side>\_<SegmentName> for
-different sides or CUSTOM\_SCALING\_<SegmentName> for parts of the
+bone segment, e.g. ``#define CUSTOM_SCALING_<Side>_<SegmentName>`` for
+different sides or ``CUSTOM_SCALING_<SegmentName>`` for parts of the
 body that do not have sides. You can find a list of segments by
 browsing the scaling law in the Model tab:
 
@@ -241,11 +240,11 @@ Introducing a mirrored pair of a custom scaling
 -----------------------------------------------
 
 We start by making a copy of MyScalingLaw.any that will be used to
-construct the mirrored transform and call it MyScalingLaw\_Mirrored.any.
+construct the mirrored transform and call it ``MyScalingLaw_Mirrored.any``.
 What we have to do is to define a symmetry plane and reflect relevant
 entities accordingly. In this example such plane corresponds to the
 global XY plane. To perform the reflection, we need to multiply all
-relevant landmark points contained in the MyScalingLaw\_Mirrored.any
+relevant landmark points contained in the ``MyScalingLaw_Mirrored.any``
 file by a mirroring matrix:
 
 .. code-block:: AnyScriptDoc
@@ -342,7 +341,7 @@ the custom scaling one (right):
 
 This concludes the subject-specific scaling tutorial. The modifications
 utilized for the mirrored transformed model can be downloaded from here:
-MyScalingLaw\_Mirrored.final.any
+:download:`Downloads/MyScalingLaw_Mirrored.final.any`
 
 .. |Model tree| image:: _static/lesson4/image1.png
    :width: 2.62778in

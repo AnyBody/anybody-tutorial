@@ -25,9 +25,10 @@ which there are three.
 
 We highly appreciate any contributions to Tutorials! 
 
-If you find typos, missing links or anything else wrong, don't hesitate to fix it. 
-
-It is as easy as forking `the repository on GitHub <https://github.com/AnyBody/anybody-tutorial>`__ , making your changes, and issuing a pull request. 
+If you find typos, missing links or anything else wrong, don't hesitate to fix
+it. It is as easy as forking `the repository on GitHub
+<https://github.com/AnyBody/anybody-tutorial>`__ , making your changes, and
+issuing a pull request. 
 
 More details are in the :doc:`how to contribute section <contributing>`.
 

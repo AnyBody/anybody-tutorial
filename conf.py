@@ -253,3 +253,9 @@ texinfo_documents = [
      author, 'AnyBodyTutorials', 'One line description of project.',
      'Miscellaneous'),
 ]
+
+
+if tags.has('DEV_BUILD'):
+    intersphinx_mapping = {'ammr': ('https://anyscript.org/ammr-doc/dev', None)}
+else:
+    intersphinx_mapping = {'ammr': ('https://anyscript.org/ammr-doc/', None)}
