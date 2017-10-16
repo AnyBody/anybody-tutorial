@@ -5,6 +5,12 @@ AnyBody Tutorials!
 Welcome to the AnyBody Tutorials. This is a good place to start learning how to
 do musculoskeltal modeling in the AnyBody Modeling System. 
 
+
+.. raw:: html 
+
+   <video controls src="_static/IntroVideoTour.mp4"></video> 
+
+
 .. note:: if you are completely new to the model system. Please use 7 minutes to 
     watch the introductory video.
 
