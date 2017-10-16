@@ -8,7 +8,10 @@ do musculoskeltal modeling in the AnyBody Modeling System.
 
 .. raw:: html 
 
-   <video controls src="_static/IntroVideoTour.mp4"></video> 
+    <video controls>
+        <source src="_static/IntroVideoTour.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
 
 
 .. note:: if you are completely new to the model system. Please use 7 minutes to 
@@ -25,32 +28,16 @@ which there are three.
 
 .. rubric:: Contributing
 
-We highly encourage contributions to Tutorials! If you find typos, missing links or anything else wrong, don't hesitate to fix it. 
+We highly appreciate any contributions to Tutorials! 
+
+If you find typos, missing links or anything else wrong, don't hesitate to fix it. 
+
 It is as easy as forking `the repository on GitHub <https://github.com/AnyBody/anybody-tutorial>`__ , making your changes, and issuing a pull request. 
 
-More details are in the  :doc:`how to contribute section <contributing>`.
+More details are in the :doc:`how to contribute section <contributing>`.
 
 .. toctree::
    :maxdepth: 2
    :hidden:
 
    contributing
-
-
-.. todo:: Add Validation and opt tutorial
-
-.. 
-    Validation of Models
-    --------------------
-..
-    This tutorial explains the setup of model validation studies in which
-    models can be verified and validated by comparison with empirical data.
-
-
-.. 
-    Parameter studies and optimization
-    ----------------------------------
-..
-    This tutorial introduces parameter and optimization studies, which are
-    used to investigate the influence of model parameters and optimize them
-    to obtain a desired model behavior.
