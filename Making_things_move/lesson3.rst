@@ -144,6 +144,12 @@ of freedom. The additional information in the redundant constraints can
 be used to our advantage for other purposes too, as we shall see in
 :doc:`Lesson 4 <lesson4>`.
 
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson4`.
+
+
 .. |pendulum.r| image:: _static/lesson3/image1.png
    :width: 4.63542in
    :height: 3.12500in

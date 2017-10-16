@@ -25,7 +25,9 @@ In the next lesson we shall see how this model can be upgraded with a
 more realistic knee joint using the Force dependent kinematics (FDK)
 solver of the system:
 
-:doc:`Lesson 2: Adding FDK features <lesson2>`
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.
 
 .. |Model view DemoSimpleKnee| image:: _static/lesson1/image1.png
    :width: 3.77987in

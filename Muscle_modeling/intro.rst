@@ -1,18 +1,5 @@
-Muscle Modeling
-===============
-
-
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
-    Lesson 5 <lesson5>
-    Lesson 6 <lesson6>
-    Lesson 7 <lesson7>
-
+Introduction to Muscle Modeling
+=================================
 
 
 |Muscles back|
@@ -59,7 +46,12 @@ The muscle models can be linked to different types of muscles:
    attached to a kinematic measure.
 
 Please refer to the AnyScript Reference for more information, or proceed
-to the basics of muscle modeling in :doc:`*Lesson 1* <lesson1>`.
+to the basics of muscle modeling in :doc:`Lesson 1 <lesson1>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson1`.
+
 
 .. |Muscles back| image:: _static/intro/image1.jpeg
    :width: 4.16667in

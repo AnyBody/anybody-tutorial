@@ -1,16 +1,5 @@
-Getting Started with Modeling
-=============================
-
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
-
-
-
+Introduction: Getting Started with Modeling
+============================================
 
 The objective of this tutorial is to give an understanding of more
 complex models using a full body model. A model will be created using a
@@ -75,5 +64,9 @@ models available, for details, please see the AnyBody Assistant
 available from the menu. This tutorial has been written using the
 AnyBody Managed Model Repository Ver. 1.6 (AMMRV1.6).
 
-With that done, please proceed to Lesson 1: :doc:`Starting with a new
-Model <lesson1>` using a template.
+
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** With that done, please proceed to Lesson 1: :doc:`Starting with a new Model <lesson1>` using a template.
+

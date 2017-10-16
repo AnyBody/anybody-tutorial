@@ -204,10 +204,11 @@ with Opacity = 0, the object becomes completely invisible. All values in
 between causes the object to be semi-transparent. You can also turn of
 the display of the object entirely off by setting DrawOnOff = 0;
 
-With the drawing of muscles under control, let us proceed to another
-important issue. *Lesson 3: Via point muscles*.
 
- 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson3`. 
+
 
 .. |simple model with muscle| image:: _static/lesson2/image1.jpeg
    :width: 2.08333in

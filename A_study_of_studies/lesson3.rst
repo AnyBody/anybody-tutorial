@@ -165,6 +165,13 @@ Although the kinematic analysis is useful in its own right for lots of
 purposes, it is also the first step of the InverseDynamics operation,
 the subject of :doc:`*the next lesson* <lesson4>`.
 
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson4`.
+
+
+
 .. |demo.SliderCrank3D.any| image:: _static/lesson3/image1.png
    :width: 5.40625in
    :height: 2.43750in

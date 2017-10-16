@@ -1,13 +1,5 @@
-Scaling
-=======
-
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
+Introduction to Scaling
+=======================
 
 Musculoskeletal models must be scalable to sizes of different
 individuals to be useful for product design. This is very challenging,
@@ -77,8 +69,11 @@ the menu. As a starting point for this tutorial please find the model
 StandingModelScalingDisplay. This model can be found in the folder
 Applications/Examples.
 
-Now head on for :doc:`Lesson 1: Joint to joint scaling
-methods <lesson1>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** Now head for :doc:`lesson1`.
+
 
 |http://www.anybodytech.com/fileadmin/images/AnyFamily.JPG|
 

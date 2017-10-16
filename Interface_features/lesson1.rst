@@ -152,7 +152,12 @@ author your models, as long as it saves the files in an ASCII text
 format. Please refer to the Wiki at
 `anyscript.org <http://www.anyscript.org>`__ for more details.
 
-Continue to :doc:`Lesson 2: The Model View Window <lesson2>`
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.
+
+
 
 .. |GUI overview| image:: _static/lesson1/image1.png
    :width: 6.66667in

@@ -418,6 +418,11 @@ You can successfully run the 'Kinematics' and 'InverseDynamics'
 operations of the AnyBodyStudy object and we are now ready to adding the
 human to the model in the final :doc:`Lesson 3 <lesson3>`.
 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson3`.
+
+
 .. |SolidWorks components| image:: _static/lesson2/image1.PNG
    :width: 6.69306in
    :height: 3.84722in

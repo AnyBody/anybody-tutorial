@@ -205,6 +205,10 @@ new translation of the model.
 With this we will conclude our brief review of the translated model and
 now let us go to the next :doc:`Lesson2. <lesson2>`
 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.
+
 .. |SolidWorks fitnessmachine| image:: _static/lesson1/image1.PNG
    :width: 6.69306in
    :height: 3.63889in

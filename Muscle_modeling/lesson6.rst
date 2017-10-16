@@ -458,6 +458,13 @@ This completes the part of this tutorial dealing with muscles. But we
 are not completely finished yet. The :doc:`*next lesson* <lesson7>`
 deals with the important topic of ligament modeling.
 
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson7`. 
+
+
+
 .. |Arm 2D| image:: _static/lesson6/image1.jpeg
    :width: 3.12500in
    :height: 2.86458in

@@ -354,6 +354,12 @@ With the kinematics of muscles well under control, we can proceed to
 another important and interesting topic, :doc:`Lesson 5: Muscle
 models <lesson5>`.
 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson5`. 
+
+
+
 .. |wrapcylinder| image:: _static/lesson4/image1.jpeg
    :width: 3.12500in
    :height: 2.23958in

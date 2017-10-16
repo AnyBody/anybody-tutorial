@@ -59,7 +59,10 @@ Please refer to the reference manual for further explanation. The
 AnyScript <../A_Getting_started_anyscript/intro>` tutorial
 provides examples of segment definitions.
 
-Next up is :doc:`Lesson 2: Joints <lesson2>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** Next up is :doc:`lesson2`. 
 
 .. |segments| image:: _static/lesson1/image1.jpeg
    :width: 3.12500in

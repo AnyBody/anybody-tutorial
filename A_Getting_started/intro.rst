@@ -1,13 +1,5 @@
-Getting Started
-===============
-
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-
+Getting Started Tutorial
+============================
 
 The AnyBody Modeling System caters to a wide range of users with very
 different modeling needs. Some may simply want to load and run an
@@ -102,9 +94,14 @@ The “Validation” folder contains models that have been used for
 validation purposes, typically by comparison of the model predictions
 with experimental measurements.
 
-With that knowledge, you are all set to go, and you can proceed with
-:doc:`*Lesson 1: Creating the standing model* <lesson1>` using
-template.
+.. rst-class:: without-title
+
+.. seealso::
+    With that knowledge, you are all set to go, and you can proceed with
+    :doc:`Lesson 1: Creating the standing model <lesson1>` using
+    template.
+
+
 
 .. |AnyBody assistent| image:: _static/intro/image1.png
    :width: 6.68750in

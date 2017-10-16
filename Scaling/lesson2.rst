@@ -230,6 +230,12 @@ geometry data of bones can be used.
 We are extremely grateful to Ford Forschungszentrum Aachen, Germany, for
 sponsoring the scaling implementation.
 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.
+
+
+
 .. |ScalingExternalMeasure| image:: _static/lesson2/image1.jpeg
    :width: 4.16667in
    :height: 4.93750in

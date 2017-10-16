@@ -95,7 +95,11 @@ despite being non-physiological:
 For normal purposes, however, the linear criterion is not a good choice,
 and we shall therefore proceed to investigate another option in
 
-:doc:`Lesson 3: Quadratic muscle recruitment <lesson3>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson3`.
+
 
 .. |recruitmentopt.gif| image:: _static/lesson2/image1.gif
    :width: 2.14583in

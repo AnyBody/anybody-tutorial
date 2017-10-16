@@ -190,4 +190,7 @@ Calibration”.
 
 In the next lesson we investigate the results in more detail.
 
-:doc:`Lesson 3: Results of FDK <lesson3>`
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson3`.

@@ -251,8 +251,12 @@ angular position, so there are two degrees of freedom whose kinematic
 states need to specified before AnyBody can determine the mechanism's
 position. This is taken care of by kinematic drivers.
 
-They are one of the subjects of :doc:`Lesson 4: Imparting Movement with
-Drivers <lesson4>`.
+
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** They are one of the subjects of :doc:`Lesson 4: Imparting Movement with Drivers <lesson4>`.
+
 
 .. |Model tree ElbowNode| image:: _static/lesson3/image1.png
    :width: 2.47807in

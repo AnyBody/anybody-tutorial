@@ -342,8 +342,11 @@ most users would probably start out using the body models available in
 the `AnyBody Managed Model
 Repository <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
 
-Now, let's continue to :doc:`Lesson 6: Adding real bone
-geometrics <lesson6>`
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** Now, let's continue to :doc:`Lesson 6: Adding real bone geometrics <lesson6>`
+
 
 .. |image0| image:: _static/lesson5/image1.png
    :width: 3.76923in

@@ -220,7 +220,13 @@ corresponding to the 12 rigid body degrees of freedom.
 
 Having familiarized ourselves with the Mechanical System Information in
 the Object Description of the study, let us proceed to Initial
-Conditions in the :doc:`*next lesson* <lesson2>`.
+Conditions in the :doc:`next lesson <lesson2>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.
+
+
 
 .. |Dumbbel| image:: _static/lesson1/image1.png
    :width: 3.77083in

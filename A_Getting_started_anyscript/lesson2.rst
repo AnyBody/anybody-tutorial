@@ -311,8 +311,11 @@ factor between degrees and radians.
 
 In the next section, we will look at how joints can be used to constrain
 the movement of segments and allow them to articulate the way we desire.
-So if you are up to it, let's continue onward to :doc:`Lesson 3: Connecting
-segments by joints <lesson3>`.
+
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** So if you are up to it, let's continue onward to :doc:`Lesson 3: Connecting segments by joints <lesson3>`.
 
 .. rubric:: Footnotes
 

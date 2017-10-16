@@ -450,6 +450,13 @@ Click here to continue to
 
 -  :doc:`Lesson 3: ABAQUS interface <lesson3>`
 
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson1`.
+
+
+
 .. |FEA tutorial Fish tank| image:: _static/lesson1/image1.jpeg
    :width: 1.64792in
    :height: 3.28819in

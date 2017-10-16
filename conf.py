@@ -172,7 +172,7 @@ html_theme_options = {
     'minimal_width': '700px',
     'borderless_decor': True,
     'lighter_header_decor': False,
-    'sidebarwidth': "3.8in",
+    'sidebarwidth': "6in",
     'fontcssurl': 'https://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono',
 }
 
@@ -191,8 +191,12 @@ html_favicon = '_static/favicon.ico'
 html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
-html_sidebars = {'**': ['searchbox.html', 'globaltoc.html']}
+#html_sidebars = {'**': ['searchbox.html', 'globaltoc.html']}
 
+html_sidebars = {
+   '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html', ],
+   'using/windows': ['windowssidebar.html', 'searchbox.html'],
+}
 
 # -- Options for HTMLHelp output ------------------------------------------
 

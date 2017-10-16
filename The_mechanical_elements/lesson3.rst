@@ -10,4 +10,7 @@ There are various drivers available to create different types of time
 dependency. For a demonstration of the different types, please :download:`download
 and study the Driver demo <Downloads/Demo.Drivers.any>`.
 
-Next up is :doc:`Lesson 4: Kinematic Measures <lesson4>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson4`. 

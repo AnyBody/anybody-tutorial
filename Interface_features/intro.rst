@@ -1,19 +1,6 @@
 User interface features
 =======================
 
-
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
-    Lesson 5 <lesson5>
-    Lesson 6 <lesson6>
-    Lesson 7 <lesson7>
-
-
 This tutorial deals with the user interface features of the AnyBody
 Modeling System. Please complete the “\ :doc:`*Getting Started: AnyScript
 Programming” tutorial* <../A_Getting_started_anyscript/intro>`
@@ -68,6 +55,14 @@ following lessons:
 
 -  :doc:`*Lesson 7: Wrapping the Model with AnyBody
    Project* <lesson7>`
+
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson1`.
+
+
+
 
 .. |Intro video| image:: _static/intro/image2.png
    :width: 7.08091in

@@ -141,6 +141,13 @@ easier to handle than via point muscles, but the price is a much higher
 computational expense. Wrapping muscles are the subject of :doc:`*Lesson
 4* <lesson4>`. 
 
+
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson4`. 
+
+
 .. |Old leg Muscle wrapping| image:: _static/lesson3/image1.jpeg
    :width: 2.10417in
    :height: 2.02083in

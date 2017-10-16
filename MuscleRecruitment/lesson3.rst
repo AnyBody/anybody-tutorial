@@ -201,7 +201,10 @@ non-physiological impression. It seems like the key to avoiding this
 would be to get the muscles to be more synergistic. How that might be
 done is the topic of
 
-:doc:`Lesson 4: Polynomial muscle recruitment. <lesson4>`
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson4`.
+
 
 .. |qpeq.gif| image:: _static/lesson3/image1.gif
    :width: 0.86458in

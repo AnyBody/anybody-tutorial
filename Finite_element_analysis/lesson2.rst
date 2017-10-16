@@ -246,6 +246,11 @@ outputfileList file. Each loadstep will be written in a new result file.
 You can look at the results by loading them one on one in the
 post-processor.
 
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.
+
 .. |FEA tutorial flow chart| image:: _static/lesson2/image1.png
    :width: 3.82822in
    :height: 4.23393in

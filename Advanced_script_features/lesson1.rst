@@ -63,4 +63,7 @@ This demo example illustrates some of the important uses of pointer
 variables:
 :download:`demo.creatingandreferringtoobjects.any <Downloads/demo.creatingandreferringtoobjects.any>`
 
-Now, let's continue to :doc:`Lesson 2: Using Include Files <lesson2>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.

@@ -203,7 +203,11 @@ using “draw groups” that can be created by the class AnyDrawGroup.
 Please refer to :doc:`Lesson 7 <lesson7>` for an example of their
 usage.
 
-Continue to :doc:`Lesson 3: The Chart View. <lesson3>`
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson3`.
+
 
 .. |Open model view windows| image:: _static/lesson2/image1.png
    :width: 6.68958in

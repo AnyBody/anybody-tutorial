@@ -1,15 +1,5 @@
-Force-Dependent Kinematics
-==========================
-
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
-    Lesson 5 <lesson5>
-    FDK appendiks <fdkappendix>
+Introduction to Force-Dependent Kinematics
+==========================================
 
 Let us start by looking at the simplest form of Newton’s second law,
 when it’s written for a point mass particle:
@@ -81,7 +71,9 @@ anterio-posterior stability.
 Please go ahead and download a template of the model here, and then
 proceed to:
 
-:doc:`Lesson 1: The baseline model <lesson1>`
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson1`.
 
 .. |Simple knee| image:: _static/fdk/image1.png
    :width: 3.07857in

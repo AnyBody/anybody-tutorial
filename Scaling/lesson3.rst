@@ -458,6 +458,11 @@ Finally, the only thing left is to include this scaling law into an
 actual model. :doc:`Lesson 4 <lesson4>` describes how this can be
 done.
 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson4`.
+
+
 .. |Two femurs| image:: _static/lesson3/image1.png
    :width: 6.68750in
    :height: 2.60417in

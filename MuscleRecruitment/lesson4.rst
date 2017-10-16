@@ -133,7 +133,11 @@ formulation that, in a biomechanical context, can be interpreted as a
 minimum fatigue criterion, and this is not without physiological
 relevance, so it is the topic of…
 
-:doc:`Lesson 5: Min/Max recruitment <lesson5>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson5`.
+
 
 .. |Chart view Muscle activity| image:: _static/lesson4/image1.gif
    :width: 6.25000in

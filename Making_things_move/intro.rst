@@ -1,18 +1,6 @@
 Making things move
 ==================
 
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
-    Lesson 5 <lesson5>
-    Lesson 6 <lesson6>
-    Lesson 7 <lesson7>
-
-
 Most biomechanical investigations involve some sort of movement, so
 getting the model to move in the desired way is at the core of
 musculoskeletal modeling. The AnyBody Modeling System offers many and
@@ -72,7 +60,11 @@ In the following lessons we will look at simple and more advanced ways
 to drive a model. For simplicity, we’ll stick with the simple pendulum,
 but exactly the same principles apply to much more complex models.
 
-Let’s initially review simple drivers in :doc:`Lesson 1 <lesson1>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** Let’s initially review simple drivers in :doc:`Lesson 1 <lesson1>`.
+
 
 .. |limbo| image:: _static/intro/image1.jpeg
    :width: 2.42708in

@@ -75,6 +75,13 @@ have not made any specifications yet of how everything in the model is
 connected. This will be the topic of :doc:`Lesson 3: Making Ends
 Meet <lesson3>`.
 
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** Next up is :doc:`Lesson 3: Making Ends Meet <lesson3>`.
+
+
+
 .. |ModelView_Human_Adjusted| image:: _static/lesson2/image1.png
    :width: 2.51875in
    :height: 3.69792in

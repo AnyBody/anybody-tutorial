@@ -211,8 +211,11 @@ computed in AnyBody can be visualized this way.
 So far, we have only the kinematic data to look at. Before we can start
 the real biomechanics, we must add some muscles to the model.
 
-This is the subject of :doc:`*Lesson 5: Definition of muscles and external
-forces* <lesson5>`.
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** This is the subject of :doc:`*Lesson 5: Definition of muscles and external forces* <lesson5>`.
+
+
 
 .. |ModelView Arm2D initial load| image:: _static/lesson4/image1.png
    :width: 1.90049in

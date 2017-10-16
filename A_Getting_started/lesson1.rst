@@ -1,4 +1,4 @@
-Lesson 1: Creating a Standing Model using Template
+Lesson 1: Creating a Standing Model
 ==================================================
 
 The model repository contains many applications in the Examples folder.
@@ -93,8 +93,11 @@ functions, so keyboard shortcuts have been provided:
 -  If you have a scrolling wheel on your mouse, this will zoom the model
    in and out.
 
-You can now proceed to :doc:`*Lesson 2: Controlling the
-posture* <lesson2>`.
+
+.. rst-class:: without-title
+
+.. seealso::
+    You can now proceed to :doc:`lesson2`.
 
 .. |Model button| image:: _static/lesson1/image_1.png
    :width: 0.29167in

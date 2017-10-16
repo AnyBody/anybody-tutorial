@@ -199,7 +199,13 @@ there is not much information else yet. In the next lesson, we shall
 look at how we can adjust the human model to fit the purpose of your
 simulation using AnyBody.
 
-Next up is :doc:`Lesson 2: Adjusting the human model <lesson2>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** Next up is :doc:`Lesson 2: Adjusting the human model <lesson2>`.
+
+
+
 
 .. |ModelTree| image:: _static/lesson1/image1.png
    :width: 2.35833in

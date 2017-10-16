@@ -399,7 +399,12 @@ own weight function using any of the parametric function types in the
 system.
 
 The final lesson of this tutorial is about problems that may arise with
-C3D files. Please continue to :doc:`Lesson 7 <lesson7>`.
+C3D files. 
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson7`.
+
 
 .. |Marker residuals| image:: _static/lesson6/image1.emf
    :width: 4.10486in

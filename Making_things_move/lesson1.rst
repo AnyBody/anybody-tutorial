@@ -107,3 +107,8 @@ abstract AnyParamFun class to drive it with.
 
 In :doc:`lesson 2 <lesson2>` we shall see how this same mechanism
 allows you to drive the pendulum by motion capture data.
+
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.

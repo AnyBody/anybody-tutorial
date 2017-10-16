@@ -452,7 +452,9 @@ subsequently run the TricepsCalibrationStudy, then the latter will not
 overwrite the effect of the former, but only for the muscle mentioned in
 the study, i.e. the TricepsLong.
 
-Here's a link to the finished calibration.any example.
+Here's a link to the finished :download:`calibration.any example <Downloads/calibration.any>`.
+
+
 
 .. |Chart view BicepsLong.Ft| image:: _static/lesson_calibration/image1.png
    :width: 5.62778in

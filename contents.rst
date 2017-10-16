@@ -5,17 +5,17 @@ Table Of Contents
 .. toctree::
 
     Tutorial overview <index>
-    A_Getting_started/intro 
-    A_Getting_started_anyscript/intro
-    A_Getting_started_modeling/intro
-    Interface_features/intro
-    A_study_of_studies/intro
-    Making_things_move/intro
-    MuscleRecruitment/Inverse_dynamics
-    ForceDependentKinematics/fdk
-    Muscle_modeling/intro
-    The_mechanical_elements/intro
-    Advanced_script_features/intro
-    Finite_element_analysis/intro
-    AnyExp4SOLIDWORKS/intro
-    Scaling/intro
+    A_Getting_started/index 
+    A_Getting_started_anyscript/index
+    A_Getting_started_modeling/index
+    Interface_features/index
+    A_study_of_studies/index
+    Making_things_move/index
+    MuscleRecruitment/index
+    ForceDependentKinematics/index
+    Muscle_modeling/index
+    The_mechanical_elements/index
+    Advanced_script_features/index
+    Finite_element_analysis/index
+    AnyExp4SOLIDWORKS/index
+    Scaling/index

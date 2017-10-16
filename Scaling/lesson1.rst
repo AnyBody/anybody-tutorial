@@ -585,8 +585,12 @@ Just like the ScalingLengthMass law this law can also be used with the
 AnyManUniform file.
 
 This completes scaling Lesson 1: Joint to joint scaling methods.
-Now move on to :doc:`*Lesson 2: Scaling based on external body
-measurements.* <lesson2>`
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson2`.
+
+
 
 .. |ScalingStandardSize| image:: _static/lesson1/image1.jpeg
    :width: 1.56250in

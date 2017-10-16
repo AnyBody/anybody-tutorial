@@ -830,6 +830,12 @@ But before we come to ligaments we must cover one last aspect of muscle
 modeling, namely General Muscles. They are the topic of the next lesson,
 :doc:`Lesson 6 <lesson6>`.
 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson6`. 
+
+
+
 References
 -----------
 

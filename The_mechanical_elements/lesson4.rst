@@ -169,8 +169,10 @@ and this is really a unique facility. If something went wrong for you
 along the way, you can :download:`download a commented version of the final result
 here (Measures2.any) <Downloads/Measures2.any>`. 
 
-The last lesson in the tutorial on mechanical elements is :doc:`Lesson 5:
-Forces <lesson5>`.
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** The last lesson in the tutorial on mechanical elements is :doc:`lesson5`. 
+
 
  
 

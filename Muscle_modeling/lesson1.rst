@@ -260,8 +260,10 @@ This is because they are not relevant for this very simple type of
 muscle. We shall return to the significance of the different properties
 later in this tutorial. 
 
-For now, :doc:`*let's proceed to the next lesson* <lesson2>` to learn
-how to control the way a muscle is displayed. 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** For now, :doc:`let's proceed to the next lesson <lesson2>` to learn
+    how to control the way a muscle is displayed. 
 
  
 

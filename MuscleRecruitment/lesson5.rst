@@ -128,7 +128,11 @@ activation curves. In the next tutorial we shall look at composite
 criteria that might combine some of the attractive features of the pure
 criteria we have investigated so far. This takes place in
 
-:doc:`Lesson 6: Composite recruitment criteria <lesson6>`
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson6`.
+
 
 .. |Chart view Muscle activity MinMaxStrict| image:: _static/lesson5/image1.png
    :width: 6.25556in

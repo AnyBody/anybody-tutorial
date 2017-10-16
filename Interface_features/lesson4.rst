@@ -59,8 +59,12 @@ are being applied.
    ease, you can use a locally created reference object as a substitute
    for your original.
 
-This concludes this lesson on browsing the model. The next lesson is
-:doc:`Lesson 5: The Command Line Application. <lesson5>`
+This concludes this lesson on browsing the model.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson5`.
+
 
 .. |GUI overview| image:: _static/lesson4/image1.png
    :width: 6.66667in

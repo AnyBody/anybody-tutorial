@@ -342,7 +342,10 @@ aliases by the following procedure:
    files, so the bat file names are working as aliases for the real .exe
    files.
 
-Continue to :doc:`Lesson 6: Modifying the Loaded Model <lesson6>`
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson6`.
+
 
 .. |AnyBodyCon window| image:: _static/lesson5/image1.png
    :width: 6.68750in

@@ -194,6 +194,11 @@ surfaces is significant for the results of the contact modeling. A few
 remarks on how to assure a good quality of the surfaces can be found in
 this :doc:`appendix <fdkappendix>`.
 
+.. seealso::
+
+    A few remarks on how to assure a good quality of the surfaces can be found in
+    this :doc:`appendix <fdkappendix>`.
+
 .. |Model view Hip and knee| image:: _static/lesson5/image1.png
    :width: 6.68490in
    :height: 3.10714in

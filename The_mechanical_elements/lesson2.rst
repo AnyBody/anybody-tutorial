@@ -47,11 +47,14 @@ The different types are described in detail in the AnyScript Reference
 manual (Find it in AnyBody->Help). For examples on how to use joints,
 please download and study the following two examples:
 
--  :download:`*Slider crank in 2D* <Downloads/Demo.SliderCrank2D.any>`
+-  :download:`Slider crank in 2D <Downloads/Demo.SliderCrank2D.any>`
 
--  :download:`*Slider crank in 3D* <Downloads/Demo.SliderCrank3D.any>`
+-  :download:`Slider crank in 3D <Downloads/Demo.SliderCrank3D.any>`
 
-The next chapter is :doc:`*Lesson 3: Drivers* <lesson3>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson3`. 
 
 .. |Class tree joints| image:: _static/lesson2/image1.gif
    :width: 2.19792in

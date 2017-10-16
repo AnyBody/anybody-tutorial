@@ -144,8 +144,11 @@ these 3D graphs are used in parameter studies and optimizations. More
 detailed information is available in the “Parameter studies and
 optimization“ tutorial.
 
-Continue to :doc:`Lesson 4: Browsing the Model via Model Tree and Object
-Description <lesson4>`
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson4`.
+
 
 .. |Chart view window| image:: _static/lesson3/image1.png
    :width: 6.68542in

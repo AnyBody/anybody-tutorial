@@ -1,14 +1,5 @@
-A Study of Studies 
-===================
-
-
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
+Introduction: A Study of Studies 
+=================================
 
 Studies and operations are AnyBody's mechanisms for specifying "things
 to do to the model". The study is the “collector“, in the sense that a
@@ -282,17 +273,22 @@ functionality in an AnyBodyStudy.
 
 -  :doc:`Lesson 1: Mechanical System Information <lesson1>`
 
--  :doc:`*Lesson 2: Initial Conditions* <lesson2>`
+-  :doc:`Lesson 2: Initial Conditions <lesson2>`
 
--  :doc:`*Lesson 3: Kinematics* <lesson3>`
+-  :doc:`Lesson 3: Kinematics <lesson3>`
 
--  :doc:`*Lesson 4: Inverse Dynamics* <lesson4>`
+-  :doc:`Lesson 4: Inverse Dynamics <lesson4>`
 
 We need a model with a bit more substance than the template we created
 above. If you do not already have our trusted arm model stored
 somewhere, *please download it here*, save it to your disk, and load it
-into AnyBody. We are then ready to proceed to :doc:`Lesson1: Mechanical
-System Information <lesson1>`.
+into AnyBody. 
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** We are then ready to proceed to :doc:`Lesson1: Mechanical System Information <lesson1>`.
+
+
 
  
 

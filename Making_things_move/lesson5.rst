@@ -374,6 +374,12 @@ with markers dropping out of the measurements. This happens frequently
 in motion capture experiments and you can read all about in :doc:`Lesson
 6 <lesson6>`.
 
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson6`.
+
+
+
 .. |Model view initial load| image:: _static/lesson5/image1.png
    :width: 6.00000in
    :height: 4.85417in

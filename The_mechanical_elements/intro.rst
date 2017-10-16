@@ -1,16 +1,6 @@
 The Mechanical Elements
 =======================
 
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
-    Lesson 5 <lesson5>
-
-
 Musculoskeletal modeling is really just an advanced application of the
 laws of mechanics described by one of the greatest scientists of all
 times, Sir Isaac Newton, more than 300 years ago. So the elements of the
@@ -42,14 +32,20 @@ how it differs from forward dynamics.
 
 This tutorial consists of the following lessons:
 
--  :doc:`*Lesson 1: Segments* <lesson1>`
+-  :doc:`Lesson 1: Segments <lesson1>`
 
--  :doc:`*Lesson 2: Joints* <lesson2>`
+-  :doc:`Lesson 2: Joints <lesson2>`
 
--  :doc:`*Lesson 3: Drivers* <lesson3>`
+-  :doc:`Lesson 3: Drivers <lesson3>`
 
--  :doc:`*Lesson 4: Kinematic Measures* <lesson4>`
+-  :doc:`Lesson 4: Kinematic Measures <lesson4>`
 
--  :doc:`*Lesson 5: Forces* <lesson5>`
+-  :doc:`Lesson 5: Forces <lesson5>`
 
-Let's head for :doc:`*Lesson 1: Segments* <lesson1>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** Let's head for :doc:`lesson1`. 
+
+
+

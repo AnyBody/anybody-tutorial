@@ -69,7 +69,11 @@ interconnected files:
 Right-click the files and save them in a directory of your choice. Then
 start AnyBody and load the main file, demo.include.any.
 
-Next up is :doc:`*Lesson 3: Mathematical Expressions* <lesson3>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** :doc:`lesson3`.
+
 
 .. |Include tree| image:: _static/lesson2/image1.gif
    :width: 5.35417in

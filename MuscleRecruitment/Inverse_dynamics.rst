@@ -1,18 +1,6 @@
 Inverse Dynamics of Muscle Systems
 ==================================
 
-.. toctree::
-   :hidden:
-
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
-    Lesson 5 <lesson5>
-    Lesson 6 <lesson6>
-    Lesson 7 <lesson_calibration>
-
-
 The AnyBody Modeling System performs inverse dynamics as one of its
 central operations. In biomechanics, inverse dynamics is traditionally
 understood at the process of computing from measured ground reaction
@@ -94,8 +82,12 @@ assumptions behind the entire field of muscle recruitment. More on this
 topic can be found in the recorded previous `webcast on “Features of
 muscle recruitment algorithms“ <https://www.anybodytech.com/anybody.html?fwd=webcasts#2009625>`__.
 
-Let us begin with :doc:`Lesson 1: The basics of muscle
-recruitment <lesson1>`.
+
+.. rst-class:: without-title
+.. seealso::
+    **Next lesson:** Let us begin with :doc:`Lesson 1: The basics of muscle recruitment <lesson1>`.
+
+
 
 .. |Inverse dynamic simple schematic| image:: _static/Inverse_dynamics/image1.png
    :width: 4.16250in
