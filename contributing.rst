@@ -2,23 +2,33 @@ Contributing
 ####################
 
 
-We highly encourage contributions to Tutorials! If you find typos, missing links or anything else wrong, don't hesite to fix it. 
-It is as easy as forking `the repository on GitHub <https://github.com/AnyBody/anybody-tutorial>`__ , making your changes, and issuing a pull request. 
+We highly appreciate any contributions to Tutorials! 
 
-If you have any questions about this process don’t hesitate to ask.
+If you find typos, missing links or anything else wrong, don't hesitate to fix it. 
+
+It is as easy as forking `the repository on GitHub
+<https://github.com/AnyBody/anybody-tutorial>`__ , making your changes, and
+issuing a pull request.  If you have any questions about this process don’t
+hesitate to ask.
 
 
 Building the tutorials
 **********************
 
-The tutorials are build using `sphinx <http://www.sphinx-doc.org/>`_, a tool for software
+The tutorials are created using `sphinx <http://www.sphinx-doc.org/>`_, a tool for software
 documentation. Sphinx converts reStructuredText files into html, pdf or other
 formats. reStructuredText are simple text files with extra markup to define headers
 and formating. Having the tutorials as reStructuredText makes it easy to control
-changes to the documents and ensure consistent style.
+changes to the documents and ensure consistent style. 
 
-The tutorials are build automatically as soon as changes are accepted and merged in 
-the repository. The system also deploys the html files to the anyscript.org home page. 
+The tutorials are automatically build with sphinx when commits are 
+pushed to the github repository. The process is handle by
+`Travis CI, here <https://travis-ci.org/AnyBody/anybody-tutorial>`_. 
+If the build fails, for example because of 
+wrong reST syntax etc, the Pull Request can not be merged.
+
+Once the pull request is accepted on Github and the changes are merged to the master 
+branch the tutorials becomes availble online. 
 
 The newest released version of the tutorials are available at: 
 
@@ -162,20 +172,4 @@ Valid values for the highlighting languages are:
 * ... and any other `lexer alias that Pygments supports
   <http://pygments.org/docs/lexers/>`_.
 
-
-Building the tutorials
-**********************
-
-The tutorials are automatically build with sphinx when commits are 
-pushed to the github repository. The process is handle by
-`Travis CI, here <https://travis-ci.org/AnyBody/anybody-tutorial>`_. 
-If the build fails, for example because of 
-wrong reST syntax etc, the Pull Request can not be merged.
-
-Once the pull request is accepted on Github and the changes are merged to the master 
-branch the tutorials becomes availble online. 
-
-The lates version of the tutorial which has git tag in the repository is always
-available here: http://anyscript.org/tutorials/ A development version (the
-master branch) can be viewed at  http://anyscript.org/tutorials/dev
 
