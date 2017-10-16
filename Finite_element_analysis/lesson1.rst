@@ -44,9 +44,9 @@ generating muscles; this will keep the force output files small.
 
      #ifdef FEA_OUTPUT
      // switch the muscles off for simplicity
-     #define BM_LEG_MUSCLES_BOTH CONST_MUSCLES_NONE
-     #define BM_ARM_MUSCLES_BOTH CONST_MUSCLES_NONE
-     #define BM_TRUNK_MUSCLES CONST_MUSCLES_NONE
+     #define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
+     #define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_
+     #define BM_TRUNK_MUSCLES _MUSCLES_NONE_
      #endif
 
 In order to export the forces acting on the vertebra we had to include

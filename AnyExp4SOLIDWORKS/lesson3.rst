@@ -28,7 +28,7 @@ can see that we have a standing full human body model.
 To keep things simple, start by switching of the muscles by setting the
 BM statement for the muscle definitions of arms, legs and trunk in our
 new created file ‘FitnessMachine\_With\_Human.main.any’ to
-``CONST_MUSCLES_NONE``:
+``_MUSCLES_NONE_``:
 
 .. code-block:: AnyScriptDoc
 
@@ -42,9 +42,9 @@ new created file ‘FitnessMachine\_With\_Human.main.any’ to
       #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
     
       // Switch off all muscles of the body model
-      §#define BM_LEG_MUSCLES_BOTH CONST_MUSCLES_NONE
-      #define BM_TRUNK_MUSCLES CONST_MUSCLES_NONE
-      #define BM_ARM_MUSCLES_BOTH CONST_MUSCLES_NONE§
+      §#define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
+      #define BM_TRUNK_MUSCLES _MUSCLES_NONE_
+      #define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_§
     
       // Include default human model
       #include "<ANYBODY_PATH_BODY>\HumanModel.any"
@@ -242,9 +242,9 @@ setting a BM statement in the Main folder:
       #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
       
       // Switch off all muscles of the body model
-      #define BM_LEG_MUSCLES_BOTH CONST_MUSCLES_NONE
-      #define BM_TRUNK_MUSCLES CONST_MUSCLES_NONE
-      #define BM_ARM_MUSCLES_BOTH CONST_MUSCLES_NONE
+      #define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
+      #define BM_TRUNK_MUSCLES _MUSCLES_NONE_
+      #define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_
       // Switch of the default drivers
       §#define BM_MANNEQUIN_DRIVER_DEFAULT OFF§
       
@@ -386,9 +386,9 @@ beginning of this lesson.
       #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
     
       // Switch off all muscles of the body model
-      § //#define BM_LEG_MUSCLES_BOTH CONST_MUSCLES_NONE
-      //#define BM_TRUNK_MUSCLES CONST_MUSCLES_NONE
-      //#define BM_ARM_MUSCLES_BOTH CONST_MUSCLES_NONE§
+      § //#define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
+      //#define BM_TRUNK_MUSCLES _MUSCLES_NONE_
+      //#define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_§
       // Switch of the default drivers
       #define BM_MANNEQUIN_DRIVER_DEFAULT OFF
     
