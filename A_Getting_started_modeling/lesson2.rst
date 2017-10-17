@@ -41,17 +41,17 @@ including the “HumanModel.any” file.
       
       //-->BM statements
       // Excluding the muscles in the trunk segments
-      §#define BM_TRUNK_MUSCLES CONST_MUSCLES_NONE§
+      §#define BM_TRUNK_MUSCLES _MUSCLES_NONE_§
       // Excluding the left arm segments
       §#define BM_ARM_LEFT OFF§
       // Excluding the right arm segments
       §#define BM_ARM_RIGHT OFF§
       // Excluding the left leg segments
-      §#define BM_LEG_LEFT CONST_LEG_MODEL_OFF§
+      §#define BM_LEG_LEFT OFF§
       // Using the right leg as 'TLEM' model
-      §#define BM_LEG_RIGHT CONST_LEG_MODEL_TLEM§
+      §#define BM_LEG_RIGHT _LEG_MODEL_TLEM1_§
       // Excluding the muscles in the right leg segments
-      §#define BM_LEG_MUSCLES_RIGHT CONST_MUSCLES_NONE§  
+      §#define BM_LEG_MUSCLES_RIGHT _MUSCLES_NONE_§  
       //<--
       
       // Include default human model
