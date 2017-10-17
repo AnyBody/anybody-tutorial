@@ -452,7 +452,7 @@ dynamics simulation. The final model can be downloaded :download:`here
 .. toctree::
    :hidden:
 
-    Lesson 3 appendix <lesson3_appendix>
+    Lesson 1 appendix <lesson3_appendix>
 
 Finally, the only thing left is to include this scaling law into an
 actual model. :doc:`Lesson 2 <lesson4>` describes how this can be
