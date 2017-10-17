@@ -1,4 +1,4 @@
-User interface features
+Using AnyBody Modeling System
 =======================
 
 This tutorial deals with the user interface features of the AnyBody
