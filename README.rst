@@ -2,7 +2,7 @@
     :target: https://travis-ci.org/AnyBody/anybody-tutorial
 
 .. image:: https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Tutorial_website   
-    :target: https://anyscript.org/tutorials/
+    :target: https://anyscript.org/tutorials/dev
 
 ############################
  AnyBody Tutorial repository
@@ -25,8 +25,8 @@ See the guide for `how to contribute`_.
 
 License
 ============
-See the `licence certificate file`_
+See the `licence certificate file`_.
 
-.. how to contribute: https://anyscript.org/tutorials/dev/contributing.html
+.. _how to contribute: contributing.rst
 
-.. licence certificate file: LICENSE.txt
+.. _licence certificate file: LICENSE.txt
