@@ -16,9 +16,9 @@ Building the tutorials
 **********************
 
 The tutorials are created using `sphinx <http://www.sphinx-doc.org/>`_, a tool for software
-documentation. Sphinx converts reStructuredText files into html, pdf or other
-formats. reStructuredText are simple text files with extra markup to define headers
-and formating. Having the tutorials as reStructuredText makes it easy to control
+documentation. Sphinx converts ReStructuredText(.rst) files into html, pdf or other
+formats. ReStructuredTexts are simple text files with extra markup to define headers
+and formating. Having the tutorials as ReStructuredText makes it easy to control
 changes to the documents and ensure consistent style. 
 
 The tutorials are automatically build with sphinx when commits are 
@@ -42,22 +42,21 @@ The newest development version (current master branch) is availble at:
 Building the tutorials locally
 ==============================
 
-Eventhought the tutorials are build automatically, it is also possible to build
+Even though the tutorials are build automatically, it is also possible to build
 them locally to view the layout and see results before pushing changes to the
 server. It is often not necesssary when making small fixes to existing
 tutorials. But when writing major new sections it nice to view how things look. 
 
-The easiest way to install needed packages tools, is to have the [Anaconda
-python distribution](https://www.continuum.io/downloads). 
+The easiest way to install needed packages tools, is to have the `Anaconda Python distribution <https://www.continuum.io/downloads>`_. 
 
 Then run the following commands to install the necesssary packages. 
 
 .. code-block:: bat
 
-    c:\path\to\anybody_tutorials> conda install sphinx pandoc cloud_sptheme pygments_anyscript
+    c:\path\to\anybody_tutorials> conda install -c conda-forge sphinx pandoc cloud_sptheme pygments_anyscript
     c:\path\to\anybody_tutorials> pip install sphinxcontrib-fulltoc
 
-Once the packages are install run this command s to build. 
+Once the packages are install run this command to build the tutorial files. 
 
 .. code-block:: bat
 
@@ -67,11 +66,11 @@ Once complete open the file: ``build/html/index.html`` in a browser to view
 the result.
 
 
-Short reStructuredText guide
+Short ReStructuredText guide
 ****************************
 
-There are plenty of guides on reStructuredText available on Google. So here is just a 
-quick primer for the reST concepts which are important for the tutorials.
+There are plenty of guides on ReStructuredText available on Google. So here is just a 
+quick run through over some of the reST concepts which are important for the tutorials.
 
 Paragraphs
 ==========
@@ -84,8 +83,8 @@ paragraph must be left aligned to the same indentation.
 * two asterisks: ``**text**`` for strong emphasis (boldface), and
 * backquotes: ````text```` for code samples.
 
-There is also options for :subscript:`subssscript` 
-:superscript:`superscript` and more. See the 
+There are also options for :subscript:`subscript` (``:subscript:`text```) 
+:superscript:`superscript` (``:superscript:`text```) and more.
 
 
 Headers
@@ -168,7 +167,7 @@ Valid values for the highlighting languages are:
 * ``AnyScript``: AnyScript (Syntax must be valid)
 * ``AnyBodyDoc`` AnyScript (Allows invalid syntax)
 * ``python/c++/ruby`` Different known programming languages
-* ``rest`` reStructuredText
+* ``rest`` ReStructuredText
 * ... and any other `lexer alias that Pygments supports
   <http://pygments.org/docs/lexers/>`_.
 
