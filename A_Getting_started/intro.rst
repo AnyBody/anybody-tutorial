@@ -30,9 +30,8 @@ user, you are likely to find yourself in one of the following scenarios.
 
 -  Constructing a body model and its environment bottom-up, like when
    you’re modeling an animal or making a new detailed joint model. Such
-   bottom-up modeling is described in the tutorial "`Getting Started:
-   AnyScript
-   Programming <../A_Getting_started_anyscript/intro.html>`__".
+   bottom-up modeling is described in the tutorial 
+   ":doc:`Getting Started AnyScript Programming </A_Getting_started_anyscript/intro>`".
 
 These various levels of model building complexity are covered in
 ":doc:`Getting Started:
