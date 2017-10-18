@@ -1,56 +1,56 @@
 # Default reviewer, until the different parts gets their own owner
 * @melund
 
-#   
-#   /A_Getting_started/* @ananth-gopalakrishnan
-#   /A_Getting_started_anyscript/* @ananth-gopalakrishnan 
-#   /A_Getting_started_modeling/* @ananth-gopalakrishnan
-#   /Posture_and_movement/* @ananth-gopalakrishnan
-#   
-#   
-#   /A_study_of_studies/* @KasperPRasmussen
-#   /Validation_of_models/* @KasperPRasmussen
-#   /MuscleRecruitment/lesson7.rst @KasperPRasmussen
-#   
-#   
-#   /Making_things_move/* @melund
-#   /Advanced_script_features/* @melund
-#   
-#   
-#   /MuscleRecruitment/* @toerholm 
-#   /The_mechanical_elements/* @toerholm
-#   
-#   
-#   
-#   #/Muscle_modelling/* mss 
-#   #/Parameter_studies_and_optimization/* mss
-#   
-#   
-#   /ForceDependentKinematics/* @mkjung99
-#   /AnyExp4SOLIDWORKS/* @mkjung99
-#   
-#   
-#   /Finite_element_analysis/* @pgalibarov
-#   /Scaling/* @pgalibarov
-#   
-#   # GUI
-#   /Interface_features/intro.rst @rolesen
-#   # Editor
-#   /Interface_features/lesson1.rst @rolesen
-#   # Model tree
-#   /Interface_features/lesson4.rst @rolesen
-#   
-#   # Model view window
-#   /Interface_features/lesson2.rst @JDThomsen
-#   # Chart view window
-#   /Interface_features/lesson3.rst @JDThomsen
-#   # Command line applicaiton
-#   /Interface_features/lesson5.rst @JDThomsen
-#   # AnyProject
-#   /Interface_features/lesson7.rst @JDThomsen
-#   # Modifying loaded values (SetValue etc.)
-#   /Interface_features/lesson6.rst @JDThomsen
-#   
-#   
-#   # /Troubleshooting_anyscript/* Michael Damsgaard
+
+/A_Getting_started/* @ananth-gopalakrishnan
+/A_Getting_started_anyscript/* @ananth-gopalakrishnan 
+/A_Getting_started_modeling/* @ananth-gopalakrishnan
+/Posture_and_movement/* @ananth-gopalakrishnan
+
+
+/A_study_of_studies/* @KasperPRasmussen
+/Validation_of_models/* @KasperPRasmussen
+/MuscleRecruitment/lesson7.rst @KasperPRasmussen
+
+
+/Making_things_move/* @melund
+/Advanced_script_features/* @melund
+
+
+/MuscleRecruitment/* @toerholm 
+/The_mechanical_elements/* @toerholm
+
+
+
+#/Muscle_modelling/* @mss-anybody 
+#/Parameter_studies_and_optimization/* @mss-anybody
+
+
+/ForceDependentKinematics/* @mkjung99
+/AnyExp4SOLIDWORKS/* @mkjung99
+
+
+/Finite_element_analysis/* @pgalibarov
+/Scaling/* @pgalibarov
+
+# GUI
+/Interface_features/intro.rst @rolesen
+# Editor
+/Interface_features/lesson1.rst @rolesen
+# Model tree
+/Interface_features/lesson4.rst @rolesen
+
+# Model view window
+/Interface_features/lesson2.rst @JDThomsen
+# Chart view window
+/Interface_features/lesson3.rst @JDThomsen
+# Command line applicaiton
+/Interface_features/lesson5.rst @JDThomsen
+# AnyProject
+/Interface_features/lesson7.rst @JDThomsen
+# Modifying loaded values (SetValue etc.)
+/Interface_features/lesson6.rst @JDThomsen
+
+
+# /Troubleshooting_anyscript/* Michael Damsgaard
 
