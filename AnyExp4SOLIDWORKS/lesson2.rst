@@ -423,33 +423,33 @@ human to the model in the final :doc:`Lesson 3 <lesson3>`.
     **Next lesson:** :doc:`lesson3`.
 
 
-.. |SolidWorks components| image:: _static/lesson2/image1.PNG
+.. |SolidWorks components| image:: _static/lesson2/_image1.PNG
    :width: 6.69306in
    :height: 3.84722in
-.. |AnyExp2Solidworks Configuration| image:: _static/lesson2/image2.PNG
+.. |AnyExp2Solidworks Configuration| image:: _static/lesson2/_image2.PNG
    :width: 3.20000in
    :height: 1.44000in
-.. |SolidWorks Tree view| image:: _static/lesson2/image3.PNG
+.. |SolidWorks Tree view| image:: _static/lesson2/_image3.PNG
    :width: 3.95000in
    :height: 5.87000in
-.. |Matetype 1| image:: _static/lesson2/image4.PNG
+.. |Matetype 1| image:: _static/lesson2/_image4.PNG
    :width: 1.87000in
    :height: 1.78000in
-.. |Matetype 2| image:: _static/lesson2/image5.png
+.. |Matetype 2| image:: _static/lesson2/_image5.png
    :width: 1.87000in
    :height: 1.78000in
-.. |Matetype 3| image:: _static/lesson2/image6.PNG
+.. |Matetype 3| image:: _static/lesson2/_image6.PNG
    :width: 1.87000in
    :height: 1.78000in
-.. |Matetype 4| image:: _static/lesson2/image5.png
+.. |Matetype 4| image:: _static/lesson2/_image5.png
    :width: 1.87000in
    :height: 1.78000in
-.. |AnyExp2Solidworks Config 2| image:: _static/lesson2/image7.PNG
+.. |AnyExp2Solidworks Config 2| image:: _static/lesson2/_image7.PNG
    :width: 3.97972in
    :height: 1.76066in
-.. |Solidworks tree 2| image:: _static/lesson2/image8.PNG
+.. |Solidworks tree 2| image:: _static/lesson2/_image8.PNG
    :width: 4.76108in
    :height: 4.30268in
-.. |AnyBody Study object description| image:: _static/lesson2/image9.PNG
+.. |AnyBody Study object description| image:: _static/lesson2/_image9.PNG
    :width: 6.69306in
    :height: 6.45278in

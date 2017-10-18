@@ -92,7 +92,7 @@ We create a new folder to contain the joints and define the shoulder:
            }; // LowerArm
          }; // Segs folder
     
-        §AnyFolder Jnts = {
+       §AnyFolder Jnts = {
     
            //---------------------------------
            AnyRevoluteJoint Shoulder = {
@@ -100,11 +100,11 @@ We create a new folder to contain the joints and define the shoulder:
              AnyRefNode &GroundNode = ..GlobalRef.Shoulder;
              AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
     
-        Axis = z;
+             Axis = z;
     
-          }; // Shoulder joint
+           }; // Shoulder joint
     
-         }; // Jnts folder§
+       }; // Jnts folder§
 
 
 Why use ‘.’ and ‘..’ in AnyScript? - Relative folder paths
@@ -189,20 +189,20 @@ joint is as follows:
 
 .. code-block:: AnyScriptDoc
 
-     AnyFolder Jnts = {
-            //---------------------------------
-            AnyRevoluteJoint Shoulder = {
-              Axis = z;
-              AnyRefNode &GroundNode = ..GlobalRef.Shoulder;
-              AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
-            }; // Shoulder joint
-    
-            §AnyRevoluteJoint Elbow = {
-              Axis = z;
-              AnyRefNode &UpperArmNode = ;
-              AnyRefNode &ForeArmNode = ;
-            }; // Elbow joint§
-         }; // Jnts folder
+    AnyFolder Jnts = {
+           //---------------------------------
+        AnyRevoluteJoint Shoulder = {
+            Axis = z;
+            AnyRefNode &GroundNode = ..GlobalRef.Shoulder;
+            AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
+        }; // Shoulder joint
+
+        §AnyRevoluteJoint Elbow = {
+            Axis = z;
+            AnyRefNode &UpperArmNode = ;
+            AnyRefNode &ForeArmNode = ;
+        }; // Elbow joint§
+    }; // Jnts folder
 
 
 As you can clearly see, the nodes in the Elbow joint are not pointing at
@@ -259,5 +259,5 @@ position. This is taken care of by kinematic drivers.
 
 
 .. |Model tree ElbowNode| image:: _static/lesson3/image1.png
-   :width: 2.47807in
-   :height: 7.27500in
+   :scale: 70%
+   

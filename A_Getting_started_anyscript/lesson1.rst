@@ -175,17 +175,12 @@ successfully.
 
 
 .. |AnyBody Assistent| image:: _static/lesson1/image1.png
-   :width: 7.14583in
-   :height: 3.83344in
+   :scale: 40%
 .. |Editor NewModel.main.any| image:: _static/lesson1/image2.png
-   :width: 6.85694in
-   :height: 3.44742in
+   :scale: 60%
 .. |Loadbutton image| image:: _static/lesson1/image3.png
-   :width: 0.50000in
-   :height: 0.20714in
+   :scale: 80%
 .. |Load model right click menu| image:: _static/lesson1/image4.png
-   :width: 3.54922in
-   :height: 1.37500in
+   :scale: 70%
 .. |Error popup dialog| image:: _static/lesson1/image5.png
-   :width: 6.66042in
-   :height: 3.58569in
+   :scale: 70%

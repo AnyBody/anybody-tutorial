@@ -218,20 +218,14 @@ the real biomechanics, we must add some muscles to the model.
 
 
 .. |ModelView Arm2D initial load| image:: _static/lesson4/image1.png
-   :width: 1.90049in
-   :height: 1.80128in
+    :scale: 40%
 .. |Operations ArmStudy| image:: _static/lesson4/image2.png
-   :width: 2.95833in
-   :height: 2.38889in
+    :scale: 80%
 .. |Model tree toolbar Execute buttons| image:: _static/lesson4/image3.png
-   :width: 1.05217in
-   :height: 0.26304in
+    :scale: 80%
 .. |Execute toolbar| image:: _static/lesson4/image4.png
-   :width: 1.26667in
-   :height: 0.21646in
+    :scale: 80%
 .. |Replay toolbar| image:: _static/lesson4/image5.png
-   :width: 6.69306in
-   :height: 0.20556in
+    :scale: 80%
 .. |Chart view HandNode| image:: _static/lesson4/image6.png
-   :width: 6.10116in
-   :height: 4.36667in
+   
