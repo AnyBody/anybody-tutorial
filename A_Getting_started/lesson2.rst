@@ -143,8 +143,6 @@ happens if we change the posture: :doc:`Lesson 3: Reviewing analysis
 results <lesson3>`.
 
 .. |RunApplication| image:: _static/lesson2/image1.png
-   :width: 3.01389in
-   :height: 4.06944in
+   
 .. |Run toolbar| image:: _static/lesson2/image2.png
-   :width: 6.80556in
-   :height: 0.60417in
+   
