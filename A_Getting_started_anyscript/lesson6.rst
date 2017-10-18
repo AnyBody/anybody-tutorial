@@ -151,20 +151,16 @@ produces a dull blue shade.
 
 This completes the Getting Started with AnyScript tutorial. The final
 result of the efforts is in
-*:download:`demo.arm2d.any <Downloads/demo.arm2d.any>`*.
+:download:`*demo.arm2d.any <Downloads/demo.arm2d.any>`.
+
 
 .. |oldleg1| image:: _static/lesson6/image1.jpeg
-   :width: 2.57292in
-   :height: 2.63542in
+   :scale: 100%
 .. |oldleg2| image:: _static/lesson6/image2.jpeg
-   :width: 2.61094in
-   :height: 2.63208in
+   :scale: 100%
 .. |ModelView dumbbell1| image:: _static/lesson6/image3.jpeg
-   :width: 3.12500in
-   :height: 3.52083in
+   :scale: 80%
 .. |ModelView dumbbell2| image:: _static/lesson6/image4.jpeg
-   :width: 3.12500in
-   :height: 3.44792in
+   :scale: 80%
 .. |ModelView dumbbell3| image:: _static/lesson6/image5.jpeg
-   :width: 3.12500in
-   :height: 3.11458in
+   :scale: 80%

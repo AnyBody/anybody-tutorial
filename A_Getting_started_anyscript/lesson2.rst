@@ -325,17 +325,15 @@ the movement of segments and allow them to articulate the way we desire.
    the rigid parts of the model.
 
 .. |Load button image| image:: _static/lesson2/image1.png
-   :width: 0.52778in
-   :height: 0.21817in
+   :scale: 80%
 .. |Classes tab| image:: _static/lesson2/image2.png
-   :width: 3.44167in
-   :height: 3.00746in
+   :scale: 80%
 .. |Zoom button image| image:: _static/lesson2/image3.png
-   :width: 0.23718in
-   :height: 0.23139in
+   :scale: 70%
+
 .. |Model view One Segment| image:: _static/lesson2/image4.png
-   :width: 2.26282in
-   :height: 2.11864in
+   :scale: 50%
+
 .. |Model view two segments| image:: _static/lesson2/image5.png
-   :width: 2.94231in
-   :height: 2.57811in
+   :scale: 40%
+   
