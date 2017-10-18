@@ -32,7 +32,7 @@ user, you are likely to find yourself in one of the following scenarios.
    you’re modeling an animal or making a new detailed joint model. Such
    bottom-up modeling is described in the tutorial "`Getting Started:
    AnyScript
-   Programming <../A_Getting_started_anyscript/intro.docx>`__".
+   Programming <../A_Getting_started_anyscript/intro.html>`__".
 
 These various levels of model building complexity are covered in
 ":doc:`Getting Started:

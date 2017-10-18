@@ -12,11 +12,11 @@ Introducing chart view
 The tree expands to reveal the entire structure of output data generated
 by AnyBody. Every element in the model generates some form of output
 from the analysis, so the tree is vast. One of the first nodes you
-encounter is the MaxMucleActivity variable:
+encounter is the MaxMuscleActivity variable:
 
 |Chart view tree|
 
-If you select MaxMucleActivity you will see the following information.
+If you select MaxMuscleActivity you will see the following information.
 The line is flat, because you have analyzed a static standing posture
 which does not change with time:
 
@@ -85,9 +85,8 @@ file and change the PelvisThoraxExtension value from 0 to -60.
             ...
             
             §AnyVar PelvisThoraxExtension=-60; §
-            
+
             AnyVar PelvisThoraxLateralBending=0;
-            
             AnyVar PelvisThoraxRotation=0;
             
             ...
@@ -121,32 +120,21 @@ webcast <https://www.anybodytech.com/anybody.html?fwd=webcasts>`__\ s
 for topics of particular interest to you.
 
 .. |Chart view tree| image:: _static/lesson3/image1.png
-   :width: 1.77778in
-   :height: 2.56944in
+   :scale: 80%
 .. |Chart view| image:: _static/lesson3/image2.png
-   :width: 6.68750in
-   :height: 3.79861in
+  
 .. |getting started 8| image:: _static/lesson3/image3.png
-   :width: 0.28472in
-   :height: 0.26389in
+   :scale: 70%
 .. |Chart view Data button| image:: _static/lesson3/image4.png
-   :width: 6.68056in
-   :height: 3.80556in
+   
 .. |Chartview Selected output tree| image:: _static/lesson3/image5.png
-   :width: 3.32639in
-   :height: 5.25694in
+   :scale: 70%
 .. |Chartview JointReactionForce tree| image:: _static/lesson3/image6.png
-   :width: 4.12500in
-   :height: 6.48611in
+   :scale: 70%
 .. |Chartview ProximoDistalForce| image:: _static/lesson3/image7.png
-   :width: 6.67361in
-   :height: 2.84722in
+   
 .. |Chart view asterix selection| image:: _static/lesson3/image8.png
-   :width: 6.68750in
-   :height: 3.65972in
+   
 .. |Model view Human bowing| image:: _static/lesson3/image9.png
-   :width: 3.52778in
-   :height: 3.46528in
+   :scale: 50%
 .. |Chart view: bowing hip reaction forces| image:: _static/lesson3/image10.png
-   :width: 6.68056in
-   :height: 3.52083in

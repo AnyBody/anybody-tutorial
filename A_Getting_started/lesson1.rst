@@ -66,7 +66,7 @@ Load model
 
 To see the graphical representation of the model, you need to load.
 Load/reload is a frequent operation and has been assigned to function
-key F7.
+key F7. You may also load your model by clicking |Load|.
 
 Display the model
 -----------------
@@ -100,13 +100,13 @@ functions, so keyboard shortcuts have been provided:
     You can now proceed to :doc:`lesson2`.
 
 .. |Model button| image:: _static/lesson1/image_1.png
-   :width: 0.29167in
+   
 .. |ModelLoadButton| image:: _static/lesson1/image_2.png
-   :width: 4.44444in
+   
 .. |TemplateDialog| image:: _static/lesson1/image_3.png
-   :width: 4.84722in
-   :height: 4.64583in
+   :scale: 80%
 .. |MyStandingHumanModel.main.any| image:: _static/lesson1/image_4.png
-   :width: 6.69444in
+   :scale: 40%
 .. |Model View| image:: _static/lesson1/image_5.png
-   :width: 3.18056in
+   :scale: 50%
+.. |Load| image:: _static/lesson1/image_6.png
