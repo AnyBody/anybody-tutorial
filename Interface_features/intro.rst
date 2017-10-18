@@ -1,5 +1,5 @@
-User interface features
-=======================
+Using the AnyBody Modeling System
+=================================
 
 This tutorial deals with the user interface features of the AnyBody
 Modeling System. Please complete the “\ :doc:`Getting Started: AnyScript
