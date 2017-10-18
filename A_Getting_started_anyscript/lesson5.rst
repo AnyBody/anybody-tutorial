@@ -349,17 +349,12 @@ Repository <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
 
 
 .. |image0| image:: _static/lesson5/image1.png
-   :width: 3.76923in
-   :height: 3.23496in
+   :scale: 50%
 .. |image1| image:: _static/lesson5/image2.png
-   :width: 3.76772in
-   :height: 3.57253in
+   :scale: 50%
 .. |image2| image:: _static/lesson5/image3.png
-   :width: 4.55128in
-   :height: 2.36256in
+   :scale: 65%
 .. |image3| image:: _static/lesson5/image4.png
-   :width: 4.59615in
-   :height: 2.46741in
+   :scale: 65%
 .. |image4| image:: _static/lesson5/image5.png
-   :width: 4.66667in
-   :height: 2.51029in
+   :scale: 65%

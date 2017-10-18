@@ -209,30 +209,30 @@ now let us go to the next :doc:`Lesson2. <lesson2>`
 .. seealso::
     **Next lesson:** :doc:`lesson2`.
 
-.. |SolidWorks fitnessmachine| image:: _static/lesson1/image1.PNG
+.. |SolidWorks fitnessmachine| image:: _static/lesson1/_image1.PNG
    :width: 6.69306in
    :height: 3.63889in
-.. |AnyExp4SOLIDWORKS menu| image:: _static/lesson1/image2.png
+.. |AnyExp4SOLIDWORKS menu| image:: _static/lesson1/_image2.png
    :width: 1.53000in
    :height: 1.22000in
-.. |AnyExp4SOLIDWORKS dialog| image:: _static/lesson1/image3.PNG
+.. |AnyExp4SOLIDWORKS dialog| image:: _static/lesson1/_image3.PNG
    :width: 4.00000in
    :height: 2.70000in
-.. |Save as dialog| image:: _static/lesson1/image4.PNG
+.. |Save as dialog| image:: _static/lesson1/_image4.PNG
    :width: 5.96000in
    :height: 3.72000in
-.. |Model View Fitness machine| image:: _static/lesson1/image5.png
+.. |Model View Fitness machine| image:: _static/lesson1/_image5.png
    :width: 4.06000in
    :height: 3.62000in
-.. |SOLIDWORKS properties| image:: _static/lesson1/image6.PNG
+.. |SOLIDWORKS properties| image:: _static/lesson1/_image6.PNG
    :width: 3.20427in
    :height: 7.50000in
-.. |ANYBODY model tree| image:: _static/lesson1/image7.PNG
+.. |ANYBODY model tree| image:: _static/lesson1/_image7.PNG
    :width: 2.47000in
    :height: 7.50000in
-.. |SolidWorks assembly| image:: _static/lesson1/image8.PNG
+.. |SolidWorks assembly| image:: _static/lesson1/_image8.PNG
    :width: 6.69306in
    :height: 3.99236in
-.. |SolidWorks Two components| image:: _static/lesson1/image9.png
+.. |SolidWorks Two components| image:: _static/lesson1/_image9.png
    :width: 4.67000in
    :height: 4.23000in
