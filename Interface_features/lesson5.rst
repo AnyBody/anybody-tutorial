@@ -28,8 +28,7 @@ We need a model to work on, so please download and save
 1. Launch the command prompt, change directory to where you have saved
    Demo.outputfile.any
 
-2. Run the .exe file using its full path, e.g. **"C:\\Program
-   Files\\AnyBody Technology\\AnyBody.7.0\\AnyBodyCon.exe"**.
+2. Run the .exe file using its full path, e.g. ``"C:\Program Files\AnyBody Technology\AnyBody.7.0\AnyBodyCon.exe"``.
 
 Console commands
 ----------------
@@ -40,7 +39,7 @@ The table below contains a description of the commands accepted by the
 AnyBody console.
 
 +-----------------------+----------------------------------------------------------------------------------------------+
-| **Command name **     | **Functionality**                                                                            |
+| **Command name**      | **Functionality**                                                                            |
 +=======================+==============================================================================================+
 | load "filename.any"   | Example: load "demo.outputfile.any"                                                          |
 |                       |                                                                                              |
@@ -83,7 +82,9 @@ Using the console application
 -----------------------------
 
 Start AnyBodyCon.exe from the command prompt and issue the command
-sequence::
+sequence
+
+.. code-block:: none
 
     load "demo.outputfile.any"
     operation Main.ArmStudy.InverseDynamics
@@ -151,7 +152,9 @@ corresponds to the variables defined in the AnyOutputFile command.
 You can also save the output when using the GUI version by
 right-clicking on the Output subfolder of the Study folder in the Model
 Tree and choosing “Save Data”. We can replicate this in the console as
-follows::
+follows
+
+.. code-block:: none
 
     load "demo.outputfile.any"
     operation Main.ArmStudy.InverseDynamics
@@ -196,11 +199,15 @@ change the number of time steps in our operation.
     
 
 
-If we now exchange::
+If we now exchange
+
+.. code-block:: none
 
     load "demo.outputfile.any"
 
-from our operation sequence with::
+from our operation sequence with
+
+.. code-block:: none
 
     load "demo.outputfile.any" –def NOSTEPS=50
 
@@ -267,7 +274,9 @@ first need to modify the AnyScript file with an OUTPUTFILE argument:
 
 
 Further we create an .anymcr file which we can call ‘runarm.anymcr’. It
-contains the following operations::
+contains the following operations
+
+.. code-block:: none
 
     load "demo.outputfile.any"
     operation RunApplication
@@ -278,7 +287,7 @@ We can now execute the macro file by calling
 
 .. code-block:: bat
 
-    C:\\Program Files\\AnyBody Technology\\AnyBody.7.0AnyBodyCon.exe" /m “runarm.anymcr”
+    C:\Program Files\AnyBody Technology\AnyBody.7.0AnyBodyCon.exe" /m “runarm.anymcr”
 
 from the folder where we saved our model and the macro
 file. It will create an output file called ‘armoutput.anydata.h5’ which
@@ -289,9 +298,9 @@ a #define statement for the file name
 
 .. code-block:: bat
 
-    C:\\Program Files\\AnyBody Technology\\AnyBody.7.0\\AnyBodyCon.exe" /m runarm.anymcr /def OUTPUTFILE=---"\\"myoutput.anydata.h5\\""
+    C:\Program Files\AnyBody Technology\AnyBody.7.0\AnyBodyCon.exe" /m runarm.anymcr /def OUTPUTFILE=---"\"myoutput.anydata.h5\""
     
-What the construction ``—“\\” … \\””`` is doing, in this case,
+What the construction :literal:`—“\” … \””` is doing, in this case,
 is that it will define a quoted string for the #define statement similar
 to the definition in the .any file. As a result we see that the output
 is written to the file ‘myoutput.anydata.h5’.
@@ -309,11 +318,11 @@ with a statement such as:
 
 .. code-block:: bat
 
-    path %path%;C:\\Program Files\\AnyBody Technology\\AnyBody.7.0;
+    path %path%;C:\Program Files\AnyBody Technology\AnyBody.7.0;
 
 It will add AnyBodyCon.exe's path to the existing path
-definition. Notice that there cannot be any space between ``;``` and the
-following path ``c:\\...`` and that you can see the resulting path by
+definition. Notice that there cannot be any space between :literal:`;` and the
+following path :literal:`c:\...` and that you can see the resulting path by
 simply calling the internal path command again without arguments.
 
 These statements will only take effect until the current command prompt
@@ -322,8 +331,8 @@ to the path for all command prompts. In Windows XP for instance, you do
 this from Control Panel -> System under the Advanced tab. You should,
 however, be aware that multiple versions of AnyBody may be installed on
 the computer at the same time, and therefore, multiple versions of
-``AnyBodyCon.exe`` may exist in different locations. Thus, your path
-specification not only makes it easy to call ``AnyBodyCon.exe``; it will
+:literal:`AnyBodyCon.exe` may exist in different locations. Thus, your path
+specification not only makes it easy to call :literal:`AnyBodyCon.exe`; it will
 also specify which version that will be used. This can make it unclear
 which version you are actually using if you need several of them.
 

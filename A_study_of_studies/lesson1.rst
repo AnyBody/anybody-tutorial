@@ -207,7 +207,9 @@ it means that the system will obtain enough reaction forces to carry the
 loads without help from any muscles, corresponding to the statically
 determinate situation 2 listed above. Loading the model does not bring
 about any warnings, but if you run the InverseDynamics operation you
-will get the following message for each time-step::
+will get the following message for each time-step
+
+.. code-block:: none
 
     'ArmStudy':  The muscles in the model are not loaded due to kinetically over-constrained mechanical system.
 

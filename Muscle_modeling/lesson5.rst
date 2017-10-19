@@ -769,10 +769,9 @@ If you run it, you will see the model moving as it does when running the
 InverseDynamics operation of the original AnyBodyStudy. But when the
 analysis is done, the following message appears in the message window:
 
-::
+.. code-block:: none
 
-    The tendon length of muscle Main.MyModel.Muscle2 was calibrated. The
-    muscle properties have been updated.
+    The tendon length of muscle Main.MyModel.Muscle2 was calibrated. The muscle properties have been updated.
 
 Try running the InverseDynamics again and plot the Activity of Muscle2.
 You should see the following:

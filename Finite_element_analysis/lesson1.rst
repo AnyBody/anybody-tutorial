@@ -1,3 +1,8 @@
+.. Disable inline anyscript highlighting.
+
+.. highlight:: none
+
+
 Lesson 1: Export of data for FEA
 ================================
 
@@ -18,9 +23,9 @@ tutorial text and your own results please download AMMRV1.6 from
 
 The starting point for this tutorial is the model:
 
-``Applications/Examples/StandingLift/StandingLiftFEA.main.any``
+:file:`Applications/Examples/StandingLift/StandingLiftFEA.main.any`
 
-However, this model internally reuses the code of ``StandingLift.main.any``. Please
+However, this model internally reuses the code of :file:`StandingLift.main.any`. Please
 find the model and load it by pushing F7 and open a Model View. You
 should see something similar to the picture to the right. The vertebral
 body we want to analyze is marked with a circle on the zoomed-in
@@ -95,7 +100,9 @@ Press the “Run” button. The model will analyze one timestep and write
 the FEAoutput.txt file which we have specified before. Let’s have a
 closer look on the Output file. It is located inside your Application
 folder in the Output subfolder. You can open it either directly in
-AnyBody or in any text editor of your choice.::
+AnyBody or in any text editor of your choice.
+
+.. code-block:: none
 
     Environment:
     ReferenceFrame=Global Model Frame;
@@ -166,7 +173,10 @@ default) the global coordinate system or it can be a local coordinate
 system.
 
 Let us have a look at the following entry which basically gives the
-joint constraints in the L5-Sacrum joint:::
+joint constraints in the L5-Sacrum joint:
+
+
+.. code-block:: none
 
   Force[12]:
   Name=Main.HumanModel.BodyModel.Trunk.JointsLumbar.L5SacrumJnt.Constraints.Reaction;
@@ -197,7 +207,7 @@ has not been reloaded since the force export otherwise run the
 InverseDynamicAnalysis again to bring it to right position. Of course
 it also involves all scaling which has been applied to the bones.
 Browse through the model tree to the L5Seg
-(``Main\HumanModel\BodyModel\Trunk\SegmentsLumbar\L5Seg``) in order
+``Main/HumanModel/BodyModel/Trunk.SegmentsLumbar/L5Seg`` in order
 to export the L5 segment. Inside this folder you find the DrawSTL
 folder. Right-click the folder and choose “Export Surface”. Choose a
 convenient place to store the file and give it the name “L5.stl”. A
@@ -331,7 +341,9 @@ After the definition of a node set on both endplates we have to
 provide the boundary conditions. For this we need our force export
 file. Please open the file (it should be located in your
 StandingLiftFEA application folder) in an editor and scroll down to
-Force[12]. This force is the joint reaction on the L5-Sacrum joint.::
+Force[12]. This force is the joint reaction on the L5-Sacrum joint.
+
+.. code-block:: none
 
   Force[12]:
   Name=Main.HumanModel.BodyModel.Trunk.JointsLumbar.L5SacrumJnt.Constraints.Reaction;
@@ -368,7 +380,9 @@ save.
 There is one more thing that has to be defined preliminary to the FEA
 - the desired output. Please open a text editor and load the L5FEA.inp
 file. In this file the whole analysis is defined, using a reference to
-the node and elements file.::
+the node and elements file.
+
+.. code-block:: none
 
   **=========================================================================
   **                          HISTORY DATA                                 **
@@ -416,13 +430,17 @@ If you want to use this model instead of your own build, please change
 the following comments involving”L5FEA” to “L5FEABackup”.)
 
 Open up the Calculix command shell and browse to the directory where
-you placed the L5FEA.inp file. Now type::
+you placed the L5FEA.inp file. Now type
+
+.. code-block:: none
 
   ccx L5FEA
 
 and press return. This will push the model forward to the solver and
 start the analysis. Within a few seconds a nice JOB FINISHED should
-appear. Now, let’s have look at the results: Therefore, type::
+appear. Now, let’s have look at the results: Therefore, type
+
+.. code-block:: none
 
   cgx L5FEA.frd
 

@@ -10,19 +10,19 @@ which comes with the installation of AnyBody, contains two pre-cooked
 models that are very easy to drive with your own data and which contain
 some really neat features for data processing.
 
-1. Go to the ``Application\Examples`` folder to find a folder called
+1. Go to the :file:`Application\Examples` folder to find a folder called
    MoCapModel.
 
 2. Take a copy of the entire folder and call it something else, for
    instance MyMoCapModel. You may even want to place it in a new
-   directory parallel to Application\\Examples, for instance
-   Application\\MyModels, to avoid polluting the original examples.
+   directory parallel to :file:`Application\Examples`, for instance
+   :file:`Application\MyModels`, to avoid polluting the original examples.
    Please note that you have to put a copy of the libdef.any file into
    the new directory in that case.
 
 3. Browse into the MyMoCapModel folder.
 
-4. Open the file ``MoCap_LowerBody.main.any`` in the AnyBody Modeling
+4. Open the file :file:`MoCap_LowerBody.main.any` in the AnyBody Modeling
    System.
 
 As the name indicates, this is a gait model comprising only the lower
@@ -131,7 +131,9 @@ sometimes slowly and sometimes a bit faster depending on the speed of
 your computer and the progress of the computation. The optimization will
 take a few minutes to complete and it is speeded up significantly if you
 switch the Model View update off during the process. The final message
-you get is: ::
+you get is: 
+
+.. code-block:: none
 
     #### Macro command > classoperation Main.Studies.ParameterIdentification "Save design" --file="GaitNormal0003-processed-OptimizedParametersTest.txt"
     Main.Studies.ParameterIdentification : Saving design...
@@ -262,7 +264,9 @@ posture indicates that this is a person in a hurry.
 Now is the time to run the MotionAndParameterOptimizationSequence. It
 takes a bit of time, and again you can speed up the process by switching
 off the update of the Model View window. Eventually, the process comes
-to an end and you get the message:::
+to an end and you get the message:
+
+.. code-block:: none
 
     Optimization converged
     ********************************************************************

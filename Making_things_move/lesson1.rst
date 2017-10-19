@@ -8,12 +8,13 @@ is its rotational angle away from its resting vertical position. And we
 can very easily drive the pendulum using this DoF.
 
 The simplest mechanism of motion drivers in AnyBody is called
-AnyKinMotion. With Pendulum.any open in an editor and the model loaded,
+``AnyKinMotion`` . With Pendulum.any open in an editor and the model loaded,
 please place the cursor in the editor window just below then ending
-brace of the AnySeg Pendulum definition. Then click the Classes tab on
-the left hand side of the editor window. Unfold the class list and
-scroll down to find AnyKinMotion. Right-click and insert an instance at
+brace of the ``AnySeg Pendulum`` definition. Then click the Classes tab on
+the left-hand side of the editor window. Unfold the class list and
+scroll down to find ``AnyKinMotion`` . Right-click and insert an instance at
 the cursor position:
+
 
 .. code-block:: AnyScriptDoc
 
@@ -38,7 +39,7 @@ the cursor position:
     };§
 
 
-The prototype of the AnyKinMotion class is set up to allow several
+The prototype of the :code:`AnyKinMotion` class is set up to allow several
 different options. But the simplest of these is to directly specify
 something to drive and a function to drive it with. So we start out by
 giving the object a name and removing all of its content.
@@ -100,13 +101,15 @@ If you have a model view open, you should see the pendulum starting to
 move and accelerate as it rotates a little more than one round before
 the end of the analysis at *t* = 1 second.
 
-The use of AnyKinMotion objects to drive a model is in principle always
+The use of :code:`AnyKinMotion` objects to drive a model is in principle always
 like this, but you can select any Kinematic Measure to drive, i.e. not
 just a simple joint angle, and you can use any function derived from the
 abstract AnyParamFun class to drive it with.
 
 In :doc:`lesson 2 <lesson2>` we shall see how this same mechanism
 allows you to drive the pendulum by motion capture data.
+
+
 
 
 .. rst-class:: without-title
