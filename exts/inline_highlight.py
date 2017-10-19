@@ -41,14 +41,19 @@ PRE_DIV_RE = re.compile(r'\s*</pre></div>\s*$')
 def html_visit_literal(self, node):
 
     shall_highlight = False
-
-    has_code_keyword = any(
+    
+    code_keyword = 'code' in node['classes']
+    anyscript_keyword = any(
         v in [c.lower() for c in node['classes']]
-        for v in ('code', 'anyscript', 'anyscriptdoc')
+        for v in ('anyscript', 'anyscriptdoc')
     )
 
-    if node.rawsource.startswith('``') or has_code_keyword:
-        lang = self.highlightlang
+    if node.rawsource.startswith('``') or code_keyword or anyscript_keyword:
+        if anyscript_keyword:
+            lang = 'AnyScriptDoc'
+        else:
+            lang = self.highlightlang
+
         highlight_args = node.get('highlight_args', {})
 
         # determine if shall_highlight
