@@ -1,3 +1,8 @@
+.. Disable inline anyscript highlighting for double  backticks
+   Specific highlighting can be done with :anyscript:`AnySeg`
+
+.. highlight:: none
+
 Lesson 3: Abaqus Interface
 ==========================
 
@@ -236,7 +241,9 @@ below the study folder:
 
 This will enter an operation called ' ConvertToAbq' into the model and
 running this will execute the AnyFE converter. From the shell prompt you
-write the following to get the same result: ::
+write the following to get the same result: 
+
+.. code-block:: none
 
     AnyFE2Abq.exe -i ..\files_in\clavload.xml -o ..\files_out\output.inp -m .\clavicula.inp
 
@@ -258,7 +265,9 @@ reference frame, even the global system in AnyBody
 the AnyFE XML file may or may not contain motion of the bone and it will
 probably.not be aligned with the FE mesh/CT/MRI scan system. If you
 chose this an option, the AnyFE Converter can remove the rigid body
-motion by using the ``–r`` option equal to 'segment':::
+motion by using the ``–r`` option equal to 'segment':
+
+.. code-block:: none
 
     AnyFE2Abq.exe -i ..\files_in\clavload.xml -o ..\files_out\output.inp -m .\clavicula.inp –r segment
 
@@ -270,7 +279,9 @@ If the reference frame of the segment is not identical to the one of the
 FE mesh, one can apply a constant transformation to all data
 accommodating for this misalignment. The ``–t`` option allows you to
 enter the transformation as a string containing space separated numbers.
-The command line will look like:::
+The command line will look like:
+
+.. code-block:: none
 
     AnyFE2Abq.exe -i ..\files_in\clavload.xml -o ..\files_out\output.inp -m .\clavicula.inp –r segment –t "a11 a12 a13 a21 a22 a23 a31 a32 a33 dx dy dz"
 

@@ -21,9 +21,13 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import os
+import sys
 import subprocess
 
 import cloud_sptheme
+
+sys.path.insert(0, os.path.abspath('exts'))
 
 
 try: 
@@ -45,7 +49,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-
+    #'sphinxcontrib.inlinesyntaxhighlight',
     # 3rd party extensions
     'sphinxcontrib.fulltoc',
 
@@ -54,7 +58,9 @@ extensions = [
     'cloud_sptheme.ext.escaped_samp_literals',
     'cloud_sptheme.ext.issue_tracker',
     'cloud_sptheme.ext.table_styling',
+    'inline_highlight',
 ]
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -110,18 +116,14 @@ exclude_patterns.extend([
 
 
 # The name of the Pygments (syntax highlighting) style to use.
-highlight_language = 'none'
+highlight_language = 'AnyScriptDoc'
 pygments_style = 'AnyScript'
 
-rst_prolog = """
-.. role:: anyscript(code)
-   :language: AnyScriptDoc
-
-.. |AMS_VERSION_X| replace:: 7.1.x
-.. |AMS_VERSION_FULL| replace:: 7.1.0
-.. |AMS_VERSION_SHORT| replace:: 7.1
-
-"""
+# rst_prolog = """
+# .. |AMS_VERSION_X| replace:: 7.1.x
+# .. |AMS_VERSION_FULL| replace:: 7.1.0
+# .. |AMS_VERSION_SHORT| replace:: 7.1
+# """
 
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
@@ -143,7 +145,7 @@ else:
 html_theme_path = [cloud_sptheme.get_theme_dir()]
 
 
-html_title = "%s v%s Documentation" % (project, release)
+html_title = "%s v%s" % (project, release)
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

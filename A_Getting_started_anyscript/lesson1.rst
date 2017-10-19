@@ -127,7 +127,9 @@ and select “Load Model”.
 
 |Load model right click menu|
 
-You may get a similar message in the Output Window.::
+You may get a similar message in the Output Window.
+
+.. code-block:: none
 
     Loading Main : "C:\\...\\NewModel.main.any"
     Scanning...
@@ -148,10 +150,11 @@ Basic troubleshooting
 If you mistype something, you will get an error message. A common
 mistake is to forget a semicolon somewhere. Try removing the last
 semicolon in the AnyScript file, and load again. You get a message
-saying something like: ::
+saying something like: 
 
-    ERROR(SCR.PRS11) : C:\\...\\NewModel.main.any(26) : 'EOF' unexpected
-    Model loading skipped
+.. code-block:: none
+
+    ERROR(SCR.PRS11) : C:\\...\\NewModel.main.any(26) : 'EOF' unexpected Model loading skipped
 
 First, there is a message ID, then a file location and finally the body
 of the message. The former two are written in blue and underlined to

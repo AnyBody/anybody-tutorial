@@ -72,11 +72,13 @@ give a name to the object:
 
 
 
-ConstructChartOnOff instructs the C3D object to not draw 3D
+``ConstructChartOnOff`` instructs the C3D object to not draw 3D
 trajectories.
 
 Now, try loading the model again. You may get the following error
 message:
+
+.. code-block:: none
 
     Time, 't', has an invalid value for this interpolation
 
@@ -296,7 +298,9 @@ should get this:
 
 
 Now load the model and run the kinematic analysis. You will get the
-following error message:::
+following error message:
+
+.. code-block:: none
 
     Model is kinematically over-constrained : Position analysis failed : 2 unsolvable constraint(s) found
 

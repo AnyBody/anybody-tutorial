@@ -429,7 +429,9 @@ This opens a file manager dialogue. Please navigate to the directory
 where you keep the model and specify a name for the new file, for
 instance Opt1.txt.
 
-If you open the new file you can see the saved values:::
+If you open the new file you can see the saved values:
+
+.. code-block:: none
 
     Jointx 1.574482553785737e-002
 
@@ -551,7 +553,7 @@ find that the optimization takes much more time, the convergence is much
 less stable, the segment moves far away from the marker nodes in the
 process, and eventually the algorithm gives up with the error message:
 
-::
+.. code-block:: none
 
     Optimization failed : Failed to solve position analysis
 

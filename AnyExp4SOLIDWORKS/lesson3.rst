@@ -262,7 +262,9 @@ When you load this model, you will see the following warning message:
 
 If you look at the Object Description of your AnyBodyStudy object, you
 can find the information about the number of DOFs and constraints of the
-model.::
+model.
+
+.. code-block:: none
 
     Total number of rigid-body d.o.f.: 360
     Total number of constraints:
