@@ -1,57 +1,69 @@
 Lesson 2: Using motion capture data
 -----------------------------------
 
-In biomechanics, we often want to make our models move as we have
-measured in the laboratory and the measurement technique would often be
-tracking of optical markers in space by means of synchronized cameras.
-There are many such systems available commercially, but a common feature
-of most of the systems is that they are capable of saving data on a
-standard format called a C3D file. Such a file contains data of the
-spatial trajectory of optical markers fixed to the object whose motion
-we want to record. The C3D file can also contain analog data such as
-force platform measurements or EMG. To make things easy, AnyBody can
-read the data from a C3D file directly. Please download and save the
-file :download:`pendulum.c3d <Downloads/pendulum.c3d>` in the directory where
-you saved the Pendulum.any file.
+In biomechanics, we often want to make our models move as we have measured in
+the laboratory and the measurement technique would often be tracking of optical
+markers in space by means of synchronized cameras.
 
-Then place the cursor in the editor window just before the AnyKinMotion
+
+There are many such systems available commercially, but a common feature of most
+of the systems is that they are capable of saving data on a standard format
+called a C3D file. 
+
+A C3D file contains data of the spatial trajectory of optical markers fixed to
+the object whose motion we want to record. The file can also contain analog data
+such as force platform measurements or EMG.
+
+AnyBody can read the data from a C3D file directly. Please download and save the
+file :download:`pendulum.c3d <Downloads/pendulum.c3d>` in the directory where
+you saved the :file:`Pendulum.any` file.
+
+Next, place the cursor in the editor window just before the :code:`AnyKinMotion`
 object, click the Classes tab, unfold the class list, and locate the
-AnyInputC3D class. Right-click the class and choose “Insert Class
+:code:`AnyInputC3D` class. Right-click the class and choose “Insert Class
 Template”.
 
 .. code-block:: AnyScriptDoc
 
     AnyInputC3D <ObjectName> = 
     {
-      FileName = "";
-      //ReadAllDataOnOff = On;
-      //TruncateExtraCharsInNamesOnOff = On;
-      //PointsScaleFactor = 1;
-      //ConstructModelOnOff = On;
-      //MarkerUseAllPointsOnOff = Off;
-      //MarkerUseCamMaskOnOff = On;
-      //MarkerIndices = ;
-      //MarkerLabels = ;
-      //MarkerFilterIndex = 0;
-      //ProcessedDataFilterIndex = 0;
-      //AnalogFilterIndex = -1;
-      /*Filter = 
-      {
-      z0 = ;
-      AutomaticInitialConditionOnOff = On;
-      FilterForwardBackwardOnOff = On;
-      N = 2;
-      W = ;
-      Fs = 0;
-      Fc = {10};
-      Type = LowPass;
-      };*/
-      //WriteMarkerDataToFilesOnOff = Off;
-      //MarkerScaleXYZ = {0.025, 0.025, 0.025};
-      //MarkerRGB = {0.65, 0.65, 0.65};
-      //MarkerDrawOnOff = On;
-      //MarkerInterPolType = Bspline;
-      //MarkerBsplineOrder = 8;
+    FileName = "";
+    //ReadAllDataOnOff = On;
+    //TruncateExtraCharsInNamesOnOff = On;
+    //MakeNameUniqueStr = "_";
+    //PointsScaleFactor = 1.0;
+    //ConstructModelOnOff = On;
+    //ConstructChartOnOff = On;
+    //ConstructWeightFunUsingResidualOnOff = Off;
+    //GapFillUsingResidualsOnOff = Off;
+    //MarkerUseAllPointsOnOff = Off;
+    //MarkerUseCamMaskOnOff = On;
+    //MarkerIndices = ;
+    //MarkerLabels = ;
+    //MarkerFilterIndex = 0;
+    //ProcessedDataFilterIndex = 0;
+    //AnalogFilterIndex = -1;
+    /*Filter = 
+    {
+    z0 = ;
+    AutomaticInitialConditionOnOff = On;
+    FilterForwardBackwardOnOff = On;
+    N = 2;
+    W = ;
+    Fs = 0.0;
+    Fc = {10.0};
+    Type = LowPass;
+    };*/
+    //WeightThreshold = 0.0;
+    //WeightOutput = {{0.0, 1.0}, {0.0, 1.0}, {0.0, 1.0}};
+    //WeightTransitionTime = 0.1;
+    //SearchAndReplace = ;
+    //WriteMarkerDataToFilesOnOff = Off;
+    //MarkerScaleXYZ = {0.025, 0.025, 0.025};
+    //MarkerRGB = {0.65, 0.65, 0.65};
+    //MarkerDrawOnOff = On;
+    //MarkerInterPolType = Bspline;
+    //MarkerBsplineOrder = 4;
     };
 
 
@@ -63,7 +75,7 @@ give a name to the object:
 .. code-block:: AnyScriptDoc
 
     AnyInputC3D §C3D§ = {
-      FileName = "§pendulum.c3d§";
+      FileName =§ "pendulum.c3d";§
       //TruncateExtraCharsInNamesOnOff = On;
       //MakeNameUniqueStr = "_";
       //PointsScaleFactor = 1;
