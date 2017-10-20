@@ -69,4 +69,4 @@ but exactly the same principles apply to much more complex models.
 
 .. rst-class:: without-title
 .. seealso::
-    **Next lesson:** Let’s initially review simple drivers in :doc:`Lesson 1 <lesson1>`.
+    **Next lesson:** :doc:`Let’s initially review simple drivers in Lesson 1 <lesson1>`.

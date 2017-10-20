@@ -8,7 +8,7 @@ is its rotational angle away from its resting vertical position. And we
 can very easily drive the pendulum using this DoF.
 
 The simplest mechanism of motion drivers in AnyBody is called
-``AnyKinMotion`` . With Pendulum.any open in an editor and the model loaded,
+``AnyKinMotion``. With Pendulum.any open in an editor and the model loaded,
 please place the cursor in the editor window just below then ending
 brace of the ``AnySeg Pendulum`` definition. Then click the Classes tab on
 the left-hand side of the editor window. Unfold the class list and
@@ -30,23 +30,32 @@ the cursor position:
         };
         AnyDrawSeg drw = {};
     };
-    §AnyKinMotion <ObjectName> =
+    §AnyKinMotion <ObjectName> = 
     {
-        //MeasureOrganizer = ;
-        //CType = ;
-        //AnyKinMeasure &<Insert name0> = <Insert object reference (or full object definition)>; You can make any number of these objects!
-        AnyParamFun &<Insert name0> = <Insert object reference (or full object definition)>;
+      //RefFrames = ;
+      //Surfaces = ;
+      //KinMeasureArr = ;
+      //KinMeasureIndexArr = ;
+      //MeasureOrganizer = ;
+      //CType = ;
+      //WeightFun = ;
+      //DriverPos0 = ;
+      //DriverVel0 = ;
+      //DriverAcc0 = ;
+      //AnyKinMeasure &<Insert name0> = <Insert object reference (or full object definition)>; You can make any number of these objects!
+      //AnyParamFun &<Insert name0> = <Insert object reference (or full object definition)>; You can make any number of these objects!
     };§
 
 
-The prototype of the :code:`AnyKinMotion` class is set up to allow several
+The prototype of the ``AnyKinMotion`` class is set up to allow several
 different options. But the simplest of these is to directly specify
 something to drive and a function to drive it with. So we start out by
 giving the object a name and removing all of its content.
 
 .. code-block:: AnyScriptDoc
 
-    AnyKinMotion §JointDriver§ = {
+    AnyKinMotion §JointDriver§ = 
+    {
     };
 
 
@@ -54,7 +63,8 @@ Then we specify what to drive by making reference to the pendulum joint:
 
 .. code-block:: AnyScriptDoc
 
-    AnyKinMotion §JointDriver§ = {
+    AnyKinMotion JointDriver = 
+    {
         §AnyRevoluteJoint &Jnt = .Joint;§
     };
 
@@ -72,15 +82,16 @@ Try inserting the red part of the code below:
 
 .. code-block:: AnyScriptDoc
 
-    AnyKinMotion JointDriver = {
+    AnyKinMotion JointDriver = 
+    {
         AnyRevoluteJoint &Jnt = .Joint;
         §AnyFunPolynomial DriverFun = {
-            PolyCoef = {{0, 3, 5}};
+            PolyCoef = {{0, 5, -0.4}}
         };§
     };
 
 
-In the matrix PolyCoef, each row contains the coefficients for a time
+In the matrix ``PolyCoef``, each row contains the coefficients for a time
 function driving one degree of freedom. The revolute joint we are
 driving only has one degree of freedom, so the matrix only has one row,
 but it still has to be defined as a matrix rather than a vector, i.e.
@@ -88,28 +99,31 @@ with double braces at each end. The polynomial coefficients then come in
 increasing order and define the following driver function:
 
 .. math::
-    \textrm{Joint angle} = 0 + 3t + 5t^2 \textrm{[rad]}
+    \textrm{Joint angle} = 0 + 5t - 0.4t^2 \textrm{[rad]}
 
 To get higher polynomial orders, simply add more terms to the vector.
 
 Now try loading the model. If you have followed the instructions, you
 should no longer get the warning that that model is kinematically
 indeterminate. It now has the same number of drivers as degrees of
-freedom, and we can expand the MyStudy branch in the Operation tree on
-the left hand side of the main frame, select kinematics and click “Run”.
+freedom. 
+
+Next, run the model. Select ``Main.MyStudy.Kinematics`` from the Operations
+dropdown menu in the toolbar, and click the "Run" button: 
+
+.. image:: _static/lesson1/run_operation.png
+
 If you have a model view open, you should see the pendulum starting to
 move and accelerate as it rotates a little more than one round before
 the end of the analysis at *t* = 1 second.
 
-The use of :code:`AnyKinMotion` objects to drive a model is in principle always
+The use of ``AnyKinMotion`` objects to drive a model is in principle always
 like this, but you can select any Kinematic Measure to drive, i.e. not
 just a simple joint angle, and you can use any function derived from the
 abstract AnyParamFun class to drive it with.
 
 In :doc:`lesson 2 <lesson2>` we shall see how this same mechanism
 allows you to drive the pendulum by motion capture data.
-
-
 
 
 .. rst-class:: without-title
