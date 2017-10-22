@@ -1,6 +1,6 @@
 /* This file defines a subject-specific morphing law for the Lesson 4 of Scaling tutorial*/
 
-AnyFolder MyScalingLaw_Mirrored = {
+AnyFolder MyScalingFunction_Mirrored = {
   AnyMatrix AMirroring = {
     {1,0,0},
     {0,1,0},
@@ -138,5 +138,5 @@ AnyFolder MyScalingLaw_Mirrored = {
     BoundingBoxOnOff = On;
   };
   
-};  // MyScalingLaw
+};  // MyScalingFunction_Mirrored
 
