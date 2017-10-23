@@ -67,6 +67,6 @@ following lessons:
 
 
 .. |Intro video| image:: _static/intro/image2.png
-
+   :width: 70%
 .. |GUI elements| image:: _static/intro/image3.png
-
+   
