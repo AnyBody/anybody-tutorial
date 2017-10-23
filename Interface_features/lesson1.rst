@@ -176,6 +176,5 @@ format. Please refer to the Wiki at
 .. icons
 
 .. |Comment and uncomment| image:: _static/lesson1/image2.png
-   :scale: 80%
+
 .. |image2| image:: _static/lesson1/image3.png
-   :scale: 80%

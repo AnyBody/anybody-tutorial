@@ -226,6 +226,5 @@ usage.
 .. icons
 
 .. |Model view toolbar| image:: _static/lesson2/image4.png
-   :scale: 70%
+
 .. |Folder icon| image:: _static/lesson2/image5.png
-   :scale: 100%
