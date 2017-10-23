@@ -357,5 +357,4 @@ aliases by the following procedure:
 
 
 .. |AnyBodyCon window| image:: _static/lesson5/image1.png
-   :width: 6.68750in
-   :height: 1.92708in
+   :scale: 50%

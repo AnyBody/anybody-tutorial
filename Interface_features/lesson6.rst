@@ -78,5 +78,4 @@ that no automatic updating is carried out by the loading operation.
 
 
 .. |Operations menu| image:: _static/lesson6/image1.png
-   :width: 4.14583in
-   :height: 4.29167in
+   :scale: 70%
