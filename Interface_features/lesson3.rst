@@ -150,24 +150,22 @@ optimization“ tutorial.
     **Next lesson:** :doc:`lesson4`.
 
 
+.. photos
+
 .. |Chart view window| image:: _static/lesson3/image1.png
-   :width: 6.68542in
-   :height: 4.03681in
+   :scale: 40%
 .. |Chart view with plots| image:: _static/lesson3/image2.png
-   :width: 6.69306in
-   :height: 4.05069in
+   :scale: 40%
 .. |Chart view, single plot| image:: _static/lesson3/image3.png
-   :width: 5.26214in
-   :height: 4.30826in
+   :scale: 40%
 .. |Chart view multiple plots with asterix| image:: _static/lesson3/image4.png
-   :width: 5.33981in
-   :height: 4.44161in
+   :scale: 40%
 .. |Chart view, series| image:: _static/lesson3/image5.png
-   :width: 6.69306in
-   :height: 3.74097in
-.. |image5| image:: _static/lesson3/image6.png
-   :width: 0.32431in
-   :height: 0.34236in
+   :scale: 70%
 .. |Chart view userdefined abscissa| image:: _static/lesson3/image7.jpeg
-   :width: 6.13913in
-   :height: 1.08696in
+   :scale: 60%
+
+.. icons
+
+.. |image5| image:: _static/lesson3/image6.png
+   :scale: 80%

@@ -208,28 +208,24 @@ usage.
 .. seealso::
     **Next lesson:** :doc:`lesson3`.
 
+.. photos
 
 .. |Open model view windows| image:: _static/lesson2/image1.png
-   :width: 6.68958in
-   :height: 3.96111in
+   :scale: 65%
 .. |Model tree toolbar, start operation| image:: _static/lesson2/image2.png
-   :width: 4.49515in
-   :height: 2.94077in
+   :scale: 50%
 .. |Replay slider toolbarb| image:: _static/lesson2/image3.png
-   :width: 6.69306in
-   :height: 1.91262in
-.. |Model view toolbar| image:: _static/lesson2/image4.png
-   :width: 5.91667in
-   :height: 1.75000in
-.. |Folder icon| image:: _static/lesson2/image5.png
-   :width: 0.20000in
-   :height: 0.19097in
+   :scale: 55%
 .. |Record buttons| image:: _static/lesson2/image6.png
-   :width: 1.64583in
-   :height: 0.41667in
+   :scale: 50%
 .. |Model view right click| image:: _static/lesson2/image7.png
-   :width: 6.69306in
-   :height: 5.57361in
+   :scale: 70%
 .. |Model tree right click menu| image:: _static/lesson2/image8.png
-   :width: 6.69306in
-   :height: 3.42500in
+   :scale: 60%
+
+.. icons
+
+.. |Model view toolbar| image:: _static/lesson2/image4.png
+   :scale: 70%
+.. |Folder icon| image:: _static/lesson2/image5.png
+   :scale: 100%

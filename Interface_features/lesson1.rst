@@ -158,28 +158,24 @@ format. Please refer to the Wiki at
     **Next lesson:** :doc:`lesson2`.
 
 
+.. images
 
 .. |GUI overview| image:: _static/lesson1/image1.png
-   :width: 6.66667in
-   :height: 4.66667in
-.. |Comment and uncomment| image:: _static/lesson1/image2.png
-   :width: 0.44792in
-   :height: 0.23958in
-.. |image2| image:: _static/lesson1/image3.png
-   :width: 0.16667in
-   :height: 0.16667in
+   :scale: 70%
 .. |Model Tree| image:: _static/lesson1/image4.png
-   :width: 6.68542in
-   :height: 3.91667in
+   :scale: 60%
 .. |Object info window| image:: _static/lesson1/image5.png
-   :width: 6.69444in
-   :height: 4.65764in
+   :scale: 70%
 .. |Function, globals and classes| image:: _static/lesson1/image6.png
-   :width: 6.69306in
-   :height: 4.65625in
+   :scale: 60%
 .. |Class tree| image:: _static/lesson1/image7.png
-   :width: 6.66667in
-   :height: 3.66667in
+   :scale: 50%
 .. |Help from class tree| image:: _static/lesson1/image8.png
-   :width: 6.68958in
-   :height: 3.59236in
+   :scale: 50%
+
+.. icons
+
+.. |Comment and uncomment| image:: _static/lesson1/image2.png
+   :scale: 80%
+.. |image2| image:: _static/lesson1/image3.png
+   :scale: 80%

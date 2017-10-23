@@ -1,8 +1,7 @@
 Using the AnyBody Modeling System
 =================================
 
-This tutorial deals with the user interface features of the AnyBody
-Modeling System. Please complete the “\ :doc:`Getting Started: AnyScript
+Please complete the “\ :doc:`Getting Started: AnyScript
 Programming” tutorial </A_Getting_started_anyscript/intro>`
 before proceeding.
 
@@ -11,7 +10,7 @@ before proceeding.
 .. raw:: html 
 
     <video width="50%" style="display:block; margin: 0 auto;" controls>
-        <source src="_static/IntroVideoTour.mp4" type="video/mp4">
+        <source src="../_static/IntroVideoTour.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>
 
@@ -68,8 +67,6 @@ following lessons:
 
 
 .. |Intro video| image:: _static/intro/image2.png
-   :width: 7.08091in
-   :height: 3.79861in
+   :scale: 70%
 .. |GUI elements| image:: _static/intro/image3.png
-   :width: 6.68542in
-   :height: 3.92569in
+   :scale: 50%

@@ -66,15 +66,16 @@ This concludes this lesson on browsing the model.
     **Next lesson:** :doc:`lesson5`.
 
 
+.. photos
+
 .. |GUI overview| image:: _static/lesson4/image1.png
-   :width: 6.66667in
-   :height: 3.91667in
+   :scale: 50%
 .. |Object description window| image:: _static/lesson4/image2.png
-   :width: 6.68958in
-   :height: 4.04861in
+   :scale: 40%
 .. |Object description on Studies| image:: _static/lesson4/image3.png
-   :width: 6.68958in
-   :height: 4.04861in
+   :scale: 40%
+
+.. icons
+
 .. |Folder link icon| image:: _static/lesson4/image4.png
-   :width: 0.17361in
-   :height: 0.15625in
+   :scale: 100%

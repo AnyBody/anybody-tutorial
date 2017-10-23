@@ -77,7 +77,7 @@ two files, the MainFile and the SetValueFile.
     
         #include "Demo.arm2d.any"
     
-         AnyProject ArmProject = {
+        AnyProject ArmProject = {
     
             Files = {
     
@@ -137,33 +137,33 @@ model, we shall, therefore, define some drawing groups:
     
     ...
     
-    AnyFolder DrawGroups = {
-        
-        AnyDrawGroup AllSegments = {
-        
-        Objects = ObjSearch("Main.ArmModel.Segs.*");
-        
+        AnyFolder DrawGroups = {
+            
+            AnyDrawGroup AllSegments = {
+            
+            Objects = ObjSearch("Main.ArmModel.Segs.*");
+            
+            };
+            
+            AnyDrawGroup AllMuscles = {
+            
+            Objects = ObjSearch("Main.ArmModel.Muscles.*");
+            
+            };
+            
+            AnyDrawGroup AllDeltoidMuscles = {
+            
+            Objects = ObjSearch("Main.ArmModel.Muscles.Del*.DrwMus");
+            
+            };
+            
+            AnyDrawGroup All = {
+            
+            Objects = ObjSearchRecursive("Main.ArmModel","*");
+            
+            };
+            
         };
-        
-        AnyDrawGroup AllMuscles = {
-        
-        Objects = ObjSearch("Main.ArmModel.Muscles.*");
-        
-        };
-        
-        AnyDrawGroup AllDeltoidMuscles = {
-        
-        Objects = ObjSearch("Main.ArmModel.Muscles.Del*.DrwMus");
-        
-        };
-        
-        AnyDrawGroup All = {
-        
-        Objects = ObjSearchRecursive("Main.ArmModel","*");
-        
-        };
-        
-    };
     
     ...
     
@@ -179,21 +179,21 @@ In the final example files, this is actually done in a separate file,
 
     Main = {
     
-    #include "Demo.arm2d.any"
-    
-    #include "DrawGroups.any"
-    
-    AnyProject ArmProject = {
+        #include "Demo.arm2d.any"
         
-        Files = {
+        #include "DrawGroups.any"
         
-        MainFile = "AnyProject.any";
-        
-        SetValueFile = "values.anyset";
-        
+        AnyProject ArmProject = {
+            
+            Files = {
+            
+            MainFile = "AnyProject.any";
+            
+            SetValueFile = "values.anyset";
+            
+            };
+            
         };
-        
-    };
     
     }; // Main
 
@@ -261,38 +261,38 @@ particular operations in ArmModelStudy.
  
     Main = {
     
-    #include "Demo.arm2d.any"
-    
-    #include "DrawGroups.any"
-    
-    AnyProject ArmProject = {
+        #include "Demo.arm2d.any"
         
-        Tasks = {
+        #include "DrawGroups.any"
         
-        AnyProjectTaskOperation Set_Initial_Conditions = {
+        AnyProject ArmProject = {
             
-            Description = {
-                Title = "Initial Conditions of Arm Model";
-                BodyText = "This task sets the initial conditions.";
-                Tooltip = "Sets Initial Conditions";
-                Files = {"dumbbell.stl","values.anyset"};
+            Tasks = {
+            
+            AnyProjectTaskOperation Set_Initial_Conditions = {
+                
+                Description = {
+                    Title = "Initial Conditions of Arm Model";
+                    BodyText = "This task sets the initial conditions.";
+                    Tooltip = "Sets Initial Conditions";
+                    Files = {"dumbbell.stl","values.anyset"};
+                };
+                
+                Operation = &Main.ArmModelStudy.InitialConditions;
+                
             };
             
-            Operation = &Main.ArmModelStudy.InitialConditions;
-            
-        };
-        
-        AnyProjectTaskOperation Run_Inverse_Dynamics = {
-            
-            Description = {
-                Title = "Inverse Dynamcis of Arm Model";
-                BodyText = "This task executes the inverse dynamics analysis of the arm model.";
-                Tooltip = "Inverse Dynamics Simulation";
+            AnyProjectTaskOperation Run_Inverse_Dynamics = {
+                
+                Description = {
+                    Title = "Inverse Dynamcis of Arm Model";
+                    BodyText = "This task executes the inverse dynamics analysis of the arm model.";
+                    Tooltip = "Inverse Dynamics Simulation";
+                };
+                
+                Operation = &Main.ArmModelStudy.InverseDynamics;
             };
-            
-            Operation = &Main.ArmModelStudy.InverseDynamics;
         };
-    };
     ...
     
 
@@ -325,56 +325,56 @@ following code:
         
         ...
         
-        AnyProjectTaskOperation Save_Output_Data = {
-            
-            Description = {
-            Title = "Saving output data from the simulation";
-            BodyText = "This task saves the output for the simulation, e.g. executed by task " 
-                        + strquote( AnyBodyLinkOf(&..Run_Inverse_Dynamics) )
-                        + " to file "      
-                        + strquote( strlink(.filename) );
-            Tooltip = "Saving output data";
-            Files = .filename;
+            AnyProjectTaskOperation Save_Output_Data = {
+                
+                Description = {
+                    Title = "Saving output data from the simulation";
+                    BodyText = "This task saves the output for the simulation, e.g. executed by task " 
+                                + strquote( AnyBodyLinkOf(&..Run_Inverse_Dynamics) )
+                                + " to file "      
+                                + strquote( strlink(.filename) );
+                    Tooltip = "Saving output data";
+                    Files = .filename;
+                };
+                
+                Operation = &Opr;
+                
+                AnyFileVar filename = FileNameOf(..Files.MainFile) + ".anydata.h5";
+                
+                AnyOperationMacro Opr = {
+                
+                    MacroStr = {
+                        ("classoperation Main.ArmStudy1.Output" + " " + strquote("Save data")
+                        + " --file=" + strquote(FilePathCompleteOf(.filename)) + " --type=Deep")
+                    };
+                };
             };
-            
-            Operation = &Opr;
-            
-            AnyFileVar filename = FileNameOf(..Files.MainFile) + ".anydata.h5";
-            
-            AnyOperationMacro Opr = {
-            
-            MacroStr = {
-                ("classoperation Main.ArmStudy1.Output" + " " + strquote("Save data")
-                + " --file=" + strquote(FilePathCompleteOf(.filename)) + " --type=Deep")
-            };
-            };
-        };
         
-        AnyProjectTaskOperation Load_Output_Data = {
-            
-            Description = {
-            Title = "Loading output data from a previous simulation";
-            BodyText = "This task load output saved by the task "
-                        + strquote( AnyBodyLinkOf(&..Save_Output_Data) )
-                        + " from file "
-                        + strquote( strlink(.filename) );
-            Tooltip = "Loading output data";
-            //Files = .filename;
+            AnyProjectTaskOperation Load_Output_Data = {
+                
+                Description = {
+                Title = "Loading output data from a previous simulation";
+                BodyText = "This task load output saved by the task "
+                            + strquote( AnyBodyLinkOf(&..Save_Output_Data) )
+                            + " from file "
+                            + strquote( strlink(.filename) );
+                Tooltip = "Loading output data";
+                //Files = .filename;
+                };
+                
+                Operation = &Opr;
+                
+                AnyFileVar filename = .Save_Output_Data.filename;
+                
+                AnyOperationMacro Opr = {
+                
+                    MacroStr = {
+                        "classoperation Main.ArmStudy1.Output" + " " + strquote("Load data")
+                        + " --file=" + strquote(FilePathCompleteOf(.filename))
+                    };
+                };
+                
             };
-            
-            Operation = &Opr;
-            
-            AnyFileVar filename = .Save_Output_Data.filename;
-            
-            AnyOperationMacro Opr = {
-            
-            MacroStr = {
-                "classoperation Main.ArmStudy1.Output" + " " + strquote("Load data")
-                + " --file=" + strquote(FilePathCompleteOf(.filename))
-            };
-            };
-            
-        };
         
         ...
         
@@ -393,21 +393,21 @@ without the AnyProject.any master file.
     
     Main = {
     
-    #include "Demo.arm2d.any"
-    
-    #include "DrawGroups.any"
-    
-    AnyProject ArmProject = {
+        #include "Demo.arm2d.any"
         
-        Tasks = {
-    
-        ...
+        #include "DrawGroups.any"
         
-        AnyProjectTaskLoadModel Load_the_model_without_project = {
-            MainFile = "Demo.arm2d.any";
-        };
+        AnyProject ArmProject = {
+            
+            Tasks = {
         
-        };
+                ...
+                
+                AnyProjectTaskLoadModel Load_the_model_without_project = {
+                    MainFile = "Demo.arm2d.any";
+                };
+            
+            };
 
     ...
     
@@ -485,11 +485,11 @@ Modify the newly created ``Set_value_example`` task to look like this:
     AnyProjectTaskOperation Set_value_example = {
         
         Description = {
-        BodyHTML = "<b>Setting values in the model through AnyProject</b><br/><br/>"
-                    +"This task demonstrates how we can use special AHTML links in HTML text to interact with a model in AnyBody.<br/><br/>"
-                    +"This link opens the <a href="+strquote()
-                    +"Anybody -ob Main.ArmModel.Segs.LowerArm.HandNode"
-                    +strquote()+">HandNode</a> in the modeltree.<br/>";
+            BodyHTML = "<b>Setting values in the model through AnyProject</b><br/><br/>"
+                        +"This task demonstrates how we can use special AHTML links in HTML text to interact with a model in AnyBody.<br/><br/>"
+                        +"This link opens the <a href="+strquote()
+                        +"Anybody -ob Main.ArmModel.Segs.LowerArm.HandNode"
+                        +strquote()+">HandNode</a> in the modeltree.<br/>";
         };
     };
         
@@ -529,8 +529,8 @@ Please modify the beginning of the AnyProject file to look like this:
         
         AnyFolder Macros = {
         
-        AnyStringVar SetValueSRel = ("classoperation Main.ArmModel.Segs.LowerArm.HandNode.sRel" 
-                                     + " " + strquote("Set Value"));
+            AnyStringVar SetValueSRel = ("classoperation Main.ArmModel.Segs.LowerArm.HandNode.sRel" 
+                                        + " " + strquote("Set Value"));
         
         };
         ...
