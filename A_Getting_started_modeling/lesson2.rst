@@ -58,7 +58,9 @@ including the “HumanModel.any” file.
       #include "<ANYBODY_PATH_BODY>\HumanModel.any"
     
 
-Try loading the model again. F7 should produce the encouraging message:::
+Try loading the model again. F7 should produce the encouraging message:
+
+.. code-block:: none
 
     Model Warning: Study 'Main.Study' contains too few kinematic constraints to be kinematically determinate.
     Evaluating model...

@@ -240,7 +240,9 @@ line below to obtain this:
 
 
 It seems like everything is connected now. So why do we still get the
-annoying error message when we reload the model?::
+annoying error message when we reload the model?
+
+.. code-block:: none
 
     Model Warning: Study 'Main.ArmStudy' contains too few kinematic
     constraints to be kinematically determinate.

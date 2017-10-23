@@ -5,9 +5,10 @@ In this lesson we familiarize ourselves with the simple knee model. If
 you have not already downloaded the model, then please do so from this
 link: :download:`DemoSimpleKnee.any <Downloads/DemoSimpleKnee.any>`. Save the
 model to a working area of your hard disk, for instance in
-``Documents\AnyScripts\tutorials``. Then open the model in AnyBody, expand
+:file:`Documents\AnyScripts\tutorials`. Then open the model in AnyBody, expand
 “Study” in the Operations Tree, select InverseDynamics and click Run.
 This is what the model looks like:
+
 
 |Model view DemoSimpleKnee|
 

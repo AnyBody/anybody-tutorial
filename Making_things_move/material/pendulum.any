@@ -1,4 +1,4 @@
-// Model for the mocap tutorial
+// Model for the "Making Things Move" tutorial.
 
 Main = {
   
@@ -21,79 +21,91 @@ Main = {
       AnyDrawSeg drw = {};
     };
     
-    AnyRevoluteJoint Joint = {
-      AnyRefFrame &Ground = .GlobalRef;
-      AnyRefFrame &Pendulum = .Pendulum.Origin;
-    };
-    
-    AnyInputC3D C3D = {
+    AnyInputC3D C3D =
+    {
       FileName = "pendulum.c3d";
       //ReadAllDataOnOff = On;
       //TruncateExtraCharsInNamesOnOff = On;
-      //PointsScaleFactor = 1;
+      //MakeNameUniqueStr = "_";
+      //PointsScaleFactor = 1.0;
       ConstructModelOnOff = Off;
+      ConstructChartOnOff = Off;
+      //ConstructWeightFunUsingResidualOnOff = Off;
+      //GapFillUsingResidualsOnOff = Off;
       //MarkerUseAllPointsOnOff = Off;
       //MarkerUseCamMaskOnOff = On;
       //MarkerIndices = ;
       //MarkerLabels = ;
-      MarkerFilterIndex = 0;
+      //MarkerFilterIndex = 0;
       //ProcessedDataFilterIndex = 0;
       //AnalogFilterIndex = -1;
-      Filter = 
+      Filter =
       {
-        //      z0 = {0,0};
+        //z0 = ;
         AutomaticInitialConditionOnOff = On;
         FilterForwardBackwardOnOff = On;
-        N = 8;
-        //      W = ;
-        //      Fs = 0;
+        N = 2;
         Fc = {2};
         Type = LowPass;
       };
+      //WeightThreshold = 0.0;
+      //WeightOutput = {{0.0, 1.0}, {0.0, 1.0}, {0.0, 1.0}};
+      //WeightTransitionTime = 0.1;
+      //SearchAndReplace = ;
       //WriteMarkerDataToFilesOnOff = Off;
       //MarkerScaleXYZ = {0.025, 0.025, 0.025};
       //MarkerRGB = {0.65, 0.65, 0.65};
       //MarkerDrawOnOff = On;
       //MarkerInterPolType = Bspline;
-      //MarkerBsplineOrder = 8;
-    }; 
-    //    
-    //    AnyKinEqSimpleDriver tmp = {
-    //      AnyRevoluteJoint &jnt = .Joint;
-    //      DriverVel = {pi};
-    //    };
+      //MarkerBsplineOrder = 4;
+    };    
     
-    //    AnyKinMotion Driver = {
-    //      //MeasureOrganizer = ;
-    //      //CType = ;
-    //      AnyKinLinear lin = {
-    //        AnyRefFrame &Marker = ..Pendulum.P1;
-    //      };
-    //      AnyParamFun &fun = .C3D.Points.Markers.L000.PosInterpol;
-    //    };
-    
-    AnyKinMotion C3Dmotion = {
+//    AnyKinMotion JointDriver = 
+//    {
+//      AnyRevoluteJoint &Jnt = .Joint;
+//      AnyFunPolynomial DriverFun = {
+//            PolyCoef = {{0, 5, -0.4}};
+//        };
+//    };  
+    AnyKinDriverMarker C3DMotion =
+    {
+      //RefFrames = ;
+      //Surfaces = ;
+      //KinMeasureArr = ;
+      //KinMeasureIndexArr = ;
       //MeasureOrganizer = ;
       //CType = ;
-      AnyKinLinear lin = {
-        AnyRefFrame &Marker = ..Pendulum.P1;
-      };
+      //WeightFun = ;
+      //DriverPos0 = ;
+      //DriverVel0 = ;
+      //DriverAcc0 = ;
+      AnyRefFrame &Marker = .Pendulum.P1;
+      //AnyRefFrame &<Insert name1> = <Insert object reference (or full object definition)>;
       AnyParamFun &Trajectory = Main.MyModel.C3D.Points.Markers.L000.PosInterpol;
+
+      AnyDrawKinMeasure drw = 
+      {
+        Label = Off;
+        Size = 0.07;
+        Line = Off;
+      };
     };
+    
+    AnyRevoluteJoint Joint = {
+      AnyRefFrame &Ground = .GlobalRef;
+      AnyRefFrame &Pendulum = .Pendulum.Origin;
+    };
+    
   }; // MyModel
   
   // The study: Operations to be performed on the model
   AnyBodyStudy MyStudy = {
     AnyFolder &Model = .MyModel;
-    Gravity = {0.0, -9.81, 0.0};
-    
-    AnyIntVar FirstFrame = Main.MyModel.C3D.Header.FirstFrameNo; 
+    Gravity = {0.0, -9.81, 0.0};    
+    AnyIntVar FirstFrame = Main.MyModel.C3D.Header.FirstFrameNo;
     AnyIntVar LastFrame = Main.MyModel.C3D.Header.LastFrameNo;
-    tStart = FirstFrame/Main.MyModel.C3D.Header.VideoFrameRate+2*Kinematics.ApproxVelAccPerturb;
+    tStart =FirstFrame/Main.MyModel.C3D.Header.VideoFrameRate+2*Kinematics.ApproxVelAccPerturb;
     tEnd = LastFrame/Main.MyModel.C3D.Header.VideoFrameRate-2*Kinematics.ApproxVelAccPerturb;
-    
-    //    tStart = 0.05;
-    //    tEnd = 9.95;
     InitialConditions.SolverType = KinSolOverDeterminate;
     Kinematics.SolverType = KinSolOverDeterminate;
   };

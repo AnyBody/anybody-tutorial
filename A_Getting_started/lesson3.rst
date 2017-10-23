@@ -58,14 +58,14 @@ value from the left-hand side of the model tree, the ‘Value’ property of
 Chart View will change accordingly.
 
 It is possible to select and display several properties simultaneously
-in Chart View by using the asterisk (``*``) character. If you double- click
+in Chart View by using the asterisk (:literal:`*`) character. If you double- click
 the ‘Value’ property of your Chart View, it becomes editable. Let us
-edit the last ``Hip_ProximoDistalForce`` term to ``Hip_*``.
+edit the last :literal:`Hip_ProximoDistalForce` term to :literal:`Hip_*`.
 
 |Chart view asterix selection|
 
-Now you will see the ‘Hip\_MediolateralForce’, ‘Hip\_ProximoDistalForce’
-and ‘Hip\_AnteroPosteriorForce’ in the same Chart View.
+Now you will see the ‘Hip_MediolateralForce’, ‘Hip_ProximoDistalForce’
+and ‘Hip_AnteroPosteriorForce’ in the same Chart View.
 
 Hip forces - Bent posture
 -------------------------

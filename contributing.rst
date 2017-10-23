@@ -79,9 +79,9 @@ Any block of text is a paragraph. Paragraphs must be separated by one
 or more blank lines. Identation matters in reST, so lines of the same 
 paragraph must be left aligned to the same indentation.
 
-* one asterisk: ``*text*`` for emphasis (italics),
-* two asterisks: ``**text**`` for strong emphasis (boldface), and
-* backquotes: ````text```` for code samples.
+* one asterisk: :literal:`*text*` for emphasis (italics),
+* two asterisks: :literal:`**text**` for strong emphasis (boldface), and
+* backquotes: :literal:` ``text`` ` for code samples.
 
 There are also options for :subscript:`subscript` (``:subscript:`text```) 
 :superscript:`superscript` (``:superscript:`text```) and more.
@@ -143,7 +143,9 @@ The ``AnyScriptDoc`` is highlighter specifically for the documentation in sphinx
 It can highlight AnyScript code even if the syntax is not correct, and any code 
 fenced with **§** is :red:`§marked in red§`.
 
-Here is an example::
+Here is an example
+
+.. code-block:: none
 
     .. code-block:: AnyScriptDoc
 

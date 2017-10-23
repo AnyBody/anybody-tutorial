@@ -4,9 +4,9 @@ Main = {
 
   // The actual body model goes in this folder
   AnyFolder MyModel = {
-
     // Global Reference Frame
     AnyFixedRefFrame GlobalRef = {
+       AnyDrawRefFrame drw = {};
     };  // Global reference frame
     
     AnySeg Leg = {
@@ -23,23 +23,26 @@ Main = {
       };
       AnyRefNode R3 = {
         sRel = {-0.022, -0.403, -0.023};
-      };      
-      AnyDrawSeg drw = {
-        Opacity = 0.5;
       };
+      AnyDrawSeg drw = {Opacity = 0.5;};
     };
     
     AnyRevoluteJoint Joint = {
       AnyRefFrame &Ground = .GlobalRef;
       AnyRefFrame &Pendulum = .Leg.Joint;
-    };    
+    };
     
-    AnyInputC3D C3D = {
+    AnyInputC3D C3D = 
+    {
       FileName = "multiple.c3d";
       //ReadAllDataOnOff = On;
       //TruncateExtraCharsInNamesOnOff = On;
-      //PointsScaleFactor = 1;
-      //ConstructModelOnOff = On;
+      //MakeNameUniqueStr = "_";
+      //PointsScaleFactor = 1.0;
+      ConstructModelOnOff = Off;
+      ConstructChartOnOff = Off;
+      //ConstructWeightFunUsingResidualOnOff = Off;
+      //GapFillUsingResidualsOnOff = Off;
       //MarkerUseAllPointsOnOff = Off;
       //MarkerUseCamMaskOnOff = On;
       //MarkerIndices = ;
@@ -47,98 +50,108 @@ Main = {
       //MarkerFilterIndex = 0;
       //ProcessedDataFilterIndex = 0;
       //AnalogFilterIndex = -1;
-      Filter = {
+      Filter = 
+      {
         AutomaticInitialConditionOnOff = On;
         FilterForwardBackwardOnOff = On;
         N = 2;
         Fc = {3};
         Type = LowPass;
       };
+      //WeightThreshold = 0.0;
+      //WeightOutput = {{0.0, 1.0}, {0.0, 1.0}, {0.0, 1.0}};
+      //WeightTransitionTime = 0.1;
+      //SearchAndReplace = ;
       //WriteMarkerDataToFilesOnOff = Off;
       //MarkerScaleXYZ = {0.025, 0.025, 0.025};
-      MarkerRGB = {1, 0, 0};
+      MarkerRGB = {0, 0, 1};
       //MarkerDrawOnOff = On;
       //MarkerInterPolType = Bspline;
-      //MarkerBsplineOrder = 8;
-    };
-    
-    AnyKinMotion C3Dmotion1 = {
-      AnyKinLinear lin = {
-        AnyRefFrame &Marker = ..Leg.R1;
-      };
-      AnyParamFun &Trajectory = Main.MyModel.C3D.Points.Markers.L000.PosInterpol;
-    };
-    AnyKinMotion C3Dmotion2 = {
-      AnyKinLinear lin = {
-        AnyRefFrame &Marker = ..Leg.R2;
-      };
-      AnyParamFun &Trajectory = Main.MyModel.C3D.Points.Markers.L001.PosInterpol;
-    };
-    AnyKinMotion C3Dmotion3 = {
-      AnyKinLinear lin = {
-        AnyRefFrame &Marker = ..Leg.R3;
-      };
-      AnyParamFun &Trajectory = Main.MyModel.C3D.Points.Markers.L002.PosInterpol;
+      //MarkerBsplineOrder = 4;
     };
 
+    AnyKinDriverMarker C3Dmotion1 = {
+      AnyRefFrame &Marker = .Leg.R1;
+      AnyParamFun &Trajectory=
+      Main.MyModel.C3D.Points.Markers.L000.PosInterpol;
+      AnyDrawKinMeasure drw = {
+        Label = Off;Size = 0.03;Line = Off;
+      };
+    };
+    AnyKinDriverMarker C3Dmotion2 = {
+      AnyRefFrame &Marker = .Leg.R2;
+      AnyParamFun &Trajectory =
+      Main.MyModel.C3D.Points.Markers.L001.PosInterpol;
+      AnyDrawKinMeasure drw = {
+        Label = Off;Size = 0.03;Line = Off;
+      };
+    };
+    AnyKinDriverMarker C3Dmotion3 = {
+      AnyRefFrame &Marker = .Leg.R3;
+      AnyParamFun &Trajectory =
+      Main.MyModel.C3D.Points.Markers.L002.PosInterpol;
+      AnyDrawKinMeasure drw = {
+        Label = Off;Size = 0.03;Line = Off;
+      };
+    };
   }; // MyModel
 
   // The study: Operations to be performed on the model
-  AnyBodyStudy MyStudy = {
-    AnyFolder &Model = .MyModel;
-    Gravity = {0.0, -9.81, 0.0};
-    tStart = 0.05;
-    tEnd = 9.95;
-    InitialConditions.SolverType = KinSolOverDeterminate;
-    Kinematics.SolverType = KinSolOverDeterminate;    
-  };
-  
-  AnyOptKinStudy OptKinStudy = {
-    //LogFile = "";
-    Analysis = {
-      AnyOperation &Operation = ..MyStudy.Kinematics; 
-    };
-    //MaxIterationStep = 100;
-    AnyDesVar Jointx = {
-      Val = Main.MyModel.Leg.Joint.sRel[0];
-    };
-    AnyDesVar Jointy = {
-      Val = Main.MyModel.Leg.Joint.sRel[1];
-    };
-    AnyDesVar Jointz = {
-      Val = Main.MyModel.Leg.Joint.sRel[2];
+    AnyBodyStudy MyStudy = {
+      AnyFolder &Model = .MyModel;
+      Gravity = {0.0, -9.81, 0.0};
+      AnyIntVar FirstFrame = Main.MyModel.C3D.Header.FirstFrameNo;
+      AnyIntVar LastFrame = Main.MyModel.C3D.Header.LastFrameNo;
+      tStart = FirstFrame/Main.MyModel.C3D.Header.VideoFrameRate+2*Kinematics.ApproxVelAccPerturb;
+      tEnd = LastFrame/Main.MyModel.C3D.Header.VideoFrameRate-2*Kinematics.ApproxVelAccPerturb;
+      InitialConditions.SolverType = KinSolOverDeterminate;
+      Kinematics.SolverType = KinSolOverDeterminate;
     };
     
-    AnyDesVar R1x = {
-      Val = Main.MyModel.Leg.R1.sRel[0];
+    AnyOptKinStudy OptKinStudy = 
+    {
+      Analysis = {
+        AnyOperation &Operation = ..MyStudy.Kinematics;
+      };
+      MaxIterationStep = 100;
+      AnyDesVar Jointx = {
+        Val = Main.MyModel.Leg.Joint.sRel[0];
+        Min = -1;Max=1;
+      };
+      AnyDesVar Jointy = {
+        Val = Main.MyModel.Leg.Joint.sRel[1];
+        Min = -1;Max=1;
+      };
+      AnyDesVar Jointz = {
+        Val = Main.MyModel.Leg.Joint.sRel[2];
+        Min = -1;Max=1;
+      };
+      AnyDesVar R1x = {
+        Val = Main.MyModel.Leg.R1.sRel[0];
+        Min = -1;Max=1;
+      };
+      AnyDesVar R1y = {
+        Val = Main.MyModel.Leg.R1.sRel[1];
+        Min = -1;Max=1;
+      };
+      AnyDesVar R1z = {
+        Val = Main.MyModel.Leg.R1.sRel[2];
+        Min = -1;Max=1;
+      }; 
+AnyDesVar R2x = {
+        Val = Main.MyModel.Leg.R2.sRel[0];        Min = -1;Max=1;
+
+      };
+      AnyDesVar R2y = {
+        Val = Main.MyModel.Leg.R2.sRel[1];        Min = -1;Max=1;
+
+      };
+      AnyDesVar R2z = {
+        Val = Main.MyModel.Leg.R2.sRel[2];        Min = -1;Max=1;
+
+      };      
     };
-    AnyDesVar R1y = {
-      Val = Main.MyModel.Leg.R1.sRel[1];
-    };
-    AnyDesVar R1z = {
-      Val = Main.MyModel.Leg.R1.sRel[2];
-    };
-//    AnyDesVar R2x = {
-//      Val = Main.MyModel.Leg.R2.sRel[0];
-//      Min = Val-0.1;
-//      Max = Val+0.1;
-//    };
-//    AnyDesVar R2y = {
-//      Val = Main.MyModel.Leg.R2.sRel[1];
-//      Min = Val-0.1;
-//      Max = Val+0.1;
-//    };
-//    AnyDesVar R2z = {
-//      Val = Main.MyModel.Leg.R2.sRel[2];
-//      Min = Val-0.1;
-//      Max = Val+0.1;
-//    };
-        
-//    AnyVar dummy = 1;
-//    AnyDesMeasure DummyObj = {
-//      Val = .dummy;
-//      Type = ObjectiveFun;
-//    };
-  };
+  
+
 
 };  // Main

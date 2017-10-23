@@ -1,3 +1,7 @@
+.. Disable inline anyscript highlighting.
+
+.. highlight:: none
+
 Lesson 2: ANSYS Interface
 =========================
 
@@ -223,7 +227,9 @@ and a solve command. The file is created in a way that it assumes the
 local coordinate name in which all forces are given is named 1000, and
 the material numbers of implant and fracture are between 50 and 60. The
 template can be altered to fit to your actual problem. One thing you
-have to change right now is the path to your FE model.::
+have to change right now is the path to your FE model.
+
+:: console
 
     RESUME,'clav_base','db','C:\Users\sd.ANYBODY\TEMP\Clavicle_paper\FE\',0,0
 

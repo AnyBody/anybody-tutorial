@@ -7,10 +7,14 @@ musculoskeletal modeling. The AnyBody Modeling System offers many and
 rather advanced methods to make this happen. This tutorial explains the
 basics and some of the more common approaches.
 
-|limbo|
+.. figure:: _static/intro/cutting.jpg
+   :align: center
+   :width: 50%
 
-The figure above is actually a sequence of superimposed images
-illustrating a movement. In the AnyBody Model View window, this will of
+
+   
+The figure above is a sequence of superimposed images
+illustrating a cutting movement. In the AnyBody Model View window, this will of
 course be an animation. The point of the figure, however, is that the
 movement is derived from a combination of joint articulations, and this
 introduces the concept of degrees-of-freedom, which we shall abbreviate
@@ -32,7 +36,7 @@ we shall explore it in a little more detail in the following on a very
 simple model.
 
 Please download and save the file
-:download:`*pendulum.any* <Downloads/pendulum.any>` in a working directory. Load
+:download:`pendulum.any <Downloads/pendulum.any>` in a working directory. Load
 the model into AnyBody and open a new model view. You should see a
 vertical segment with a point at each end. It is, in fact, a pendulum
 model linked to the global reference frame by a revolute joint at its
@@ -44,9 +48,11 @@ one DoF. If you unfold the list of operations under MyStudy in the
 Operation window on the left side of the screen, you can select
 Kinematics and click the run-button as shown below:
 
-|run pendulum|
+.. image:: _static/intro/image2.png
 
-Instead of a moving pendulum you are rewarded with an error message:::
+Instead of a moving pendulum you are rewarded with an error message:
+
+.. code-block:: none
 
     Model is kinematically indeterminate : Position analysis failed : 6 independent constraints and 7 unknowns
 
@@ -63,12 +69,4 @@ but exactly the same principles apply to much more complex models.
 
 .. rst-class:: without-title
 .. seealso::
-    **Next lesson:** Let’s initially review simple drivers in :doc:`Lesson 1 <lesson1>`.
-
-
-.. |limbo| image:: _static/intro/image1.jpeg
-   :width: 2.42708in
-   :height: 4.01042in
-.. |run pendulum| image:: _static/intro/image2.png
-   :width: 6.68750in
-   :height: 1.71528in
+    **Next lesson:** :doc:`Let’s initially review simple drivers in Lesson 1 <lesson1>`.
