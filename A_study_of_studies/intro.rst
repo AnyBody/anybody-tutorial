@@ -100,8 +100,8 @@ save the file under some relevant name). It looks like this:
     
      // The study: Operations to be performed on the model
      AnyBodyStudy MyStudy = {
-     AnyFolder &Model = .MyModel;
-     Gravity = {0.0, -9.81, 0.0};
+        AnyFolder &Model = .MyModel;
+        Gravity = {0.0, -9.81, 0.0};
      };
     
 
@@ -293,8 +293,6 @@ into AnyBody.
  
 
 .. |script_to_model| image:: _static/intro/image1.png
-   :width: 0.30208in
-   :height: 0.20833in
+   :scale: 100%
 .. |Running Operations| image:: _static/intro/image2.png
-   :width: 2.54167in
-   :height: 1.58333in
+   :scale: 100%
