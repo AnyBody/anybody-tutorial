@@ -24,8 +24,6 @@
 import os
 import sys
 import subprocess
-import enum
-
 import cloud_sptheme
 
 sys.path.insert(0, os.path.abspath('exts'))
@@ -46,22 +44,15 @@ def tagged_commit():
         return True
 
 
-class BuildType:
-    web = enum.auto()
-    web_dev = enum.auto()
-    ams = enum.auto()
+if tags.has('offline'):
+    # offline build. e.g. for ams 
 
-
-if tags.has('AMS_BUILD'):
-    BUILD_TYPE = BuildType.ams
-elif tags.has('DEV_BUILD') or not tagged_commit():
-    BUILD_TYPE = BuildType.web_dev
-else:
-    BUILD_TYPE = BuildType.web
+if not tagged_commit():
+    tags.add('draft')
 
 
 # `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = (BUILD_TYPE == BuildType.web_dev)
+todo_include_todos = tags.has('draft')
 
 # -- General configuration ------------------------------------------------
 
@@ -118,7 +109,7 @@ version = '7.0'
 # The full version, including alpha/beta/rc tags.
 release = '7.0.1'
 
-if BUILD_TYPE == BuildType.web_dev:
+if tags.has('draft')
     release = release + '.dev'
 
 
@@ -281,7 +272,13 @@ texinfo_documents = [
 ]
 
 
-if BUILD_TYPE == BuildType.web_dev:
-    intersphinx_mapping = {'ammr': ('https://anyscript.org/ammr-doc/dev/', None)}
+intersphinx_mapping = {}
+
+if tags.has('offline'):
+    # Todo find a way to get intersphinx working for offline builds
+    intersphinx_mapping['ammr'] = ('https://anyscript.org/ammr-doc/', None)
 else:
-    intersphinx_mapping = {'ammr': ('https://anyscript.org/ammr-doc/', None)}
+    if tags.has('draft'):
+        intersphinx_mapping['ammr'] = ('https://anyscript.org/ammr-doc/dev/', None)
+    else:
+        intersphinx_mapping['ammr'] =  ('https://anyscript.org/ammr-doc/', None)
