@@ -46,6 +46,7 @@ def tagged_commit():
 
 if tags.has('offline'):
     # offline build. e.g. for ams 
+    pass
 
 if not tagged_commit():
     tags.add('draft')
