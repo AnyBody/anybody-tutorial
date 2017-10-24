@@ -136,18 +136,25 @@ exclude_patterns.extend([
 highlight_language = 'AnyScriptDoc'
 pygments_style = 'AnyScript'
 
-ams_version_x = "7.1.x"
-ams_version_full = "7.1.0"
-ams_version_short = "7.1"
-ammr_version = "2.0"
-ammr_version_full = "2.0.0"
+
+ams_version = os.environ.get('AMS_VERSION', '7.1.0')
+if not re.match('^\d\.\d\.\d$',ams_version):
+    raise ValueError('Wrong format for AMS version, environment variable')
+ams_version_short = ams_version.rpartition('.')[0]
+ams_version_x = ams_version_short + '.x'
+
+
+ammr_version = os.environ.get('AMMR_VERSION', '2.0.0')
+if not re.match('^\d\.\d\.\d$',ammr_version):
+    raise ValueError('Wrong format for AMMR version, environment variable')
+ammr_version_short = ammr_version.rpartition('.')[0]
 
 rst_epilog = f"""
 .. |AMS_VERSION_X| replace:: {ams_version_x}
-.. |AMS_VERSION_FULL| replace:: {ams_version_full}
+.. |AMS_VERSION| replace:: {ams_version}
 .. |AMS_VERSION_SHORT| replace:: {ams_version_short}
+.. |AMMR_VERSION_SHORT| replace:: {ammr_version_short}
 .. |AMMR_VERSION| replace:: {ammr_version}
-.. |AMMR_VERSION_FULL| replace:: {ammr_version_full}
 """
 
 
@@ -157,6 +164,9 @@ rst_epilog = f"""
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+
+html_experimental_html5_writer = True
+html_show_sphinx = False
 
 html_theme_path = [cloud_sptheme.get_theme_dir()]
 
