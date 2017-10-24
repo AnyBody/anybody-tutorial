@@ -22,6 +22,7 @@
 # sys.path.insert(0, os.path.abspath('.'))
 
 import os
+import re
 import sys
 import subprocess
 import cloud_sptheme
@@ -110,7 +111,7 @@ version = '7.0'
 # The full version, including alpha/beta/rc tags.
 release = '7.0.1'
 
-if tags.has('draft')
+if tags.has('draft'):
     release = release + '.dev'
 
 
