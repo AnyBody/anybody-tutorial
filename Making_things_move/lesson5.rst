@@ -1,35 +1,29 @@
 Lesson 5: Using real data
--------------------------
+#########################
 
-Without further ado, let us import a C3D file and drive a model. The
-AnyBody Modeling System offers you virtually unlimited ways of doing
+Without further ado, let us import a real C3D file and drive a complete model. 
+
+
+The AnyBody Modeling System offers you virtually unlimited ways of doing
 things, and probably more than the average user can comprehend, so we
-are going to start with a simple and top-down procedure: Version 1.2 of
-the AnyScript Managed Model Repository, on which this tutorial is built,
-which comes with the installation of AnyBody, contains two pre-cooked
-models that are very easy to drive with your own data and which contain
-some really neat features for data processing.
+are going to start with a simple and top-down procedure. 
 
-1. Go to the :file:`Application\Examples` folder to find a folder called
-   MoCapModel.
+The AnyBody Model Repository (> 2.0), contains some pre-cooked examples which
+are easy to drive with your own data and which contain some really neat features
+for data processing.
 
-2. Take a copy of the entire folder and call it something else, for
-   instance MyMoCapModel. You may even want to place it in a new
-   directory parallel to :file:`Application\Examples`, for instance
-   :file:`Application\MyModels`, to avoid polluting the original examples.
-   Please note that you have to put a copy of the libdef.any file into
-   the new directory in that case.
+.. note:: Make sure you have installed a your own copy of the *AnyBody Model repository* (AMMR).
+   See the :ammr:doc:`AMMR documentation <Installation>`.
 
-3. Browse into the MyMoCapModel folder.
+1. Go to the folder :file:`Application\MocapExamples\Plug-in-gait-LowerExtremity`.
 
-4. Open the file :file:`MoCap_LowerBody.main.any` in the AnyBody Modeling
-   System.
+3. Open :file:`Main.any` in the AnyBody Modeling System
 
-As the name indicates, this is a gait model comprising only the lower
-extremities and the necessary part of the upper body for attachment of
-muscles. The motion imposed on the original model is gait over three
-force platforms, but you can easily modify this to any other movement,
-simply by importing a different C3D file to drive the model with.
+This is a gait model of comprising only the lower extremities and the necessary
+part of the upper body for attachment of muscles. The model is based on a C3D
+file with "Plug In gait" marker protocol, and three force platforms. You can
+easily modify this to any other movement, simply by importing a different C3D
+file to drive the model with
 
 In the top of the file you find a brief description of the procedure.
 Don’t worry about that for now, but browse a little further down to find
@@ -37,54 +31,53 @@ this:
 
 .. code-block:: AnyScriptDoc
 
-    //***************************
-    //Set this to one if you want to run the motion and Parameter Optimization identification
-    #define MotionAndParameterOptimizationModel 0
-    //Set this to one if you want to run the inverse dynamic analysis
-    #define InverseDynamicModel 1
-    //Usually only have one of the two switches active
-    //***************************
+    #include "../libdef.any"
+
+    // Enter and edit Lab-Specific Data in this file:
+    #path MOCAP_LAB_SPECIFIC_DATA "Setup/LabSpecificData.any"
+
+    // Enter and edit Subject-Spcific Data in this file:
+    #path MOCAP_SUBJECT_SPECIFIC_DATA "Setup/SubjectSpecificData.any"
+
+    // Enter and edit Trial Specific Data in this file:
+    #path MOCAP_TRIAL_SPECIFIC_DATA "Setup/TrialSpecificData.any"
+
+    // Include the AnyMoCap Framwork
+    #include "<ANYMOCAP_MODEL>"
 
 
-These lines define the two model executions that you normally have to
-perform to process a new data set. When
-MotionAndParameterOptimizationModel=1, the system performs an
-optimization of the model to fit the C3D data you have recorded. This is
-much more than simply making the model follow the marker trajectories;
-it also optimizes the model parameters such as segment lengths and
-marker placements, based on the recorded data.
 
-If InverseDynamicModel=1, then the system performs an actual dynamic
-analysis based on the parameters identified in the
-MotionAndParameterOptimization step.
+The model defines three section/files which must be customized. :file:`LabSpecificData.any`, :file:`SubjectSpecificData.any`, 
+:file:`TrialSpecificData.any`. Following this structure is not strictly necssary, but good practice. 
 
-Please make sure you have set the following:
+The final line ``#include "<ANYMOCAP_MODEL>``, includes the **AnyMocap** framework or base model. 
 
-.. code-block:: AnyScriptDoc
-
-    //**************************************************
-    //Set this to one if you want to run the motion and Parameter
-    Optimization identification
-    #define MotionAndParameterOptimizationModel §1§
-    //Set this to one if you want to run the inverse dynamic analysis
-    #define InverseDynamicModel §0§
-    //Usually only have one of the two switches active
-    /**************************************************
-
+.. warning:: Don't change the base model (e.g. below ``#include "<ANYMOCAP_MODEL>"``).
+   It is not necessary, and the code is shared between all examples. So changes can break other things, 
+   and make it difficult to update your models in the future. 
 
 Now please load the model and open up a new Model View. You should see
-the following skeleton without arms:
+the following model:
 
-|Model view initial load|
+.. image:: _static/lesson5/image1.png
+   :width: 80%
 
 If you look closely, you can see that the skeleton is equipped with
 markers and if you zoom in a little, you can also see that the markers
 carry small coordinate systems with red and green arrows.
 
-|Model view leg closeup|
+.. image:: _static/lesson5/image2.png
+   :width: 50%
 
-These are the marker points defined on the human body, and the red and
-green arrows designate directions in which the marker position is fixed
+.. raw:: html
+
+    <style> .red {color:red} .green {color:green}</style>
+
+.. role:: red
+.. role:: green
+
+These are the marker points defined on the human body, and the :red:`red` and
+:green:`green` arrows designate directions in which the marker position is fixed
 versus free to be optimized. A free marker position is one that is not
 well-known by the clinician.
 
@@ -98,40 +91,51 @@ points wrong, the resulting motion of the model will also be inaccurate.
 So the green arrows designate directions in which we have the greatest
 uncertainty about whether the marker is placed in the model as it was in
 the experiment. The good news is that we can optimize those marker
-placements exactly as we did in :doc:`lesson 4 <lesson4>`. The model
-is set up to do this automatically, and if you are happy with the choice
-that has been made, you need not do anymore. Of course, if you use a
-different marker protocol there will be additional setting up to do, but
-only once until you have determined the parameterization that fits your
-protocol. In the interest of simplicity, we shall postpone the
-discussion of marker protocol setup.
+placements exactly as we did in :doc:`lesson 4 <lesson4>`. 
+
+The model is set up to do this automatically, and if you are happy with the
+choice that has been made, you need not do anymore. 
+
+.. note:: 
+    If you use a different marker protocol, or customize what is optimized you
+    will need to modify the marker protocol. In this example, the marker
+    protocol is define in the file The :file:`Setup/MarkerProtocol.any`. In the
+    interest of simplicity, we shall postpone the discussion of the marker
+    protocol setup.
 
 In addition to the marker coordinates, the model considers the segment
 lengths to be variable, so the computation we are about to do will also
 automatically figure out how long the segments are, and thereby where
-the joints are placed. Pretty much any parameter in a model can be made
-variable but not all parameters will be determined well by the marker
+the joints are placed.
+
+Pretty much any parameter in a model can be made
+variable in the optimization study. But some parameters will be determined well by the marker
 trajectory data and not all parameters can be determined at the same
-time because the mocap data only contains limited information and
-because some parameters can create mutual indeterminacies. For instance,
-if the model has no movement of a specific joint, then it is not
-possible to get information about the location of that joint or about
-the lengths of adjacent segments from the marker data.
+time because the mocap data only contains limited information. 
+
+For instance, if the model has no movement about a specific joint, then it is not
+possible to get information about the location of that joint or about the
+lengths of adjacent segments from the marker data.
+
+
+Parameter identification
+--------------------------------------
 
 Without further ado, let us perform the optimization:
 
-In the Operation Tree you find the
-MotionAndParameterOptimizationSequence. Select it and click the “Run”
-button.
+Find the ``Main.RunParameterOptimzation`` in the operations dropdown, and run it.
 
-|Operation. MotionAndParameterOptimizationSequence|
+.. image:: _static/lesson5/image3.png
 
 You will see the model walking repeatedly over the force platforms,
 sometimes slowly and sometimes a bit faster depending on the speed of
-your computer and the progress of the computation. The optimization will
-take a few minutes to complete and it is speeded up significantly if you
-switch the Model View update off during the process. The final message
-you get is: 
+your computer and the progress of the computation. 
+
+.. note:: 
+    The process will is speeded up significantly if you
+    switch off the Model View during the process. 
+
+The final message you get is: 
 
 .. code-block:: none
 
@@ -205,7 +209,7 @@ results, for instance the hip joint reaction forces:
 |Chartivew hip reactions|
 
 Importing new motion data
-~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 So we have seen the model optimize its parameters and we have seen it
 perform a dynamic analysis on existing data that somebody else has
@@ -299,7 +303,7 @@ documenting that faster gait leadt to higher hip joint forces.
 |Chart view higher hip forces|
 
 Using full-body models
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 Many motion experiments deal with the entire body as opposed to just the
 lower extremities. The AnyScript Model Repository contains another
@@ -384,15 +388,9 @@ in motion capture experiments and you can read all about in :doc:`Lesson
 
 
 
-.. |Model view initial load| image:: _static/lesson5/image1.png
-   :width: 6.00000in
-   :height: 4.85417in
-.. |Model view leg closeup| image:: _static/lesson5/image2.png
-   :width: 6.00000in
-   :height: 4.85417in
-.. |Operation. MotionAndParameterOptimizationSequence| image:: _static/lesson5/image3.png
-   :width: 4.03125in
-   :height: 3.98958in
+
+
+
 .. |Operation, InverseDynamicAnalysisSequence| image:: _static/lesson5/image4.png
    :width: 3.75000in
    :height: 2.50000in
