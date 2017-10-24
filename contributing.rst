@@ -83,9 +83,11 @@ paragraph must be left aligned to the same indentation.
 * two asterisks: :literal:`**text**` for strong emphasis (boldface), and
 * backquotes: :literal:` ``text`` ` for code samples.
 
-There are also options for :subscript:`subscript` (``:subscript:`text```) 
-:superscript:`superscript` (``:superscript:`text```) and more.
+There are also options for :subscript:`subscript` and :superscript:`superscript` plus more:
 
+.. code-block:: rest
+
+    :subscript:`subscript` and :superscript:`superscript`
 
 Headers
 =======
