@@ -24,6 +24,7 @@
 import os
 import sys
 import subprocess
+import enum
 
 import cloud_sptheme
 
@@ -35,6 +36,32 @@ try:
 except ImportError:
     raise ImportError('Please install pygments_anyscript to get AnyScript highlighting')
 
+def tagged_commit():
+    """Check if we are on a tagged commit"""
+    try: 
+        subprocess.check_call(['git', 'describe', '--exact-match', 'HEAD'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except subprocess.CalledProcessError:
+        return False
+    else:
+        return True
+
+
+class BuildType:
+    web = enum.auto()
+    web_dev = enum.auto()
+    ams = enum.auto()
+
+
+if tags.has('AMS_BUILD'):
+    BUILD_TYPE = BuildType.ams
+elif tags.has('DEV_BUILD') or not tagged_commit():
+    BUILD_TYPE = BuildType.web_dev
+else:
+    BUILD_TYPE = BuildType.web
+
+
+# `todo` and `todoList` produce output, else they produce nothing.
+todo_include_todos = (BUILD_TYPE == BuildType.web_dev)
 
 # -- General configuration ------------------------------------------------
 
@@ -49,16 +76,15 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-    #'sphinxcontrib.inlinesyntaxhighlight',
     # 3rd party extensions
     'sphinxcontrib.fulltoc',
-
     'cloud_sptheme.ext.index_styling',
     'cloud_sptheme.ext.relbar_toc',
     'cloud_sptheme.ext.escaped_samp_literals',
     'cloud_sptheme.ext.issue_tracker',
     'cloud_sptheme.ext.table_styling',
     'inline_highlight',
+    'sphinx.ext.intersphinx'
 ]
 
 
@@ -87,13 +113,12 @@ author = 'AnyBody Technology'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
-
 # The short X.Y version.
 version = '7.0'
 # The full version, including alpha/beta/rc tags.
 release = '7.0.1'
 
-if tags.has('DEV_BUILD'):
+if BUILD_TYPE == BuildType.web_dev:
     release = release + '.dev'
 
 
@@ -119,22 +144,21 @@ exclude_patterns.extend([
 highlight_language = 'AnyScriptDoc'
 pygments_style = 'AnyScript'
 
-# rst_prolog = """
-# .. |AMS_VERSION_X| replace:: 7.1.x
-# .. |AMS_VERSION_FULL| replace:: 7.1.0
-# .. |AMS_VERSION_SHORT| replace:: 7.1
-# """
+ams_version_x = "7.1.x"
+ams_version_full = "7.1.0"
+ams_version_short = "7.1"
+ammr_version = "2.0"
+ammr_version_full = "2.0.0"
+
+rst_epilog = f"""
+.. |AMS_VERSION_X| replace:: {ams_version_x}
+.. |AMS_VERSION_FULL| replace:: {ams_version_full}
+.. |AMS_VERSION_SHORT| replace:: {ams_version_short}
+.. |AMMR_VERSION| replace:: {ammr_version}
+.. |AMMR_VERSION_FULL| replace:: {ammr_version_full}
+"""
 
 
-# If true, `todo` and `todoList` produce output, else they produce nothing.
-try: 
-    subprocess.check_call(['git', 'describe', '--exact-match', 'HEAD'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-except subprocess.CalledProcessError:
-    # We are not a on a tagged commit
-    todo_include_todos = True
-else:
-    # Tagged commit, e.g. release version. Hide todos.
-    todo_include_todos = False
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -174,7 +198,7 @@ html_theme_options = {
     'minimal_width': '700px',
     'borderless_decor': True,
     'lighter_header_decor': False,
-    'sidebarwidth': "6in",
+    #'sidebarwidth': "4in",
     'fontcssurl': 'https://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono',
 }
 
@@ -257,7 +281,7 @@ texinfo_documents = [
 ]
 
 
-if tags.has('DEV_BUILD'):
-    intersphinx_mapping = {'ammr': ('https://anyscript.org/ammr-doc/dev', None)}
+if BUILD_TYPE == BuildType.web_dev:
+    intersphinx_mapping = {'ammr': ('https://anyscript.org/ammr-doc/dev/', None)}
 else:
     intersphinx_mapping = {'ammr': ('https://anyscript.org/ammr-doc/', None)}
