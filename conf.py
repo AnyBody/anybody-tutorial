@@ -166,7 +166,7 @@ rst_epilog = f"""
 # a list of builtin themes.
 #
 
-html_experimental_html5_writer = True
+html_experimental_html5_writer = False
 html_show_sphinx = False
 
 html_theme_path = [cloud_sptheme.get_theme_dir()]
