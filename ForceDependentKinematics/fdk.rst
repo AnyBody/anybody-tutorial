@@ -76,5 +76,3 @@ proceed to:
     **Next lesson:** :doc:`lesson1`.
 
 .. |Simple knee| image:: _static/fdk/image1.png
-   :width: 3.07857in
-   :height: 2.00994in

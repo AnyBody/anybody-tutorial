@@ -242,11 +242,5 @@ included into an existing model based on an AMMR body model.
     **Next lesson:** :doc:`lesson5`.
 
 .. |Model view Implant surfaces| image:: _static/lesson4/image1.jpg
-   :width: 4.02716in
-   :height: 3.11484in
 .. |Model view knee closeup| image:: _static/lesson4/image2.jpg
-   :width: 4.02716in
-   :height: 3.11484in
 .. |Model view knee closeup 2| image:: _static/lesson4/image3.jpg
-   :width: 4.02716in
-   :height: 3.11484in
