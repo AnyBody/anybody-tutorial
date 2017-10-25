@@ -153,19 +153,19 @@ optimization“ tutorial.
 .. photos
 
 .. |Chart view window| image:: _static/lesson3/image1.png
-   :scale: 40%
+   
 .. |Chart view with plots| image:: _static/lesson3/image2.png
-   :scale: 40%
+   
 .. |Chart view, single plot| image:: _static/lesson3/image3.png
-   :scale: 40%
+   
 .. |Chart view multiple plots with asterix| image:: _static/lesson3/image4.png
-   :scale: 40%
+   
 .. |Chart view, series| image:: _static/lesson3/image5.png
-   :scale: 70%
+   
 .. |Chart view userdefined abscissa| image:: _static/lesson3/image7.jpeg
-   :scale: 60%
+   
 
 .. icons
 
 .. |image5| image:: _static/lesson3/image6.png
-   :scale: 80%
+   :width: 3%
