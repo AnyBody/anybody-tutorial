@@ -569,32 +569,12 @@ definition of optimization studies.
 
 
 .. |bike2d.jpg| image:: _static/Defining_a_parameter/image1.jpeg
-   :width: 4.16667in
-   :height: 2.75000in
 .. |parinsert.gif| image:: _static/Defining_a_parameter/image2.gif
-   :width: 3.39583in
-   :height: 4.58333in
 .. |parstudytree.gif| image:: _static/Defining_a_parameter/image3.gif
-   :width: 1.71875in
-   :height: 1.07292in
 .. |anychart1.gif| image:: _static/Defining_a_parameter/image4.gif
-   :width: 5.62500in
-   :height: 4.87500in
 .. |anychart2.gif| image:: _static/Defining_a_parameter/image5.gif
-   :width: 5.62500in
-   :height: 4.90625in
 .. |anychart3.gif| image:: _static/Defining_a_parameter/image6.gif
-   :width: 5.62500in
-   :height: 4.88542in
 .. |chartsettings.gif| image:: _static/Defining_a_parameter/image7.gif
-   :width: 0.32292in
-   :height: 0.31250in
 .. |anychart4.gif| image:: _static/Defining_a_parameter/image8.gif
-   :width: 5.62500in
-   :height: 4.91667in
 .. |metabcurve.gif| image:: _static/Defining_a_parameter/image9.gif
-   :width: 5.62500in
-   :height: 4.89583in
 .. |metab100.gif| image:: _static/Defining_a_parameter/image10.gif
-   :width: 5.62500in
-   :height: 5.00000in

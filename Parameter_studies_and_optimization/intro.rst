@@ -23,7 +23,6 @@ behavior of the model. Some examples of applications are:
    muscular strength.
 
 .. figure:: _static/intro/image1.gif
-   :height: 3.12500in
 
    Parameter study: Metabolic efficiency of a bicycle as a function of
    seat height and seat horizontal position.*
@@ -67,5 +66,3 @@ This tutorial devotes one lesson to each of the two study types:
 
 
 .. |efficiency.gif| image:: _static/intro/image1.gif
-   :width: 3.55208in
-   :height: 3.12500in
