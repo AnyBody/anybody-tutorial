@@ -15,9 +15,8 @@ models:
 
  This would be a sad excuse for a tutorial if we did not have an example
 to work on. So let us quickly construct a very simple example that will
-enable us to examine the properties of muscles. `*Here's an extremely
-simple one-degree-of-freedom model (right-click and save to
-disk)* <Downloads/MuscleDemo.Ini.any>`__:
+enable us to examine the properties of muscles. :download:`Here's an extremely
+simple one-degree-of-freedom model <Downloads/MuscleDemo.Ini.any>`.
 
 .. code-block:: AnyScriptDoc
 
@@ -242,8 +241,7 @@ Like other classes in AnyScript, muscles are not drawn in the model view
 window unless you specifically ask for it. When you load the model and
 run the SetInitialConditions study you will get the following picture
 (if your model does not load, and you cannot find the error, :download:`click
-here to download a model that works <Downloads/MuscleDemo.1.any>`
-(MuscleDemo.1.any)):
+here to download a model that works <Downloads/MuscleDemo.1.any>`):
 
 |simple model with muscle|
 
