@@ -265,8 +265,7 @@ influence of the increased slack length:
 |Ligament plot final|
 
 You can find the final version of the ligament demo file
-*:download:`here <Downloads/Demo.Ligament.final.any>`
-(Demo.Ligament.final.any)*.
+:download:`here <Downloads/Demo.Ligament.final.any>`.
 
 .. |Demo.Ligaments| image:: _static/lesson7/image1.png
 .. |Chart view Model.Lig.Fin| image:: _static/lesson7/image2.gif
