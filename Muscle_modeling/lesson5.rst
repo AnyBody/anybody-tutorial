@@ -396,7 +396,7 @@ So far we have been focusing our attention on Muscle1 in the demo model
 and left Muscle2 with the simple muscle model. Let us briefly study what
 Muscle2 is actually doing (if you need an updated working model, you can
 download it here:
-:download:`*MuscleDemo.5-2.any* <Downloads/MuscleDemo.5-2.any>`). Muscle2 wraps
+:download:`*MuscleDemo.5-2.any* <Downloads/MuscleDemo.5-2.any>`. Muscle2 wraps
 about the cylinder and obviously extends significantly as the arm turns
 upward. If you run the analysis and plot the length of Muscle2, you will
 see that it increases 0.7 to 1 meter. For a normal muscle (actually a
@@ -851,107 +851,37 @@ Biomedical Engineering, 17, 359-410, 1989.
  
 
 .. |http://www.anybodytech.com/fileadmin/AnyBody.3.x.x/tutorial/MuscleModeling/twoparstrength.gif| image:: _static/lesson5/image1.png
-   :width: 2.08333in
-   :height: 0.63542in
 .. |chart view: muscle1.L| image:: _static/lesson5/image2.png
-   :width: 5.62500in
-   :height: 4.87500in
 .. |muscle strength plot| image:: _static/lesson5/image3.png
-   :width: 3.12500in
-   :height: 2.73958in
 .. |Muscle parameters| image:: _static/lesson5/image4.png
-   :width: 2.53125in
-   :height: 4.58333in
 .. |muscle strength plot, v0=-0.3| image:: _static/lesson5/image5.png
-   :width: 3.12500in
-   :height: 2.89583in
 .. |muscle strength plot, Lt0= 0.3| image:: _static/lesson5/image6.png
-   :width: 3.12500in
-   :height: 2.89583in
 .. |Lm plot, no external load| image:: _static/lesson5/image7.png
-   :width: 3.12500in
-   :height: 2.89583in
 .. |Muscle length plot| image:: _static/lesson5/image8.png
-   :width: 3.12500in
-   :height: 2.89583in
 .. |muscle model| image:: _static/lesson5/image9.png
-   :width: 3.12500in
-   :height: 1.92708in
 .. |Force parallel elastic element| image:: _static/lesson5/image10.png
-   :width: 3.12500in
-   :height: 2.36458in
 .. |Tendon length plot| image:: _static/lesson5/image11.png
-   :width: 3.12500in
-   :height: 2.62500in
 .. |Small Lmt plot| image:: _static/lesson5/image12.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |small Lm plot| image:: _static/lesson5/image13.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Lt plot| image:: _static/lesson5/image14.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small LmtDot plot| image:: _static/lesson5/image15.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small LmDot plot| image:: _static/lesson5/image15.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small activity plot| image:: _static/lesson5/image16.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small c-activity plot| image:: _static/lesson5/image17.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Fm plot| image:: _static/lesson5/image18.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Ft plot| image:: _static/lesson5/image19.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Fp plot| image:: _static/lesson5/image20.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small strength plot| image:: _static/lesson5/image21.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Ft0 plot| image:: _static/lesson5/image22.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Ft0Grad plot| image:: _static/lesson5/image23.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small pennation angle plot| image:: _static/lesson5/image24.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small EPOTt plot| image:: _static/lesson5/image25.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small EPOTp plot| image:: _static/lesson5/image26.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small EPOTmt plot| image:: _static/lesson5/image27.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Pm plot| image:: _static/lesson5/image28.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Pmt plot| image:: _static/lesson5/image29.png
-   :width: 1.56250in
-   :height: 1.34375in
 .. |Small Pmet| image:: _static/lesson5/image30.png
-   :width: 1.56250in
-   :height: 1.23958in
 .. |Calibration. Lt0 plot| image:: _static/lesson5/image31.png
-   :width: 3.12500in
-   :height: 2.64583in
 .. |Calibration Activity plot| image:: _static/lesson5/image32.png
-   :width: 3.12500in
-   :height: 2.64583in
 .. |Cheap n dirty calibration, Activity plot| image:: _static/lesson5/image33.png
-   :width: 3.12500in
-   :height: 2.69792in
 .. |Cheap n dirty calibration, activity plot| image:: _static/lesson5/image34.png
-   :width: 3.12500in
-   :height: 2.69792in

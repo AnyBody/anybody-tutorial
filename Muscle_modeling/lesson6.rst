@@ -101,10 +101,8 @@ AnyGeneralMuscle in the class tree, and insert a template:
          
         §AnyGeneralMuscle <ObjectName> = {
            //ForceDirection = -1;
-           AnyKinMeasure &<Insert name0> = <Insert object reference (or
-      full object definition)>;
-           AnyMuscleModel &<Insert name0> = <Insert object reference (or
-      full object definition)>;
+           AnyKinMeasure &<Insert name0> = <Insert object reference (or full object definition)>;
+           AnyMuscleModel &<Insert name0> = <Insert object reference (or full object definition)>;
          };§
 
 
@@ -466,23 +464,9 @@ deals with the important topic of ligament modeling.
 
 
 .. |Arm 2D| image:: _static/lesson6/image1.jpeg
-   :width: 3.12500in
-   :height: 2.86458in
 .. |Chart view, Torques| image:: _static/lesson6/image2.gif
-   :width: 5.62500in
-   :height: 4.88542in
 .. |Simple arm wall| image:: _static/lesson6/image3.jpeg
-   :width: 3.12500in
-   :height: 2.89583in
 .. |no reaction MaxMuscleActivity plot| image:: _static/lesson6/image4.gif
-   :width: 3.12500in
-   :height: 2.43750in
 .. |Full reaction MaxMuscleActivity plot| image:: _static/lesson6/image5.gif
-   :width: 3.12500in
-   :height: 2.43750in
 .. |Joint torques plot| image:: _static/lesson6/image6.gif
-   :width: 3.12500in
-   :height: 2.45833in
 .. |Joint torques plot 2| image:: _static/lesson6/image7.gif
-   :width: 3.12500in
-   :height: 2.45833in
