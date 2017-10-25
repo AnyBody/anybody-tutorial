@@ -208,17 +208,12 @@ simulation using AnyBody.
 
 
 .. |ModelTree| image:: _static/lesson1/image1.png
-   :width: 2.35833in
-   :height: 1.13194in
+   
 .. |New template model button| image:: _static/lesson1/image2.png
-   :width: 3.84931in
-   :height: 0.81111in
+   
 .. |New Template dialog| image:: _static/lesson1/image3.png
-   :width: 4.95278in
-   :height: 4.76389in
+   
 .. |Model view Full body| image:: _static/lesson1/image4.png
-   :width: 2.92431in
-   :height: 3.71667in
+   
 .. |Model view new segment| image:: _static/lesson1/image5.png
-   :width: 2.86806in
-   :height: 3.67014in
+   

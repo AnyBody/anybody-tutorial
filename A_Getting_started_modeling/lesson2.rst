@@ -85,5 +85,4 @@ Meet <lesson3>`.
 
 
 .. |ModelView_Human_Adjusted| image:: _static/lesson2/image1.png
-   :width: 2.51875in
-   :height: 3.69792in
+   

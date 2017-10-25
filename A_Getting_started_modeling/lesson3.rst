@@ -554,26 +554,18 @@ can still run the kinematics of your model.
 
 
 .. |Posture Adjustment1| image:: _static/lesson3/image1.png
-   :width: 2.71667in
-   :height: 3.76389in
+   
 .. |Operations tree Kinematics| image:: _static/lesson3/image2.png
-   :width: 2.19792in
-   :height: 2.35833in
+   
 .. |Operation Result Kinematics| image:: _static/lesson3/image3.png
-   :width: 2.96250in
-   :height: 3.47153in
+   
 .. |Operations tree object description| image:: _static/lesson3/image4.png
-   :width: 3.51875in
-   :height: 2.99028in
+   
 .. |ObjectDescription DOFs| image:: _static/lesson3/image5.png
-   :width: 4.84931in
-   :height: 5.32986in
+   
 .. |ObjectDescription Constraints1| image:: _static/lesson3/image6.png
-   :width: 6.68889in
-   :height: 5.16042in
+   
 .. |Model tree Default manequin drivers| image:: _static/lesson3/image7.png
-   :width: 2.95278in
-   :height: 7.76389in
+   
 .. |ObjectDescription Constraints2| image:: _static/lesson3/image8.png
-   :width: 6.68889in
-   :height: 3.06597in
+   
