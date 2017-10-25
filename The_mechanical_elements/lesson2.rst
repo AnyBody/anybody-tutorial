@@ -57,5 +57,3 @@ please download and study the following two examples:
     **Next lesson:** :doc:`lesson3`. 
 
 .. |Class tree joints| image:: _static/lesson2/image1.gif
-   :width: 2.19792in
-   :height: 1.34375in

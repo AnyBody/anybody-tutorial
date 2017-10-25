@@ -177,11 +177,5 @@ here (Measures2.any) <Downloads/Measures2.any>`. 
  
 
 .. |Simple arm model| image:: _static/lesson4/image1.jpeg
-   :width: 1.88542in
-   :height: 1.89583in
 .. |Model tree KinematicMeasures| image:: _static/lesson4/image2.gif
-   :width: 1.81250in
-   :height: 2.20833in
 .. |WristPos.Pos graph| image:: _static/lesson4/image3.gif
-   :width: 3.59375in
-   :height: 2.73958in

@@ -229,7 +229,7 @@ the material numbers of implant and fracture are between 50 and 60. The
 template can be altered to fit to your actual problem. One thing you
 have to change right now is the path to your FE model.
 
-:: console
+.. code-block:: console 
 
     RESUME,'clav_base','db','C:\Users\sd.ANYBODY\TEMP\Clavicle_paper\FE\',0,0
 
@@ -255,17 +255,9 @@ post-processor.
 
 .. rst-class:: without-title
 .. seealso::
-    **Next lesson:** :doc:`lesson2`.
+    **Next lesson:** :doc:`lesson3`.
 
 .. |FEA tutorial flow chart| image:: _static/lesson2/image1.png
-   :width: 3.82822in
-   :height: 4.23393in
 .. |Clavicular ref frame| image:: _static/lesson2/image2.png
-   :width: 3.16785in
-   :height: 2.95158in
 .. |ANSYS nodes| image:: _static/lesson2/image3.png
-   :width: 6.49387in
-   :height: 3.84508in
 .. |Ansys stresses| image:: _static/lesson2/image4.png
-   :width: 5.84709in
-   :height: 3.93396in

@@ -446,10 +446,6 @@ to capture the features of the body's function that we are looking for.
  
 
 .. |kick1.png| image:: _static/intro/image1.png
-   :height: 5.00000in
 .. |image1| image:: _static/intro/image2.png
-   :height: 3.34109in
 .. |kickvel1.gif| image:: _static/intro/image3.gif
-   :height: 3.34375in
 .. |kickacc1.gif| image:: _static/intro/image4.gif
-   :height: 5.83333in

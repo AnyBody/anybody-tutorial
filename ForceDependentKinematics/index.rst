@@ -22,4 +22,4 @@ important applications for other types of models.
     lesson3
     lesson4
     lesson5
-    FDK appendiks <fdkappendix>
+    FDK appendix <fdkappendix>

@@ -376,8 +376,4 @@ segment can be summed up.
  
 
 .. |Simple arm model with force| image:: _static/lesson5/image1.png
-   :width: 2.68750in
-   :height: 3.42708in
 .. |Arm model with force 2| image:: _static/lesson5/image2.png
-   :width: 3.79167in
-   :height: 2.91667in

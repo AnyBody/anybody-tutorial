@@ -76,5 +76,3 @@ start AnyBody and load the main file, demo.include.any.
 
 
 .. |Include tree| image:: _static/lesson2/image1.gif
-   :width: 5.35417in
-   :height: 2.20833in
