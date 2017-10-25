@@ -104,9 +104,9 @@ functions, so keyboard shortcuts have been provided:
 .. |ModelLoadButton| image:: _static/lesson1/image_2.png
    
 .. |TemplateDialog| image:: _static/lesson1/image_3.png
-   :scale: 80%
+   
 .. |MyStandingHumanModel.main.any| image:: _static/lesson1/image_4.png
-   :scale: 40%
+   
 .. |Model View| image:: _static/lesson1/image_5.png
-   :scale: 50%
+   
 .. |Load| image:: _static/lesson1/image_6.png

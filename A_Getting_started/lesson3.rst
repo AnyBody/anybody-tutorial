@@ -120,21 +120,21 @@ webcast <https://www.anybodytech.com/anybody.html?fwd=webcasts>`__\ s
 for topics of particular interest to you.
 
 .. |Chart view tree| image:: _static/lesson3/image1.png
-   :scale: 80%
+   
 .. |Chart view| image:: _static/lesson3/image2.png
   
 .. |getting started 8| image:: _static/lesson3/image3.png
-   :scale: 70%
+   
 .. |Chart view Data button| image:: _static/lesson3/image4.png
    
 .. |Chartview Selected output tree| image:: _static/lesson3/image5.png
-   :scale: 70%
+   
 .. |Chartview JointReactionForce tree| image:: _static/lesson3/image6.png
-   :scale: 70%
+   
 .. |Chartview ProximoDistalForce| image:: _static/lesson3/image7.png
    
 .. |Chart view asterix selection| image:: _static/lesson3/image8.png
    
 .. |Model view Human bowing| image:: _static/lesson3/image9.png
-   :scale: 50%
+   
 .. |Chart view: bowing hip reaction forces| image:: _static/lesson3/image10.png
