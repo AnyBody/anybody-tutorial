@@ -149,11 +149,5 @@ computational expense. Wrapping muscles are the subject of :doc:`*Lesson
 
 
 .. |Old leg Muscle wrapping| image:: _static/lesson3/image1.jpeg
-   :width: 2.10417in
-   :height: 2.02083in
 .. |Deltoid muscles| image:: _static/lesson3/image2.jpeg
-   :width: 2.08333in
-   :height: 2.02083in
 .. |Simpel model with via point muscle| image:: _static/lesson3/image3.jpeg
-   :width: 3.12500in
-   :height: 2.62500in

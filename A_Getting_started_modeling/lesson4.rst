@@ -238,14 +238,10 @@ it bottom up. In AnyBody, this is a matter of a few hours of work when
 using the predefined models of the repository.
 
 .. |Chart view HingeJoint.Pos| image:: _static/lesson4/image1.png
-   :width: 6.48125in
-   :height: 3.89653in
+   
 .. |InverseDynamics_End| image:: _static/lesson4/image2.png
-   :width: 4.99028in
-   :height: 4.50000in
+   
 .. |Chart view Muscles.Envelope| image:: _static/lesson4/image3.png
-   :width: 4.95278in
-   :height: 2.98125in
+   
 .. |Chart view Muscles.Envelope 2| image:: _static/lesson4/image4.png
-   :width: 4.81111in
-   :height: 2.92431in
+   

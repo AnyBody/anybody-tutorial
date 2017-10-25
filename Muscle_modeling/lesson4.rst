@@ -361,17 +361,7 @@ models <lesson5>`.
 
 
 .. |wrapcylinder| image:: _static/lesson4/image1.jpeg
-   :width: 3.12500in
-   :height: 2.23958in
 .. |wrap cylinder rotated| image:: _static/lesson4/image2.jpeg
-   :width: 3.12500in
-   :height: 2.41667in
 .. |wrap cylinder with via point sequence| image:: _static/lesson4/image3.jpeg
-   :width: 6.25000in
-   :height: 2.03125in
 .. |wrap cylinder two muscles| image:: _static/lesson4/image4.jpeg
-   :width: 3.12500in
-   :height: 2.31250in
 .. |wrap cylinder Init wrap vectors| image:: _static/lesson4/image5.jpeg
-   :width: 3.12500in
-   :height: 1.81250in

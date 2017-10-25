@@ -122,20 +122,8 @@ improve on the kinematical behavior in combination with the FDK solver.
     **Next lesson:** :doc:`lesson4`.
 
 .. |Chart view Linear pos| image:: _static/lesson3/image1.png
-   :width: 4.54286in
-   :height: 2.96800in
 .. |Model view Knee close up| image:: _static/lesson3/image2.png
-   :width: 4.54286in
-   :height: 2.40718in
 .. |Model view Knee wrapping sureface| image:: _static/lesson3/image3.png
-   :width: 3.25000in
-   :height: 2.09176in
 .. |Chart view Linear pos 2| image:: _static/lesson3/image4.png
-   :width: 4.33571in
-   :height: 2.81099in
 .. |Model view Knee close up 2| image:: _static/lesson3/image5.png
-   :width: 2.72857in
-   :height: 1.75615in
 .. |Chart view ForceDepKin.ForceError| image:: _static/lesson3/image6.png
-   :width: 4.31429in
-   :height: 3.43051in

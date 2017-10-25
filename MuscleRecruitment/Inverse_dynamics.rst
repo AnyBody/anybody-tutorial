@@ -90,8 +90,4 @@ muscle recruitment algorithms“ <https://www.anybodytech.com/anybody.html?fwd=w
 
 
 .. |Inverse dynamic simple schematic| image:: _static/Inverse_dynamics/image1.png
-   :width: 4.16250in
-   :height: 3.16250in
 .. |Inverse dynamic full model| image:: _static/Inverse_dynamics/image2.png
-   :width: 4.16250in
-   :height: 3.38403in

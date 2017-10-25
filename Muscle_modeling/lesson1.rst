@@ -64,7 +64,7 @@ disk)* <Downloads/MuscleDemo.Ini.any>`__:
        // The study: Operations to be performed on the model
        AnyBodyStudy MyStudy = {
          AnyFolder &Model = .MyModel;
-        InverseDynamics.Criterion.Type = MR*MinMaxStrict;
+         InverseDynamics.Criterion.Type = MR*MinMaxStrict;
          Gravity = {0.0, -9.81, 0.0};
        };
      };  // Main
@@ -169,7 +169,7 @@ instance of it:
 
      AnyMuscleModel SimpleModel = {
            F0 = 100;
-         };
+        };
         
         § AnyViaPointMuscle <ObjectName> = {
            AnyMuscleModel &<Insert name0> = <Insert object reference (or full object definition)>;
@@ -268,17 +268,7 @@ later in this tutorial. 
  
 
 .. |simple model| image:: _static/lesson1/image1.jpeg
-   :width: 2.08333in
-   :height: 2.00000in
 .. |class tree| image:: _static/lesson1/image2.png
-   :width: 2.98958in
-   :height: 3.34375in
 .. |class tree AnyViaPointMuscle| image:: _static/lesson1/image3.png
-   :width: 2.90625in
-   :height: 2.71875in
 .. |simple model with muscle| image:: _static/lesson1/image4.jpeg
-   :width: 2.08333in
-   :height: 2.00000in
 .. |http://www.anybodytech.com/fileadmin/AnyBody.3.x.x/tutorial/MuscleModeling/muscleforce1.gif| image:: _static/lesson1/image5.png
-   :width: 5.43750in
-   :height: 3.68750in

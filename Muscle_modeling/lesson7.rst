@@ -265,39 +265,16 @@ influence of the increased slack length:
 |Ligament plot final|
 
 You can find the final version of the ligament demo file
-*:download:`here <Downloads/Demo.Ligament.final.any>`
-(Demo.Ligament.final.any)*.
+:download:`here <Downloads/Demo.Ligament.final.any>`.
 
 .. |Demo.Ligaments| image:: _static/lesson7/image1.png
-   :width: 5.06250in
-   :height: 1.62500in
 .. |Chart view Model.Lig.Fin| image:: _static/lesson7/image2.gif
-   :width: 5.62500in
-   :height: 4.89583in
 .. |Chart view Model.Lig.Fin 2| image:: _static/lesson7/image3.gif
-   :width: 5.62500in
-   :height: 4.89583in
 .. |Ligament equations| image:: _static/lesson7/image4.gif
-   :width: 1.98958in
-   :height: 0.23958in
 .. |Chart view Model.Lig.Fin 3| image:: _static/lesson7/image5.gif
-   :width: 5.62500in
-   :height: 4.88542in
 .. |Model.Lig.Fin plot 2| image:: _static/lesson7/image6.png
-   :width: 4.16667in
-   :height: 3.14583in
 .. |Model.Lig.Fin zero slope| image:: _static/lesson7/image7.png
-   :width: 4.16667in
-   :height: 3.14583in
 .. |Model.Lig.Fin plot different slopes| image:: _static/lesson7/image8.png
-   :width: 4.16667in
-   :height: 3.14583in
 .. |Ligrament plot, fourth order| image:: _static/lesson7/image9.png
-   :width: 4.16667in
-   :height: 3.14583in
 .. |Tree, LigModel.L0| image:: _static/lesson7/image10.png
-   :width: 1.21875in
-   :height: 1.89583in
 .. |Ligament plot final| image:: _static/lesson7/image11.png
-   :width: 4.16667in
-   :height: 3.30208in

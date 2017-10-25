@@ -155,12 +155,12 @@ result of the efforts is in
 
 
 .. |oldleg1| image:: _static/lesson6/image1.jpeg
-   :scale: 100%
+   
 .. |oldleg2| image:: _static/lesson6/image2.jpeg
-   :scale: 100%
+   
 .. |ModelView dumbbell1| image:: _static/lesson6/image3.jpeg
-   :scale: 80%
+   
 .. |ModelView dumbbell2| image:: _static/lesson6/image4.jpeg
-   :scale: 80%
+   
 .. |ModelView dumbbell3| image:: _static/lesson6/image5.jpeg
-   :scale: 80%
+   

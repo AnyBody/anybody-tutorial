@@ -211,17 +211,18 @@ usage.
 .. photos
 
 .. |Open model view windows| image:: _static/lesson2/image1.png
-   :scale: 65%
+   
 .. |Model tree toolbar, start operation| image:: _static/lesson2/image2.png
-   :scale: 50%
+   
 .. |Replay slider toolbarb| image:: _static/lesson2/image3.png
-   :scale: 55%
+   
 .. |Record buttons| image:: _static/lesson2/image6.png
-   :scale: 50%
+   :width: 15%
+   
 .. |Model view right click| image:: _static/lesson2/image7.png
-   :scale: 70%
+   
 .. |Model tree right click menu| image:: _static/lesson2/image8.png
-   :scale: 60%
+   
 
 .. icons
 

@@ -130,7 +130,7 @@ forces.
       AnyFloat Stiffness = 5e4; // N/m
       AnyKinLinear lin = 
       {
-          AnyRefFrame &r1= Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.HipJoint.PelvisImplantNode;
+        AnyRefFrame &r1= Main.HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Right.HipJoint.PelvisImplantNode;
         AnyRefFrame &r2 = Main.HumanModel.BodyModel.Right.Leg.Seg.Thigh.HipJointISBCoordinateSystem.FemImplantNode;  
       };
       F = - Stiffness * lin.Pos;
@@ -200,5 +200,3 @@ this :doc:`appendix <fdkappendix>`.
     this :doc:`appendix <fdkappendix>`.
 
 .. |Model view Hip and knee| image:: _static/lesson5/image1.png
-   :width: 6.68490in
-   :height: 3.10714in

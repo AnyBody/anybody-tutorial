@@ -349,12 +349,12 @@ Repository <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
 
 
 .. |image0| image:: _static/lesson5/image1.png
-   :scale: 50%
+   
 .. |image1| image:: _static/lesson5/image2.png
-   :scale: 50%
+   
 .. |image2| image:: _static/lesson5/image3.png
-   :scale: 65%
+   
 .. |image3| image:: _static/lesson5/image4.png
-   :scale: 65%
+   
 .. |image4| image:: _static/lesson5/image5.png
-   :scale: 65%
+   

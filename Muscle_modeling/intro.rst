@@ -54,5 +54,3 @@ to the basics of muscle modeling in :doc:`Lesson 1 <lesson1>`.
 
 
 .. |Muscles back| image:: _static/intro/image1.jpeg
-   :width: 4.16667in
-   :height: 6.32292in

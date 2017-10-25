@@ -261,5 +261,4 @@ position. This is taken care of by kinematic drivers.
 
 
 .. |Model tree ElbowNode| image:: _static/lesson3/image1.png
-   :scale: 70%
    

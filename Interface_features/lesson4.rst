@@ -69,13 +69,13 @@ This concludes this lesson on browsing the model.
 .. photos
 
 .. |GUI overview| image:: _static/lesson4/image1.png
-   :scale: 50%
+   
 .. |Object description window| image:: _static/lesson4/image2.png
-   :scale: 40%
+   
 .. |Object description on Studies| image:: _static/lesson4/image3.png
-   :scale: 40%
+   
 
 .. icons
 
 .. |Folder link icon| image:: _static/lesson4/image4.png
-   :scale: 100%
+   

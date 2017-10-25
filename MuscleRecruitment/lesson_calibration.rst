@@ -457,11 +457,5 @@ Here's a link to the finished :download:`calibration.any example <Downloads/cali
 
 
 .. |Chart view BicepsLong.Ft| image:: _static/lesson_calibration/image1.png
-   :width: 5.62778in
-   :height: 4.88403in
 .. |Chart view BicepsLong.Fp| image:: _static/lesson_calibration/image2.png
-   :width: 5.62778in
-   :height: 4.88403in
 .. |Operations Main.InverseDynamics| image:: _static/lesson_calibration/image3.png
-   :width: 2.81389in
-   :height: 2.46528in

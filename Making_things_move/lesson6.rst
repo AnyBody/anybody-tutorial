@@ -407,23 +407,16 @@ C3D files.
 
 
 .. |Marker residuals| image:: _static/lesson6/image1.emf
-   :width: 4.10486in
-   :height: 3.51181in
+   
 .. |Model view, Pendulum| image:: _static/lesson6/image2.jpeg
-   :width: 2.93056in
-   :height: 2.79097in
+   
 .. |Chart view, rDDot| image:: _static/lesson6/image3.emf
-   :width: 4.81389in
-   :height: 3.76736in
+   
 .. |Chart view, rDDot 2| image:: _static/lesson6/image4.emf
-   :width: 4.86042in
-   :height: 3.75556in
+   
 .. |Chart view, weight function| image:: _static/lesson6/image5.emf
-   :width: 4.68611in
-   :height: 2.41875in
+   
 .. |Chart view, filtered marker positions| image:: _static/lesson6/image6.emf
-   :width: 4.68611in
-   :height: 2.41875in
+   
 .. |Chart view rDDot final| image:: _static/lesson6/image7.emf
-   :width: 4.91875in
-   :height: 3.94167in
+   

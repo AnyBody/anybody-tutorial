@@ -218,14 +218,14 @@ the real biomechanics, we must add some muscles to the model.
 
 
 .. |ModelView Arm2D initial load| image:: _static/lesson4/image1.png
-    :scale: 40%
+    
 .. |Operations ArmStudy| image:: _static/lesson4/image2.png
-    :scale: 80%
+    
 .. |Model tree toolbar Execute buttons| image:: _static/lesson4/image3.png
-    :scale: 80%
+    
 .. |Execute toolbar| image:: _static/lesson4/image4.png
-    :scale: 80%
+    
 .. |Replay toolbar| image:: _static/lesson4/image5.png
-    :scale: 80%
+    
 .. |Chart view HandNode| image:: _static/lesson4/image6.png
    

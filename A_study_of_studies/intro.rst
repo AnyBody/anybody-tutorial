@@ -293,6 +293,6 @@ into AnyBody.
  
 
 .. |script_to_model| image:: _static/intro/image1.png
-   :scale: 100%
+   
 .. |Running Operations| image:: _static/intro/image2.png
-   :scale: 100%
+   
