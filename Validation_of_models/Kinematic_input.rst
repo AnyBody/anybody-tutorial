@@ -42,8 +42,5 @@ low pass filter to reduce the unrealistic acceleratons.
  
 
 .. |rowpos.gif| image:: _static/Kinematic_input/image1.gif
-   :height: 2.38542in
 .. |rowvel.gif| image:: _static/Kinematic_input/image2.gif
-   :height: 2.19792in
 .. |rowacc.gif| image:: _static/Kinematic_input/image3.gif
-   :height: 2.38542in
