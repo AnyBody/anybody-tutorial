@@ -31,5 +31,3 @@ solver of the system:
     **Next lesson:** :doc:`lesson2`.
 
 .. |Model view DemoSimpleKnee| image:: _static/lesson1/image1.png
-   :width: 3.77987in
-   :height: 2.87857in
