@@ -141,25 +141,25 @@ model, we shall, therefore, define some drawing groups:
             
             AnyDrawGroup AllSegments = {
             
-            Objects = ObjSearch("Main.ArmModel.Segs.*");
+                Objects = ObjSearch("Main.ArmModel.Segs.*");
             
             };
             
             AnyDrawGroup AllMuscles = {
             
-            Objects = ObjSearch("Main.ArmModel.Muscles.*");
+                Objects = ObjSearch("Main.ArmModel.Muscles.*");
             
             };
             
             AnyDrawGroup AllDeltoidMuscles = {
             
-            Objects = ObjSearch("Main.ArmModel.Muscles.Del*.DrwMus");
+                Objects = ObjSearch("Main.ArmModel.Muscles.Del*.DrwMus");
             
             };
             
             AnyDrawGroup All = {
             
-            Objects = ObjSearchRecursive("Main.ArmModel","*");
+                Objects = ObjSearchRecursive("Main.ArmModel","*");
             
             };
             
@@ -187,9 +187,9 @@ In the final example files, this is actually done in a separate file,
             
             Files = {
             
-            MainFile = "AnyProject.any";
-            
-            SetValueFile = "values.anyset";
+                MainFile = "AnyProject.any";
+                
+                SetValueFile = "values.anyset";
             
             };
             
