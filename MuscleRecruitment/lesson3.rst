@@ -207,20 +207,8 @@ done is the topic of
 
 
 .. |qpeq.gif| image:: _static/lesson3/image1.gif
-   :width: 0.86458in
-   :height: 0.43750in
 .. |Model view Bike 2D| image:: _static/lesson3/image2.png
-   :width: 6.50000in
-   :height: 5.05208in
 .. |Chart view Right muscle activity 400W| image:: _static/lesson3/image3.gif
-   :width: 6.25000in
-   :height: 4.23958in
 .. |Chart view Right muscle activity 600W| image:: _static/lesson3/image4.gif
-   :width: 6.25000in
-   :height: 4.31250in
 .. |Chart view Right muscle activity Upper bound On| image:: _static/lesson3/image5.gif
-   :width: 6.25000in
-   :height: 4.31250in
 .. |Chart view Right muscle activity 800W| image:: _static/lesson3/image6.gif
-   :width: 6.25000in
-   :height: 4.31250in

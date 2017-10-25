@@ -102,8 +102,4 @@ and we shall therefore proceed to investigate another option in
 
 
 .. |recruitmentopt.gif| image:: _static/lesson2/image1.gif
-   :width: 2.14583in
-   :height: 1.19792in
 .. |Chart view Model.star.Fm| image:: _static/lesson2/image2.gif
-   :width: 3.12500in
-   :height: 3.19792in
