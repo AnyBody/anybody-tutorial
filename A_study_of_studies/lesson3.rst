@@ -173,14 +173,10 @@ the subject of :doc:`*the next lesson* <lesson4>`.
 
 
 .. |demo.SliderCrank3D.any| image:: _static/lesson3/image1.png
-   :width: 5.40625in
-   :height: 2.43750in
+   
 .. |Chart view Acceleration| image:: _static/lesson3/image2.png
-   :width: 5.62500in
-   :height: 3.86458in
+   
 .. |Shaft acceleration| image:: _static/lesson3/image3.png
-   :width: 5.62500in
-   :height: 3.88542in
+   
 .. |Shaft acc details| image:: _static/lesson3/image4.png
-   :width: 3.02083in
-   :height: 1.27083in
+   

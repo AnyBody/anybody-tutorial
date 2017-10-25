@@ -3,7 +3,7 @@ Lesson1: Mechanical System Information
 
 In this lesson we are presuming that you have the arm2d.any file loaded
 into AnyBody. If you do not have the model on file, please download and
-save a copy from this link: *arm2d.any*. It should look like this when
+save a copy from this link: :download:`arm2d.any <Downloads/arm2d.any>`. It should look like this when
 you have loaded the model, run InitialConditions operation, and opened a
 Model View:
 
@@ -231,14 +231,10 @@ Conditions in the :doc:`next lesson <lesson2>`.
 
 
 .. |Dumbbel| image:: _static/lesson1/image1.png
-   :width: 3.77083in
-   :height: 3.53125in
+   
 .. |Study object description| image:: _static/lesson1/image2.png
-   :width: 6.37500in
-   :height: 7.92708in
+   
 .. |Object description, number of constraints| image:: _static/lesson1/image3.png
-   :width: 6.37500in
-   :height: 3.81250in
+   
 .. |Object description, list of reaction forces| image:: _static/lesson1/image4.png
-   :width: 6.48958in
-   :height: 1.35417in
+   
