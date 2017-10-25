@@ -61,7 +61,7 @@ of the different muscle models. The AnyScript model from the previous
 lesson will suffice very nicely. You can download a functional version
 of the model here:
 
-*MuscleDemo.5.any*
+:download:`MuscleDemo.5.any<Downloads/MuscleDemo.5.any>`
 
 AnyMuscleModel2ELin
 -------------------
@@ -771,7 +771,8 @@ analysis is done, the following message appears in the message window:
 
 .. code-block:: none
 
-    The tendon length of muscle Main.MyModel.Muscle2 was calibrated. The muscle properties have been updated.
+    The tendon length of muscle Main.MyModel.Muscle2 was calibrated.
+    The muscle properties have been updated.
 
 Try running the InverseDynamics again and plot the Activity of Muscle2.
 You should see the following:

@@ -66,10 +66,10 @@ The lack of muscles means that the model cannot currently do an inverse
 dynamics analysis. If you try to run the InverseDynamicAnalysis
 operation, you will get the following error message:
 
-*ERROR  :   C:\\Documents and Settings\\jr\\My
-Documents\\AnyScripts\\demo\\MuscleDemo\\MuscleDemo.6.any(103)  : 
-ArmStudy   :   Muscle recruitment analysis failed, simplex solver found
-that problem was unbounded.*
+``ERROR: C:\\Documents and Settings\\jr\\My
+Documents\\AnyScripts\\demo\\MuscleDemo\\MuscleDemo.6.any(103):``
+``ArmStudy: Muscle recruitment analysis failed, simplex solver found
+that problem was unbounded.``
 
 which is a mathematical way of stating that the model cannot be balanced
 in the absence of muscles. In this case we are not going to add real
@@ -117,10 +117,8 @@ model. Let us insert a simple one:
          
         AnyGeneralMuscle <ObjectName> = {
            //ForceDirection = -1.000000;
-           AnyKinMeasure &<Insert name0> = <Insert object reference (or
-      full object definition)>;
-           AnyMuscleModel &<Insert name0> = <Insert object reference (or
-      full object definition)>;
+           AnyKinMeasure &<Insert name0> = <Insert object reference (or full object definition)>;
+           AnyMuscleModel &<Insert name0> = <Insert object reference (or full object definition)>;
          };
 
 
@@ -298,18 +296,18 @@ the hand move vertically, so we drive the hand directly instead.
          § /*§
            //---------------------------------
            AnyKinEqSimpleDriver ShoulderMotion = {
-           AnyRevoluteJoint &Jnt = ..Jnts.Shoulder;
-           DriverPos = {-1.7};
-           DriverVel = {0.4};
-           Reaction.Type = {0};
+              AnyRevoluteJoint &Jnt = ..Jnts.Shoulder;
+              DriverPos = {-1.7};
+              DriverVel = {0.4};
+              Reaction.Type = {0};
            }; // Shoulder driver
           
            //---------------------------------
            AnyKinEqSimpleDriver ElbowMotion = {
-           AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
-           DriverPos = {1.5};
-           DriverVel = {0.7};
-           Reaction.Type = {0};
+              AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
+              DriverPos = {1.5};
+              DriverVel = {0.7};
+              Reaction.Type = {0};
            }; // Elbow driver
     
          §*/§
