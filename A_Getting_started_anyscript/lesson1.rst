@@ -178,12 +178,11 @@ successfully.
 
 
 .. |AnyBody Assistent| image:: _static/lesson1/image1.png
-   :scale: 40%
+   
 .. |Editor NewModel.main.any| image:: _static/lesson1/image2.png
-   :scale: 60%
+
 .. |Loadbutton image| image:: _static/lesson1/image3.png
-   :scale: 80%
+   
 .. |Load model right click menu| image:: _static/lesson1/image4.png
-   :scale: 70%
+
 .. |Error popup dialog| image:: _static/lesson1/image5.png
-   :scale: 70%

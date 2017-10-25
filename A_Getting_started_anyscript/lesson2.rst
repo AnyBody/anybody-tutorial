@@ -325,15 +325,12 @@ the movement of segments and allow them to articulate the way we desire.
    the rigid parts of the model.
 
 .. |Load button image| image:: _static/lesson2/image1.png
-   :scale: 80%
+
 .. |Classes tab| image:: _static/lesson2/image2.png
-   :scale: 80%
+
 .. |Zoom button image| image:: _static/lesson2/image3.png
-   :scale: 70%
 
 .. |Model view One Segment| image:: _static/lesson2/image4.png
-   :scale: 50%
 
 .. |Model view two segments| image:: _static/lesson2/image5.png
-   :scale: 40%
    
