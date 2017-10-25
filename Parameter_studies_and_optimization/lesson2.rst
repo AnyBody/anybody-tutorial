@@ -62,9 +62,7 @@ musculoskeletal objective function and how the optimization algorithm
 solves the problem.
 
 .. image:: _static/Optimization_studies/image1.gif
-   :width: 40%
 .. image:: _static/Optimization_studies/image2.gif
-   :width: 40%
 
 The two pictures above both show the result of a parameter study. The
 picture on the right is the section indicated by the magnifying glass on
@@ -400,34 +398,18 @@ available for download and replay
 `here <http://www.anybodytech.com/info.html?f=webcasts-on-demand>`__.
 
 .. |metab.gif| image:: _static/Optimization_studies/image1.gif
-   :height: 1.54167in
 .. |image1| image:: _static/Optimization_studies/image2.gif
-   :height: 1.56299in
 .. |runopt.gif| image:: _static/Optimization_studies/image3.gif
-   :height: 4.10417in
 .. |metab100.gif| image:: _static/Optimization_studies/image4.gif
-   :height: 5.00000in
 .. |metabcon2.gif| image:: _static/Optimization_studies/image5.gif
-   :height: 2.95833in
 .. |BikeOpt2.jpg| image:: _static/Optimization_studies/image6.jpeg
-   :height: 3.09375in
 .. |newseries.gif| image:: _static/Optimization_studies/image7.gif
-   :height: 4.26042in
 .. |selectheight.gif| image:: _static/Optimization_studies/image8.gif
-   :height: 4.25000in
 .. |optpath2.gif| image:: _static/Optimization_studies/image9.gif
-   :height: 3.85417in
 .. |metabzoom2.gif| image:: _static/Optimization_studies/image10.gif
-   :height: 3.62500in
 .. |metabcon2_no_converge.gif| image:: _static/Optimization_studies/image11.gif
-   :height: 3.07292in
 .. |optpath2_no_converge.gif| image:: _static/Optimization_studies/image12.gif
-   :height: 3.43750in
 .. |metabcon2_constrained.gif| image:: _static/Optimization_studies/image13.gif
-   :height: 3.10417in
 .. |optpath2_constrained.gif| image:: _static/Optimization_studies/image14.gif
-   :height: 3.83333in
 .. |SeatDist2_constrained.gif| image:: _static/Optimization_studies/image15.gif
-   :height: 2.89583in
 .. |BikeOpt2_constrained.jpg| image:: _static/Optimization_studies/image16.jpeg
-   :height: 3.20833in
