@@ -469,27 +469,10 @@ Click here to continue to
 -  :doc:`Lesson 3: ABAQUS interface <lesson3>`
 
 
-.. rst-class:: without-title
-.. seealso::
-    **Next lesson:** :doc:`lesson1`.
-
-
 
 .. |FEA tutorial Fish tank| image:: _static/lesson1/image1.jpeg
-   :width: 1.64792in
-   :height: 3.28819in
 .. |L5 L4 joint| image:: _static/lesson1/image2.jpeg
-   :width: 1.64792in
-   :height: 1.62431in
 .. |FEA tutorial von Mises| image:: _static/lesson1/image3.jpeg
-   :width: 5.14375in
-   :height: 2.30417in
 .. |FEA tutorial Mesh| image:: _static/lesson1/image4.jpeg
-   :width: 4.16806in
-   :height: 4.47222in
 .. |FEA tutorial Node def| image:: _static/lesson1/image5.jpeg
-   :width: 5.00000in
-   :height: 2.87222in
 .. |FEA tutorial von-Mises 2| image:: _static/lesson1/image3.jpeg
-   :width: 5.14375in
-   :height: 2.29583in

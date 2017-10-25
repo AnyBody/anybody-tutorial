@@ -386,23 +386,9 @@ below. In the crude model, we have worked with in this case, we do not
 see significant changes due to the modification in the overall picture.
 
 .. |clavicula ref frame| image:: _static/lesson3/image1.png
-   :width: 3.16785in
-   :height: 2.95158in
 .. |Clavicula mesh| image:: _static/lesson3/image2.png
-   :width: 6.49028in
-   :height: 3.26389in
 .. |Clavicula stresses| image:: _static/lesson3/image3.png
-   :width: 6.49028in
-   :height: 3.23611in
 .. |Clavicula force application points| image:: _static/lesson3/image4.png
-   :width: 6.49028in
-   :height: 3.55694in
 .. |Clavicula contraint region| image:: _static/lesson3/image5.png
-   :width: 2.74712in
-   :height: 2.50000in
 .. |Edit constraint dialog| image:: _static/lesson3/image6.png
-   :width: 3.57222in
-   :height: 3.74931in
 .. |Clavicula closeup constraint region| image:: _static/lesson3/image7.png
-   :width: 6.49028in
-   :height: 4.00972in
