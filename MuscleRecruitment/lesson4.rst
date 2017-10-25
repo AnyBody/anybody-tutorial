@@ -140,11 +140,5 @@ relevance, so it is the topic of…
 
 
 .. |Chart view Muscle activity| image:: _static/lesson4/image1.gif
-   :width: 6.25000in
-   :height: 4.07292in
 .. |Chart view Muscle activity 650 W| image:: _static/lesson4/image2.gif
-   :width: 6.25000in
-   :height: 4.42708in
 .. |Chart view Muscle activity Poly 5| image:: _static/lesson4/image3.gif
-   :width: 6.25000in
-   :height: 4.45833in

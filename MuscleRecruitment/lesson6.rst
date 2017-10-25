@@ -129,10 +129,10 @@ recruitment criterion:
 .. code-block:: AnyScriptDoc
 
     AnyBodyStudy Study = {
-    InverseDynamics.Criterion = {
-    Type = §MR\_MinMaxAux;§
-    §AuxQuadraticTerm.Weight = 1§;
-    };
+        InverseDynamics.Criterion = {
+            Type = §MR\_MinMaxAux;§
+            §AuxQuadraticTerm.Weight = 1§;
+        };
 
 
 Reloading and rerunning produces the following rather attractive result:
@@ -198,11 +198,5 @@ relationship between two different mechanical cost functions and muscle
 oxygen consumption. Journal of Biomechanics, 39, 758–765.
 
 .. |Chart view Muscle activty| image:: _static/lesson6/image1.png
-   :width: 6.25556in
-   :height: 4.10486in
 .. |Chart view Muscle activty linear weight| image:: _static/lesson6/image2.png
-   :width: 6.25556in
-   :height: 4.10486in
 .. |Chart view Muscle activity MinMaxAux| image:: _static/lesson6/image3.png
-   :width: 5.20903in
-   :height: 3.75556in

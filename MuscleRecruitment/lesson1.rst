@@ -185,11 +185,5 @@ speculate a bit about what may or may not make physiological sense in
 
 
 .. |Model view simple model| image:: _static/lesson1/image3.png
-   :width: 3.12778in
-   :height: 2.22083in
 .. |Chart view M1.fm| image:: _static/lesson1/image4.png
-   :width: 4.16250in
-   :height: 3.05833in
 .. |Chart view star.Fm| image:: _static/lesson1/image5.png
-   :width: 3.12778in
-   :height: 3.18611in

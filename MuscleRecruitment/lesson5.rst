@@ -135,11 +135,5 @@ criteria we have investigated so far. This takes place in
 
 
 .. |Chart view Muscle activity MinMaxStrict| image:: _static/lesson5/image1.png
-   :width: 6.25556in
-   :height: 4.27917in
 .. |Chart view Max Muscle activty| image:: _static/lesson5/image2.png
-   :width: 6.25556in
-   :height: 4.48819in
 .. |Chart view saddle height 63 vs 65| image:: _static/lesson5/image3.png
-   :width: 5.03472in
-   :height: 3.03472in
