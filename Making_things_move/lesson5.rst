@@ -385,38 +385,26 @@ in motion capture experiments and you can read all about in :doc:`Lesson
 
 
 .. |Model view initial load| image:: _static/lesson5/image1.png
-   :width: 6.00000in
-   :height: 4.85417in
+   
 .. |Model view leg closeup| image:: _static/lesson5/image2.png
-   :width: 6.00000in
-   :height: 4.85417in
+   
 .. |Operation. MotionAndParameterOptimizationSequence| image:: _static/lesson5/image3.png
-   :width: 4.03125in
-   :height: 3.98958in
+   
 .. |Operation, InverseDynamicAnalysisSequence| image:: _static/lesson5/image4.png
-   :width: 3.75000in
-   :height: 2.50000in
+   
 .. |Chartivew hip reactions| image:: _static/lesson5/image5.png
-   :width: 6.25000in
-   :height: 4.43750in
+   
 .. |Operations, kinematics| image:: _static/lesson5/image6.png
-   :width: 3.46875in
-   :height: 3.38542in
+   
 .. |Model view, marker tracking| image:: _static/lesson5/image7.png
-   :width: 6.00000in
-   :height: 4.85417in
+   
 .. |Chart view higher hip forces| image:: _static/lesson5/image8.emf
-   :width: 5.20833in
-   :height: 4.76042in
+   
 .. |Model view Fullbody initial load| image:: _static/lesson5/image9.png
-   :width: 5.04167in
-   :height: 4.27083in
+   
 .. |Opertions RunModtionAndParameterOpt| image:: _static/lesson5/image10.png
-   :width: 4.16667in
-   :height: 3.26042in
+   
 .. |Chart view, Kin objective| image:: _static/lesson5/image11.png
-   :width: 6.25000in
-   :height: 4.31250in
+   
 .. |Model view, full body inverse dynamics| image:: _static/lesson5/image12.png
-   :width: 4.79167in
-   :height: 4.26042in
+   
