@@ -65,11 +65,5 @@ provides examples of segment definitions.
     **Next lesson:** Next up is :doc:`lesson2`. 
 
 .. |segments| image:: _static/lesson1/image1.jpeg
-   :width: 3.12500in
-   :height: 2.57292in
 .. |Potato segment| image:: _static/lesson1/image2.jpeg
-   :width: 2.08333in
-   :height: 1.98958in
 .. |Drawobjects| image:: _static/lesson1/image3.jpeg
-   :width: 4.16667in
-   :height: 2.86458in
