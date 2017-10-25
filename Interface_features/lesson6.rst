@@ -78,4 +78,4 @@ that no automatic updating is carried out by the loading operation.
 
 
 .. |Operations menu| image:: _static/lesson6/image1.png
-   :scale: 70%
+   

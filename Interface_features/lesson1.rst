@@ -161,17 +161,17 @@ format. Please refer to the Wiki at
 .. images
 
 .. |GUI overview| image:: _static/lesson1/image1.png
-   :scale: 70%
+   
 .. |Model Tree| image:: _static/lesson1/image4.png
-   :scale: 60%
+   
 .. |Object info window| image:: _static/lesson1/image5.png
-   :scale: 70%
+   
 .. |Function, globals and classes| image:: _static/lesson1/image6.png
-   :scale: 60%
+   
 .. |Class tree| image:: _static/lesson1/image7.png
-   :scale: 50%
+   
 .. |Help from class tree| image:: _static/lesson1/image8.png
-   :scale: 50%
+   
 
 .. icons
 
