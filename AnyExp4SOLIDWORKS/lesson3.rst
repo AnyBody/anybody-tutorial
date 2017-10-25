@@ -257,8 +257,9 @@ setting a BM statement in the Main folder:
 
 When you load this model, you will see the following warning message:
 
-::
-        Model Warning: Study 'Main.Study' contains too few kinematic constraints to be kinematically determinate.
+.. code-block:: none
+
+    Model Warning: Study 'Main.Study' contains too few kinematic constraints to be kinematically determinate.
 
 If you look at the Object Description of your AnyBodyStudy object, you
 can find the information about the number of DOFs and constraints of the
@@ -409,17 +410,7 @@ The final version of this model file can be downloaded here:
 :download:`‘FitnessMachine\_With\_Human.zip’ <Downloads/FitnessMachine_With_Human.zip>`.
 
 .. |Human template dialog| image:: _static/lesson3/image1.png
-   :width: 4.69167in
-   :height: 4.49376in
 .. |Model view Full body| image:: _static/lesson3/image2.png
-   :width: 4.51000in
-   :height: 4.00000in
 .. |Model view Rear Fullbody without muscles| image:: _static/lesson3/image3.png
-   :width: 4.51000in
-   :height: 4.00000in
 .. |Model view Full Body on Fitnessmachine| image:: _static/lesson3/image4.png
-   :width: 6.50000in
-   :height: 5.73750in
 .. |Model view Full Body on Fitnessmachine with muscles| image:: _static/lesson3/image5.png
-   :width: 6.50000in
-   :height: 5.73750in
