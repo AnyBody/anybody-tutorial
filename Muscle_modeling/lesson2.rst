@@ -211,14 +211,6 @@ the display of the object entirely off by setting DrawOnOff = 0;
 
 
 .. |simple model with muscle| image:: _static/lesson2/image1.jpeg
-   :width: 2.08333in
-   :height: 2.00000in
 .. |class tree AnyDrawMuscle| image:: _static/lesson2/image2.gif
-   :width: 3.56250in
-   :height: 4.38542in
 .. |Chart view Muscle1.Fm| image:: _static/lesson2/image3.gif
-   :width: 5.62500in
-   :height: 4.88542in
 .. |Simple model two positions| image:: _static/lesson2/image4.jpeg
-   :width: 4.16667in
-   :height: 2.05208in
