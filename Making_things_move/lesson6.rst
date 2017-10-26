@@ -51,7 +51,7 @@ leaving you with nothing in your model.
 The remedy is to set
 
 .. code-block:: AnyScriptDoc
-    :caption: C3DSettings.any
+    :caption: ``C3DSettings.any``
 
     //AnyInputC3D
     Main.ModelSetup.C3DFileData = {

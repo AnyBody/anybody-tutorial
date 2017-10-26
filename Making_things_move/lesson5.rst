@@ -31,7 +31,7 @@ Don’t worry about that for now, but browse a little further down to find
 this:
 
 .. code-block:: AnyScriptDoc
-    :caption: LowerExtremity.main.any
+    :caption: ``LowerExtremity.main.any``
     :linenos:
 
     #include "../libdef.any"
