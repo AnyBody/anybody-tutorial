@@ -336,10 +336,9 @@ function of the muscle system in gait as illustrated below.
 
 |Model view, full body inverse dynamics|
 
-In the next lesson we shall learn how to use weight functions to deal
-with markers dropping out of the measurements. This happens frequently
-in motion capture experiments and you can read all about in :doc:`Lesson
-6 <lesson6>`.
+
+The final lesson of this tutorial is about problems that may arise with
+C3D files. 
 
 .. rst-class:: without-title
 .. seealso::
