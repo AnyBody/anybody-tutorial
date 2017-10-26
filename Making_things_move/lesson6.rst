@@ -1,4 +1,4 @@
-Lesson 7: Troubleshooting C3D files
+Lesson 6: Troubleshooting C3D files
 -----------------------------------
 
 Occasionally you may experience problems reading C3D files and some of
@@ -26,8 +26,8 @@ in AnyBody is designed to cope with most of the common deviations from
 the standard, but occasionally you may run into a problem. Here are some
 of the common problems and solutions:
 
-    I know my C3D file contains data, but I cannot see any markers
-    moving anywhere in the Model View.
+    **I know my C3D file contains data, but I cannot see any markers moving
+    anywhere in the Model View.**
 
 There are two usual causes for this problem. The first one is a scaling
 issue. Data in C3D files is often in millimeters while standard settings
@@ -51,14 +51,18 @@ leaving you with nothing in your model.
 The remedy is to set
 
 .. code-block:: AnyScriptDoc
+    :caption: C3DSettings.any
 
+    //AnyInputC3D
+    Main.ModelSetup.C3DFileData = {
+    ...
     MarkerUseAllPointsOnOff = On;
 
 
 which instructs AnyBody to read data from both the raw and the processed
 data sections.
 
-    I get an error message when I load the model.
+    **I get an error message when I load the model.**
 
 Many things can go wrong when loading a C3D file, simply because the
 format of the file is relatively complex. The aim has been to make
@@ -77,8 +81,8 @@ file, for instance that a required section or header is missing. This
 can mean that AnyBody does not have the necessary information to process
 the file and has to give up.
 
-    The markers I get in my loaded model have different names from what
-    I expected.
+    **The markers I get in my loaded model have different names from what
+    I expected.**
 
 When you have loaded a C3D file into an AnyBody model, the object can
 subsequently be browsed in the Model Tree in the left hand side of the
