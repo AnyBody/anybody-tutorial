@@ -18,7 +18,8 @@ Please go to the CrossTrainer example from the AnyBody Managed Model
 Repository and open the CrossTrainer.main.any file. **Load the model
 into AnyBody by pressing F7 or using the “Load” button in the toolbar.**
 
-|GUI elements|
+.. image:: _static/intro/image3.png
+    :width: 70%
 
 This GUI contains the following windows:
 
@@ -64,9 +65,5 @@ following lessons:
     **Next lesson:** :doc:`lesson1`.
 
 
-
-
-.. |Intro video| image:: _static/intro/image2.png
-   :width: 70%
 .. |GUI elements| image:: _static/intro/image3.png
    
