@@ -1,15 +1,15 @@
-Appendix: Scaling based on Patient-Specific Landmarks
+Appendix: Morphing based on landmarks
 =====================================================
 
 This tutorial is an appendix to the :doc:`Lesson 1 <lesson3>`, where
-a construction of advanced scaling laws is introduced.
+construction of an advanced scaling function is introduced.
 
-This lesson is a brief introduction to the usage of the transforms
-based on the non-linear Radial Basis Functions (RBF) which is used as
-the core of advanced scaling transforms. AnyFunTransform3DRBF and
+This lesson is a brief introduction to the interpolation functions based on 
+the nonlinear Radial Basis Functions (RBF) approach, which is used as
+the core of advanced transformations. AnyFunTransform3DRBF and
 AnyFunTransform3DSTL classes are covered by this lesson.
 
-Non-linear point based scaling transformation
+Nonlinear point based scaling transformation
 ---------------------------------------------
 
 Most of the described scaling schemes are based on anthropometric
@@ -17,11 +17,10 @@ measurements and linear scaling transforms. As such they do not
 reconstruct needed bone morphology to a very high level of detail, i.e.
 local deformities of certain bone features may not be covered by such
 scaling. However, there is still a wide range of applications for them.
-But in this lesson we will focus on the non-linear transformation.
+But in this lesson we will focus on the nonlinear transformation.
 
-The scaling law described in this lesson is based on a surface
-approximation, which transforms (not necessary in a linear manner) a set
-of given points (source landmarks) into a set of known subject-specific
+The morphing function described in this lesson transforms (not necessary in a linear manner) 
+a set of given points (source landmarks) into a set of known subject-specific
 points (target landmarks). For this purpose the following approximation
 is constructed:
 
@@ -33,12 +32,12 @@ where\ :math:`\ c_{j}` are the coefficients of the RBF functions
 RBF function, which can take different forms. Here, we are just looking
 at one of the following forms:
 
--  :math:`\phi\left( r \right) = e^{- \text{ar}^{2}},\ a > 0`, –
+*  :math:`\phi\left( r \right) = e^{- \text{ar}^{2}},\ a > 0`, –
    Gaussian function, or
 
--  :math:`\phi(r) = r^{2} \bullet ln(r)` – thin plate spline, or
+*  :math:`\phi(r) = r^{2} \bullet ln(r)` – thin plate spline, or
 
--  :math:`\phi\left( r \right) = \sqrt{r^{2} - a},\ \ a < r^{2}`, –
+*  :math:`\phi\left( r \right) = \sqrt{r^{2} - a},\ \ a < r^{2}`, –
    multiquadratic function.
 
 Other forms can be found in the reference manual.
@@ -94,7 +93,7 @@ important parameter as it defines the interpolation/extrapolation
 behavior of the RBF transform. Further, we will demonstrate the
 difference of using different radial basis functions.
 
-RBFDef.Param is corresponds to the parameter :math:`a` mentioned in the
+RBFDef.Param corresponds to the parameter :math:`a` mentioned in the
 definitions of the Gaussian and the multiquadratic RBF function. By
 varying this parameter it is possible to change the behavior of a chosen
 RBF function, e.g. prescribe a local effect of the landmarks.
@@ -117,8 +116,8 @@ algorithm. It will internally increase the size of Points0 and Points1
 members to :math:`(k + n) \times 3`. This is done to improve the
 extrapolation behavior of the AnyFunTransform3DRBF object. Please note
 that it will use the same bounding box points for both, source and
-target set, and, therefore, require the landmark sets to be registered
-prior to using this feature. The latter can be done by using
+target set, and, therefore, using BoundingBoxOnOff requires the landmark sets 
+to be registered prior to using this feature. The latter can be done by using
 AnyFunTransform3DLin2 or others.
 
 There are two ways to compute an auxiliary bounding box – the first way
@@ -141,7 +140,7 @@ Finally, the BoundingBoxOnOff flag is a switch for the inclusion or
 exclusion of the auxiliary landmarks for the construction of the
 transform.
 
-Non-linear surface based scaling transform
+Nonlinear surface based scaling transform
 ------------------------------------------
 
  The previous section describes an interpolation and extrapolation
@@ -202,8 +201,8 @@ coordinate system of the CT scanner to the anatomical frame.
 objects, that already contain ``ScaleXYZ``, and, thus, will not use
 ``ScaleXYZ0``/``ScaleXYZ1``.
 
-The NumPoints parameter specifies how many landmarks we would like to
-use. This number of source landmarks is seeded on the vertices of the
+The NumPoints parameter specifies how many landmarks will be used to construct a 
+transformation. This number of source landmarks is seeded on the vertices of the
 source STL surface. To find matching pairs the closest points are found
 on the target surface. Please note that it is assumed that the
 geometries are well aligned using ``AnyFunTransform3DLin2`` or
@@ -215,16 +214,16 @@ RBF point-based scaling example
 
 This section introduces an example of using AnyFunTransform3DRBF
 function. We have prepared a model, where the transform is already
-applied using some pre-defined settings. The intention of this section
+constructed using some pre-defined settings. The intention of this example
 is to see how different parameters affect the scaling law. Thus, we will
 adjust the parameters and observe how that changes the results.
 
 Let us start by downloading the model:
 :download:`AppendixA.zip <Downloads/appendixa.zip>`
 
-The downloaded model consists of a two-step transform (the first step is
-a point-based affine, the second one is an RBF transform), a set of
-points aligned in a grid, and the source and target surfaces that will
+The downloaded model consists of a two-component transformation pipeline 
+(the first step is a point-based affine, the second one is an RBF transform), 
+a set of points aligned in a grid, and the source and target surfaces that will
 be used to check the result of the morphing. The origin of the
 coordinate system is also drawn as a grey sphere used as a visual
 reference. If we load the model and look at the Model View, you can
@@ -232,15 +231,16 @@ observe two point clouds – a red one that corresponds to the point cloud
 prior to the RBF transform, and a blue one that corresponds to the
 result of application of the RBF transform:
 
-|image0|
+.. image:: _static/lesson3_appendix/image1.png
+   :width: 40%
 
 Now we take a look at the content of the file grid.any. This file
-contains a matrix of grid coordinates. We can see, that a possibility to
-switch on and off some of the planes of the grid has also been added.
-This can be simply done by setting the corresponding flags to 0 or 1.
-For example, if the GridAll flag is set to 1, all grid planes will be
-visualized. The other way around, if GridAll is 0 and only GridX5 is set
-to 1, then just the fifth grid plane will be visualized. This
+contains a matrix of grid coordinates that is used to exemplify how 
+the morphing works and show the deformations. It is possible to
+switch on and off grid planes. This can be done by setting the corresponding 
+flags to 0 or 1. For example, if the GridAll flag is set to 1, all grid planes 
+will be visualized. The other way around, if GridAll is 0 and only GridX5 
+is set to 1, then just the fifth grid plane will be visualized. This
 functionality was added to enable more flexible visualization to better
 understand the behaviour of the transform in this tutorial. Thus, we
 will switch on and off some layers during this lesson to explain some
@@ -264,6 +264,7 @@ try to set it to A: 0.2, B: 2, C: 20, and D: 200.
     ... 
     };
 
+.. rst-class:: plain
 
 +--------------+--------------+
 | A |image1|   | B |image2|   |
@@ -379,12 +380,14 @@ both source and target sets – will it increase the accuracy?
     };
 
 
-|image5|
+.. image:: _static/lesson3_appendix/image6.png
+   :width: 80%
 
- Now we see that the scaling does not work at all. The problem here is
-  that the Gaussian type of the RBF transform is sensitive to the number
-  of landmarks, and does not work well with a too large number of them.
-  The solution here is to switch RBFDef.Type to ``RBF_ThinPlate``:
+
+Now we see that the scaling does not work at all. The problem here is 
+that the Gaussian type of the RBF transform is sensitive to the number
+of landmarks, and does not work well with a too large number of them. 
+The solution here is to switch RBFDef.Type to ``RBF_ThinPlate``:
 
 .. code-block:: AnyScriptDoc
 
@@ -397,7 +400,8 @@ both source and target sets – will it increase the accuracy?
     ... 
 
 
-|image6|
+.. image:: _static/lesson3_appendix/image7.png
+   :width: 80%
 
 This modification fixes the problem for the bony surfaces and their
 vicinities – now they look alike. Thus, it is recommended to use
@@ -418,7 +422,8 @@ term. Let us try to switch it on and set the polynomial degree to 1,
 which is recommended by the reference manual. Now our approximation
 looks smoother and probably more reasonable:
 
-|image7|
+.. image:: _static/lesson3_appendix/image8.png
+   :width: 80%
 
 However, one may still think that the extrapolated points are lying too
 far out. There is one more modification that may affect this solution.
@@ -449,8 +454,8 @@ the bounding box corners and face points to be included as landmarks:
 
     
 
-
-|image8|
+.. image:: _static/lesson3_appendix/image9.png
+   :width: 80%
 
 You can notice that the face and corner points on the bounding box,
 which was increased by a factor of 2, also improved extrapolation and
@@ -468,7 +473,8 @@ class. So now this model can be used for further investigation of the
 RBF behaviour. To conclude this section let us supply one more
 screenshot, which shows non-linear scaling for a single grid plane:
 
-|image9|
+.. image:: _static/lesson3_appendix/image10.png
+   :width: 80%
 
 RBF surface-based scaling example
 ---------------------------------
@@ -545,7 +551,7 @@ the values of A: 20, B: 200, C: 400, and D: 1000:
           };
           BoundingBoxOnOff = On;
 
-
+.. rst-class:: plain
 
 +---------------+---------------+
 | A |image10|   | B |image11|   |
@@ -553,7 +559,7 @@ the values of A: 20, B: 200, C: 400, and D: 1000:
 | C |image12|   | D |image13|   |
 +---------------+---------------+
 
-These images highlight how the increase the number of landmarks affects
+These images highlight how the increase in the landmark number affects
 the accuracy of the transform. With just 20 landmarks (A) most of the
 bony processes are not being captured. Increasing to 200 landmarks (B)
 leads to rather coarse, but better, morphing. This, of course, may be
@@ -567,45 +573,19 @@ surfaces to construct the scaling law. That only requires setting the
 UseClosestPointMatchingOnOff flag to be Off and supplying surfaces,
 which have corresponding vertices and connectivity matrixces.
 
-.. |image0| image:: _static/lesson3_appendix/image1.png
-   :width: 3.64583in
-   :height: 3.80484in
 .. |image1| image:: _static/lesson3_appendix/image2.png
-   :width: 2.97494in
-   :height: 4.06250in
+   :width: 80%
 .. |image2| image:: _static/lesson3_appendix/image3.png
-   :width: 2.97494in
-   :height: 4.06250in
+   :width: 80%
 .. |image3| image:: _static/lesson3_appendix/image4.png
-   :width: 2.98958in
-   :height: 4.08250in
+   :width: 80%
 .. |image4| image:: _static/lesson3_appendix/image5.png
-   :width: 2.99020in
-   :height: 4.08333in
-.. |image5| image:: _static/lesson3_appendix/image6.png
-   :width: 6.68750in
-   :height: 2.17708in
-.. |image6| image:: _static/lesson3_appendix/image7.png
-   :width: 6.67708in
-   :height: 3.54167in
-.. |image7| image:: _static/lesson3_appendix/image8.png
-   :width: 6.68750in
-   :height: 5.80208in
-.. |image8| image:: _static/lesson3_appendix/image9.png
-   :width: 6.68750in
-   :height: 4.40625in
-.. |image9| image:: _static/lesson3_appendix/image10.png
-   :width: 6.69792in
-   :height: 4.45833in
+   :width: 80%
 .. |image10| image:: _static/lesson3_appendix/image11.png
-   :width: 2.85119in
-   :height: 3.01042in
+   :width: 80%
 .. |image11| image:: _static/lesson3_appendix/image12.png
-   :width: 2.86458in
-   :height: 3.02456in
+   :width: 80%
 .. |image12| image:: _static/lesson3_appendix/image13.png
-   :width: 2.85119in
-   :height: 3.01042in
+   :width: 80%
 .. |image13| image:: _static/lesson3_appendix/image14.png
-   :width: 2.85417in
-   :height: 3.01356in
+   :width: 80%

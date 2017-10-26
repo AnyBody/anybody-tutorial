@@ -1,7 +1,9 @@
-Lesson 1: Scaling individual segments based on subject-specific data from medical images
-========================================================================================
+Lesson 1: Personalizing individual segments based on geometric data from medical images
+===============================================================================================
 
-This tutorial presumes that you have read the AMMR documentation 
+This tutorial presumes that you have read the AMMR documentation and know 
+how to personalize your model using information about height, weight, and 
+individual segment lengths.
 
 .. 
   on :doc:`Joint to joint scaling methods <ammr:Scaling/lesson1>` and :doc:`Scaling based on external body
@@ -18,14 +20,13 @@ subject-specific morphing and registration between frames of reference.
 Linear point-based scaling
 --------------------------
 
-Previously described scaling schemes are based on anthropometric
-measurements and affine transform scaling. Such schemes are good
-assumptions when more accurate measurements are not feasible or not
+Scaling schemes described in the AMMR documentation are based on 
+anthropometric measurements and affine transform scaling. Such schemes 
+are good assumptions when more accurate measurements are not feasible or not
 available. Therefore, these schemes are used quite often. However, a
 natural next step would be to improve the precision of a model by
-utilizing available medical images. These can be used to reconstruct
-subject-specific geometry used for modeling purposes. Medical images
-contain more detailed information about the bone shape and local
+utilizing subject-specific geometry available from the medical images. Medical images
+contain more subject-specific information about the bone shapes and local
 deformities that cannot be handled by the anthropometric regression
 equations.
 
@@ -47,7 +48,7 @@ working directory. These femur geometries will be used for the rest of
 this tutorial. The source surface is an unscaled femur used in the
 standard AnyBody models in the AMMR. The target surface is a femur
 reconstructed from a CT image and saved as a surface mesh in STL format
-(courtesy of Prof. Sebastian Dendorfer, University of Regensburg,
+(courtesy of Prof. Sebastian Dendorfer, OTH Regensburg,
 Germany).
 
 Next, please download the AnyScript file
@@ -56,9 +57,10 @@ a model with two segments which contain the definition of a surface
 each, one for the source and one for the target bone. When we load this
 model, the Model View should show the following picture:
 
-|Two femurs|
+.. image:: _static/lesson3/image1.png
+   :width: 60%
 
-To define a new scaling law let us insert a new AnyFunTransform3DLin2
+To define a new scaling function let us insert a new AnyFunTransform3DLin2
 object after the target segment:
 
 .. code-block:: AnyScriptDoc
@@ -93,10 +95,10 @@ modes:
 A description of this function can be found
 `here <http://davis.lbl.gov/Manuals/VTK-4.5/classvtkLandmarkTransform.html#w0>`__.
 
-For this example we want to fit one surface into the other by using a
+For this example we want to register our source surface into the target one by using a
 full affine transform. Therefore, we select several corresponding points
 on the surfaces and put them into the two point-sets called Points0 and
-Points1, which are the source and target points, respectively. As next
+Points1, which are the source and target points, respectively. As the next
 step, we change the mode of the AnyFunTransform3DLin2 object to
 VFK\_LANDMARK\_AFFINE to use the affine transform:
 
@@ -148,18 +150,19 @@ Reloading the model and looking at the bones shown in the Model View, we
 can see that these bones are now merged. To highlight the differences,
 we select one of them. This will produce the following picture.
 
-|Model view Femur AnyFunTransform3DLin2 final|
+.. image:: _static/lesson3/image2.png
+   :width: 60%
 
-We can see that the source bone is now scaled, i.e., moved, scaled and
+The source bone is now transformed, i.e., translated, scaled and
 skewed to match the target bone. To make that clear, let us add a new
 AnyFunTransform3DLin2 called MyTransform2 to the model which we place
-after MyTransform. We want this new transform to perform the rigid-body
-registration between target and source surface. Please note, that we
-therefore exchange the roles of the sets of source points Points0 and
-target points Points1 and set the mode to VTK\_LANDMARK\_RIGIDBODY.
+after MyTransform. The intention is to construct a rigid-body
+registration transform between target and source surface. Please note, 
+the roles of the source points Points0 and target points Points1 are swapped,
+and the transformation mode is set to VTK\_LANDMARK\_RIGIDBODY.
 
-Additional to that, we also add a collective transform that contains
-forward affine and back registration transforms:
+Additionally to that, a combination transform, containing forward affine 
+and back registration transforms, is added:
 
 .. code-block:: AnyScriptDoc
 
@@ -174,10 +177,9 @@ forward affine and back registration transforms:
     };§
 
 
-
 Finally, let us look at the effect of the constructed transform. We
 comment the transform used in the visualization of the source surface
-and create another surface that will show the collective transformation
+and create another surface that will show the combined transformation
 that we just constructed:
 
 .. code-block:: AnyScriptDoc
@@ -199,15 +201,14 @@ that we just constructed:
 
     
 
-
-|AnyFunTransform3DLin2 2|
+.. image:: _static/lesson3/image3.png
+   :width: 60%
 
 Looking at the Model View, we can see that the femur is now scaled, it
-became shorter and the alignment match the original source position
-well. From the previous picture, we know that geometry is fitting the
-target well too (and if you want to convince yourself you can enter the
-target geometry too and apply the MyTransform2 to obtain the
-registration).
+became shorter and now aligns with the original source femur position. 
+From the previous picture, we also know that geometry is matching the
+target quite well too (and if you want to convince yourself you can superimpose the
+target geometry using the MyTransform2 registration transformation).
 
 With this example, we have shown how to morph the source into the target
 with a full affine scaling and subsequently applying a reverse
@@ -215,36 +216,34 @@ registration to move the morphed geometry back.
 
 Notice that it is possible to reverse the combination, i.e., to apply
 the registration step first and then the scaling/morphing step. For
-instance, make a transformation like MyTransform, but insert
+instance, make a transformation similar to MyTransform, but insert
 MyTransform2 as pre-transformation. In this tutorial lesson, we shall
 however stay with the concept we presented so far.
 
-If the accuracy of the results is sufficient, we could continue working
-with this simple morphing. However, this transformation still lacks
-desired accuracy as local features, are still not matching the target
-shape very well e.g. the lesser and the greater trochanter. The
-following lesson explains how to capture more details and construct a
-better match.
+If the morphing accuracy is sufficient for your task you can proceed 
+with your modeling and stop at this step. However, for the purpose of 
+this tutorial the desired accuracy have not been reached - some local 
+features still do not match the target's ones, e.g. the lesser and the 
+greater trochanter. The following steps explain how to capture more 
+details and improved morphing for even better match.
 
-Incorporating a landmark-based non-linearity into the scaling law
------------------------------------------------------------------
+Incorporating landmark-based nonlinearities into the scaling function
+----------------------------------------------------------------------
 
-The next level of detail can be achieved by utilizing a transform using
-the AnyFunTransform3DRBF class. This class is using radial basis
-functions (RBF) to represent the surface and is constructed by using
-source and target landmarks. Detailed behaviour of this transform is
-described in an :doc:`appendix tutorial <lesson3_appendix>`. However,
-the focus of this tutorial is to demonstrate available pipelines of
-transforms. For simplicity, we use a set of femur landmarks and RBF
-settings that were tested by the AnyBody team.
+The next level of detail can be achieved by introducing local nonlinear deformations
+by means of the AnyFunTransform3DRBF class. This class represents a nonlinear 
+interpolation/extrapolation transformation, which is based on the Radial Basis Functions (RBF) 
+method and uses landmarks selected on source and target surfaces. Detailed behaviour 
+of this transform is described in an :doc:`appendix tutorial <lesson3_appendix>`. 
+However, the focus of this tutorial is to demonstrate available pipelines of transforms. For 
+simplicity, we use a preselected set of femoral landmarks and RBF settings.
 
-We start with the landmark based non-linear scaling by using the model
-of the previous steps. We will show how to build up scaling transforms
-by including them as pre-transforms and inherit achieved accuracy
-throughout different steps. A complete model can you find in
-:download:`lesson3b.Main.any <Downloads/lesson3b.Main.any>`. Let us add an RBF
-transform with the recommended settings into the previously created
-model.
+We start with the model from the previous steps to introduce the landmark-based 
+nonlinear scaling. Several tranformations will build up into a pipeline, where
+pre-transforms will be used to inherit obtained accuracy throughout different steps. 
+A complete model can you find here: :download:`lesson3b.Main.any <Downloads/lesson3b.Main.any>`. 
+The following tutorial shows how to add an RBF transform with the recommended settings 
+into the previously created model.
 
 First of all let us configure the visualization of the transformation.
 Now that we know how to compare source and scaled geometries as well as
@@ -259,12 +258,13 @@ reverse registration, so we can switch off the registration step.
 
 
 
-This will return our scaled geometry back to the target bone location
-and we can compare the improvements we will create. Let us now define an
-RBF scaling law and another AnyDrawSurf object that will show the
-difference between the linear scaling law and the new created RBF
-scaling law. For a better contrast of the different surfaces, we will
-also add some colors to the drawing of the surfaces:
+This will return our morphed geometry back to the target bone location
+and we can observe the improvements as we go. Let us now define an
+RBF transformation and another AnyDrawSurf object that will show the
+difference between the affine scaling and the new transformation 
+pipeline employing nonlinear RBF transformations. For a better contrast 
+of the different surfaces, we will also add some colors to the drawing 
+of the surfaces:
 
 .. code-block:: AnyScriptDoc
 
@@ -348,47 +348,45 @@ also add some colors to the drawing of the surfaces:
     
 
 
-|Model view Femur AnyFunTransform3DRBF 2|
+.. image:: _static/lesson3/image4.png
+   :width: 60%
 
-The suggested transform morphs the source geometry in a thin-plate
-manner and tries to minimize the distance between the selected key
-points (landmarks). This can be useful if certain muscle attachment
-areas/points need to be scaled. Using this transform will make it
-possible to improve the model by morphing some local features that are
-important for the analysis. Please note that MyTransform object was
-included as a pre-transform as a rough scaling preceding the non-linear
-RBF function, and, therefore, the outcome of this transformation, our
-previous result, can be considered the first object in the transform
-pipeline. Target bone is color-coded with the green color, initial
-linear scaling is grey, RBF-scaled bone is red.
+This code constructs a transform, which deforms the source geometry 
+into the target one using the thin-plate interpolation method and minimizes 
+the distance between the selected key points (landmarks). This can be used 
+when certain muscle attachment areas/points need to be scaled. Using this 
+allows us improving the model by making some local features more accurate 
+for the sensitive analyses. Please note that MyTransform object was
+included as a pre-transform as a rough scaling preceding the nonlinear
+RBF function, and it will be applied to the source entities, i.e. achieving
+the result of the previous step. Target bone is color-coded with the green color, 
+initial linear scaling is grey, RBF-scaled bone is red.
 
-However, there is still some possibility to improve the fitting of the
-femur surfaces into each other and possibly improve the model. Looking
-at the Model View you can notice that the greater trochanter is elevated
-and makes a sharp corner – this is due to the thin-plate nature of the
-transform and a low number of control points. The following section will
-describe how to utilize surface information for the construction of an
-improved scaling law.
+However, it still possible to improve the fitting of the femur surfaces and, thus,
+improve the accuracy of the model. Looking at the Model View you can notice that 
+the greater trochanter is elevated and makes a sharp corner – this is caused 
+by the nature of the thin-plate interpolation and a low number of control points. 
+The following section will describe how to utilize surface information for the 
+construction of an improved scaling law.
 
-Incorporating a surface based non-linearity into the scaling law
-----------------------------------------------------------------
+Incorporating surface based nonlinearities into the scaling function
+---------------------------------------------------------------------
 
-In this section, we see how the scaling law can be improved by utilizing
-two surfaces and requesting them to fit each other, which will also
-deform all related muscle and ligament attachment points accordingly. We
-use the AnyFunTransform3DSTL class for this purpose. This class
-constructs an RBF transform by using either corresponding vertices on
-the STL surfaces or seeding a number of vertices on one surface and
-finding a matching closest point on the second. For constructing a
-transformation using the vertices of STL surfaces, the surfaces have to
-be topologically equivalent, i.e. the surfaces have the same number of
-triangles and each neighbor and vertices are the same on both surfaces.
-For the latter option, we require a pretty good pre-registration
+In this section, next improvement to the morphing is added by utilizing
+surface information. The surfaces will be requested to morphg into each 
+other, which will at the same time deform all related soft tissue attachment 
+points accordingly. The AnyFunTransform3DSTL class is used for this purpose. 
+This class constructs an RBF transformation similarly to the AnyFunTransform3DRBF 
+by using either corresponding vertices on the STL surfaces or seeding a number 
+of vertices on one surface and finding a matching closest point on the second. 
+For constructing a transformation using the vertices of STL surfaces, the surfaces 
+have to be topologically equivalent, i.e. the surfaces have the same number of
+triangles and each neighbor and vertices represent the same features on both surfaces.
+For the latter option, we require an acceptable pre-registration
 transform, e.g. the RBF transform that was described previously, in
-order for the closest point finding to make sense. Due to the
-implementation specifics most of the RBF recommendations apply to this
-class as well. More details about how to create this kind of transforms
-are described in the :doc:`appendix
+order for the closest point search to make sense. Due to the implementation 
+specifics most of the RBF recommendations apply to this class as well. 
+More details about how to create this kind of transforms are described in :doc:`appendix
 tutorial <lesson3_appendix>`. However, for this example the
 recommended settings mentioned before will be used again.
 
@@ -433,16 +431,19 @@ the model with all modifications :download:`here <Downloads/lesson3c.Main.any>`:
 
 
 
-|image4|
-
+.. image:: _static/lesson3/image5.png
+   :width: 60%
+   
+   
 Please note again the transform from the previous section of this
-tutorial was included as a pre-transform. Reloading the model, we can
-now see all steps of scaling in one place and try to switch them on and
-off. For example, let us try to hide affine and RBF scaled femurs to see
-the final results:
+tutorial was included as a pre-transform, which means we will start working with 
+the result of the previous step. Reloading the model, we can now see all steps 
+of scaling in one place and can switch them on and off. For example, let us try 
+to hide affine and RBF scaled femurs to see the final results:
 
-|Model view Femur AnyFunTransform3DRBF final|
-
+.. image:: _static/lesson3/image6.png
+   :width: 60%
+   
 If we just look at the green target surface and the blue STL-transformed
 surface, we can see that the surfaces now match each other very well. That means
 that now the subject-specificity will be taken into account in the inverse
@@ -454,7 +455,7 @@ dynamics simulation. The final model can be downloaded :download:`here
 
     Lesson 1 appendix <lesson3_appendix>
 
-Finally, the only thing left is to include this scaling law into an
+Finally, the only thing left is to include this scaling function into an
 actual model. :doc:`Lesson 2 <lesson4>` describes how this can be
 done.
 
@@ -463,21 +464,3 @@ done.
     **Next lesson:** :doc:`lesson4`.
 
 
-.. |Two femurs| image:: _static/lesson3/image1.png
-   :width: 6.68750in
-   :height: 2.60417in
-.. |Model view Femur AnyFunTransform3DLin2 final| image:: _static/lesson3/image2.png
-   :width: 6.68750in
-   :height: 2.60417in
-.. |AnyFunTransform3DLin2 2| image:: _static/lesson3/image3.png
-   :width: 6.68750in
-   :height: 1.68750in
-.. |Model view Femur AnyFunTransform3DRBF 2| image:: _static/lesson3/image4.png
-   :width: 6.67708in
-   :height: 1.93750in
-.. |image4| image:: _static/lesson3/image5.png
-   :width: 6.68750in
-   :height: 1.97917in
-.. |Model view Femur AnyFunTransform3DRBF final| image:: _static/lesson3/image6.png
-   :width: 6.68750in
-   :height: 1.92708in

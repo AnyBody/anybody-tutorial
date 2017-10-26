@@ -1,26 +1,26 @@
-Subject Specific Scaling
+Personalizing Your Model
 =========================
 
-The objective of this tutorial is to introduce custom and subject specific
-scaling.  It explains  how real bone geometries from e.g. CT Scans can be used
-to create fully subject-specific models.
+Musculoskeletal models must be adaptable to sizes and anatomy of various individuals 
+to be useful for product design and to be used for applications, where high geometric 
+accuracy is required, e.g. surface articulations and patient-specific pre-operative 
+planning. A general method for scaling musculoskeletal models has been implemented 
+in the AMMR. It allows the usage of built-in, user-defined anthropometric scaling
+laws as well as individual segment morphing. 
 
-Musculoskeletal models must be scalable to sizes of different individuals to be
-useful for product design. A general method for scaling musculoskeletal models
-has been implemented into the AnyBody Respository models. The scaling procedure
-is implemented in a generic manner and allows the usage of user-defined scaling
-laws. 
-
-.. seealso:: The AMMR documentation for instructions on how to use some of the 
-   scaling laws which are builtin to the AMMR.
-
-This tutorial covers the more advanced topics of user-defined custom scaling based on 
-CT/MRI imaging. 
+.. seealso:: The AMMR documentation for instructions how to configure the model to  
+   use built-in scaling laws and provide general anthropometric information.
+   
+This tutorial introduces an advanced procedure of model personalization by means of 
+nonlinear morphing for both, bone surface and relevant soft tissue attachment sites, 
+to take a subject-specific shape. In this example, bone geometries segmented from medical 
+images will be used to demonstrate how geometrically accurate subject-specific models can 
+be constructed.
 
 .. rubric:: Tutorial content
 
 .. toctree::
     :maxdepth: 1
 
-    Lesson 1: Scaling from from medical images <lesson3>
-    Lesson 2: Including a Custom Scaling Law <lesson4>
+    Lesson 1: Scaling based on medical images <lesson3>
+    Lesson 2: Including a custom scaling function into your model <lesson4>
