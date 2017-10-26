@@ -16,9 +16,9 @@ for data processing.
 .. note:: Make sure you have installed a your own copy of the AnyBody Model repository (AMMR). 
      See the :ammr:doc:`AMMR documentation <Installation>`.
 
-1. Go to the folder :file:`Application\MocapExamples\Plug-in-gait-LowerExtremity`.
+1. Go to the folder :file:`Application\MocapExamples\Plug-in-gait_Simple`.
 
-3. Open :file:`Main.any` in the AnyBody Modeling System
+3. Open :file:`LowerExtremity.main.any` in the AnyBody Modeling System
 
 This is a gait model of comprising only the lower extremities and the necessary
 part of the upper body for attachment of muscles. The model is based on a C3D
@@ -31,32 +31,32 @@ Don’t worry about that for now, but browse a little further down to find
 this:
 
 .. code-block:: AnyScriptDoc
+    :caption: LowerExtremity.main.any
+    :linenos:
 
     #include "../libdef.any"
 
-    // Enter and edit Lab-Specific Data in this file:
-    #path MOCAP_LAB_SPECIFIC_DATA "Setup/LabSpecificData.any"
+    // Enter and edit Trial Specific Data in this file:
+    #path MOCAP_TRIAL_SPECIFIC_DATA "Setup/TrialSpecificData_LowerExtremity.any"
 
     // Enter and edit Subject-Spcific Data in this file:
     #path MOCAP_SUBJECT_SPECIFIC_DATA "Setup/SubjectSpecificData.any"
 
-    // Enter and edit Trial Specific Data in this file:
-    #path MOCAP_TRIAL_SPECIFIC_DATA "Setup/TrialSpecificData.any"
+    // Enter and edit Lab-Specific Data in this file:
+    #path MOCAP_LAB_SPECIFIC_DATA "Setup/LabSpecificData.any"
 
     // Include the AnyMoCap Framwork
     #include "<ANYMOCAP_MODEL>"
 
 
+The model defines three section/files which must be customized.
 
-The model defines three section/files which must be customized. :file:`LabSpecificData.any`, :file:`SubjectSpecificData.any`, 
-:file:`TrialSpecificData.any`. Following this structure is not strictly necssary, but good practice. 
+* :file:`LabSpecificData.any`
+* :file:`SubjectSpecificData.any`
+* :file:`TrialSpecificData.any`. 
 
-The final line ``#include "<ANYMOCAP_MODEL>``, includes the **AnyMocap** framework or base model. 
-
-.. warning:: Don't change the base model (e.g. below ``#include "<ANYMOCAP_MODEL>"``).
-   It is not necessary, and the code is shared between all examples. Changes can
-   break other examples, and make it difficult to update your models in the
-   future. 
+Following this structure is not strictly necssary, but good practice. Finally,
+on line 13 we include the *AnyMocap* framework or base model. 
 
 Now please load the model and open up a new Model View. You should see
 the following model:
@@ -64,7 +64,23 @@ the following model:
 .. image:: _static/lesson5/image1.png
    :width: 80%
 
-If you look closely, you can see that the skeleton is equipped with
+The model consist of number of operations which must be executed in the correct
+order. The flow of the model is illustrated in the following figure. 
+
+
+.. _model_flow_chart:
+.. figure:: _static/lesson5/flow.png
+
+    Illustration of the three processes for the Mocap models. Parameter
+    identification, Marker tracking, and Inverse Dynamic analysis. See
+    `Lund et al. 2015 <http://www.tandfonline.com/doi/full/10.1080/23335432.2014.993706>`_
+    for a detailed dicussion on different approches to MoCap analysis.
+
+
+Parameter identification
+--------------------------------------
+
+If you look closely at the model view you can see that the skeleton is equipped with
 markers and if you zoom in a little, you can also see that the markers
 carry small coordinate systems with red and green arrows.
 
@@ -119,14 +135,14 @@ possible to get information about the location of that joint or about the
 lengths of adjacent segments from the marker data.
 
 
-Parameter identification
---------------------------------------
+Running Parameter identification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Without further ado, let us perform the optimization:
 
 Find the ``Main.RunParameterOptimzation`` in the operations dropdown, and run it.
 
-.. image:: _static/lesson5/image3.png
+|Opertions RunModtionAndParameterOpt| 
 
 You will see the model walking repeatedly over the force platforms,
 sometimes slowly and sometimes a bit faster depending on the speed of
@@ -178,19 +194,15 @@ excess in information that the optical markers provide. The over-determinate
 solver in AMS works great, but it will calculate velocities and accelerations
 numerically. That has some performance issues when running inverse dynamics
 analysis. To overcome the problem, the MOCAP analysis is split into a two-step
-producedure, separating the Marker tracking from the Inverse dynamic analysis. 
+producedure, as illustrated on  figure :numref:`model_flow_chart`, separating
+the Marker tracking from the Inverse dynamic analysis.
 
-The overdeterminate kinematic analysis solves the model for positions, and stores the
-joint angles as function of time. This step is the "Marker
-tracking" step in the figure below. These joint angles are then used in the second step with 
-the determinate kinematic solver in the inverse dynamic analysis.
+The overdeterminate kinematic analysis solves the model for positions, and
+stores the joint angles as function of time. This step is the "Marker tracking"
+step in figure :numref:`model_flow_chart`. These joint angles are then used in the
+second step with the determinate kinematic solver in the inverse dynamic
+analysis.
 
-.. figure:: _static/lesson5/flow.png
-
-    The figure illustrates the three processes for the Mocap models. Parameter
-    identification, Marker tracking, and Inverse Dynamic analysis. See
-    `Lund et al. 2015 <http://www.tandfonline.com/doi/full/10.1080/23335432.2014.993706>`_
-    for a detailed dicussion on different approches to MoCap analysis.
 
 In the Model the *Marker tracking* and *Inverse Dynamics* are combined into
 single operation called ``Main.RunAnalysis``.
@@ -211,7 +223,7 @@ continuously calculate forces in more than 300 muscles. When the analysis is
 finished, you can open up a Chart view and investigate the results, for instance
 the hip joint reaction forces:
 
-|Chartivew hip reactions|
+.. image:: _static/lesson5/charview_higher_hip_forces.png
 
 Importing new motion data
 ---------------------------
@@ -242,7 +254,7 @@ into the model:
 .. code-block:: AnyScriptDoc
 
     // This is the name of the trial c3d file without extension
-    TrialFileName = §"Plug-in-gait_fast"§;
+    TrialFileName = §"GaitFast_1"§;
 
 Since this is a new C3D file from a new trial, we also need to run the
 kinematic optimization again. 
@@ -281,30 +293,18 @@ Next, we run the combined *Marker tracking* and *Inverse dynamics* (``Main.RunAn
 Which, after the analysis can provide a new hip joint force profile
 documenting that faster gait leadt to higher hip joint forces.
 
-|Chart view higher hip forces|
+.. image:: _static/lesson5/charview_higher_hip_forces.png
 
 Using full-body models
 ----------------------
 
 Many motion experiments deal with the entire body as opposed to just the
-lower extremities. The AnyScript Model Repository contains another
+lower extremities. The Model Repository contains another
 pre-cooked model for this purpose, and it will reveal that there is more
-data in the C3D file we just imported than we saw in the
-``Plug-in-gait-LowerExtremity`` model.
+data in the C3D file we just imported than we saw in lower extremity model.
 
-Open the full body example model ``MocapExamples/Plug-in-gait-FullBody/Main.any``, then run 
+Open the full body example model ``Plug-in-gait_Simple/FullBody.main.any``, then run 
 ``Main.ParameterIdentification``
-
-.. code-block:: AnyScriptDo
-
-In TrialSpecificData.any, refer to the new c3d file:
-
-.. code-block:: AnyScriptDoc
-
-    <AnyFolder TrialSpecificData={
-    //Name of the C3D file to be analysed
-    AnyString NameOfFile ="§GaitFast0001-processed§"; //Write the name of the file here
-
 
 Please load the model and open a Model View if you do not already have
 one. You will see the model as before, but now with the arms included.
@@ -318,7 +318,7 @@ Operations tree:
 
 The model starts walking repeatedly over the force platforms including
 the arm motions while it tries to optimize segment lengths and marker
-positions. It takes three iterations and a little more time than before
+positions. It takes 7 iterations and more time than before
 to optimize the model because this is a much larger problem, but as
 before you can speed up the process if you switch off the update of the
 Model View Window. It is possible to monitor the convergence of the
@@ -326,25 +326,13 @@ optimization problem from a Chart window like this:
 
 |Chart view, Kin objective|
 
-Eventually, the optimization process terminates and you can switch to
-the InverseDynamicAnalysis:
+Eventually, the optimization process terminates and you can switch run the
+*Marker tracking* and *inverse dynamics* (``Main.RunAnalysis``) and perform the
+analysis of the entire body including the muscle forces. 
 
-.. code-block:: AnyScriptDoc
-
-    //Set this to 1 if you want to run the motion and Parameter Optimization identification
-    //************************************************
-    #define MotionAndParameterOptimizationModel §0§
-    //Set this to 1 if you want to run the inverse dynamic analysis
-    #define InverseDynamicModel §1§
-    //Usually only have one of the two switches active so set the inactive analysis to 0
-    //************************************************
-
-
-… and perform the analysis of the entire body including the muscle
-forces. This full-body model with almost 1000 muscles included takes
-considerable time to analyze but will reward you with very detailed
-information about the function of the muscle system in gait as
-illustrated below.
+This full-body model with almost 1000 muscles fasicles takes considerable more
+time to analyze but will reward you with very detailed information about the
+function of the muscle system in gait as illustrated below.
 
 |Model view, full body inverse dynamics|
 
@@ -370,12 +358,11 @@ in motion capture experiments and you can read all about in :doc:`Lesson
 .. |Operations, kinematics| image:: _static/lesson5/image6.png
    
 .. |Model view, marker tracking| image:: _static/lesson5/image7.png
-   
-.. |Chart view higher hip forces| image:: _static/lesson5/image8.emf
-   
+  
 .. |Model view Fullbody initial load| image:: _static/lesson5/image9.png
+   :width: 60%
    
-.. |Opertions RunModtionAndParameterOpt| image:: _static/lesson5/image10.png
+.. |Opertions RunModtionAndParameterOpt| image:: _static/lesson5/image3.png
    
 .. |Chart view, Kin objective| image:: _static/lesson5/image11.png
    
