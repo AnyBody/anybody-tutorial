@@ -66,10 +66,9 @@ The lack of muscles means that the model cannot currently do an inverse
 dynamics analysis. If you try to run the InverseDynamicAnalysis
 operation, you will get the following error message:
 
-``ERROR: C:\\Documents and Settings\\jr\\My
-Documents\\AnyScripts\\demo\\MuscleDemo\\MuscleDemo.6.any(103):``
-``ArmStudy: Muscle recruitment analysis failed, simplex solver found
-that problem was unbounded.``
+.. code-block:: none
+
+    ERROR: MuscleDemo.6.any(103): ArmStudy: Muscle recruitment analysis failed, simplex solver found that problem was unbounded.
 
 which is a mathematical way of stating that the model cannot be balanced
 in the absence of muscles. In this case we are not going to add real
