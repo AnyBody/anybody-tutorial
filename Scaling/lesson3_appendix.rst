@@ -264,6 +264,7 @@ try to set it to A: 0.2, B: 2, C: 20, and D: 200.
     ... 
     };
 
+.. rst-class:: plain
 
 +--------------+--------------+
 | A |image1|   | B |image2|   |
@@ -550,7 +551,7 @@ the values of A: 20, B: 200, C: 400, and D: 1000:
           };
           BoundingBoxOnOff = On;
 
-
+.. rst-class:: plain
 
 +---------------+---------------+
 | A |image10|   | B |image11|   |
@@ -558,7 +559,7 @@ the values of A: 20, B: 200, C: 400, and D: 1000:
 | C |image12|   | D |image13|   |
 +---------------+---------------+
 
-These images highlight how the increase the number of landmarks affects
+These images highlight how the increase in the landmark number affects
 the accuracy of the transform. With just 20 landmarks (A) most of the
 bony processes are not being captured. Increasing to 200 landmarks (B)
 leads to rather coarse, but better, morphing. This, of course, may be
@@ -573,26 +574,18 @@ UseClosestPointMatchingOnOff flag to be Off and supplying surfaces,
 which have corresponding vertices and connectivity matrixces.
 
 .. |image1| image:: _static/lesson3_appendix/image2.png
-   :width: 2.97494in
-   :height: 4.06250in
+   :width: 80%
 .. |image2| image:: _static/lesson3_appendix/image3.png
-   :width: 2.97494in
-   :height: 4.06250in
+   :width: 80%
 .. |image3| image:: _static/lesson3_appendix/image4.png
-   :width: 2.98958in
-   :height: 4.08250in
+   :width: 80%
 .. |image4| image:: _static/lesson3_appendix/image5.png
-   :width: 2.99020in
-   :height: 4.08333in
+   :width: 80%
 .. |image10| image:: _static/lesson3_appendix/image11.png
-   :width: 2.85119in
-   :height: 3.01042in
+   :width: 80%
 .. |image11| image:: _static/lesson3_appendix/image12.png
-   :width: 2.86458in
-   :height: 3.02456in
+   :width: 80%
 .. |image12| image:: _static/lesson3_appendix/image13.png
-   :width: 2.85119in
-   :height: 3.01042in
+   :width: 80%
 .. |image13| image:: _static/lesson3_appendix/image14.png
-   :width: 2.85417in
-   :height: 3.01356in
+   :width: 80%
