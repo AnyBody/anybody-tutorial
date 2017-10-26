@@ -178,14 +178,14 @@ Nonlinear surface based scaling transform
       //BoundingBoxOnOff = Off;
     };
 
-Similarly to the :anyscript:`AnyFunTransform3DRBF`, the pre-transforms will be
+Similarly to the ``AnyFunTransform3DRBF``, the pre-transforms will be
 included into the transformation that is being constructed. As well as
 that auxiliary bounding box points will be added to the transform
-exactly like in :anyscript:`AnyFunTransform3DRBF`.
+exactly like in ``AnyFunTransform3DRBF``.
 
 ``FileName0`` and ``FileName1`` specify surface files that will be used for the
 construction of the transform. The underlying method is exactly the same
-as in the :anyscript:`AnyFunTransform3DRBF`, except that source and landmarks now
+as in the ``AnyFunTransform3DRBF``, except that source and landmarks now
 will be found automatically.
 
 ``ScaleXYZ0`` and ``ScaleXYZ1`` members are scaling vectors that can be used to
