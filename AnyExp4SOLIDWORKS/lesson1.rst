@@ -209,12 +209,12 @@ now let us go to the next :doc:`Lesson2. <lesson2>`
 .. seealso::
     **Next lesson:** :doc:`lesson2`.
 
-.. |SolidWorks fitnessmachine| image:: _static/lesson1/_image1.PNG
-.. |AnyExp4SOLIDWORKS menu| image:: _static/lesson1/_image2.png
-.. |AnyExp4SOLIDWORKS dialog| image:: _static/lesson1/_image3.PNG
-.. |Save as dialog| image:: _static/lesson1/_image4.PNG
-.. |Model View Fitness machine| image:: _static/lesson1/_image5.png
-.. |SOLIDWORKS properties| image:: _static/lesson1/_image6.PNG
-.. |ANYBODY model tree| image:: _static/lesson1/_image7.PNG
-.. |SolidWorks assembly| image:: _static/lesson1/_image8.PNG
-.. |SolidWorks Two components| image:: _static/lesson1/_image9.png
+.. |SolidWorks fitnessmachine| image:: _static/lesson1/lesson1_image1.PNG
+.. |AnyExp4SOLIDWORKS menu| image:: _static/lesson1/lesson1_image2.png
+.. |AnyExp4SOLIDWORKS dialog| image:: _static/lesson1/lesson1_image3.PNG
+.. |Save as dialog| image:: _static/lesson1/lesson1_image4.PNG
+.. |Model View Fitness machine| image:: _static/lesson1/lesson1_image5.png
+.. |SOLIDWORKS properties| image:: _static/lesson1/lesson1_image6.PNG
+.. |ANYBODY model tree| image:: _static/lesson1/lesson1_image7.PNG
+.. |SolidWorks assembly| image:: _static/lesson1/lesson1_image8.PNG
+.. |SolidWorks Two components| image:: _static/lesson1/lesson1_image9.png

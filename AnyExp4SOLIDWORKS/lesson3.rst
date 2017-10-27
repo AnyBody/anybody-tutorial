@@ -398,8 +398,8 @@ now run successfully.
 The final version of this model file can be downloaded here:
 :download:`‘FitnessMachine\_With\_Human.zip’ <Downloads/FitnessMachine_With_Human.zip>`.
 
-.. |Human template dialog| image:: _static/lesson3/image1.png
-.. |Model view Full body| image:: _static/lesson3/image2.png
-.. |Model view Rear Fullbody without muscles| image:: _static/lesson3/image3.png
-.. |Model view Full Body on Fitnessmachine| image:: _static/lesson3/image4.png
-.. |Model view Full Body on Fitnessmachine with muscles| image:: _static/lesson3/image5.png
+.. |Human template dialog| image:: _static/lesson3/lesson3_image1.png
+.. |Model view Full body| image:: _static/lesson3/lesson3_image2.png
+.. |Model view Rear Fullbody without muscles| image:: _static/lesson3/lesson3_image3.png
+.. |Model view Full Body on Fitnessmachine| image:: _static/lesson3/lesson3_image4.png
+.. |Model view Full Body on Fitnessmachine with muscles| image:: _static/lesson3/lesson3_image5.png
