@@ -1,60 +1,34 @@
-AnyFolder Joints = 
-{
-  AnyStdJoint Left_Foot_Connect = 
-  {
-    AnyRefFrame& base = ...FitnessMachine._ANY_INTERFACE_.Pedal___1____ANY_TOE2;
-    AnyRefFrame& target = ...Human_RefNodes.Left_Toe_Node;
-    Constraints.Reaction.Type = {On, NonNegative, On, On, On, On};
-  };
-  
-  AnyStdJoint Right_Foot_Connect = 
-  {
-    AnyRefFrame& base = ...FitnessMachine._ANY_INTERFACE_.Pedal___2____ANY_TOE2;
-    AnyRefFrame& target = ...Human_RefNodes.Right_Toe_Node;
-    Constraints.Reaction.Type = {On, NonNegative, On, On, On, On};
-  };  
-  
-  AnyCylindricalJoint Pelsvis_Connect = 
-  {
-    AnyRefFrame &Base = ...FitnessMachine._ANY_INTERFACE_.ANY_PELVIS;
-    AnyRefFrame &Target = ...Human_RefNodes.Pelvis_Node; 
-    Axis = y;
-    Ref = 0;
-    Constraints.Reaction.Type = {Off, Off, Off, Off};
-  }; 
-  
-  AnyStdJoint Left_Hand_Connect = 
-  {
-    AnyRefFrame& base = ...FitnessMachine._ANY_INTERFACE_.ANY_LEFT_HAND2;
-    AnyRefFrame& target = ...Human_RefNodes.Left_Palm_Node;
-    Constraints.Reaction.Type = {On, On, On, On, On, On};
-  };
-  
-  AnyStdJoint Right_Hand_Connect = 
-  {
-    AnyRefFrame& base = ...FitnessMachine._ANY_INTERFACE_.ANY_RIGHT_HAND2;
-    AnyRefFrame& target = ...Human_RefNodes.Right_Palm_Node;    
-    Constraints.Reaction.Type = {On, On, On, On, On, On};
-  };  
-};//Joints
-
 AnyFolder Drivers = 
 {
   // Aliases for convenient referencing
   AnyFolder &RefHM = Main.Model.HumanModel;
-  
-  AnyFolder &JntPos= ...HumanModel.Mannequin.Posture;  
-  AnyFolder &JntVel= ...HumanModel.Mannequin.PostureVel;  
+    
+  AnyFolder &JntPos= Main.HumanModel.Mannequin.Posture;  
+  AnyFolder &JntVel= Main.HumanModel.Mannequin.PostureVel;  
   
   // ************************************
   // Drivers for the left & right legs
   // ************************************  
   
+  AnyStdJoint Left_Foot_Connect = 
+  {
+    AnyRefFrame& base = Main.Model.FitnessMachine._ANY_INTERFACE_.Pedal___1____ANY_TOE2;
+    AnyRefFrame& target = Main.Model.Human_RefNodes.Left_Toe_Node;
+    Constraints.Reaction.Type = {On, NonNegative, On, On, On, On};
+  };
+
+  AnyStdJoint Right_Foot_Connect = 
+  {
+    AnyRefFrame& base = Main.Model.FitnessMachine._ANY_INTERFACE_.Pedal___2____ANY_TOE2;
+    AnyRefFrame& target = Main.Model.Human_RefNodes.Right_Toe_Node;
+    Constraints.Reaction.Type = {On, NonNegative, On, On, On, On};
+  };  
+  
   AnyKinEqSimpleDriver HipJointRight_Driver=
   {
     //AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Right.HipFlexion;
     //AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Right.HipExternalRotation;
-    AnyKinMeasureOrg &ref3 =...HumanModel.BodyModel.Interface.Right.HipAbduction;
+    AnyKinMeasureOrg &ref3 = Main.HumanModel.BodyModel.Interface.Right.HipAbduction;
     DriverPos= pi/180*{
       //.JntPos.Right.HipFlexion,
       //.JntPos.Right.HipExternalRotation
@@ -72,7 +46,7 @@ AnyFolder Drivers =
   {
     // AnyKinMeasureOrg &ref1 =...HumanModel.Interface.Left.HipFlexion;
     //AnyKinMeasureOrg &ref2 =...HumanModel.Interface.Left.HipExternalRotation;
-    AnyKinMeasureOrg &ref3 =...HumanModel.BodyModel.Interface.Left.HipAbduction;
+    AnyKinMeasureOrg &ref3 = Main.HumanModel.BodyModel.Interface.Left.HipAbduction;
     DriverPos= pi/180*{
       //.JntPos.Left.HipFlexion,
       //.JntPos.Left.HipExternalRotation
@@ -85,56 +59,49 @@ AnyFolder Drivers =
     };    
     Reaction.Type={Off};
   };
+
+  AnyCylindricalJoint Pelsvis_Driver = 
+  {
+      AnyRefFrame &Base = Main.Model.FitnessMachine._ANY_INTERFACE_.ANY_PELVIS;
+      AnyRefFrame &Target = Main.Model.Human_RefNodes.Pelvis_Node; 
+      Axis = y;
+      Ref = 0;
+      Constraints.Reaction.Type = {Off, Off, Off, Off};
+  };
   
   // ************************************
   // Drivers for the trunk
   // ************************************
-  
+    
   //Thorax pelvis rotation driver
   AnyKinEqSimpleDriver PelvisThorax_Driver =
   {
-    AnyKinMeasureOrg &Ref2 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxLateralBending;        
-    //AnyKinMeasureOrg &Ref3 = ...HumanModel.Interface.Trunk.PelvisThoraxRotation;   
-    AnyKinMeasureOrg &Ref1 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxExtension;
+    AnyKinMeasureOrg &Ref2 = Main.HumanModel.BodyModel.Interface.Trunk.PelvisThoraxLateralBending;        
+    AnyKinMeasureOrg &Ref3 = Main.HumanModel.BodyModel.Interface.Trunk.PelvisThoraxRotation;   
+    AnyKinMeasureOrg &Ref1 = Main.HumanModel.BodyModel.Interface.Trunk.PelvisThoraxExtension;
     
     DriverPos = pi/180*{
-      .JntPos.PelvisThoraxLateralBending
-      //,.JntPos.PelvisThoraxRotation,
-      ,.JntPos.PelvisThoraxExtension
+      .JntPos.PelvisThoraxLateralBending,
+      .JntPos.PelvisThoraxRotation,
+      .JntPos.PelvisThoraxExtension
     };
     DriverVel = pi/180*{
-      .JntVel.PelvisThoraxLateralBending
-      //,.JntVel.PelvisThoraxRotation,
-      ,.JntVel.PelvisThoraxExtension
+      .JntVel.PelvisThoraxLateralBending,
+     .JntVel.PelvisThoraxRotation,
+      .JntVel.PelvisThoraxExtension
     };
-    Reaction.Type = {Off,Off};  
-    //Reaction.Type = {Off};  
+    Reaction.Type = {Off,Off,Off};  
+
   }; 
-  
-  AnyKinEq Human_CoM_Driver = 
-  {
-    AnyKinMeasureLinComb lincomb = 
-    {
-      AnyKinLinear lin = 
-      {
-        AnyRefFrame& target =  .....FitnessMachine._ANY_INTERFACE_.ANY_PELVIS;
-      };
-      
-      AnyKinCoM& human_CoM = ....Human_CoM.human_CoM;
-      OutDim = 3;
-      Coef={{1,0,0,-1,0,0},{0,1,0,0,-1,0},{0,0,1,0,0,-1}}; 
-    };
-    MeasureOrganizer = {2};
-    Reaction.Type = {Off};  
-  };
-  
+    
   //Neck driver 
-  AnyKinEqSimpleDriver NeckJnt_Driver = 
-  {
-    AnyRevoluteJoint &T12L1Joint = ...HumanModel.BodyModel.Interface.Trunk.NeckJoint;
-    DriverPos = pi/180*{.JntPos.NeckExtension};
-    DriverVel = pi/180*{.JntVel.NeckExtension};
-    Reaction.Type = {Off};
+  AnyKinEqSimpleDriver NeckJntDriver = {
+    AnyKinMeasure &lb = Main.HumanModel.BodyModel.Interface.Trunk.SkullThoraxLateralBending;
+    AnyKinMeasure &ar = Main.HumanModel.BodyModel.Interface.Trunk.SkullThoraxRotation;
+    AnyKinMeasure &fe = Main.HumanModel.BodyModel.Interface.Trunk.SkullThoraxFlexion;
+    DriverPos = pi/180*{.JntPos.NeckLateralBending, .JntPos.NeckRotation, .JntPos.NeckExtension};
+    DriverVel = pi/180*{.JntVel.NeckLateralBending, .JntVel.NeckRotation, .JntVel.NeckExtension};
+    Reaction.Type = {Off, Off, Off};
   };
   
   // ************************************
@@ -142,12 +109,12 @@ AnyFolder Drivers =
   // ************************************
   
   //Sterno clavicular joint driver
-  #if BM_ARM_SHOULDER_RHYTHM_LEFT == OFF
+  #if BM_ARM_LEFT & (BM_ARM_SHOULDER_RHYTHM == 0)
   AnyKinEqSimpleDriver SCDriverLeft_Driver =
   {
-    AnyKinMeasureOrg &ref1 =...HumanModel.BodyModel.Interface.Left.SternoClavicularProtraction;
-    AnyKinMeasureOrg &ref2 =...HumanModel.BodyModel.Interface.Left.SternoClavicularElevation;
-    AnyKinMeasureOrg &ref3 =...HumanModel.BodyModel.Interface.Left.SternoClavicularAxialRotation;
+    AnyKinMeasureOrg &ref1 =Main.HumanModel.BodyModel.Interface.Left.SternoClavicularProtraction;
+    AnyKinMeasureOrg &ref2 =Main.HumanModel.BodyModel.Interface.Left.SternoClavicularElevation;
+    AnyKinMeasureOrg &ref3 =Main.HumanModel.BodyModel.Interface.Left.SternoClavicularAxialRotation;
     
     DriverPos = pi/180*
     {
@@ -168,12 +135,12 @@ AnyFolder Drivers =
   #endif  
   
   //Sterno clavicular joint driver
-  #if BM_ARM_SHOULDER_RHYTHM_RIGHT == OFF
+  #if BM_ARM_RIGHT & (BM_ARM_SHOULDER_RHYTHM == 0)
   AnyKinEqSimpleDriver SCDriverRight_Driver =
   {
-    AnyKinMeasureOrg &ref1 =...HumanModel.BodyModel.Interface.Right.SternoClavicularProtraction;
-    AnyKinMeasureOrg &ref2 =...HumanModel.BodyModel.Interface.Right.SternoClavicularElevation;
-    AnyKinMeasureOrg &ref3 =...HumanModel.BodyModel.Interface.Right.SternoClavicularAxialRotation;
+    AnyKinMeasureOrg &ref1 =Main.HumanModel.BodyModel.Interface.Right.SternoClavicularProtraction;
+    AnyKinMeasureOrg &ref2 =Main.HumanModel.BodyModel.Interface.Right.SternoClavicularElevation;
+    AnyKinMeasureOrg &ref3 =Main.HumanModel.BodyModel.Interface.Right.SternoClavicularAxialRotation;
     DriverPos = pi/180*
     {
       .JntPos.Right.SternoClavicularProtraction,
@@ -194,9 +161,9 @@ AnyFolder Drivers =
   //Glenohumeral joint driver
   AnyKinEqSimpleDriver GHDriverLeft_Driver =
   {
-    AnyKinMeasureOrg &ref1 = ...HumanModel.BodyModel.Interface.Left.GlenohumeralAbduction;
-    //AnyKinMeasureOrg &ref2 = ...HumanModel.BodyModel.Interface.Left.GlenohumeralFlexion;
-    //AnyKinMeasureOrg &ref3 = ...HumanModel.BodyModel.Interface.Left.GlenohumeralExternalRotation;
+    AnyKinMeasureOrg &ref1 = Main.HumanModel.BodyModel.Interface.Left.GlenohumeralAbduction;
+    //AnyKinMeasureOrg &ref2 = Main.Model.HumanModel.Interface.Left.GlenohumeralFlexion;
+    //AnyKinMeasureOrg &ref3 = Main.Model.HumanModel.Interface.Left.GlenohumeralExternalRotation;
     DriverPos = pi/180*
     {
       .JntPos.Left.GlenohumeralAbduction  //GH joint
@@ -215,9 +182,9 @@ AnyFolder Drivers =
   //Glenohumeral joint driver
   AnyKinEqSimpleDriver GHDriverRight_Driver = 
   {
-    AnyKinMeasureOrg &ref1 = ...HumanModel.BodyModel.Interface.Right.GlenohumeralAbduction;
-    //AnyKinMeasureOrg &ref2 = ...HumanModel.BodyModel.Interface.Right.GlenohumeralFlexion;
-    //AnyKinMeasureOrg &ref3 = ...HumanModel.BodyModel.Interface.Right.GlenohumeralExternalRotation;
+    AnyKinMeasureOrg &ref1 = Main.HumanModel.BodyModel.Interface.Right.GlenohumeralAbduction;
+    //AnyKinMeasureOrg &ref2 = Main.Model.HumanModel.Interface.Right.GlenohumeralFlexion;
+    //AnyKinMeasureOrg &ref3 = Main.Model.HumanModel.Interface.Right.GlenohumeralExternalRotation;
     DriverPos = pi/180*
     {
       .JntPos.Right.GlenohumeralAbduction  //GH joint
@@ -230,7 +197,21 @@ AnyFolder Drivers =
       //.JntVel.Right.GlenohumeralExternalRotation  //GH joint
     };    
     Reaction.Type = {Off};
-  };    
+  };
+    
+  AnyStdJoint Left_Hand_Connect = 
+  {
+    AnyRefFrame& base = Main.Model.FitnessMachine._ANY_INTERFACE_.ANY_LEFT_HAND2;
+    AnyRefFrame& target = Main.Model.Human_RefNodes.Left_Palm_Node;
+    Constraints.Reaction.Type = {On, On, On, On, On, On};
+  };
   
+  AnyStdJoint Right_Hand_Connect = 
+  {
+    AnyRefFrame& base = Main.Model.FitnessMachine._ANY_INTERFACE_.ANY_RIGHT_HAND2;
+    AnyRefFrame& target = Main.Model.Human_RefNodes.Right_Palm_Node;    
+    Constraints.Reaction.Type = {On, On, On, On, On, On};
+  };    
+    
 };//Drivers
 
