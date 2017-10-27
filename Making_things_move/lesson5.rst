@@ -16,7 +16,7 @@ for data processing.
 .. note:: Make sure you have installed a your own copy of the AnyBody Model repository (AMMR). 
      See the :ammr:doc:`AMMR documentation <Installation>`.
 
-1. Go to the folder :file:`Application\MocapExamples\Plug-in-gait_Simple`.
+1. Go to the folder :file:`Application/MocapExamples/Plug-in-gait_Simple`.
 
 3. Open :file:`LowerExtremity.main.any` in the AnyBody Modeling System
 
@@ -24,11 +24,7 @@ This is a gait model of comprising only the lower extremities and the necessary
 part of the upper body for attachment of muscles. The model is based on a C3D
 file with "Plug In gait" marker protocol, and three force platforms. You can
 easily modify this to any other movement, simply by importing a different C3D
-file to drive the model with
-
-In the top of the file you find a brief description of the procedure.
-Don’t worry about that for now, but browse a little further down to find
-this:
+file to drive the model with.
 
 .. code-block:: AnyScriptDoc
     :caption: ``LowerExtremity.main.any``
@@ -223,7 +219,7 @@ continuously calculate forces in more than 300 muscles. When the analysis is
 finished, you can open up a Chart view and investigate the results, for instance
 the hip joint reaction forces:
 
-.. image:: _static/lesson5/charview_higher_hip_forces.png
+.. image:: _static/lesson5/image5.png
 
 Importing new motion data
 ---------------------------
