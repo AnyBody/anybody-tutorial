@@ -29,7 +29,7 @@ dynamic analyses.
 
     Main =
     {
-    #include "FitnessMachine.any"
+      #include "FitnessMachine.any"
     
       §AnyBodyStudy Study = 
       {
@@ -106,30 +106,30 @@ file.
 
     Main =
     {
-        #include "FitnessMachine.any"
+      #include "FitnessMachine.any"
 
-        § FitnessMachine = 
+      §FitnessMachine = 
+      {
+        AnyFolder Drivers = 
         {
-            AnyFolder Drivers = 
-            {
-            AnyKinEqSimpleDriver rot_drv = 
-            {
-                AnyKinRotational& rot = ..Mates.Concentric01.rot;
-                MeasureOrganizer = {0};
-                DriverPos = pi/180*{0};
-                DriverVel = pi/180*{180};
-            };
-            };
-        };§
+          AnyKinEqSimpleDriver rot_drv = 
+          {
+            AnyKinRotational& rot = ..Mates.Concentric01.rot;
+            MeasureOrganizer = {0};
+            DriverPos = pi/180*{0};
+            DriverVel = pi/180*{180};
+          };
+        };
+      };§
         
-        AnyBodyStudy Study = 
-        {
-            AnyFolder& Model = .FitnessMachine;
-            tStart = 0;
-            tEnd = 1;
-            nStep = 101;
-            Gravity = {0, -9.81, 0};
-        };  
+      AnyBodyStudy Study = 
+      {
+        AnyFolder& Model = .FitnessMachine;
+        tStart = 0;
+        tEnd = 1;
+        nStep = 101;
+        Gravity = {0, -9.81, 0};
+      };  
     };
 
 
@@ -404,8 +404,9 @@ message:
 *Model Warning: Study 'Main.Study' contains too few kinematic
 constraints to be kinematically determinate.*
 
-Let us see the object description of the AnyBodyStudy object.\ |AnyBody
-Study object description|
+Let us see the object description of the AnyBodyStudy object.
+
+|AnyBody Study object description|
 
 This assembly contains 16 components, i.e. segments. So this assembly
 has a total 96 degrees of freedom when disregarding the constraints. But

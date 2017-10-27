@@ -2,8 +2,8 @@ Creating human-machine integrated analysis model
 ================================================
 
 If you did not finish the previous lesson, please download the
-FitnessMachine\_Config3.zip file in order to get the correct set of
-files for starting this lesson.
+:download:`FitnessMachine\_Mate\_Config3.zip <Downloads/FitnessMachine_Mate_Config3.zip>` \
+file in order to get the correct set of files for starting this lesson.
 
 In this lesson, we will create a model with a human body using a
 template; we will add the fitness machine created in the previous lesson
@@ -51,11 +51,11 @@ new created file ‘FitnessMachine\_With\_Human.main.any’ to
       ...  
 
 
-Next, we will equip the model with a center of mass (CoM) of the human
-model. For this we must add an extra virtual segment that follows the
-CoM. We will make the virtual segment massless, since it is not a real
-segment. We use the CoM measure (AnyKinCoM) to drive this dummy segment.
-The code for doing this is prepared in CoM\_View.any. This kind of CoM
+Next, we will equip the model with a center of mass (CoM) of the human model.
+For this we must add an extra virtual segment that follows the CoM. We will make
+the virtual segment massless, since it is not a real segment. We use the CoM
+measure (AnyKinCoM) to drive this dummy segment. The code for doing this is
+prepared in :download:`CoM\_View.any <Downloads/CoM_View.any>`. This kind of CoM
 segment can be used not only for visualization, but also for kinematic
 constraints of the human model.
 
@@ -79,7 +79,7 @@ files like this:
     §#include "Model\CoM_View.any"§
     
     // Definition of additional AnyRefNode object in the human model
-    §#include " Model\HumanRefNodes.any"§    
+    §#include "Model\HumanRefNodes.any"§    
     ...
   };
 
@@ -147,7 +147,7 @@ like we did in Lesson 2 to prepare for an actual dynamic analysis.
 
 Similar to the previous lesson, we will add a driver for the fitness
 machine to make the model kinematically determinate. To do this, we can
-use the ‘MachineOperation.any’ file which defines the drivers we created
+use the :download:‘MachineOperation.any <Downloads/MachineOperation.any>’ file which defines the drivers we created
 in Lesson 2.
 
 .. code-block:: AnyScriptDoc
