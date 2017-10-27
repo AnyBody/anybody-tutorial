@@ -2,8 +2,8 @@ Creating human-machine integrated analysis model
 ================================================
 
 If you did not finish the previous lesson, please download the
-FitnessMachine\_Config3.zip file in order to get the correct set of
-files for starting this lesson.
+:download:`FitnessMachine\_Mate\_Config3.zip <Downloads/FitnessMachine_Mate_Config3.zip>` \
+file in order to get the correct set of files for starting this lesson.
 
 In this lesson, we will create a model with a human body using a
 template; we will add the fitness machine created in the previous lesson
@@ -51,11 +51,11 @@ new created file ‘FitnessMachine\_With\_Human.main.any’ to
       ...  
 
 
-Next, we will equip the model with a center of mass (CoM) of the human
-model. For this we must add an extra virtual segment that follows the
-CoM. We will make the virtual segment massless, since it is not a real
-segment. We use the CoM measure (AnyKinCoM) to drive this dummy segment.
-The code for doing this is prepared in CoM\_View.any. This kind of CoM
+Next, we will equip the model with a center of mass (CoM) of the human model.
+For this we must add an extra virtual segment that follows the CoM. We will make
+the virtual segment massless, since it is not a real segment. We use the CoM
+measure (AnyKinCoM) to drive this dummy segment. The code for doing this is
+prepared in :download:`CoM\_View.any <Downloads/CoM_View.any>`. This kind of CoM
 segment can be used not only for visualization, but also for kinematic
 constraints of the human model.
 
@@ -79,7 +79,7 @@ files like this:
     §#include "Model\CoM_View.any"§
     
     // Definition of additional AnyRefNode object in the human model
-    §#include " Model\HumanRefNodes.any"§    
+    §#include "Model\HumanRefNodes.any"§    
     ...
   };
 
@@ -145,10 +145,10 @@ like we did in Lesson 2 to prepare for an actual dynamic analysis.
     
 
 
-Similar to the previous lesson, we will add a driver for the fitness
-machine to make the model kinematically determinate. To do this, we can
-use the ‘MachineOperation.any’ file which defines the drivers we created
-in Lesson 2.
+Similar to the previous lesson, we will add a driver for the fitness machine to
+make the model kinematically determinate. To do this, we can use the
+:download:`MachineOperation.any <Downloads/MachineOperation.any>` file which
+defines the drivers we created in Lesson 2.
 
 .. code-block:: AnyScriptDoc
 
@@ -267,17 +267,17 @@ model.
 
 .. code-block:: none
 
-    Total number of rigid-body d.o.f.: 360
+    Total number of rigid-body d.o.f.: 378
     Total number of constraints:
-    Joints: 201
-    Drivers: 75
-    Other: 42
-    Total: 318
+    Joints: 224
+    Drivers: 76
+    Other: 34
+    Total: 334
 
-This means that we are missing 42 constraints. If you look in the
-‘Mannequin.any’ file, then you will find that there are 42 joint
-coordinate names. This implies that the AnyBody human model contains 42
-degrees of freedom. So we have to define 42 constraints for the human
+This means that we are missing 44 constraints. If you look in the
+‘Mannequin.any’ file, then you will find that there are 44 joint
+coordinate names. This implies that the AnyBody human model contains 44
+degrees of freedom. So we have to define 44 constraints for the human
 model.
 
 The AnyExp4SOLIDWORKS translator searches for user-defined reference
@@ -313,30 +313,19 @@ model.
     
 
 
-Now we will create the missing 42 constraints to govern the motion.
+Now we will create the missing 44 constraints to govern the motion.
 
 We shall prepare this as a separate AnyScript file, which we will name
-‘JointAndDrivers.any’. You can download this file here:
-JointAndDrivers.any. And put it into the Model subfolder of your model
-folder to overwrite. Starting from the bottom of the human (the top of
-the file) the constraints applied are as follows:
+‘JointsAndDrivers.any’. You can download this file here:
+:download:`JointsAndDrivers.any <Downloads/JointsAndDrivers.any>`. And put it into
+the Model subfolder of your model folder to overwrite. Starting from the bottom
+of the human (the top of the file) the constraints applied are as follows:
 
--  Feet are fixed to the pedals, though with a unilateral force normal
-   to the pedal, since the feet are not "glued" to the pedal.
-
--  Pelvis connected to the machine with a vertical cylindrical joint
-   that allows the pelvis to rotate vertically and move up and down.
-
+-  Feet are fixed to the pedals, though with a unilateral force normal to the pedal, since the feet are not “glued” to the pedal.
 -  Hands are fixed to the handles.
-
+-  Pelvis thorax rotation is driven to fixed value.
 -  Hip abduction is fixed at its initial condition value.
-
--  The human CoM is kept at the symmetry plane of the machine.
-
--  The sterno-clavicular joint angles are fixed at their initial
-   condition values (however, if the shoulder rhythm is used, this
-   driver is excluded).
-
+-  The sterno-clavicular joint angles are fixed at their initial condition values (however, if the shoulder rhythm is used, this driver is excluded).
 -  The glenohumeral abduction is fixed at its initial condition value.
 
 In this JointAndDrivers.any file, you will see that only the connections
@@ -389,7 +378,7 @@ beginning of this lesson.
       #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
     
       // Switch off all muscles of the body model
-      § //#define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
+      §//#define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
       //#define BM_TRUNK_MUSCLES _MUSCLES_NONE_
       //#define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_§
       // Switch of the default drivers
@@ -409,8 +398,8 @@ now run successfully.
 The final version of this model file can be downloaded here:
 :download:`‘FitnessMachine\_With\_Human.zip’ <Downloads/FitnessMachine_With_Human.zip>`.
 
-.. |Human template dialog| image:: _static/lesson3/image1.png
-.. |Model view Full body| image:: _static/lesson3/image2.png
-.. |Model view Rear Fullbody without muscles| image:: _static/lesson3/image3.png
-.. |Model view Full Body on Fitnessmachine| image:: _static/lesson3/image4.png
-.. |Model view Full Body on Fitnessmachine with muscles| image:: _static/lesson3/image5.png
+.. |Human template dialog| image:: _static/lesson3/lesson3_image1.png
+.. |Model view Full body| image:: _static/lesson3/lesson3_image2.png
+.. |Model view Rear Fullbody without muscles| image:: _static/lesson3/lesson3_image3.png
+.. |Model view Full Body on Fitnessmachine| image:: _static/lesson3/lesson3_image4.png
+.. |Model view Full Body on Fitnessmachine with muscles| image:: _static/lesson3/lesson3_image5.png

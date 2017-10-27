@@ -29,7 +29,7 @@ dynamic analyses.
 
     Main =
     {
-    #include "FitnessMachine.any"
+      #include "FitnessMachine.any"
     
       §AnyBodyStudy Study = 
       {
@@ -106,30 +106,30 @@ file.
 
     Main =
     {
-        #include "FitnessMachine.any"
+      #include "FitnessMachine.any"
 
-        § FitnessMachine = 
+      §FitnessMachine = 
+      {
+        AnyFolder Drivers = 
         {
-            AnyFolder Drivers = 
-            {
-            AnyKinEqSimpleDriver rot_drv = 
-            {
-                AnyKinRotational& rot = ..Mates.Concentric01.rot;
-                MeasureOrganizer = {0};
-                DriverPos = pi/180*{0};
-                DriverVel = pi/180*{180};
-            };
-            };
-        };§
+          AnyKinEqSimpleDriver rot_drv = 
+          {
+            AnyKinRotational& rot = ..Mates.Concentric01.rot;
+            MeasureOrganizer = {0};
+            DriverPos = pi/180*{0};
+            DriverVel = pi/180*{180};
+          };
+        };
+      };§
         
-        AnyBodyStudy Study = 
-        {
-            AnyFolder& Model = .FitnessMachine;
-            tStart = 0;
-            tEnd = 1;
-            nStep = 101;
-            Gravity = {0, -9.81, 0};
-        };  
+      AnyBodyStudy Study = 
+      {
+        AnyFolder& Model = .FitnessMachine;
+        tStart = 0;
+        tEnd = 1;
+        nStep = 101;
+        Gravity = {0, -9.81, 0};
+      };  
     };
 
 
@@ -404,8 +404,9 @@ message:
 *Model Warning: Study 'Main.Study' contains too few kinematic
 constraints to be kinematically determinate.*
 
-Let us see the object description of the AnyBodyStudy object.\ |AnyBody
-Study object description|
+Let us see the object description of the AnyBodyStudy object.
+
+|AnyBody Study object description|
 
 This assembly contains 16 components, i.e. segments. So this assembly
 has a total 96 degrees of freedom when disregarding the constraints. But
@@ -423,13 +424,13 @@ human to the model in the final :doc:`Lesson 3 <lesson3>`.
     **Next lesson:** :doc:`lesson3`.
 
 
-.. |SolidWorks components| image:: _static/lesson2/_image1.PNG
-.. |AnyExp2Solidworks Configuration| image:: _static/lesson2/_image2.PNG
-.. |SolidWorks Tree view| image:: _static/lesson2/_image3.PNG
-.. |Matetype 1| image:: _static/lesson2/_image4.PNG
-.. |Matetype 2| image:: _static/lesson2/_image5.png
-.. |Matetype 3| image:: _static/lesson2/_image6.PNG
-.. |Matetype 4| image:: _static/lesson2/_image5.png
-.. |AnyExp2Solidworks Config 2| image:: _static/lesson2/_image7.PNG
-.. |Solidworks tree 2| image:: _static/lesson2/_image8.PNG
-.. |AnyBody Study object description| image:: _static/lesson2/_image9.PNG
+.. |SolidWorks components| image:: _static/lesson2/lesson2_image1.PNG
+.. |AnyExp2Solidworks Configuration| image:: _static/lesson2/lesson2_image2.PNG
+.. |SolidWorks Tree view| image:: _static/lesson2/lesson2_image3.PNG
+.. |Matetype 1| image:: _static/lesson2/lesson2_image4.PNG
+.. |Matetype 2| image:: _static/lesson2/lesson2_image5.png
+.. |Matetype 3| image:: _static/lesson2/lesson2_image6.PNG
+.. |Matetype 4| image:: _static/lesson2/lesson2_image5.png
+.. |AnyExp2Solidworks Config 2| image:: _static/lesson2/lesson2_image7.PNG
+.. |Solidworks tree 2| image:: _static/lesson2/lesson2_image8.PNG
+.. |AnyBody Study object description| image:: _static/lesson2/lesson2_image9.PNG

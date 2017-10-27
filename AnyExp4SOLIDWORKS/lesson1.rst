@@ -114,7 +114,7 @@ following piece of code.
       {
         FileName = "FitnessMachine.MainCylinder_cfg0_9c1185a5c5e9fc546128.stl";
         Opacity = 1;
-        RGB = {0, 1, 1};
+        RGB = {0.9098039216, 0.4431372549, 0.03137254902};
         AnyStyleDrawMaterial1 style = 
         {
           EnableCreasing = On;
@@ -150,10 +150,10 @@ SOLIDWORKS.
 
 The ‘Concentric11’ mate was established between MainCylinder-1 and
 BeamType1-2 components. In the above picture, the selected violet
-cylinder and a point are included in the MainCylinder-1 component, and
-the selected white point is included in the BeamType1-2 component. So
+cylinder is included in the MainCylinder-1 component, and
+the selected orange point is included in the BeamType1-2 component. So
 this mate is the concentric mate between a point and a cylinder. This
-means that the white point (on BeamType1<2> component) can translate and
+means that the orange point (on BeamType1<2> component) can translate and
 rotate on the axis of this violet cylinder (on MainCylinder<1>). So this
 mate can be translated into two linear constraints in the corresponding
 AnyScript model.
@@ -209,12 +209,12 @@ now let us go to the next :doc:`Lesson2. <lesson2>`
 .. seealso::
     **Next lesson:** :doc:`lesson2`.
 
-.. |SolidWorks fitnessmachine| image:: _static/lesson1/_image1.PNG
-.. |AnyExp4SOLIDWORKS menu| image:: _static/lesson1/_image2.png
-.. |AnyExp4SOLIDWORKS dialog| image:: _static/lesson1/_image3.PNG
-.. |Save as dialog| image:: _static/lesson1/_image4.PNG
-.. |Model View Fitness machine| image:: _static/lesson1/_image5.png
-.. |SOLIDWORKS properties| image:: _static/lesson1/_image6.PNG
-.. |ANYBODY model tree| image:: _static/lesson1/_image7.PNG
-.. |SolidWorks assembly| image:: _static/lesson1/_image8.PNG
-.. |SolidWorks Two components| image:: _static/lesson1/_image9.png
+.. |SolidWorks fitnessmachine| image:: _static/lesson1/lesson1_image1.PNG
+.. |AnyExp4SOLIDWORKS menu| image:: _static/lesson1/lesson1_image2.png
+.. |AnyExp4SOLIDWORKS dialog| image:: _static/lesson1/lesson1_image3.PNG
+.. |Save as dialog| image:: _static/lesson1/lesson1_image4.PNG
+.. |Model View Fitness machine| image:: _static/lesson1/lesson1_image5.png
+.. |SOLIDWORKS properties| image:: _static/lesson1/lesson1_image6.PNG
+.. |ANYBODY model tree| image:: _static/lesson1/lesson1_image7.PNG
+.. |SolidWorks assembly| image:: _static/lesson1/lesson1_image8.PNG
+.. |SolidWorks Two components| image:: _static/lesson1/lesson1_image9.png
