@@ -1,6 +1,9 @@
 Lesson 1: The Basics of Muscle Recruitment
 ==========================================
 
+.. include:: /caution_old_tutorial.rst
+
+
 Muscle recruitment in inverse dynamics is the process of determining
 which set of muscle forces will balance a given external load. If we
 take the trouble of setting up the system of equilibrium equations for a

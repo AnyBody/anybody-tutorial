@@ -1,6 +1,8 @@
 Lesson 5: Min/Max Muscle Recruitment
 ====================================
 
+.. include:: /caution_old_tutorial.rst
+
 With the exception of the linear criterion, each of the options
 presented in the previous lessons have produced plausible muscle
 recruitment patterns. We have found that polynomial criteria of

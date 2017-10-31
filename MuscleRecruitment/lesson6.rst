@@ -1,6 +1,8 @@
 Lesson 6: Composite Recruitment Criteria
 ========================================
 
+.. include:: /caution_old_tutorial.rst
+
 So far we have investigated recruitment criteria in the form of
 polynomial sums with degrees ranging from 1 (linear recruitment) to
 infinity (min/max recruitment). It is not given, however, that any

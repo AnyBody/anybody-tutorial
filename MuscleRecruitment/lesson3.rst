@@ -1,6 +1,8 @@
 Lesson 3: Quadratic Muscle Recruitment
 ======================================
 
+.. include:: /caution_old_tutorial.rst
+
 The simple example of the previous lesson was enough to show us that
 linear muscle recruitment is not going to mimic the physiological
 behavior of living bodies very well. The next logical step would be to
