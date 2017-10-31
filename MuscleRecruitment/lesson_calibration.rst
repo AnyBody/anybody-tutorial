@@ -1,6 +1,8 @@
 Lesson 7: Calibration
 =====================
 
+.. include:: /caution_old_tutorial.rst
+
 One of the challenges in body modeling is that models must be able to
 change size to reflect individuals of different statures. Even if you
 are working on a model of a particular individual, you will almost

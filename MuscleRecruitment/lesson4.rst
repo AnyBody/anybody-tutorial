@@ -1,6 +1,8 @@
 Lesson 4: Polynomial Muscle Recruitment
 =======================================
 
+.. include:: /caution_old_tutorial.rst
+
 In the previous two lessons, we learned that linear muscle recruitment
 leads to no muscle synergy at all, while quadratic muscle recruitment
 seems to result in some synergy between the muscles. In general, the

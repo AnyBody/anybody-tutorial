@@ -1,6 +1,9 @@
 Lesson 2: Linear Muscle Recruitment
 ===================================
 
+.. include:: /caution_old_tutorial.rst
+
+
 Let us begin this lesson with a physiological observation. We know that
 there is a metabolic cost involved in development of muscle force. Food
 is a limited resource for living organisms so it is likely that nature

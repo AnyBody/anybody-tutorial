@@ -1,6 +1,8 @@
 Inverse Dynamics of Muscle Systems
 ==================================
 
+.. include:: /caution_old_tutorial.rst
+
 The AnyBody Modeling System performs inverse dynamics as one of its
 central operations. In biomechanics, inverse dynamics is traditionally
 understood at the process of computing from measured ground reaction
