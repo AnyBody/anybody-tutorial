@@ -1,6 +1,8 @@
 Introduction to Muscle Modeling
 =================================
 
+.. include:: /caution_old_tutorial.rst
+
 
 |Muscles back|
 

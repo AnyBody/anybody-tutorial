@@ -1,6 +1,8 @@
 Lesson 6: General Muscles
 =========================
 
+.. include:: /caution_old_tutorial.rst
+
 Physiological muscles are truly amazing machines, and despite many
 attempts it has not been possible to make technical actuators that are
 as light and efficient as natural muscles. As you may have seen in the

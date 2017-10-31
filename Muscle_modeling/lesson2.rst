@@ -1,6 +1,9 @@
 Lesson 2: Controlling Muscle Drawing
 ====================================
 
+.. include:: /caution_old_tutorial.rst
+
+
 Muscles can be displayed in a variety of fashions depending on the
 specifications in the AnyDrawMuscle object. Let us take a look at its
 definition again:
