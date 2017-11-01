@@ -1,6 +1,8 @@
 Lesson 5: Forces
 ================
 
+.. include:: /caution_old_tutorial.rst
+
 There are several types of forces in an AnyBody model; forces in joints,
 forces in muscles, and gravity forces working on the segments. This
 section, however, deals only with the application of external forces. We

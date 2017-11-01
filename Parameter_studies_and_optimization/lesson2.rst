@@ -1,6 +1,8 @@
 Optimization Studies
 ====================
 
+.. include:: /caution_old_tutorial.rst
+
 The parameter study introduced in the preceding lesson provides a
 complete overview of the design space, but the study is only feasible
 when the problem has few independent parameters, preferably one or two.

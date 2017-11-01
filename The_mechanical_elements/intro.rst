@@ -1,6 +1,9 @@
 The Mechanical Elements
 =======================
 
+.. include:: /caution_old_tutorial.rst
+
+
 Musculoskeletal modeling is really just an advanced application of the
 laws of mechanics described by one of the greatest scientists of all
 times, Sir Isaac Newton, more than 300 years ago. So the elements of the
