@@ -103,5 +103,3 @@ with experimental measurements.
 
 
 .. |AnyBody assistent| image:: _static/intro/image1.png
-   :width: 6.68750in
-   :height: 4.62500in
