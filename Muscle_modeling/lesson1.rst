@@ -1,6 +1,8 @@
 Lesson 1: The Basics of Muscle Definition
 =========================================
 
+.. include:: /caution_old_tutorial.rst
+
 The key to understanding muscles in the AnyBody Modeling System is to
 realize that they mechanically consist of two separate computational
 models:

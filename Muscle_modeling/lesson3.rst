@@ -1,6 +1,9 @@
 Lesson 3: Via-point muscles
 ===========================
 
+.. include:: /caution_old_tutorial.rst
+
+
 Although the name of the muscle class we have used to far is
 AnyViaPointMuscle, the example has only showed the muscle passing in a
 straight line between two points. Real muscles in the body rarely do so.

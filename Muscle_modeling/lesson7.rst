@@ -1,6 +1,8 @@
 Lesson 7: Ligaments
 ===================
 
+.. include:: /caution_old_tutorial.rst
+
 Ligaments are passive structures that connect articulating bones and
 keep joints assembled. Mechanically they are much like muscles but with
 no active contractile element. Ligaments only provide forces when they

@@ -1,6 +1,9 @@
 Lesson 5: Muscle Models
 =======================
 
+.. include:: /caution_old_tutorial.rst
+
+
 Muscle model is a description of how a muscle behaves under different
 operating conditions. There are two schools of thought within this area.
 
