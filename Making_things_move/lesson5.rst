@@ -58,7 +58,6 @@ Now please load the model and open up a new Model View. You should see
 the following model:
 
 .. image:: _static/lesson5/image1.png
-   :width: 80%
 
 The model consist of number of operations which must be executed in the correct
 order. The flow of the model is illustrated in the following figure. 
@@ -81,7 +80,7 @@ markers and if you zoom in a little, you can also see that the markers
 carry small coordinate systems with red and green arrows.
 
 .. image:: _static/lesson5/image2.png
-   :width: 50%
+  
 
 .. raw:: html
 
@@ -355,7 +354,7 @@ C3D files.
 .. |Model view, marker tracking| image:: _static/lesson5/image7.png
   
 .. |Model view Fullbody initial load| image:: _static/lesson5/image9.png
-   :width: 60%
+
    
 .. |Opertions RunModtionAndParameterOpt| image:: _static/lesson5/image3.png
    
