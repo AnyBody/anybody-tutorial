@@ -1,6 +1,9 @@
 Lesson 4: Kinematic Measures
 ============================
 
+.. include:: /caution_old_tutorial.rst
+
+
 You are not likely to have any sort of idea what a kinematic measure is.
 Don't worry - you're not supposed to know about it. The concept was
 invented by AnyBody Technology as a way of describing dimensions in a

@@ -1,6 +1,9 @@
 Lesson 1: Segments
 ==================
 
+.. include:: /caution_old_tutorial.rst
+
+
 Segments are defined by the AnySeg keyword in AnyScript. They are the
 rigid bodies on which the system bases its analysis. In a body model,
 segments are usually bones, but since an AnyBody model often comprises

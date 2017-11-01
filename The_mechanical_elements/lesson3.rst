@@ -1,6 +1,9 @@
 Lesson 3: Drivers
 =================
 
+.. include:: /caution_old_tutorial.rst
+
+
 Drivers create movement in a model. They are really functions of time
 determining the position of a joint or the distance between two points
 or some other kinematic measure at any given time through the simulation

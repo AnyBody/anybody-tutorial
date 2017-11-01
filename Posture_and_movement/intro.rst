@@ -1,6 +1,8 @@
 Posture and Movement Prediction
 ===============================
 
+.. include:: /caution_old_tutorial.rst
+
 Just about every example you find in these tutorials is based on the
 concept of inverse dynamics, which in some sense is the opposite of
 forward dynamics. To understand the difference between these two

@@ -1,6 +1,9 @@
 Lesson 2: Joints
 ================
 
+.. include:: /caution_old_tutorial.rst
+
+
 You normally think of a joint as something that provides the body with
 its movement capability. We interpret joints that way because we would
 not be able to move if our joints were rigid. But there is also an

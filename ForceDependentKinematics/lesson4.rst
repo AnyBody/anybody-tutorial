@@ -1,6 +1,9 @@
 Lesson 4: Using Surfaces to Define the Knee Joint
 =================================================
 
+.. include:: /caution_old_tutorial.rst
+
+
 The knee model developed in the previous lessons is obviously very
 simple and does not resemble the geometry of a real anatomical knee very
 well. However, AnyBody also contains facilities for development of more

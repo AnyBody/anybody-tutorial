@@ -1,6 +1,9 @@
 Lesson 2: Adding FDK Features
 =============================
 
+.. include:: /caution_old_tutorial.rst
+
+
 What we have now is a standard inverse dynamics AnyBody model capable of
 computing forces in a knee joint that is presumed to be a simple hinge.
 Real knees are unfortunately not as simple as that. Mechanically

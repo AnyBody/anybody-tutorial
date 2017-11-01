@@ -1,6 +1,8 @@
 Defining a Parameter Study
 ==========================
 
+.. include:: /caution_old_tutorial.rst
+
 A parameter study is a systematic way to vary a number of model
 parameters and have the system automatically run one or several analyses
 for each combination of parameters.
