@@ -1,6 +1,9 @@
 Lesson 3: Results of FDK
 ========================
 
+.. include:: /caution_old_tutorial.rst
+
+
 In this lesson we play a little around with our new FDK model and see
 what kind of results we can obtain from it. If you did not manage to
 obtain a working model from the previous lesson, then please download a

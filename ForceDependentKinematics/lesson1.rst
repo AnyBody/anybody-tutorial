@@ -1,6 +1,9 @@
 Lesson 1: The Baseline Model
 ============================
 
+.. include:: /caution_old_tutorial.rst
+
+
 In this lesson we familiarize ourselves with the simple knee model. If
 you have not already downloaded the model, then please do so from this
 link: :download:`DemoSimpleKnee.any <Downloads/DemoSimpleKnee.any>`. Save the

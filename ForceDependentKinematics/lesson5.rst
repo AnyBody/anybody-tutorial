@@ -1,6 +1,8 @@
 Lesson 5: Using Contact Forces to Replace a Joint in a Human Model
 ==================================================================
 
+.. include:: /caution_old_tutorial.rst
+
 In Lesson4, we have seen how a joint could be constructed by using
 geometry data of a real bone or implant. Now in this lesson, we shall
 have a brief look at how such a joint can be used in a complete human
