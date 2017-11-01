@@ -19,7 +19,6 @@ Repository and open the CrossTrainer.main.any file. **Load the model
 into AnyBody by pressing F7 or using the “Load” button in the toolbar.**
 
 .. image:: _static/intro/image3.png
-    :width: 70%
 
 This GUI contains the following windows:
 
