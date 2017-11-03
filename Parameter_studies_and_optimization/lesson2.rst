@@ -29,27 +29,24 @@ follows:
 
 Minimize
 
-*g\ :sub:`0`*\ (*x\ :sub:`1`..x\ :sub:`n`*)
+:math:`g_0(x_1..x_n)`
 
 Subject to
 
-*g\ :sub:`i`*\ (*x\ :sub:`1`..x\ :sub:`n`*) <= 0
+:math:`g_i(x_1..x_n) \leq 0 \\ \text{and} \\L_j \leq x_j \leq U_j`
 
-*L*\ :sub:`j` <= *x*\ :sub:`j` <= *U\ :sub:`j`*
-
-where *g\ :sub:`0`* is called the objective function, *x\ :sub:`j`*,
-*j*\ =1..\ *n* are the design variables, and *g\ :sub:`i`*,
-*i*\ =1..\ *m* are the constraints. The definition of an optimization
+where :math:`g_0` is called the objective function, :math:`x_j`, :math:`j=1..n` are the design variables, and :math:`g_i`,
+:math:`i=1..m` are the constraints. The definition of an optimization
 problem in AnyBody is therefore a question of appointing independent
 parameters as design variables and dependent parameters as the objective
-function and constraints. Please notice that *m* could be zero in which
+function and constraints. Please notice that :math:`m` could be zero in which
 case we have a problem that is only constrained by the simple bounds on
 the variables.
 
 In an optimization terminology, the parameter study from the preceding
 lesson could be defined as:
 
-Minimize
+Minimize 
 
 *Metabolic energy consumption* 
 

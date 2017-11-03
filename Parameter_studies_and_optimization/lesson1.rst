@@ -128,20 +128,15 @@ should get the following result:
      §AnyParamStudy <ObjectName> =
          {
            //LogFile = "";
-           /\*Analysis =
+           \*Analysis =
            {
-           //AnyOperation &<Insert name0> = <Insert object reference (or
-      full object definition)>;
-           };\*/
+           //AnyOperation &<Insert name0> = <Insert object reference (or full object definition)>;
+           };*/
            nStep = ;
-           AnyDesVar &<Insert name0> = <Insert object reference (or full
-      object definition)>;
-           //AnyDesVar &<Insert name1> = <Insert object reference (or full
-      object definition)>; 
-           AnyDesMeasure &<Insert name0> = <Insert object reference (or
-      full object definition)>;
-           //AnyDesMeasure &<Insert name1> = <Insert object reference (or
-      full object definition)>;
+           AnyDesVar &<Insert name0> = <Insert object reference (or full object definition)>;
+           //AnyDesVar &<Insert name1> = <Insert object reference (or full object definition)>; 
+           AnyDesMeasure &<Insert name0> = <Insert object reference (or full object definition)>;
+           //AnyDesMeasure &<Insert name1> = <Insert object reference (or full object definition)>;
          };§
 
 
@@ -152,18 +147,13 @@ general tidying up:
 
         AnyParamStudy §ParamStudy§ = {
            Analysis = {
-           //AnyOperation &<Insert name0> = <Insert object reference (or
-      full object definition)>;
+           //AnyOperation &<Insert name0> = <Insert object reference (or full object definition)>;
            };
            nStep = ;
-           AnyDesVar &<Insert name0> = <Insert object reference (or full
-      object definition)>;
-           //AnyDesVar &<Insert name1> = <Insert object reference (or full
-      object definition)>;
-           AnyDesMeasure &<Insert name0> = <Insert object reference (or
-      full object definition)>;
-           //AnyDesMeasure &<Insert name1> = <Insert object reference (or
-      full object definition)>;
+           AnyDesVar &<Insert name0> = <Insert object reference (or full object definition)>;
+           //AnyDesVar &<Insert name1> = <Insert object reference (or full object definition)>;
+           AnyDesMeasure &<Insert name0> = <Insert object reference (or full object definition)>;
+           //AnyDesMeasure &<Insert name1> = <Insert object reference (or full object definition)>;
          };
 
 
@@ -215,18 +205,17 @@ The next specification deals with the parameters to vary:
              Min = Val - 0.07;
              Max = Val + 0.10;
            };§
-           AnyDesMeasure &<Insert name0> = <Insert object reference (or
-      full object definition)>;
-           //AnyDesMeasure &<Insert name1> = <Insert object reference (or
-      full object definition)>;
+           AnyDesMeasure &<Insert name0> = <Insert object reference (or full object definition)>;
+           //AnyDesMeasure &<Insert name1> = <Insert object reference (or full object definition)>;
          };
 
 
 Please notice here that we have removed the '&'s that were inserted in
 the template in front of the variable names. Instead of pointing at
 AnyDesVars defined elsewhere we include the entire definition right here
-in the study, and this is actually the usual way to do it. Each
-AnyDesVar gets three properties set. The first one is called 'Val' and
+in the study, and this is actually the usual way to do it. 
+
+Each AnyDesVar gets three properties set. The first one is called 'Val' and
 is simply set equal to an existing parameter in the model. The best way
 to understand this statement is to think of Val as a reference variable
 that is equalized in the first case with the SaddleHeight, which is a
@@ -274,18 +263,13 @@ AnyBodyStudy:
 
          // The study: Operations to be performed on the model
          AnyBodyStudy Study = {
-          
            AnyFolder &Model = .Model;     
-          
            Gravity = {0.0, -9.81, 0.0};
-          
            tEnd = Main.BikeParameters.T;
            nStep = 50;
-           
          §AnyOutputFun MaxAct = {
              Val = .MaxMuscleActivity;
            };§
-           
          }; 
 
 
@@ -458,9 +442,7 @@ simple to add up the muscle metabolisms in the AnyBody study:
 
          // The study: Operations to be performed on the model
          AnyBodyStudy Study = {
-          
            AnyFolder &Model = .Model;     
-          
            RecruitmentSolver = MinMaxOOSolSimplex;
            Gravity = {0.0, -9.81, 0.0};
           
@@ -470,17 +452,13 @@ simple to add up the muscle metabolisms in the AnyBody study:
            // Useful variables for the optimization
            AnyFolder &r = Main.Bike2D.Model.Leg2D.Right.Mus;
            AnyFolder &l = Main.Bike2D.Model.Leg2D.Left.Mus;
-           AnyVar Pmet =
-      r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+
-     r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+
-     l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+
-     l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
+           AnyVar Pmet = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
      §
            AnyOutputFun MaxAct = {
              Val = .MaxMuscleActivity;
            };
            
-     };</ANYSCRIPT>
+     };
 
 Notice that we have defined the r and l variables for convenience to
 limit the size of the expressions. If you run the InverseDynamicAnalysis
@@ -500,11 +478,7 @@ of the Pmet variable before is has actually been computed:
            // Useful variables for the optimization
            AnyFolder &r = Main.Bike2D.Model.Leg2D.Right.Mus;
            AnyFolder &l = Main.Bike2D.Model.Leg2D.Left.Mus;
-           AnyVar Pmet =
-      r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+
-     r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+
-     l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+
-     l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
+           AnyVar Pmet = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
            AnyOutputFun MaxAct = {
              Val = .MaxMuscleActivity;
            };
