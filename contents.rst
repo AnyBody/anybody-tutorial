@@ -3,6 +3,7 @@ Tutorials
 =================
 
 .. toctree::
+    :maxdepth: 2
 
     Tutorial overview <index>
     A_Getting_started/index 

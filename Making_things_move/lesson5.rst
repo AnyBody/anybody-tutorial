@@ -1,3 +1,5 @@
+.. _making_things_move_move_real_mocap: 
+
 Lesson 5: Using real data
 #########################
 
@@ -14,7 +16,7 @@ for data processing.
 
 
 .. note:: Make sure you have installed a your own copy of the AnyBody Model repository (AMMR). 
-     See the :ammr:doc:`AMMR documentation <Installation>`.
+     See the :ammr:ref:`AMMR documentation <installing_ammr>`.
 
 1. Go to the folder :file:`Application/MocapExamples/Plug-in-gait_Simple`.
 

@@ -53,8 +53,7 @@ Then run the following commands to install the necesssary packages.
 
 .. code-block:: bat
 
-    c:\path\to\anybody_tutorials> conda install -c conda-forge sphinx pandoc cloud_sptheme pygments_anyscript
-    c:\path\to\anybody_tutorials> pip install sphinxcontrib-fulltoc
+    c:\path\to\anybody_tutorials> conda install -c conda-forge sphinx cloud_sptheme pygments_anyscript
 
 Once the packages are install run this command to build the tutorial files. 
 

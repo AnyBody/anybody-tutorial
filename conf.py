@@ -70,7 +70,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
     # 3rd party extensions
-    'sphinxcontrib.fulltoc',
+    #'sphinxcontrib.fulltoc',
     'cloud_sptheme.ext.index_styling',
     'cloud_sptheme.ext.relbar_toc',
     'cloud_sptheme.ext.escaped_samp_literals',
