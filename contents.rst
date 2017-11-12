@@ -3,9 +3,18 @@ Tutorials
 =================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
+    :titlesonly:
 
     Tutorial overview <index>
+
+
+.. toctree::
+    :maxdepth: 2
+    :includehidden:
+    :titlesonly:
+    :numbered: 1
+
     A_Getting_started/index 
     A_Getting_started_anyscript/index
     A_Getting_started_modeling/index
@@ -24,3 +33,8 @@ Tutorials
     Parameter_studies_and_optimization/index
     Troubleshooting_anyscript/intro
     Posture_and_movement/intro
+
+.. toctree::
+    :maxdepth: 1
+
+    legal
