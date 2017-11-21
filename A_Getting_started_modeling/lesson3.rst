@@ -530,7 +530,7 @@ control the default drivers of the human model like this:
       // Using the right leg as 'TLEM' model
       #define BM_LEG_RIGHT _LEG_MODEL_TLEM1_
       // Excluding the muscles in the right leg segments
-      #define BM_LEG_MUSCLES_RIGHT _MUSCLES_NONE_  
+      #define BM_LEG_MUSCLES _MUSCLES_NONE_  
       // Excluding the default drivers for the human model
       §#define BM_MANNEQUIN_DRIVER_DEFAULT OFF§
       //<--

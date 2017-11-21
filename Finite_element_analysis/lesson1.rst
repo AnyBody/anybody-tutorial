@@ -49,8 +49,8 @@ generating muscles; this will keep the force output files small.
 
      #ifdef FEA_OUTPUT
      // switch the muscles off for simplicity
-     #define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
-     #define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_
+     #define BM_LEG_MUSCLES _MUSCLES_NONE_
+     #define BM_ARM_MUSCLES _MUSCLES_NONE_
      #define BM_TRUNK_MUSCLES _MUSCLES_NONE_
      #endif
 
