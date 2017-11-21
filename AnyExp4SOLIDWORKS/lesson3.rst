@@ -42,9 +42,9 @@ new created file ‘FitnessMachine\_With\_Human.main.any’ to
       #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
     
       // Switch off all muscles of the body model
-      §#define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
+      §#define BM_LEG_MUSCLES _MUSCLES_NONE_
       #define BM_TRUNK_MUSCLES _MUSCLES_NONE_
-      #define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_§
+      #define BM_ARM_MUSCLES _MUSCLES_NONE_§
     
       // Include default human model
       #include "<ANYBODY_PATH_BODY>\HumanModel.any"
@@ -242,9 +242,9 @@ setting a BM statement in the Main folder:
       #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
       
       // Switch off all muscles of the body model
-      #define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
+      #define BM_LEG_MUSCLES _MUSCLES_NONE_
       #define BM_TRUNK_MUSCLES _MUSCLES_NONE_
-      #define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_
+      #define BM_ARM_MUSCLES _MUSCLES_NONE_
       // Switch of the default drivers
       §#define BM_MANNEQUIN_DRIVER_DEFAULT OFF§
       
@@ -378,9 +378,9 @@ beginning of this lesson.
       #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
     
       // Switch off all muscles of the body model
-      §//#define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
+      §//#define BM_LEG_MUSCLES _MUSCLES_NONE_
       //#define BM_TRUNK_MUSCLES _MUSCLES_NONE_
-      //#define BM_ARM_MUSCLES_BOTH _MUSCLES_NONE_§
+      //#define BM_ARM_MUSCLES _MUSCLES_NONE_§
       // Switch of the default drivers
       #define BM_MANNEQUIN_DRIVER_DEFAULT OFF
     
