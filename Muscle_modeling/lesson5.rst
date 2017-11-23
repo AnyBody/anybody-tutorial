@@ -213,71 +213,102 @@ parameters presented in the Chart View:
 
 |Muscle parameters|
 
--  **Fin** is a force, but it has no physiological significance for a
-   muscle except for internal purposes. The reason why it is included in
-   the output is that it is inherited from the AnyScript classes that a
-   muscle is derived from.
 
--  **Fout** is the generalized force of the muscle-tendon unit.
+.. list-table:: 
+  :widths: 3 10
+  :header-rows: 1
 
--  **Lmt** is the total length of the muscle-tendon unit, i.e. the
-   origin-insertion length.
+  * - Variable
+    - Description
 
--  **Lm** is the length of the muscle's contractile element.
+  * - ``Fin``
+    - is a force, but it has no physiological significance for a
+      muscle except for internal purposes. The reason why it is included in
+      the output is that it is inherited from the AnyScript classes that a
+      muscle is derived from.
 
--  **Lt** is the length of the tendon. This is not necessarily the same
-   as Lt0 because the tendon is elastic and therefore stretches
-   slightly with the force.
+  * - ``Fout``
+    - The generalized force of the muscle-tendon unit.
 
--  **LmtDot** is the rate of change of Lmt, i.e. the length change
-   velocity of the total muscle-tendon unit.
+  * - ``Lmt`` 
+    - The total length of the muscle-tendon unit, i.e. the
+      origin-insertion length.
 
--  **LmDot** is the contraction velocity of the contractile element.
+  * - ``Lm`` 
+    - The length of the muscle's contractile element.
 
--  **Activity** is the muscle active state in fractions of maxmum
-   voluntary contraction.
+  * - ``Lt`` 
+    - The length of the tendon. This is not necessarily the same
+      as Lt0 because the tendon is elastic and therefore stretches
+      slightly with the force.
 
--  **CorrectedActivity** for this muscle model is the same as Activity.
-
--  **Fm** is the force in the muscle's contractile element. For this
-   muscle type it is equal to the total force in the muscle-tendon unit
-   because the muscle does not have any parallel components.
-
--  **Ft** is the force in the tendon. For this muscle model it is the
-   same as Fm.
-
--  **Fp** is not relevant for this type of muscle model.
-
--  **Strength** is the muscle's strength at each moment of the movement.
-
--  **Ft0** is not relevant for this type of muscle model.
-
--  **Ft0Grad** is the derivative of tendon force with respect to active
-   state. For this muscle model it amounts to exactly the same as the
-   Strength variable, but for muscles with parallel elasticity the two
-   properties will be different.
-
--  **PennationAngle** is not relevant for this muscle model type.
-
--  **EPOTt** is the potential elastic energy in the tendon.
-
--  **EPOTp** is the potential elastic energy in the parallel-elastic
-   element, which is not included in this muscle model.
-
--  **EPOTmt** is the total elastic potential energy in the muscle-tendon
-   unit.
-
--  **Pt** is not relevant for this muscle model.
-
--  **Pm** is the mechanical power exerted by the muscle's contractile
-   element.
-
--  **Pmt** is the mechanical power of the muscle-tendon unit on the
-   skeleton.
-
--  **Pmet** is a crude estimate of the metabolic power consumption of
-   the muscle taking different efficiencies for concentric and eccentric
-   work into account.
+  * - ``LmtDot`` 
+    - The rate of change of Lmt, i.e. the length change
+      velocity of the total muscle-tendon unit.
+  
+  * - ``LmDot``
+    - The contraction velocity of the contractile element.
+  
+  * - ``Activity`` 
+    - The muscle active state in fractions of maxmum
+      voluntary contraction.
+  
+  * - ``CorrectedActivity``
+    - For this muscle model this  is the same as Activity.
+  
+  * - ``Fm`` 
+    - The force in the muscle's contractile element. For this
+      muscle type it is equal to the total force in the muscle-tendon unit
+      because the muscle does not have any parallel components.
+  
+  * - ``Ft`` 
+    - The force in the tendon. For this muscle model it is the
+      same as Fm.
+  
+  * - ``Fp``
+    - is not relevant for this type of muscle model.
+  
+  * - ``Strength``
+    - The muscle's strength at each moment of the movement.
+  
+  * - ``Ft0`` 
+    - is not relevant for this type of muscle model.
+  
+  * - ``Ft0Grad``
+    - The derivative of tendon force with respect to active
+      state. For this muscle model it amounts to exactly the same as the
+      Strength variable, but for muscles with parallel elasticity the two
+      properties will be different.
+  
+  * - ``PennationAngle``
+    - This is not relevant for this muscle model type.
+  
+  * - ``EPOTt`` 
+    - The potential elastic energy in the tendon.
+  
+  * - ``EPOTp`` 
+    - The potential elastic energy in the parallel-elastic
+      element, which is not included in this muscle model.
+  
+  * - ``EPOTmt``
+    - The total elastic potential energy in the muscle-tendon
+      unit.
+  
+  * - ``Pt`` 
+    - This is not relevant for this muscle model.
+  
+  * - ``Pm`` 
+    - The mechanical power exerted by the muscle's contractile
+      element.
+  
+  * - ``Pmt`` 
+    - The mechanical power of the muscle-tendon unit on the
+      skeleton.
+  
+  * - ``Pmet`` 
+    - This is a crude estimate of the metabolic power consumption of
+      the muscle taking different efficiencies for concentric and eccentric
+      work into account.
 
 We have seen how the length of the muscle affects its strength, but what
 about the velocity? Well, the specified values of -8 m/s is a reasonable
@@ -495,24 +526,26 @@ physiological and mathematical background in detail. Instead please
 refer to the publications at the end of this lesson for further
 information:
 
-.. list-table:: 
-   :widths: 3 10
-   :header-rows: 1
+
    
-   * - Parameter
-     - Function
-   * - Gamma0
-     - Gamma is the so-called pennation angle. It reflects that fact that most muscles have the fibers misaligned with the directions of action of the muscle. Gamma changes when the muscle extends or contracts, and Gamma0 is the value of Gamma in the muscle's neutral position. It is possible to find values for Gamma0 for most major muscles in the human body in the anatomical literature. Gamma0 is measured in radians.
-   * - Fcfast
-     - Muscle fibers come in two flavors: fast twitch and slow twitch, and the composition of these vary between the muscles as well as between individuals. Fast fibers, as the name indicates, have the ability of fast action at the cost of stamina, and slow fibers have opposite properties. Sprint runners have a high proportion of fast twitch muscles while marathon runners have many slow twitch muscles. Fcfast is the fraction of fast twitch fibers in the muscle. It is a fraction between 0 and 1 and hence dimensionless.
-   * - Jt and Jpe
-     - Jt and Jpe are elasticity factors for the tendon (serial-elastic) and parallel-elastic elements respectively. The background of these parameters is that the model presumes a nonlinear elasticity of these elements, and the precise shape of the force-deformation characteristics of the element are determined by Jt and Jpe respectively. In essence, Jt and Jpe are material constants and should not vary too much between different muscles or individuals. Recommended values are Jt = Jpe = 3.0. These two parameters are dimensionless. 
-   * - K1 and K2
-     - These two factors are used only to ensure a reasonable relationship between fiber length, fiber composition, and Fcfast. As discussed in the preceding section, the strength of a muscle tapers off when its contraction velocity grows. Rather than working with a given maximum contraction speed as the two-element model does, K1 and K2 enable us to link the maximum contraction speed to the physiological properties of the muscle. The idea is that muscles with longer fibers and a larger fraction of fast twitch muscles should have a higher maximum contraction velocity. Preferred values for K1 and K2 differ significantly between authors in the scientific literature, but a good guess would be K1 = 2 and K2 = 8. K1 and K2 formally have the unit of fractions per time unit, i.e. s\ :sup:`-1`.
-   * - PEFactor
-     - This factor is related to Jpe. Where Jpe controls the shape of the nonlinearity, PEFactor controls the steepness of the force in the parallel-elastic element as it is elongated. If we imagine a completely inactive muscle and load the muscle with a force corresponding to the active strength of the muscle, i.e. F0, then the length of the elongated muscle fibers will be PEFactor x Lf0. In other words PEFactor is a dimensionless measure of the flexibility of the parallel-elastic element of the muscle. 
-   * - Gammabar
-     - This is the deprecated parameter for Gamma0.
+``Gamma0``
+    Gamma is the so-called pennation angle. It reflects that fact that most muscles have the fibers misaligned with the directions of action of the muscle. Gamma changes when the muscle extends or contracts, and Gamma0 is the value of Gamma in the muscle's neutral position. It is possible to find values for Gamma0 for most major muscles in the human body in the anatomical literature. Gamma0 is measured in radians.
+
+``Fcfast``
+    Muscle fibers come in two flavors: fast twitch and slow twitch, and the composition of these vary between the muscles as well as between individuals. Fast fibers, as the name indicates, have the ability of fast action at the cost of stamina, and slow fibers have opposite properties. Sprint runners have a high proportion of fast twitch muscles while marathon runners have many slow twitch muscles. Fcfast is the fraction of fast twitch fibers in the muscle. It is a fraction between 0 and 1 and hence dimensionless.
+
+``Jt`` and ``Jpe``
+  Jt and Jpe are elasticity factors for the tendon (serial-elastic) and parallel-elastic elements respectively. The background of these parameters is that the model presumes a nonlinear elasticity of these elements, and the precise shape of the force-deformation characteristics of the element are determined by Jt and Jpe respectively. In essence, Jt and Jpe are material constants and should not vary too much between different muscles or individuals. Recommended values are Jt = Jpe = 3.0. These two parameters are dimensionless. 
+
+``K1`` and ``K2``
+  These two factors are used only to ensure a reasonable relationship between fiber length, fiber composition, and Fcfast. As discussed in the preceding section, the strength of a muscle tapers off when its contraction velocity grows. Rather than working with a given maximum contraction speed as the two-element model does, K1 and K2 enable us to link the maximum contraction speed to the physiological properties of the muscle. The idea is that muscles with longer fibers and a larger fraction of fast twitch muscles should have a higher maximum contraction velocity. Preferred values for K1 and K2 differ significantly between authors in the scientific literature, but a good guess would be K1 = 2 and K2 = 8. K1 and K2 formally have the unit of fractions per time unit, i.e. s\ :sup:`-1`.
+
+``PEFactor``
+  This factor is related to Jpe. Where Jpe controls the shape of the nonlinearity, PEFactor controls the steepness of the force in the parallel-elastic element as it is elongated. If we imagine a completely inactive muscle and load the muscle with a force corresponding to the active strength of the muscle, i.e. F0, then the length of the elongated muscle fibers will be PEFactor x Lf0. In other words PEFactor is a dimensionless measure of the flexibility of the parallel-elastic element of the muscle. 
+
+``Gammabar``
+  This is the deprecated parameter for Gamma0.
+
 
 
 Knowing the significance of the different parameters, let us pick
@@ -678,58 +711,189 @@ the previously inactive Muscle2 to become active:
 With this we can run the InverseDynamics analysis again and get the muscle
 to do some work. Let us systematically investigate the output:
 
-.. table::
-    :widths: 2 5 3
-    :column-alignment: left left center
-    :column-wrapping: false true false
+
         
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Fin                  | This is a force, but it has not physiological significance for a muscle except for internal purposes. The reason why it is included in the output is that it is inherited from the AnyScript classes that a muscle is derived from.                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Fout                 | This  is the generalized force of the muscle-tendon unit.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Lmt                  | The length of the muscle-tendon unit. If you plot this property you will see that it rises almost linearly as the muscle is extended. Closer investigation, however, will reveal that it is offset slightly by the nonlinearity caused by the elongation of the tendon due to the varying force.                                                                                                                                                                                                                                                                                                                                                                                | |Small Lmt plot|               |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Lm                   | The length of the contractile element.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | |small Lm plot|                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Lt                   | The length of the tendon. This appears to be constant, but the tendon length actually changes slightly over the movement with the changes of muscle force as described above.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | |Small Lt plot|                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | LmtDot               | The contraction velocity of the muscle-tendon unit. The value is positive because the muscle is getting longer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | |Small LmtDot plot|            |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | LmDot                | The contraction velocity of the contractile element of the muscle. The value is positive because the muscle is getting longer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | |Small LmDot plot|             |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Activity             | This is the muscle activity before correction for the change in muscle length caused by the elastic elongation of the muscle. The complicated variation is caused by the interplay between change of moment arm of the applied force, the passive force in the muscle and the change of muscle strength with the contraction.                                                                                                                                                                                                                                                                                                                                                   | |Small activity plot|          |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Corrected-Activity   | This is the muscle activity after correction for the tendon elongation. The difference between this graph and the one above is that the activity toward the end is higher after correction. This can be difficult to understand and illustrates the complexity of muscle modeling. The reason is the following: The force in the muscle decreases towards the end of the movement. When the force is reduced, the tendon contracts, and this means that the muscle must elongate even more. Since the muscle length is already in the interval where further elongation will cause decreased strength, the tendon contraction has the effect of increasing the muscle activity. | |Small c-activity plot|        |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Fm                   | The force in the contractile element is decreasing throughout the movement because the moment arm of the external force is decreasing and also because the passive force in the muscle is contributing more and more to balancing the load.                                                                                                                                                                                                                                                                                                                                                                                                                                     | |Small Fm plot|                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Ft                   | The tendon force shows the reduction of the mucle action by virtue of the reduced external force's moment arm alone. A simplified explanation is that Ft = Fm + Fp, but this is not entirely true because we also have to account for the pennation angle.                                                                                                                                                                                                                                                                                                                                                                                                                      | |Small Ft plot|                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Fp                   | The passive force in the muscle increases as the muscle is stretched.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | |Small Fp plot|                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Strength             | This is the strength of the muscle. It is not corrected for the tendon elongation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | |Small strength plot|          |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Ft0                  | The hypothetical force that the tendon would have if the activity of the muscle were zero. The reason why this is slightly different from Fp is that Ft0 acts directly along the action line of the muscle while Fp is diverted by the pennation angle. This property is mostly interesting to scientists involved in detailed modeling of single muscles.                                                                                                                                                                                                                                                                                                                      | |Small Ft0 plot|               |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Ft0Grad              | The gradient of Ft0 with respect to the muscle activity. For mathematical reasons this is equal to the Strength, and the two graphs are identical. The reason why this property is included under to different names is that the simple muscle model, from which this model is derived, does not have Ft0Grad and hence needs a Strength property.                                                                                                                                                                                                                                                                                                                              | |Small Ft0Grad plot|           |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Pennation-Angle      | The pennation angle is the angle between the muscle fiber direction and the muscle line of action. This angle changes when the muscle contracts and elongates, and the model takes this effect into account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | |Small pennation angle plot|   |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | EPOTt                | The elastic potential energy stored in the tendon.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | |Small EPOTt plot|             |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | EPOTp                | The elastic potential energy stored in the parallel-elastic element of the muscle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | |Small EPOTp plot|             |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | EPOTmt               | The elastic potential energy stored in the entire muscle-tendon unit. This can have some practical significance for investigation of movement economy and sports activities in general.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | |Small EPOTmt plot|            |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Pt                   | The rate of change of elastic potential energy in the tendon.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Pm                   | The mechanical power of the contractile element.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | |Small Pm plot|                |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Pmt                  | The mechanical power of the entire muscle-tendon unit, i.e. the rate of work performed on the skeleton. Notice that the power is negative because the muscle is extending against the force. Muscles behaving like this in the human body are often termed antagonistic muscles.                                                                                                                                                                                                                                                                                                                                                                                                | |Small Pmt plot|               |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
-    | Pmet                 | A crude estimate of the metabolism in the muscle. The estimate is based on presumed efficiencies of the contractile element of 25% for concentric work and -120% for eccentric work. The model does not take the metabolism of isometric force into account.                                                                                                                                                                                                                                                                                                                                                                                                                    | |Small Pmet|                   |
-    +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+
+``Fin``
+  This is a force, but it has not physiological significance for a muscle except
+  for internal purposes. The reason why it is included in the output is that it
+  is inherited from the AnyScript classes that a muscle is derived from.
+
+
+
+``Fout``
+  This  is the generalized force of the muscle-tendon unit.
+
+
+
+``Lmt``
+  The length of the muscle-tendon unit. If you plot this property you will see
+  that it rises almost linearly as the muscle is extended. Closer investigation,
+  however, will reveal that it is offset slightly by the nonlinearity caused by
+  the elongation of the tendon due to the varying force.
+  
+  |Small Lmt plot|       
+
+
+``Lm``
+  The length of the contractile element.
+  
+  |small Lm plot|
+
+
+``Lt``
+  The length of the tendon. This appears to be constant, but the tendon length
+  actually changes slightly over the movement with the changes of muscle force
+  as described above.
+  
+  |Small Lt plot|
+
+
+``LmtDot`` 
+  The contraction velocity of the muscle-tendon unit. The value is positive
+  because the muscle is getting longer.
+  
+  |Small LmtDot plot|
+
+
+``LmDot``
+  The contraction velocity of the contractile element of the muscle. The value
+  is positive because the muscle is getting longer.
+  
+  |Small LmDot plot|
+
+
+``Activity`` 
+  This is the muscle activity before correction for the change in muscle length
+  caused by the elastic elongation of the muscle. The complicated variation is
+  caused by the interplay between change of moment arm of the applied force, the
+  passive force in the muscle and the change of muscle strength with the
+  contraction.
+  
+  |Small activity plot|
+
+
+``Corrected-Activity`` 
+  This is the muscle activity after correction for the tendon elongation. The
+  difference between this graph and the one above is that the activity toward
+  the end is higher after correction. This can be difficult to understand and
+  illustrates the complexity of muscle modeling. The reason is the following:
+  The force in the muscle decreases towards the end of the movement. When the
+  force is reduced, the tendon contracts, and this means that the muscle must
+  elongate even more. Since the muscle length is already in the interval where
+  further elongation will cause decreased strength, the tendon contraction has
+  the effect of increasing the muscle activity. 
+  
+  |Small c-activity plot|
+
+
+``Fm``
+  The force in the contractile element is decreasing throughout the movement
+  because the moment arm of the external force is decreasing and also because
+  the passive force in the muscle is contributing more and more to balancing the
+  load.
+  
+  |Small Fm plot|
+
+
+``Ft``
+  The tendon force shows the reduction of the mucle action by virtue of the
+  reduced external force's moment arm alone. A simplified explanation is that Ft
+  = Fm + Fp, but this is not entirely true because we also have to account for
+  the pennation angle.
+  
+  |Small Ft plot|
+
+
+``Fp``
+  The passive force in the muscle increases as the muscle is stretched.
+
+  |Small Fp plot|              
+
+
+``Strength`` 
+  This is the strength of the muscle. It is not corrected for the tendon
+  elongation.
+  
+  |Small strength plot|        
+
+
+``Ft0`` 
+  The hypothetical force that the tendon would have if the activity of the
+  muscle were zero. The reason why this is slightly different from Fp is that
+  Ft0 acts directly along the action line of the muscle while Fp is diverted by
+  the pennation angle. This property is mostly interesting to scientists
+  involved in detailed modeling of single muscles
+  
+  |Small Ft0 plot|
+
+
+``Ft0Grad`` 
+  The gradient of Ft0 with respect to the muscle activity. For mathematical
+  reasons this is equal to the Strength, and the two graphs are identical. The
+  reason why this property is included under to different names is that the
+  simple muscle model, from which this model is derived, does not have Ft0Grad
+  and hence needs a Strength property.
+  
+  |Small Ft0Grad plot|
+
+
+``Pennation-Angle`` 
+  The pennation angle is the angle between the muscle fiber direction and the
+  muscle line of action. This angle changes when the muscle contracts and
+  elongates, and the model takes this effect into account.
+  
+  |Small pennation angle plot|
+
+
+``EPOTt``
+  The elastic potential energy stored in the tendon.
+  
+  |Small EPOTt plot|             
+
+
+``EPOTp``
+  The elastic potential energy stored in the parallel-elastic element of the
+  muscle.
+  
+  |Small EPOTp plot|
+
+
+``EPOTmt``
+  The elastic potential energy stored in the entire muscle-tendon unit. This can
+  have some practical significance for investigation of movement economy and
+  sports activities in general.
+  
+  |Small EPOTmt plot|
+
+
+``Pt``
+  The rate of change of elastic potential energy in the tendon.
+
+
+``Pm``
+  The mechanical power of the contractile element.
+  
+  |Small Pm plot|             
+
+
+``Pmt``
+  The mechanical power of the entire muscle-tendon unit, i.e. the rate of work
+  performed on the skeleton. Notice that the power is negative because the
+  muscle is extending against the force. Muscles behaving like this in the human
+  body are often termed antagonistic muscles.
+  
+  |Small Pmt plot|         
+
+
+``Pmet``
+  A crude estimate of the metabolism in the muscle. The estimate is based on
+  presumed efficiencies of the contractile element of 25% for concentric work
+  and -120% for eccentric work. The model does not take the metabolism of
+  isometric force into account.
+  
+  |Small Pmet|                 
+
+
 
 Calibration
 -----------
