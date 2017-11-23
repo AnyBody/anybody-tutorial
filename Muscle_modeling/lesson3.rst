@@ -4,15 +4,15 @@ Lesson 3: Via-point muscles
 .. include:: /caution_old_tutorial.rst
 
 
-Although the name of the muscle class we have used to far is
-AnyViaPointMuscle, the example has only showed the muscle passing in a
+Although the name of the muscle class we have used so far is
+AnyViaPointMuscle, the example has only shown the muscle passing in a
 straight line between two points. Real muscles in the body rarely do so.
 They are usually constrained by various obstacles on their way from
 origin to insertion, either by connective tissues or by the contact with
 bone surfaces.
 
 In the former case, the muscle tends to pass as a piecewise straight
-line between the constrained points, and this is relatively easy to to
+line between the constrained points, and this is relatively easy to
 accomplish by means of an AnyViaPointMuscle. In the latter case, the
 muscle may engage and release contact with the bone surfaces it
 encounters. This wrapping over bones is a problem of contact mechanics
@@ -137,12 +137,12 @@ A muscle can pass through an unlimited number of via points, and the
 points can be attached to different segments. This can be used to create
 rather complex kinematic behaviors of muscles, but it also requires care
 in the definition to avoid unrealistic muscle paths when the via points
-move about with the different segments.
+move around with the different segments.
 
 From-the-point of view of kinematic robustness, the wrapping muscles are
-easier to handle than via point muscles, but the price is a much higher
-computational expense. Wrapping muscles are the subject of :doc:`*Lesson
-4* <lesson4>`. 
+easier to handle than via point muscles, but the price is much higher
+computationally. Wrapping muscles is the subject of :doc:`Lesson
+4 <lesson4>`. 
 
 
 
