@@ -12,10 +12,10 @@ muscles are not capable of modeling this type of situation, so the
 AnyBody Modeling System has a special muscle object for this purpose.
 
 A wrapping muscle is presumed to have an origin and an insertion just
-like the via point muscle. However, instead of interior via points is
+like the via point muscle. However, instead of interior via points it
 passes a set of surfaces. If the surfaces are blocking the way then the
-muscles finds the shortest geodetic path around the surface. Hence the
-name of the class: AnyShortestPathMuscle. The fact that the muscle
+muscles finds the shortest geodetic path around the surface. For that reason, the
+name of the class is AnyShortestPathMuscle. The fact that the muscle
 always uses the shortest path means that it slides effortlessly on the
 surfaces, and hence there is no friction between the muscle and the
 surface. 
@@ -25,7 +25,7 @@ model. If for some reason you do not have a working model from the
 previous lessons, :download:`you can download one
 here <Downloads/MuscleDemo.4.any>`.
 
-A wrapping muscle needs one or several surfaces to wrap on, so the frst
+A wrapping muscle needs one or several surfaces to wrap on, so the first
 thing to do is to define a surface. For convenience we shall attach the
 surface to the global reference frame, but such wrapping surfaces can be
 attached to any reference frame in the system, including segments. To be
@@ -71,8 +71,8 @@ statement, and change the cylinder parameters as shown below:
             §AnySurfCylinder WrapSurf = {
                Radius = 0.15;
                Length = 0.4;
-               AnyDrawParamSurf drv = {};
-               //CapRatio = 0.100000;
+               //CapRatio = 0.1;
+               //CapRatio2 = 0.1;
              };§
            };
           
@@ -102,8 +102,8 @@ interesting:
              AnySurfCylinder WrapSurf = {
                Radius = 0.15;
                Length = 0.4;
-               AnyDrawParamSurf drv = {};
-               //CapRatio = 0.100000;
+               //CapRatio = 0.1;
+               //CapRatio2 = 0.1;
              };
            };
 
@@ -212,7 +212,7 @@ origin and an insertion, and they are both displayed on the screen by
 means of the same type of drawing object. Notice that if you have many
 muscles in a model and you want to have an easy way of controlling the
 display of all of them, then you can define the drawing object in an
-include file, and include that same file in the definition of all the
+`#include` file, and include that same file in the definition of all the
 muscles. This way, when you change the display definition in the include
 file, it influences all the muscles simultaneously.
 
@@ -244,7 +244,7 @@ sometimes fail to solve the wrapping problem and exit with an error. In
 that case the solution is to increase the number of points.
 
 It is time to see what we have done. If you load the model and run the
-InverseDynamicAnalysis (and have done everything right), you will see
+InverseDynamics analysis (and have done everything right), you will see
 the model moving through a sequence of positions like this:
 
 |wrap cylinder with via point sequence|
@@ -278,7 +278,7 @@ us the following result:
 |wrap cylinder two muscles|
 
 As you can see, both muscles are now wrapping over the cylinder, and we
-can run the InverseDynamicAnalysis. It seems to work, but the system
+can run the InverseDynamics analysis. It seems to work, but the system
 provides the following warning:
 
 ``WARNING - Via-point 'Main.MyModel.GlobalRef.M1Origin' on
@@ -292,7 +292,7 @@ points or a via point is located below the surface over which the muscle
 is supposed to wrap. This means that it is impossible for the muscle to
 pass through the via point without penetrating the wrapping surface. In
 this case the system chooses to let the muscle pass through the via
-point and the back to the wrapping surface as soon as possible. In the
+point and come back to the wrapping surface as soon as possible. In the
 present case, the origin point of Muscle1 is only slightly below the
 cylinder surface, so the problem can be rectified by a small offset on
 the origin point:
@@ -310,7 +310,7 @@ quite right. The reason why both muscle pass over the cylinder rather
 than under is that this is the side that is the closest to the muscles'
 paths before the wrapping is resolved. This means that we can make a
 muscle wrap on another side of a wrapping surface by making sure that
-its initial position is closer to the side we want it to wrap on.  The
+its initial position is closer to the side we want it to wrap on. The
 way to do this is to specify one or more so-called initial wrapping
 vectors. These are really points that the muscle initially should pass
 through. You can specify as many of these points as you like. In the
