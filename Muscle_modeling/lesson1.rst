@@ -12,13 +12,14 @@ models:
    finding the length and contraction velocity of the muscle.
 
 2. The strength model which determines the muscle's strength and
-   possible its passive elastic force depending on the kinematic state
+   possibly its passive elastic force depending on the kinematic state
    of the muscle.
 
- This would be a sad excuse for a tutorial if we did not have an example
+This would be a sad excuse for a tutorial if we did not have an example
 to work on. So let us quickly construct a very simple example that will
-enable us to examine the properties of muscles. :download:`Here's an extremely
-simple one-degree-of-freedom model <Downloads/MuscleDemo.Ini.any>`.
+enable us to examine the properties of muscles. 
+
+Here's an extremely simple :download:`one-degree-of-freedom model <Downloads/MuscleDemo.Ini.any>`.
 
 .. code-block:: AnyScriptDoc
 
@@ -81,8 +82,9 @@ the movement. The arm flexes about the origin of the red reference
 frame. If you try to run the InverseDynamicAnalysis, you will get an
 error:
 
-ERROR: Muscle recruitment analysis failed, simplex solver reports that
-solution does not satisfy all constraints.
+.. code-block:: none
+
+    ERROR: Muscle recruitment analysis failed, simplex solver reports that solution does not satisfy all constraints.
 
 This is because the model does not have any muscles to balance the arm
 against the downward pull of gravity. Let us define the simplest
@@ -91,7 +93,7 @@ basic components: a kinematic model, and a strength model. We shall
 begin with the latter, and for the time being define the simplest
 possible version.
 
-If you pick the Classes tab in the right-hand side of the Window, then
+If you pick the Classes tab in the right-hand side of the window, then
 you will get access to the class tree. Expand the tree as shown in the
 picture until you get to the AnyMuscleModel.
 
@@ -116,9 +118,19 @@ inserted into the model (new code marked with red):
          };
         
          §AnyMuscleModel <ObjectName> = {
-           F0 = 0;
+           F0 = 0.0;
+           //Lf0 = 0.0;
+           //Vol0 = 0.0;
          };§
 
+
+
+.. raw:: html
+
+    <style> .red {color:red} .green {color:green}</style>
+
+.. role:: red
+.. role:: green
 
 This is the simplest type of muscle model the system provides, and it is
 simply a specification of strength corresponding to the assumed maximum
@@ -127,7 +139,14 @@ does not have any dependency on length or contraction velocity, and it
 does not take the passive elasticity of the tissue into account. Despite
 this simplicity, it is used with considerable success for many studies
 where the movements or postures are within the normal range of the
-involved joints, and where contraction velocities are small.
+involved joints, and where contraction velocities are small. 
+
+There are two optional parameters for this model. Vol0 can be used in muscle
+recruitment to form a muscle volume weighted sum of muscle activations; see e.g.
+[Happee_Van_der_Hel_1995]_. ``Lf0`` can be tuned in a calibration study; then
+using ``Vol0``, modified physiological cross sectional area (``PCSA``) of the
+muscle can be computed by the user (e.g. as ``PCSA=Vol0/Lf0``), which can be
+used afterwards to modify the value for ``F0``.
 
 Let us perform the necessary modifications to make the model useful to
 us:
@@ -136,6 +155,8 @@ us:
 
          AnyMuscleModel §SimpleModel§ = {
            F0 = §100§;
+           //Lf0 = 0.0;
+           //Vol0 = 0.0;
          };
 
 
@@ -170,14 +191,18 @@ instance of it:
 
      AnyMuscleModel SimpleModel = {
            F0 = 100;
+           //Lf0 = 0;
+           //Vol0 = 0;
         };
         
-        § AnyViaPointMuscle <ObjectName> = {
-           AnyMuscleModel &<Insert name0> = <Insert object reference (or full object definition)>;
-           AnyRefFrame &<Insert name0> = <Insert object reference (or full object definition)>;
-           AnyRefFrame &<Insert name1> = <Insert object reference (or full object definition)>;
-           //AnyRefFrame &<Insert name2> = <Insert object reference (or full object definition)>;
-         };§
+        § AnyViaPointMuscle <ObjectName> = {
+           //RefFrames = ;
+           //Surfaces = ;
+           AnyMuscleModel &<Insert name0> = <Insert object reference (or full object definition)>;
+           AnyRefFrame &<Insert name0> = <Insert object reference (or full object definition)>;
+           AnyRefFrame &<Insert name1> = <Insert object reference (or full object definition)>;
+           //AnyRefFrame &<Insert name2> = <Insert object reference (or full object definition)>; You can make any number of these objects!
+         };§
 
 
 Let us start by filling out what we can and removing what we have no use
@@ -239,7 +264,7 @@ reference frame and the insertion on the segment:
 
 
 Notice that we have added an AnyDrawMuscle object to the definition.
-Like other classes in AnyScript, muscles are not drawn in the model view
+Like other classes in AnyScript, muscles are not drawn in the Model View
 window unless you specifically ask for it. When you load the model and
 run the SetInitialConditions study you will get the following picture
 (if your model does not load, and you cannot find the error, :download:`click
@@ -258,7 +283,16 @@ for a muscle. As you can see, lots of other properties are available,
 but if you try to plot them you will find that many of them are zero.
 This is because they are not relevant for this very simple type of
 muscle. We shall return to the significance of the different properties
-later in this tutorial. 
+later in this tutorial.  
+
+
+References
+-----------
+
+.. [Happee_Van_der_Hel_1995] Happee, R., & Van der Helm, F. C. T. (1995). The control of shoulder muscles during goal 
+   directed movements, an inverse dynamic analysis. Journal of biomechanics, 28(10), 1179-1191.
+
+
 
 .. rst-class:: without-title
 .. seealso::

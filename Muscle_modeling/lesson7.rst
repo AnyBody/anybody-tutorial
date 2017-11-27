@@ -12,7 +12,7 @@ This tutorial demonstrates how to define, control, and calibrate
 ligaments. We need a model to work on. Please download and save the
 model :download:`*Demo.Ligament.any* <Downloads/Demo.Ligament.any>`. Once you
 have stored it on your hard disk, load it into the AnyBody Modeling
-System and run the SetInitialConditions operation.
+System and run the InitialConditions operation.
 
 |Demo.Ligaments|
 
@@ -20,7 +20,7 @@ As you can see, the model is very simple. The blue structure is an "arm"
 that extends from the center of the yellow Ground reference frame. It is
 hinged at the Ground's origin, and a driver bends it downwards. With the
 movement, the red ligament is stretched, and a force builds up in it.
-Try running the InverseDynamicAnalysis operation. You will see the arm
+Try running the InverseDynamics operation. You will see the arm
 move, and you can subsequently open a Chart View to investigate the
 results:
 
@@ -29,7 +29,7 @@ results:
 As you can see, the ligament force builds up from nothing to about -2000
 N as it is stretched. The value is negative by convention because it
 works in the opposite direction of the stretching. Notice that the graph
-has an initial horizontal part. This is because force does not build up
+has an initial flat part. This is because force does not build up
 until the ligament is stretched beyond its slack length, L0.
 
 Basic Mathematical Behavior
@@ -82,18 +82,18 @@ generally not linear, so we need something extra to be able to specify
 nonlinear behavior. The mathematical background for the
 AnyLigamentModelPol is that it takes the form:
 
-|Ligament equations|
+:math:`F = c_0 + c_1 \epsilon + c_2 \epsilon^2 + c_4 \epsilon^4`
 
 As you can see, it is a fourth order polynomial with the third order
 term missing. The 0'th order coefficient accounts for the slack length,
 and the first order coefficient accounts for the slope when the model is
-linear and the second and fourth order terms are missing. But in the
+linear. In the
 presence of the nonlinear terms it becomes very difficult to interpret
 the significance of each term. For this reason, the nonlinearity in the
 model is defined by two parameters with an easier interpretation than
-the above-mentioned C2 and C4.
+the above-mentioned :math:`c_2` and :math:`c_4`.
 
-The two parameters are called a0 and a1 respectively. The first
+These two parameters are named a0 and a1, respectively. The first
 parameter, a0, defines the slope of the curve at slack length. If you
 study the curve above, you can see that it has a sharp kink at the slack
 length. It changes abruptly from zero slope to the nominal slope given
@@ -116,7 +116,7 @@ zero (for a0 = 0) and the linear slope you see in the curve above for a0
     
 
 
-Subsequently reload the model, run the InverseDynamicAnalysis, and plot
+Subsequently reload the model, run InverseDynamics, and plot
 the ligament force again. You will see the following:
 
 |Chart view Model.Lig.Fin 3|
@@ -139,13 +139,12 @@ If you try the following:
     
 
 
-- then you get something in between:
+then you get something in between, as the following curve:
 
 |Model.Lig.Fin plot 2|
 
 The significance of a1 is much the same, except it has its effect at the
-point (eps1,F1). Rather than at (L0,0). If, for instance you insert
-this:
+point (eps1,F1) rather than at (L0,0). If, for instance you insert 
 
 .. code-block:: AnyScriptDoc
 
@@ -160,7 +159,7 @@ this:
     
 
 
-- then you will get a curve that attains zero slope at (eps1,F1):
+then you will get a curve that attains zero slope at (eps1,F1):
 
 |Model.Lig.Fin zero slope|
 
@@ -182,7 +181,7 @@ The reason for this behavior is the default setting of the parameter
 
 
 which causes the curve to continue a linear behavior after (eps1,F1).
-You can, however, obtain the clean fourth order polynomial behavior is
+You can, however, obtain the clean fourth order polynomial behavior as
 you like by switching this setting off:
 
 .. code-block:: AnyScriptDoc
@@ -202,8 +201,8 @@ you like by switching this setting off:
 |Ligrament plot, fourth order|
 
 Clearly, this causes the curve to diverge after (eps1,F1), which is
-typical for higher order polynomials Unless you have some special reason
-for wanting the pure fourth-order behavior, we recommend that you leave
+typical for higher order polynomials. Unless you have some special reason
+to prefer the pure fourth-order behavior, we recommend that you leave
 LinRegionOnOff = On.
 
 **Calibration**
@@ -215,7 +214,7 @@ to a large error in computed ligament force. It therefore becomes
 crucial that the ligaments fit the other parts of the model exactly.
 
 The easiest way to determine ligament slack lengths is by means of joint
-angles. For most joints where ligaments play in important role, it is
+angles. For most joints where ligaments play an important role, it is
 obvious in which position of the joint the ligament becomes taut.
 Therefore, ligaments are calibrated just like muscles by positioning the
 joints in question and letting the system automatically change L0 of
@@ -249,7 +248,7 @@ to the L0 property of the ligament model:
 |Tree, LigModel.L0|
 
 Double-click it, and its value is shown in the Object Description
-Window. You should find a value of
+window. You should find a value of
 
 Main.LigModel.LigModel.L0 = 1.300000;
 
@@ -261,7 +260,7 @@ value of
 Main.LigModel.LigModel.L0 = 1.573132;
 
 The system has extended the ligament length a bit to fit the joint angle
-of -pi/4. Run the InverseDynamicAnalysis study again, and see the
+of -pi/4. Run the InverseDynamics study again, and see the
 influence of the increased slack length:
 
 |Ligament plot final|

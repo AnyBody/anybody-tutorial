@@ -27,7 +27,7 @@ insert a template from the class tree instead:
 |class tree AnyDrawMuscle|
 
 Erase the previous AnyDrawMuscle, right-click the AnyDrawMuscle in the
-tree view, an insert an instance:
+tree view, and insert an instance:
 
 .. code-block:: AnyScriptDoc
 
@@ -36,15 +36,31 @@ tree view, an insert an instance:
            AnyMuscleModel &Model = .SimpleModel;
            AnyRefFrame &Orig = .GlobalRef.M1Origin;
            AnyRefFrame &Ins = .Arm.M1Insertion;
-           §AnyDrawMuscle drw = {
-             //RGB = {0.554688, 0.101563, 0.117188};
-             //Opacity = 1.000000;
-             //DrawOnOff = 1.000000;
-             //Bulging = 0.000000;
-             //ColorScale = 0.000000;
-             //RGBColorScale = {0.957031, 0.785156, 0.785156};
-             //MaxStress = 250000.000000;
-           };§
+           §AnyDrawMuscle drw = {
+             //Visible = On;
+             //Opacity = 1.0;
+             //Pickable = On;
+             //RGB = {0.5546875, 0.1015625, 0.1171875};
+             //Transparency = 1.0;
+             //DrawOnOff = 1.0;
+             //Bulging = 0.0;
+             //ColorScale = 0.0;
+             //RGBColorScale = {0.95703125, 0.78515625, 0.78515625};
+             //MaxStress = 250000.0;
+             //DrawScaleOnOff = Off;
+             /*DrawScale = 
+             {
+             EnableCreasing = Off;
+             CreasingAngle = 0.524;
+             EnableWireframe = Off;
+             EnableSmoothing = On;
+             Param = 0.0;
+             ParamArray = ;
+             RGBArray = ;
+             OpacityArray = ;
+             };*/
+             //AnyStyleDrawMaterial &<Insert name0> = <Insert object reference (or full object definition)>; You can make any number of these objects!
+           };§
          };
     
 

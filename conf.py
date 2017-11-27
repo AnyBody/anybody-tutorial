@@ -40,7 +40,7 @@ except ImportError:
 def tagged_commit():
     """Check if we are on a tagged commit"""
     try: 
-        subprocess.check_call(['git', 'describe', '--exact-match', 'HEAD'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.check_call(['git', 'describe', '--tags', '--exact-match', 'HEAD'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except subprocess.CalledProcessError:
         return False
     else:
@@ -51,7 +51,7 @@ if tags.has('offline'):
     # offline build. e.g. for ams 
     pass
 
-if not tagged_commit():
+if not tagged_commit() and not tags.has('offline'):
     tags.add('draft')
 
 
