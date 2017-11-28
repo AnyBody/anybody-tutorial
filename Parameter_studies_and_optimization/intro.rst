@@ -19,15 +19,15 @@ behavior of the model. Some examples of applications are:
 
 -  Optimization of the layout of a bicycle for a particular person.
 
--  Answering research questions such as: Could a T. rex jump? With
+-  Answering research questions such as: Could a T-rex jump? With
    optimization you can find the movement pattern that maximizes, for
    instance, the jump height given the body weight and limitations on
    muscular strength.
 
-.. figure:: _static/intro/image1.gif
+.. image:: _static/intro/image1.gif
 
-   Parameter study: Metabolic efficiency of a bicycle as a function of
-   seat height and seat horizontal position.*
+`Parameter study: Metabolic efficiency of a bicycle as a function of
+seat height and seat horizontal position.`
 
 This functionality is provided through two complementary
 :doc:`*studies* </A_study_of_studies/intro>`:

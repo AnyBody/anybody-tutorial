@@ -13,12 +13,12 @@ be able to have a slightly more general formulation than physiological
 muscles, which are confined to acting along strings.
 
 The solution is the AnyGeneralMuscle class. This type of muscle is
-capable of acting on `Kinematic Measures`. `Kinematic Measures` is an
+capable of acting on *Kinematic Measures*. *Kinematic Measures* is an
 abstract class representing anything you can measure on a model, and
-there is in fact :doc:`*an entire tutorial lesson devoted to the
-subject* <../The_mechanical_elements/lesson4>` in the
-section on :doc:`*The Mechanical
-Elements* <../The_mechanical_elements/intro>`. Some
+there is in fact :doc:`an entire tutorial lesson devoted to the
+subject <../The_mechanical_elements/lesson4>` in the
+section on :doc:`The Mechanical
+Elements <../The_mechanical_elements/intro>`. Some
 examples are:
 
 -  A general muscle working on a distance measure between two points
@@ -52,15 +52,13 @@ muscles to the joints to replace the physiological muscles of the body.
 This way, the "muscle forces" computed in the general muscles will
 simply be the joint torques.
 
-The example from the preceding lessons is not well suited to play with
-joint torques, so please download a new example to start on by
-:download:`*clicking here (right-click and save MuscleDemo.6.any to
-disk).* <Downloads/MuscleDemo.6.any>` This is in fact a simplified
-version of the simple arm example from the *Getting Started with
-AnyScript* tutorial, where the muscles have been removed. The model has
-two segments, an upper arm and a forearm, and is attached to the global
-reference frame at the shoulder. It has a 100 N vertical load acting
-downwards at the hand.
+The example from the preceding lessons is not well suited to play with joint
+torques, so please :download:`download a new example to start on.
+<Downloads/MuscleDemo.6.any>` This is in fact a simplified version of the simple
+arm example from the *Getting Started with AnyScript* tutorial, where the
+muscles have been removed. The model has two segments, an upper arm and a
+forearm, and is attached to the global reference frame at the shoulder. It has a
+100 N vertical load acting downwards at the hand.
 
 |Arm 2D|
 
@@ -456,7 +454,7 @@ the shoulder would have been able to help the elbow in the former case
 by generating an additional force pushing against the wall.
 
 This completes the part of this tutorial dealing with muscles. But we
-are not completely finished yet. The :doc:`*next lesson* <lesson7>`
+are not completely finished yet. The :doc:`next lesson <lesson7>`
 deals with the important topic of ligament modeling.
 
 

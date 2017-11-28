@@ -15,12 +15,11 @@ models:
    possibly its passive elastic force depending on the kinematic state
    of the muscle.
 
- This would be a sad excuse for a tutorial if we did not have an example
+This would be a sad excuse for a tutorial if we did not have an example
 to work on. So let us quickly construct a very simple example that will
 enable us to examine the properties of muscles. 
 
-:download:`Here's an extremely
-simple one-degree-of-freedom model <Downloads/MuscleDemo.Ini.any>`.
+Here's an extremely simple :download:`one-degree-of-freedom model <Downloads/MuscleDemo.Ini.any>`.
 
 .. code-block:: AnyScriptDoc
 
@@ -83,8 +82,9 @@ the movement. The arm flexes about the origin of the red reference
 frame. If you try to run the InverseDynamicAnalysis, you will get an
 error:
 
-`ERROR: Muscle recruitment analysis failed, simplex solver reports that
-solution does not satisfy all constraints.`
+.. code-block:: none
+
+    ERROR: Muscle recruitment analysis failed, simplex solver reports that solution does not satisfy all constraints.
 
 This is because the model does not have any muscles to balance the arm
 against the downward pull of gravity. Let us define the simplest
@@ -141,7 +141,12 @@ this simplicity, it is used with considerable success for many studies
 where the movements or postures are within the normal range of the
 involved joints, and where contraction velocities are small. 
 
-There are two optional parameters for this model. Vol0 can be used in muscle recruitment to form a muscle volume weighted sum of muscle activations; see e.g. [Happee_Van.der.Helm_1995]_. Lf0 can be tuned in a calibration study; then using Vol0, modified physiological cross sectional area (PCSA) of the muscle can be computed by the user (e.g. as PCSA=Vol0/Lf0), which can be used afterwards to modify the value for F0.
+There are two optional parameters for this model. Vol0 can be used in muscle
+recruitment to form a muscle volume weighted sum of muscle activations; see e.g.
+[Happee_Van_der_Hel_1995]_. ``Lf0`` can be tuned in a calibration study; then
+using ``Vol0``, modified physiological cross sectional area (``PCSA``) of the
+muscle can be computed by the user (e.g. as ``PCSA=Vol0/Lf0``), which can be
+used afterwards to modify the value for ``F0``.
 
 Let us perform the necessary modifications to make the model useful to
 us:
@@ -284,7 +289,8 @@ later in this tutorial. 
 References
 -----------
 
-.. [Happee_Van.der.Helm_1995] Happee, R., & Van der Helm, F. C. T. (1995). The control of shoulder muscles during goal directed movements, an inverse dynamic analysis. Journal of biomechanics, 28(10), 1179-1191.
+.. [Happee_Van_der_Hel_1995] Happee, R., & Van der Helm, F. C. T. (1995). The control of shoulder muscles during goal 
+   directed movements, an inverse dynamic analysis. Journal of biomechanics, 28(10), 1179-1191.
 
 
 
