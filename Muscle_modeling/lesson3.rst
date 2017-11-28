@@ -1,4 +1,4 @@
-Lesson 3: Via-point muscles
+Lesson 3: Via-point Muscles
 ===========================
 
 .. include:: /caution_old_tutorial.rst
