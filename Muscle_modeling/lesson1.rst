@@ -141,7 +141,7 @@ this simplicity, it is used with considerable success for many studies
 where the movements or postures are within the normal range of the
 involved joints, and where contraction velocities are small. 
 
-There are two optional parameters for this model. Vol0 can be used in muscle recruitment to form a muscle volume weighted sum of muscle activations; see e.g. [Happee_1994]_. Lf0 can be tuned in a calibration study; then using Vol0, modified physiological cross sectional area (PCSA) of the muscle can be computed by the user (e.g. as PCSA=Vol0/Lf0), which can be used afterwards to modify the value for F0.
+There are two optional parameters for this model. Vol0 can be used in muscle recruitment to form a muscle volume weighted sum of muscle activations; see e.g. [Happee_Van.der.Helm_1995]_. Lf0 can be tuned in a calibration study; then using Vol0, modified physiological cross sectional area (PCSA) of the muscle can be computed by the user (e.g. as PCSA=Vol0/Lf0), which can be used afterwards to modify the value for F0.
 
 Let us perform the necessary modifications to make the model useful to
 us:
@@ -284,7 +284,7 @@ later in this tutorial. 
 References
 -----------
 
-.. [Happee_1994] Happee, R. (1994). Inverse dynamic optimization including muscular dynamics, a new simulation method applied to goal directed movements. Journal of Biomechanics, 27(7), 953-960.
+.. [Happee_Van.der.Helm_1995] Happee, R., & Van der Helm, F. C. T. (1995). The control of shoulder muscles during goal directed movements, an inverse dynamic analysis. Journal of biomechanics, 28(10), 1179-1191.
 
 
 

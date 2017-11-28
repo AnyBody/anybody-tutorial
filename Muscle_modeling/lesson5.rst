@@ -784,7 +784,7 @@ hereunder the motion/posture, of your original AnyBodyStudy. You simply
 need to insert the same references to the model in the
 AnyBodyCalibrationStudy folder as you have in your AnyBodyStudy model.
 
-Adding a single AnyBodyCalibrationStudy object next to your AnyBodySyudy
+Adding a single AnyBodyCalibrationStudy object next to your AnyBodyStudy
 this way, allow you to run its operation called TendonLenghtAdjustment.
 If you run it, you will see the model moving as it does when running the
 InverseDynamics operation of the original AnyBodyStudy. But when the
@@ -809,7 +809,7 @@ What the MuscleCalibrationAnalysis does is to run through the specified
 movement and compute the variation of the origin-insertion length of the
 muscle. It subsequently changes the user-defined value of Lt0 such that
 the length of the contractile element equals the optimum fiber length,
-Lm0, when the origin-insertion length is at its mean value. Notice that
+Lf0, when the origin-insertion length is at its mean value. Notice that
 this does not necessarily correspond to the length when 50% of the
 movement has passed.
 
