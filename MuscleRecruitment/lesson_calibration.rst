@@ -1,17 +1,18 @@
 Lesson 7: Calibration
 =====================
 
-.. include:: /caution_old_tutorial.rst
+.. note:: The following tutorial will explain how to set up your simple
+    calibration study. Calibration is already built into the AMMR, 
+    :ammr:doc`see the AMMR documentation <index>` for more details.
 
-One of the challenges in body modeling is that models must be able to
-change size to reflect individuals of different statures. Even if you
-are working on a model of a particular individual, you will almost
-always want to change the dimensions of the model as you are building
-it. And if you are developing a generic model to represent a range of
-body proportions, you are likely to want the model to depend on the
-anthropometrical parameters you define. For instance, the weight of a
-segment is often represented as some fraction of the full body weight.
-Such a property you could make parametric by simply defining it as a
+One of the challenges in body modeling is that models must be able to change
+size to reflect individuals of different statures. Even if you are working on a
+model of a particular individual, you will almost always want to change the
+dimensions of the model as you are building it. And if you are developing a
+generic model to represent a range of body proportions, you are likely to want
+the model to depend on the anthropometrical parameters you define. For instance,
+the weight of a segment is often represented as some fraction of the full body
+weight. Such a property you could make parametric by simply defining it as a
 function of the full body weight by means of a simple formula.
 
 But other dimensions are more subtle and difficult to establish as a
@@ -54,7 +55,7 @@ cause very large antagonistic muscle actions.
 Enough talk! Let's define a muscle and calibrate it. We shall begin with
 the simple arm model we developed in the "Getting Started: AnyScript
 Programming" tutorial. If you have not already saved the model in a
-file, get it here: arm2d.any.
+file, get it here: :download:`arm2d.any <Downloads/arm2d.any>`.
 
 In that simple example, all the muscles were assumed to be of a simple
 type with constant strength. We shall add another and much more detailed
@@ -62,25 +63,19 @@ muscle model:
 
 .. code-block:: AnyScriptDoc
 
-    // -----------------------------------------------------
-    // Muscles
-    // -----------------------------------------------------
     AnyFolder Muscles = {
-    
-      //---------------------------------
-      // We define one simple muscle model, which we will use
-      // for all muscles §except biceps long§
+      // Simple muscle model with constant strength = 300 Newton
       AnyMuscleModel MusMdl = {
-        F0 = 300;
+        F0 = 600;
       };
-    
+
       §AnyMuscleModel3E BicepsLongModel = {
         AnyVar PCSA = 2.66; // Physiological cross sectional area [cm^2]
         F0 = PCSA*30; // Presuming a maximum muscle stress of 30 N/cm^2
-        Lfbar = 0.123; //Optimum fiber length [m]
+        Lf0 = 0.123; //Optimum fiber length [m]
         Lt0 = 0.26; //First guess of tendon slack length [m]
-        Gammabar = 0.3*(pi/180); //Pennation angle converted to radians
-        Epsilonbar = 0.053; //Tendon strain at F0
+        Gamma0 = 0.3*(pi/180); //Pennation angle converted to radians
+        Epsilon0 = 0.053; //Tendon strain at F0
         K1 = 10; //Slow twitch factor
         K2 = 0; //Fast twitch factor(zero when no info available)
         Fcfast = 0.4; //Percentage of fast to slow factor
@@ -88,10 +83,9 @@ muscle model:
         Jpe = 3.0; //Shape parameter for the parallel stiffness
         PEFactor = 5.0; //Parameter for influence of parallel stiffness
       }; // End of BicepsLongModel§
-    };
-
-
-
+      
+      //---------------------------------
+      AnyViaPointMuscle Brachialis = {
 
 As you can see from the comments, the muscle has many parameters you
 have to set. The significance of each of these is explained in detail in
@@ -101,13 +95,13 @@ file, where the red line must be changed:
 
 .. code-block:: AnyScriptDoc
 
-    //---------------------------------
-    AnyViaPointMuscle BicepsLong = {
-      §AnyMuscleModel &MusMdl = .BicepsLongModel;§
-      AnyRefNode &Org = Main.ArmModel.GlobalRef.BicepsLong;
-      AnyRefNode &Ins = ..Segs.LowerArm.Biceps;
-      AnyDrawViaPointMuscle DrwMus = {};
-    };
+      //---------------------------------
+      AnyViaPointMuscle BicepsLong = {
+        §AnyMuscleModel &MusMdl = .BicepsLongModel;§
+        AnyRefNode &Org = ..GlobalRef.BicepsLong;
+        AnyRefNode &Ins = ..Segs.ForeArm.Biceps;
+        AnyDrawMuscle DrwMus = {};
+      };
 
 
 What we have done here is to give BicepsLong a new and more advanced
@@ -117,37 +111,35 @@ InverseDynamics of overloaded models:
 
 .. code-block:: AnyScriptDoc
 
-    AnyBodyStudy ArmStudy = {
-      AnyFolder &Model = .ArmModel;
-      InverseDynamics.Criterion.Type = MR_MinMaxStrict;
-      Gravity = {0.0, -9.81, 0.0};
-    };
+  AnyBodyStudy ArmStudy = {
+    AnyFolder &Model = .ArmModel;
+    §InverseDynamics.Criterion.Type = MR_MinMaxStrict;§
+    Gravity = {0.0, -9.81, 0.0};
+  };
 
 
-Let's have a look at the consequences. Press the M<-S button or F7 and
-subsequently run the InverseDynamics. Then, open a new ChartFX window to
+Let's have a look at the consequences. Press Load button or F7 and
+subsequently run the InverseDynamics study. Then, press Ctrl + 1 to navigate to the Chart  to
 investigate the results.
 
 |Chart view BicepsLong.Ft|
 
-This graph shows the muscle force or more precisely the force in the
-tendon. The force in this more complex muscle model is composed of two
-elements: The active part coming from the contractile element of the
-muscle, and the passive part due to the stretching of the
-parallel-elastic part of the muscle. The two parts come together in the
-tendon force, Ft. The parallel-elastic part of the muscle is represented
-by Fp in the result tree. If you pick this property, you should get the
-following graph:
+This graph shows the muscle force or more precisely the force in the tendon. The
+force in this more complex muscle model is composed of 3 elements: Fm, the
+muscle force is the force from the contractile element of the muscle. Parallel
+to Fm is Fp which is the passive elastic element in the muscle. Conected in
+series of the muscle, is the tendon where Ft is the elastic tendon force. If you
+pick the Fp property, you should get the following graph:
 
 |Chart view BicepsLong.Fp|
 
-The parallel-elastic force sets in when the muscle is stretched beyond
+The parallel-elastic force Fp sets in when the muscle is stretched beyond
 its optimal fiber length. In the movement of this example, the elbow
 starts at 90 degrees flexion, and as the graph shows, this gives rise to
-about 10 N of passive force at the beginning of the movement. This
+about 0.7 N of passive force at the beginning of the movement. This
 indicates that the tendon we have specified is too short. If the
 movement was extending the elbow instead of flexing it, the passive
-force would rise sharply. This means that the result of the simulation
+force would rise. This means that the result of the simulation
 depends a lot on having the correct length of the tendon. If it is too
 short, too much of the load will be carried by passive muscle forces. In
 this example where we have only one muscle with a complex model, it
@@ -158,24 +150,16 @@ dimensions of the model are changed. Instead, the answer is to let
 AnyBody calibrate the tendon length automatically.
 
 AnyBody's advanced muscle model, the AnyMuscleModel3E, is basically a
-phenomenological model based on the classical works of Hill. It presumes
-that each muscle has an optimum contraction in which its fibers have
-their best force-producing capability. If we knew the set of joint
-positions corresponding to this optimum fiber length for each muscle,
-then those joint positions were the ones we would be calibrating the
-muscle in.
+phenomenological model based on the classical works of Hill. It presumes that
+each muscle has an optimum contraction in which its fibers have their best
+force-producing capability. To do a simple 1 parameter calibration we would need
+to know the set of joint positions corresponding to this optimum fiber length
+for each muscle, then those joint positions were the ones we would be
+calibrating the muscle in.
 
-Finding joint positions corresponding to optimum muscle fiber lengths is
-an active and rather young area of research, and the correct values are
-only known for a few muscles in the body. However, it is not surprising
-that we seem to have been built in such a way that our muscles attain
-their optimum fiber lengths in the joint positions where they do most of
-their work, and if you are unable to find the information about optimum
-joint positions you need, then your best choice may be to calibrate the
-muscle in the joint position where it primarily works.
 
 Calibrating the muscle in a particular position requires a calibration
-study. Its basic definition is very simple:
+study. Its basic definition is straightforward:
 
 .. code-block:: AnyScriptDoc
 
@@ -196,13 +180,13 @@ study. Its basic definition is very simple:
      §
 
 
-If you load the model in you can study the structure of the new study:
+If you load the model you can study the structure of the new study in the Operations tab:
 
 |Operations Main.InverseDynamics|
 
 You can see that it has multiple operations. The interesting ones are
 the two latter: TendonLengthAdjustment and LigamentLengthAdjustment. As
-the names indicate they are for tendon and ligament calibration
+the names indicate, they are for tendon and ligament calibration
 respectively. Notice that the study only has one time step. The model
 posture in that step should be the position in which you wish to
 calibrate the tendon. If you run the TendonLengthAdjustment operation
@@ -240,45 +224,42 @@ this:
 
 .. code-block:: AnyScriptDoc
 
-       }; // ArmModel
-      
-       §AnyFolder Drivers = {
-        
-         //---------------------------------
-         AnyKinEqSimpleDriver ShoulderMotion = {
-           AnyRevoluteJoint &Jnt = Main.ArmModel.Jnts.Shoulder;  // Changed!
-           DriverPos = {-100*pi/180};
-           DriverVel = {30*pi/180};
-           Reaction.Type = {Off};
-         }; // Shoulder driver
-        
-         //---------------------------------
-         AnyKinEqSimpleDriver ElbowMotion = {
-           AnyRevoluteJoint &Jnt = Main.ArmModel.Jnts.Elbow;  // Changed!
-           DriverPos = {90*pi/180};
-           DriverVel = {45*pi/180};
-           Reaction.Type = {Off};
-         }; // Elbow driver
-       }; // Driver folder§
+  }; // MyModel
+  
+  §AnyFolder Drivers = {
+    //---------------------------------
+    AnyKinEqSimpleDriver ShoulderMotion = {
+      AnyRevoluteJoint &Jnt = Main.ArmModel.Jnts.Shoulder;  // Changed!
+      DriverPos = {-100*pi/180};
+      DriverVel = {30*pi/180};
+      Reaction.Type = {Off};
+    }; // Shoulder driver
+    
+    //---------------------------------
+    AnyKinEqSimpleDriver ElbowMotion = {
+      AnyRevoluteJoint &Jnt = Main.ArmModel.Jnts.Elbow;  // Changed!
+      DriverPos = {90*pi/180};
+      DriverVel = {45*pi/180};
+      Reaction.Type = {Off};
+    }; // Elbow driver
+  }; // Driver folder§
 
 
 Notice that after moving the Drivers folder we have changed the
 references to the joints. We also have to change the study a little bit.
-This is because the study points at the ArmModel folder, and that no
+This is because the study points at the ArmModel folder and that no
 longer contains a movement, so the study would not know how to move the
 model, unless we add this line:
 
 .. code-block:: AnyScriptDoc
 
-     // =======================================================
-     // "The body study"
-     // =======================================================
-     AnyBodyStudy ArmStudy = {
-         AnyFolder &Model = .ArmModel;
-         AnyFolder &Drivers = .Drivers;
-         InverseDynamics.Criterion.Type = MR_MinMaxStrict;
-         Gravity = {0.0, -9.81, 0.0};
-     };
+  // The study: Operations to be performed on the model
+  AnyBodyStudy ArmStudy = {
+    AnyFolder &Model = .ArmModel;
+    §AnyFolder &Drivers = .Drivers;§
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0};
+  };
 
 
 Now we are ready to define a couple of static drivers specifically for
@@ -287,26 +268,27 @@ below the Drivers folder:
 
 .. code-block:: AnyScriptDoc
 
-     §// -----------------------------------------------------
-     // Calibration Drivers
-     // -----------------------------------------------------
-     AnyFolder CalibrationDrivers = {
-    
-         //---------------------------------
-         AnyKinEqSimpleDriver ShoulderMotion = {
-           AnyJoint &Jnt = Main.ArmModel.Jnts.Shoulder;
-           DriverPos = {-90*pi/180}; // Vertical upper arm
-           DriverVel = {0.0};
-           Reaction.Type = {Off};
-         };
-         //---------------------------------
-         AnyKinEqSimpleDriver ElbowMotion = {
-           AnyJoint &Jnt = Main.ArmModel.Jnts.Elbow;
-           DriverPos = {30*pi/180}; // 20 degrees elbow flexion
-           DriverVel = {0.0};
-           Reaction.Type = {Off};
-         };
-     };§
+  }; // Driver folder
+  
+  §AnyFolder CalibrationDrivers = {
+    //---------------------------------
+    AnyKinEqSimpleDriver ShoulderMotion = {
+      AnyJoint &Jnt = Main.ArmModel.Jnts.Shoulder;
+      DriverPos = {-90*pi/180}; // Vertical upper arm
+      DriverVel = {0.0};
+      Reaction.Type = {Off};
+    };
+    //---------------------------------
+    AnyKinEqSimpleDriver ElbowMotion = {
+      AnyJoint &Jnt = Main.ArmModel.Jnts.Elbow;
+      DriverPos = {30*pi/180}; // 30 degrees elbow flexion
+      DriverVel = {0.0};
+      Reaction.Type = {Off};
+    };
+  };§
+  
+  
+  // The study: Operations to be performed on the model
     
 
 
@@ -314,7 +296,7 @@ These drivers are static because their velocities are zero. They specify
 a posture with the upper arm vertical and the elbow at 30 degrees
 flexion. Notice the expressions converting degrees to radians.
 
-The final step is to modify the calibration study to use the calibration
+The final step is to modify the calibration study is to use the calibration
 drivers:
 
 .. code-block:: AnyScriptDoc
@@ -327,132 +309,14 @@ drivers:
        }; // End of study
 
 
-What we have now is a study that uses the model together with two static
-drivers for calibration of the muscles, and a study that uses the model
-with the previous set of dynamic drivers. If you run the
-CalibrationStudy first, the system will adjust the tendon lengths and
-remember the values for the subsequent run of the AnyBodyStudy. Running
-this sequence of two studies reveals that there is no more passive force
-present in the BicepsLong muscle because it has now been calibrated in a
-more natural position.
-
-The final issue of this tutorial is: How can we handle calibration of
-different muscles in different positions? For instance, it might be
-reasonable to believe that the elbow extensors should be calibrated in a
-different elbow position than the elbow flexors. How can we accomplish
-that? Well a closer investigation of the calibration study listed above
-can actually give us a clue. The study contains the following two lines:
-
-.. code-block:: AnyScriptDoc
-
-     AnyFolder &Model = Main.ArmModel;
-     AnyFolder &Drivers = Main.CalibrationDrivers;
-
-
-This tells us that a study manipulates the objects mentioned inside the
-study folder, in this case the ArmModel and the CalibrationDrivers.
-Perhaps you remember that we took the drivers out of the ArmModel, so
-that we could refer separately to them in the study? We did this to be
-able to not refer to the movement drivers when we run the calibration
-study and vice versa. Similarly, if we want to calibrate a subset of the
-muscles, we simply make it possible to just refer to precisely this
-subset in the study and leave the others out.
-
-Let us create a new muscle model for TricepsLong and calibrate that in
-another position.
-
-.. code-block:: AnyScriptDoc
-
-    }; // End of BicepsLongModel
-    
-     §AnyMuscleModel3E TricepsLongModel = {
-       AnyVar PCSA = 15; // Physiological cross sectional area [cm^2]
-       F0= PCSA*30; // Presuming a maximum muscle stress of 30 N/cm^2
-       Lfbar= 0.194; //Optimum fiber length [m]
-       Lt0 = 0.35; //First guess of tendon slack length [m]
-       Gammabar = 2.0*(pi/180); //Pennation angle converted to radians
-       Epsilonbar = 0.053; //Tendon strain at F0
-       K1 = 10.0; //Slow twitch factor
-       K2 = 0.0; //Fast twitch factor(zero when no info available)
-       Fcfast = 0.4; //Percentage of fast to slow factor
-       Jt = 3.0; //Shape parameter for the tendon stiffness
-       Jpe = 3.0; //Shape parameter for the parallel stiffness
-       PEFactor = 5.0; //Parameter for influence of parallel stiffness
-     }; // End of TricepsLongModel§
-
-
-.. code-block:: AnyScriptDoc
-
-    AnyViaPointMuscle TricepsLong = {
-      §AnyMuscleModel &MusMdl = .TricepsLongModel;§
-      AnyRefNode &Org = ..GlobalRef.TricpesLong;
-      AnyRefNode &Ins = ..Segs.ForeArmArm.Tricpes;
-      AnyDrawViaPointMuscle DrwMus = {};
-    };
-
-Once again we need two drivers to put the model into the posture for
-calibration of the TricepsLong muscle:
-
-.. code-block:: AnyScriptDoc
-
-     §// -----------------------------------------------------
-     // Triceps Calibration Drivers
-     // -----------------------------------------------------
-     AnyFolder TricepsCalibrationDrivers = {
-    
-       //---------------------------------
-       AnyKinEqSimpleDriver ShoulderMotion = {
-         AnyJoint &Jnt = Main.ArmModel.Jnts.Shoulder;
-         DriverPos = {-90*pi/180}; // Vertical upper arm
-         DriverVel = {0.0};
-         Reaction.Type = {Off};
-       };
-      
-       //---------------------------------
-       AnyKinEqSimpleDriver ElbowMotion = {
-         AnyJoint &Jnt = Main.ArmModel.Jnts.Elbow;
-         DriverPos = {90*pi/180}; // 30 degrees elbow flexion
-         DriverVel = {0.0};
-         Reaction.Type = {Off};
-       };
-     };§
-    
-
-
-As you can see, this differs from the drivers for calibration of
-BicepsLong only by using 90 degrees elbow flexion rather than 30
-degrees.
-
-What we could do now is to take the two advanced muscle models out of
-the ArmModel folder, so that we could refer to them individually in the
-study; just like we did with the drivers. But let's try something else
-instead. We'll simply refer directly to the individual elements of the
-ArmModel in the calibration study rather than the entire ArmModel. This
-way we are able to leave out the muscles we do not want to include. So
-we simply make a new study that looks like this:
-
-.. code-block:: AnyScriptDoc
-
-      §// A calibration study for TricepsLong
-      AnyBodyCalibrationStudy TricepsCalibrationStudy = {
-         AnyFixedRefFrame &GlobalRef = Main.ArmModel.GlobalRef;
-         AnyFolder &Segs = Main.ArmModel.Segs;
-         AnyFolder &Jnts = Main.ArmModel.Jnts;
-         AnyViaPointMuscle &TricepsLong = Main.ArmModel.Muscles.TricepsLong;
-         AnyFolder& Drivers = Main.TricepsCalibrationDrivers;
-         nStep = 1;
-   }; // End of study§
-
- 
-
-Notice that this study refers to each folder inside the ArmModel
-individually. This way, we can restrict our references only to the
-TricepsLong muscle and leave all the other muscles out. This means that
-the other muscles will not be affected by this calibration. So if you
-initially calibrate all the muscles by the CalibrationStudy and
-subsequently run the TricepsCalibrationStudy, then the latter will not
-overwrite the effect of the former, but only for the muscle mentioned in
-the study, i.e. the TricepsLong.
+What we have now is a study that uses the model together with two static drivers
+for calibration of the muscles, and a study that uses the model with the
+previous set of dynamic drivers. If you run the CalibrationStudy
+TendonLengthAdjustment first, the system will adjust the tendon lengths and
+remember the values for the until the model is reloaded. Now run the
+InverseDynamics study and have a look at the chart. Notice that the Fp passive
+muscle force now is zero because the BicepsLongModel slack length Lt0 was
+elongated by the calibration. 
 
 Here's a link to the finished :download:`calibration.any example <Downloads/calibration.any>`.
 
