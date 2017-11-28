@@ -2,8 +2,8 @@ Lesson 7: Calibration
 =====================
 
 .. note:: The following tutorial will explain how to set up your simple
-    calibration study. Click here to learn how to use the included  Human Model
-    Calibration Studies.
+    calibration study. Calibration is already built into the AMMR, 
+    :ammr:doc`see the AMMR documentation <index>` for more details.
 
 One of the challenges in body modeling is that models must be able to change
 size to reflect individuals of different statures. Even if you are working on a
