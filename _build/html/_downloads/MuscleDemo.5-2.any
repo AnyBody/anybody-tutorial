@@ -1,0 +1,128 @@
+// This is a very simple model for demonstration of muscle modeling
+
+Main = {
+  
+  AnyFolder MyModel = {
+    
+    // Global Reference Frame
+    AnyFixedRefFrame GlobalRef = {
+      AnyDrawRefFrame drw = {
+        RGB = {1,0,0};
+      };
+      AnyRefNode M1Origin = {
+        sRel = {0.0, 0.15, 0};
+      };
+      
+      AnyRefNode M2Origin = {
+        sRel = {0.0, 0.15, -0.05};
+      };
+      
+      AnyRefNode CylCenter = {
+        sRel = {0, 0, -0.2};
+        ARel = RotMat(20*pi/180,y);
+        
+        AnySurfCylinder WrapSurf = {
+          Radius = 0.15;
+          Length = 0.4;
+          AnyDrawParamSurf drv = {};
+          //CapRatio = 0.100000;
+        };
+      };
+      
+    };  // Global reference frame
+    
+    // Define one simple segment
+    AnySeg Arm = {
+      r0 = {0.500000, 0.000000, 0.000000};
+      Mass = 1.000000;
+      Jii = {0.100000, 1.000000, 1.000000}*0.1;
+      AnyRefNode Jnt = {
+        sRel = {-0.5, 0.0, 0};
+      };      
+      AnyRefNode M1Insertion = {
+        sRel = {0.3, 0.05, 0};
+      };
+      AnyRefNode M2Insertion = {
+        sRel = {-0.2, 0.05, 0.05};
+      };      
+      AnyRefNode ViaPoint = {
+        sRel = {0.0, 0.1, 0};
+      };
+      AnyRefNode Hand = {
+        sRel = {0.5, 0.0, 0};
+      };            
+      AnyDrawSeg drw = {};
+    };
+    
+    AnyForce3D Load = {
+      AnyRefNode &Attachment = .Arm.Hand;
+      F = {-100, -100, 0};
+    };
+    
+    // Attach the segment to ground by a revolute joint
+    AnyRevoluteJoint Jnt = {
+      AnyRefFrame &ref1 = .GlobalRef;
+      AnyRefFrame &ref2 = .Arm.Jnt;
+      Axis = z;
+    };
+    
+    // Drive the revolute joint at constant velocity
+    AnyKinEqSimpleDriver Drv = {
+      DriverPos = {-10*pi/180};
+      DriverVel = {80*pi/180};
+      AnyRevoluteJoint &Jnt = .Jnt;
+      Reaction.Type = {Off};
+    };
+    
+    AnyMuscleModel SimpleModel = {
+      F0 = 100;
+    };
+    
+    AnyMuscleModel2ELin Model2 = {
+      F0 = 200;
+      Lfbar = 0.3;
+      Lt0 = 0.3;
+      Epsilonbar = 0.05;
+      V0 = -0.3;
+    };
+
+    
+    AnyShortestPathMuscle Muscle1 = {
+      AnyMuscleModel &Model = .Model2;
+      AnyRefFrame &Orig = .GlobalRef.M1Origin;
+      AnyRefFrame &Via = .Arm.ViaPoint;
+      AnySurface &srf = .GlobalRef.CylCenter.WrapSurf;
+      AnyRefFrame &Ins = .Arm.M1Insertion;
+      SPLine.StringMesh = 20;
+      AnyDrawMuscle drw = {
+        Bulging = 0;
+        ColorScale = 1;
+        MaxStress = 250000;
+      };
+    };
+      
+    AnyShortestPathMuscle Muscle2 = {
+      AnyMuscleModel &Model = .SimpleModel;
+      AnyRefFrame &Orig = .GlobalRef.M2Origin;
+      AnySurface &srf = .GlobalRef.CylCenter.WrapSurf;
+      AnyRefFrame &Ins = .Arm.M2Insertion;
+      SPLine.StringMesh = 20;
+      SPLine.InitWrapPosVectors = {{-0.2, -0.2, 0},{-0.05,-0.2, 0}};
+      AnyDrawMuscle drw = {
+        Bulging = 0;
+        ColorScale = 1;        
+        MaxStress = 250000;
+      };
+    };
+    
+    
+  }; // MyModel
+  
+  // The study: Operations to be performed on the model
+  AnyBodyStudy MyStudy = {
+    AnyFolder &Model = .MyModel;
+    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
+    Gravity = {0.0, -9.81, 0.0};
+    nStep = 20;
+  };
+};  // Main
