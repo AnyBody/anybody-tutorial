@@ -14,10 +14,10 @@ System.
     :maxdepth: 1
 
     Introduction <Inverse_dynamics>
-    Lesson 1 <lesson1>
-    Lesson 2 <lesson2>
-    Lesson 3 <lesson3>
-    Lesson 4 <lesson4>
-    Lesson 5 <lesson5>
-    Lesson 6 <lesson6>
-    Lesson 7 <lesson_calibration>
+    lesson1
+    lesson2
+    lesson3
+    lesson4
+    lesson5
+    lesson6
+    lesson_calibration
