@@ -34,7 +34,7 @@ be mathematically inverted before they can be used in the AnyBody
 Modeling System. Depending on the complexity of the muscle model, this
 may be more or less difficult.
 
-AnyBody has three muscle models available differing in complexity and
+AnyBody has four muscle model classes available differing in complexity and
 accuracy of their representation of physiological muscles. All of these
 are phenomenological, i.e. they make no attempt to capture the
 complexity of cross bridge dynamics. You may ask why we would want three
@@ -43,27 +43,30 @@ The answer is that accurate models are good, but they are never more
 accurate than the input data, and it is often difficult to find the
 detailed physiological data that the complex models require. Instead of
 basing a computation on data of unknown accuracy it is often preferable
-to go with a simpler model where the approximations are clear.
+to go with a simpler model where the approximations are clear. Furthermore, more complex models need access to reliable source of data for their parameters, and they also need fairly costly calibration steps to improve accuracy.
 
-In short, AnyBody has the following muscle models available:
+Here are the muscle models available in AnyBody. The simple (AnyMuscleModel) and the three-element (AnyMuscleModel3E) muscle models are the most commonly used ones in the AMMR, whereas the two-element (AnyMuscleModel2ELin) and the custom user-defined (AnyMuscleModelUsr1) models provide users with even more freedom to test, learn and benchmark muscle-tendon units.
 
 .. list-table:: 
    :widths: 3 10
-   :header-rows: 0
-   
+   :header-rows: 1
+
+   * - Class Name
+     - Description   
    * - AnyMuscleModel
-     - This is the simplest conceivable muscle model, and it is the one we have used in the preceding lessons of this tutorial. The only input to the model is the muscle's presumed isometric strength, F0, i.e. the force that the muscle can exert in a static condition at its optimal length. F0 is often believed to be proportional to the physiological cross sectional area of the muscle, and it is possible to find that dimension for most significant muscles in the human body from cadaver studies reported in the scientific literature. It is important to stress that the strength of this muscle model is independent of the muscle's current length and contraction velocity. It is known for a fact that muscles do not behave that way, but for models with moderate contraction velocities and small joint angle variations even this simple model will work reasonably well. Such has been shown to be the case for bicycling and gait.
-   * - AnyMuscleModel2ELin
-     - This model presumes that the muscle strength is proportional to the current length and to the contraction velocity. This means that the muscle gets weaker when its length decreases or the contraction velocity increases. In other words, the muscle strength is bilinear in the length and velocity space. The model also presumes that the tendon is linearly elastic and as such contains two elements: A contractile element (the muscle), and a serial-elastic element (the tendon). The rationale behind this model is that a muscle has a certain passive elasticity built into it. If the muscle it stretched far enough, the passive elasticity will build up force and reduce the necessity for active muscle force. This is in some cases equivalent to an increase of the muscle's strength. Notice, however, that this model has the significant drawback that the force can be switched off even if the muscle is stretched very far, while the true passive elasticity will always provide a force when it is stretched.
+     - This is the simplest conceivable muscle model, and it is the one we have used in the preceding lessons of this tutorial. The only required input to the model is the muscle's presumed isometric strength, F0, i.e. the force that the muscle can exert in a static condition at its optimal length. F0 is often believed to be proportional to the physiological cross sectional area of the muscle, and it is possible to find that dimension for most significant muscles in the human body from cadaver studies reported in the scientific literature. It is important to stress that the strength of this muscle model is independent of the muscle's current length and contraction velocity. It is known for a fact that muscles do not behave that way, but for models with moderate contraction velocities and small joint angle variations even this simple model will work reasonably well. Such has been shown to be the case for bicycling and gait.
    * - AnyMuscleModel3E
      - This is a full-blown Hill model that takes parallel passive elasticity of the muscle, serial elasticity of the tendon, pennation angle of the fibers, and many other properties into account. However, it also requires several physiological parameters that may be difficult to get or estimate for a particular muscle in a particular individual. The concepts for this model are adopted from [Zajac_1989]_.
+   * - AnyMuscleModel2ELin
+     - This model presumes that the muscle strength is proportional to its current length and contraction velocity. This means that the muscle gets weaker when its length decreases or the contraction velocity increases. In other words, the muscle strength is bilinear in the length and velocity space. The model also presumes that the tendon is linearly elastic and as such contains two elements: A contractile element (the muscle), and a serial-elastic element (the tendon). The rationale behind this model is that a muscle has a certain passive elasticity built into it. If the muscle it stretched far enough, the passive elasticity will build up force and reduce the necessity for active muscle force. This is in some cases equivalent to an increase of the muscle's strength. Notice, however, that this model has the significant drawback that the force can be switched off even if the muscle is stretched very far, while the true passive elasticity will always provide a force when it is stretched.
+   * - AnyMuscleModelUsr1
+     - This is a custom user-defined muscle model. The users are free to define the strength of the muscle as any explicit expression of muscle variables (e.g. length and velocity), kinematic measures and time. 
+
 
 In the remainder of this lesson we shall experiment with the consequences
 of the different muscle models. The AnyScript model from the previous
 lesson will suffice very nicely. You can download a functional version
-of the model here:
-
-:download:`MuscleDemo.5.any<Downloads/MuscleDemo.5.any>`
+of the model here: :download:`MuscleDemo.5.any<Downloads/MuscleDemo.5.any>`.
 
 AnyMuscleModel2ELin
 -------------------
@@ -711,192 +714,133 @@ the previously inactive Muscle2 to become active:
 With this we can run the InverseDynamics analysis again and get the muscle
 to do some work. Let us systematically investigate the output:
 
+.. list-table:: 
+  :widths: 4 8 3
+  :header-rows: 1
 
-        
-``Fin``
-  This is a force, but it has not physiological significance for a muscle except
-  for internal purposes. The reason why it is included in the output is that it
-  is inherited from the AnyScript classes that a muscle is derived from.
+  * - Variable
+    - Description
+    - Plot
 
+  * - ``Fin``
+    - is a force, but it has no physiological significance for a
+      muscle except for internal purposes. The reason why it is included in
+      the output is that it is inherited from the AnyScript classes that a
+      muscle is derived from.
+    - 
 
+  * - ``Fout``
+    - This is the generalized force of the muscle-tendon unit.
+    - 
 
-``Fout``
-  This  is the generalized force of the muscle-tendon unit.
+  * - ``Lmt``
+    - The length of the muscle-tendon unit. If you plot this property you will see that it rises almost linearly as the muscle is extended. Closer investigation, however, will reveal that it is offset slightly by the nonlinearity caused by the elongation of the tendon due to the varying force.
+    - |Small Lmt plot|
 
-
-
-``Lmt``
-  The length of the muscle-tendon unit. If you plot this property you will see
-  that it rises almost linearly as the muscle is extended. Closer investigation,
-  however, will reveal that it is offset slightly by the nonlinearity caused by
-  the elongation of the tendon due to the varying force.
-  
-  |Small Lmt plot|       
-
-
-``Lm``
-  The length of the contractile element.
-  
-  |small Lm plot|
-
-
-``Lt``
-  The length of the tendon. This appears to be constant, but the tendon length
-  actually changes slightly over the movement with the changes of muscle force
-  as described above.
-  
-  |Small Lt plot|
+  * - ``Lm``
+    - The length of the contractile element.
+    - |small Lm plot|
 
 
-``LmtDot`` 
-  The contraction velocity of the muscle-tendon unit. The value is positive
-  because the muscle is getting longer.
-  
-  |Small LmtDot plot|
+  * - ``Lt``
+    - The length of the tendon. This appears to be constant, but the tendon length actually changes slightly over the movement with the changes of muscle force as described above.
+    - |Small Lt plot|
 
 
-``LmDot``
-  The contraction velocity of the contractile element of the muscle. The value
-  is positive because the muscle is getting longer.
-  
-  |Small LmDot plot|
+  * - ``LmtDot``
+    - The contraction velocity of the muscle-tendon unit. The value is positive because the muscle is getting longer.
+    - |Small LmtDot plot|
 
 
-``Activity`` 
-  This is the muscle activity before correction for the change in muscle length
-  caused by the elastic elongation of the muscle. The complicated variation is
-  caused by the interplay between change of moment arm of the applied force, the
-  passive force in the muscle and the change of muscle strength with the
-  contraction.
-  
-  |Small activity plot|
+  * - ``LmDot``
+    - The contraction velocity of the contractile element of the muscle. The value is positive because the muscle is getting longer.
+    - |Small LmDot plot|
 
 
-``Corrected-Activity`` 
-  This is the muscle activity after correction for the tendon elongation. The
-  difference between this graph and the one above is that the activity toward
-  the end is higher after correction. This can be difficult to understand and
-  illustrates the complexity of muscle modeling. The reason is the following:
-  The force in the muscle decreases towards the end of the movement. When the
-  force is reduced, the tendon contracts, and this means that the muscle must
-  elongate even more. Since the muscle length is already in the interval where
-  further elongation will cause decreased strength, the tendon contraction has
-  the effect of increasing the muscle activity. 
-  
-  |Small c-activity plot|
+  * - ``Activity``
+    - This is the muscle activity before correction for the change in muscle length caused by the elastic elongation of the muscle. The complicated variation is caused by the interplay between change of moment arm of the applied force, the passive force in the muscle and the change of muscle strength with the contraction.
+    - |Small activity plot|
 
 
-``Fm``
-  The force in the contractile element is decreasing throughout the movement
-  because the moment arm of the external force is decreasing and also because
-  the passive force in the muscle is contributing more and more to balancing the
-  load.
-  
-  |Small Fm plot|
+  * - ``Corrected-Activity``
+    - This is the muscle activity after correction for the tendon elongation. The difference between this graph and the one above is that the activity toward the end is higher after correction. This can be difficult to understand and illustrates the complexity of muscle modeling. The reason is the following: The force in the muscle decreases towards the end of the movement. When the force is reduced, the tendon contracts, and this means that the muscle must elongate even more. Since the muscle length is already in the interval where further elongation will cause decreased strength, the tendon contraction has the effect of increasing the muscle activity.
+    - |Small c-activity plot|
 
 
-``Ft``
-  The tendon force shows the reduction of the mucle action by virtue of the
-  reduced external force's moment arm alone. A simplified explanation is that Ft
-  = Fm + Fp, but this is not entirely true because we also have to account for
-  the pennation angle.
-  
-  |Small Ft plot|
+  * - ``Fm``
+    - The force in the contractile element is decreasing throughout the movement because the moment arm of the external force is decreasing and also because the passive force in the muscle is contributing more and more to balancing the load.
+    - |Small Fm plot|
 
 
-``Fp``
-  The passive force in the muscle increases as the muscle is stretched.
-
-  |Small Fp plot|              
-
-
-``Strength`` 
-  This is the strength of the muscle. It is not corrected for the tendon
-  elongation.
-  
-  |Small strength plot|        
+  * - ``Ft``
+    - The tendon force shows the reduction of the mucle action by virtue of the reduced external force's moment arm alone. A simplified explanation is that Ft = Fm + Fp, but this is not entirely true because we also have to account for the pennation angle.
+    - |Small Ft plot|
 
 
-``Ft0`` 
-  The hypothetical force that the tendon would have if the activity of the
-  muscle were zero. The reason why this is slightly different from Fp is that
-  Ft0 acts directly along the action line of the muscle while Fp is diverted by
-  the pennation angle. This property is mostly interesting to scientists
-  involved in detailed modeling of single muscles
-  
-  |Small Ft0 plot|
+  * - ``Fp``
+    - The passive force in the muscle increases as the muscle is stretched.
+    - |Small Fp plot|              
 
 
-``Ft0Grad`` 
-  The gradient of Ft0 with respect to the muscle activity. For mathematical
-  reasons this is equal to the Strength, and the two graphs are identical. The
-  reason why this property is included under to different names is that the
-  simple muscle model, from which this model is derived, does not have Ft0Grad
-  and hence needs a Strength property.
-  
-  |Small Ft0Grad plot|
+  * - ``Strength``
+    - This is the strength of the muscle. It is not corrected for the tendon elongation.
+    - |Small strength plot|        
 
 
-``Pennation-Angle`` 
-  The pennation angle is the angle between the muscle fiber direction and the
-  muscle line of action. This angle changes when the muscle contracts and
-  elongates, and the model takes this effect into account.
-  
-  |Small pennation angle plot|
+  * - ``Ft0``
+    - The hypothetical force that the tendon would have if the activity of the muscle were zero. The reason why this is slightly different from Fp is that Ft0 acts directly along the action line of the muscle while Fp is diverted by the pennation angle. This property is mostly interesting to scientists involved in detailed modeling of single muscles.
+    - |Small Ft0 plot|
 
 
-``EPOTt``
-  The elastic potential energy stored in the tendon.
-  
-  |Small EPOTt plot|             
+  * - ``Ft0Grad``
+    - The gradient of Ft0 with respect to the muscle activity. For mathematical reasons this is equal to the Strength, and the two graphs are identical. The reason why this property is included under to different names is that the simple muscle model, from which this model is derived, does not have Ft0Grad and hence needs a Strength property.
+    - |Small Ft0Grad plot|
 
 
-``EPOTp``
-  The elastic potential energy stored in the parallel-elastic element of the
-  muscle.
-  
-  |Small EPOTp plot|
+  * - ``Pennation-Angle``
+    - The pennation angle is the angle between the muscle fiber direction and the muscle line of action. This angle changes when the muscle contracts and elongates, and the model takes this effect into account.
+    - |Small pennation angle plot|
 
 
-``EPOTmt``
-  The elastic potential energy stored in the entire muscle-tendon unit. This can
-  have some practical significance for investigation of movement economy and
-  sports activities in general.
-  
-  |Small EPOTmt plot|
+  * - ``EPOTt``
+    - The elastic potential energy stored in the tendon.
+    - |Small EPOTt plot|             
 
 
-``Pt``
-  The rate of change of elastic potential energy in the tendon.
+  * - ``EPOTp``
+    - The elastic potential energy stored in the parallel-elastic element of the muscle.
+    - |Small EPOTp plot|
 
 
-``Pm``
-  The mechanical power of the contractile element.
-  
-  |Small Pm plot|             
+  * - ``EPOTmt``
+    - The elastic potential energy stored in the entire muscle-tendon unit. This can have some practical significance for investigation of movement economy and sports activities in general.
+    - |Small EPOTmt plot|
 
 
-``Pmt``
-  The mechanical power of the entire muscle-tendon unit, i.e. the rate of work
-  performed on the skeleton. Notice that the power is negative because the
-  muscle is extending against the force. Muscles behaving like this in the human
-  body are often termed antagonistic muscles.
-  
-  |Small Pmt plot|         
+  * - ``Pt``
+    - The rate of change of elastic potential energy in the tendon.
+    - 
 
 
-``Pmet``
-  A crude estimate of the metabolism in the muscle. The estimate is based on
-  presumed efficiencies of the contractile element of 25% for concentric work
-  and -120% for eccentric work. The model does not take the metabolism of
-  isometric force into account.
-  
-  |Small Pmet|                 
+  * - ``Pm``
+    - The mechanical power of the contractile element.
+    - |Small Pm plot|             
 
+
+  * - ``Pmt``
+    - The mechanical power of the entire muscle-tendon unit, i.e. the rate of work performed on the skeleton. Notice that the power is negative because the muscle is extending against the force. Muscles behaving like this in the human body are often termed antagonistic muscles.
+    - |Small Pmt plot|         
+
+
+  * - ``Pmet``
+    - A crude estimate of the metabolism in the muscle. The estimate is based on presumed efficiencies of the contractile element of 25% for concentric work and -120% for eccentric work. The model does not take the metabolism of isometric force into account.
+    - |Small Pmet|  
 
 
 Calibration
 -----------
+**Note:** This section describes calibration of muscle-tendon units briefly; for more details and more examples, please refer to :doc:`*Inverse Dyanmics of Muscle Systems: Calibration* <../MuscleRecruitment/lesson_calibration>`.
+
 
 One of the practical challenges in working with detailed muscle models
 in complex musculoskeletal systems is the dependency on defined tendon
@@ -931,8 +875,9 @@ lengths for an individual of a certain size. Quite simply, we shall
 presume that the tendon lengths are calibrated by nature to provide the
 muscles with optimum fiber lengths at certain postures. The AnyBody
 Modeling System provides two ways to do that: One is cheap and dirty,
-and the other one requires additional information. Let us take a closer
-look at them:
+and the other one requires additional information. 
+
+**Note:** There are two approaches for calibration in AnyBody: 1) to calibrate Lt0 and 2) to calibrate both Lt0 and Lf0. The latter approach, which is recently added to the software, is called two-parameter calibration. For details, please visit :doc:`*Inverse Dyanmics of Muscle Systems: Calibration* <../MuscleRecruitment/lesson_calibration>`. In the following, we only exemplify the first aproach--calibrating Lt0, which itself can be done in two ways:
 
 Cheap and dirty
 ~~~~~~~~~~~~~~~
@@ -948,7 +893,7 @@ hereunder the motion/posture, of your original AnyBodyStudy. You simply
 need to insert the same references to the model in the
 AnyBodyCalibrationStudy folder as you have in your AnyBodyStudy model.
 
-Adding a single AnyBodyCalibrationStudy object next to your AnyBodySyudy
+Adding a single AnyBodyCalibrationStudy object next to your AnyBodyStudy
 this way, allow you to run its operation called TendonLenghtAdjustment.
 If you run it, you will see the model moving as it does when running the
 InverseDynamics operation of the original AnyBodyStudy. But when the
@@ -973,7 +918,7 @@ What the MuscleCalibrationAnalysis does is to run through the specified
 movement and compute the variation of the origin-insertion length of the
 muscle. It subsequently changes the user-defined value of Lt0 such that
 the length of the contractile element equals the optimum fiber length,
-Lm0, when the origin-insertion length is at its mean value. Notice that
+Lf0, when the origin-insertion length is at its mean value. Notice that
 this does not necessarily correspond to the length when 50% of the
 movement has passed.
 

@@ -2,7 +2,7 @@ Translating a SOLIDWORKS CAD model to AnyBody
 =============================================
 
 Start by downloading the :download:`example SOLIDWORKS CAD assembly 
-<Downloads/FitnessMachine_SOLIDWORKS.zip>`
+<Downloads/FitnessMachine_SolidWorks.zip>`
 
 After having downloaded and opened this model in your SOLIDWORKS
 environment, you will see the following image.
@@ -209,12 +209,12 @@ now let us go to the next :doc:`Lesson2. <lesson2>`
 .. seealso::
     **Next lesson:** :doc:`lesson2`.
 
-.. |SolidWorks fitnessmachine| image:: _static/lesson1/lesson1_image1.PNG
+.. |SolidWorks fitnessmachine| image:: _static/lesson1/lesson1_image1.png
 .. |AnyExp4SOLIDWORKS menu| image:: _static/lesson1/lesson1_image2.png
-.. |AnyExp4SOLIDWORKS dialog| image:: _static/lesson1/lesson1_image3.PNG
+.. |AnyExp4SOLIDWORKS dialog| image:: _static/lesson1/lesson1_image3.png
 .. |Save as dialog| image:: _static/lesson1/lesson1_image4.PNG
 .. |Model View Fitness machine| image:: _static/lesson1/lesson1_image5.png
-.. |SOLIDWORKS properties| image:: _static/lesson1/lesson1_image6.PNG
+.. |SOLIDWORKS properties| image:: _static/lesson1/lesson1_image6.png
 .. |ANYBODY model tree| image:: _static/lesson1/lesson1_image7.PNG
-.. |SolidWorks assembly| image:: _static/lesson1/lesson1_image8.PNG
+.. |SolidWorks assembly| image:: _static/lesson1/lesson1_image8.png
 .. |SolidWorks Two components| image:: _static/lesson1/lesson1_image9.png
