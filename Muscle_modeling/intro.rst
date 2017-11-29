@@ -1,9 +1,6 @@
 Introduction to Muscle Modeling
 =================================
 
-.. include:: /caution_old_tutorial.rst
-
-
 |Muscles back|
 
 Muscles are the actuators of living bodies. They are activated by the
@@ -16,7 +13,7 @@ the user to the necessary muscle forces in a process known as inverse
 dynamics. To do so, the system must know the properties of the muscles
 involved, and this is where muscle modeling comes into the picture.
 
-AnyBody contains three different muscle models ranging from simple to
+AnyBody contains four different muscle models ranging from simple to
 more complicated physiological behavior. The simplest model just assumes
 a constant strength of the muscle regardless of its working conditions.
 The more complicated models take such conditions as current length,
@@ -33,6 +30,8 @@ information about the available muscle models:
 
 3. AnyMuscleModel2ELin - a bilinear model taking length and contraction
    velocity into account.
+   
+4. AnyMuscleModelUsr1 - a custom user-defined strength that can be an explicit function of muscle variables, such as length and contraction velocity. 
 
 The muscle models can be linked to different types of muscles:
 

@@ -1,8 +1,6 @@
 Lesson 6: General Muscles
 =========================
 
-.. include:: /caution_old_tutorial.rst
-
 Physiological muscles are truly amazing machines, and despite many
 attempts it has not been possible to make technical actuators that are
 as light and efficient as natural muscles. As you may have seen in the
@@ -212,8 +210,8 @@ situation. You can also define different strengths of extension and
 flexion muscles in a given joint and thereby take for instance the
 difference in strength in the knee in these two directions into account.
 
-**Important Remark:** Another useful property of the general muscles used as joint torque
-providers is that you can handle *closed loops* and other statically
+``Important Remark:`` Another useful property of the general muscles used as joint torque
+providers is that you can handle **closed loops** and other statically
 indeterminate situations, which are not treatable by traditional inverse
 dynamics because the equilibrium equations do not have a unique
 solution. The muscle recruitment algorithm will then distribute the load

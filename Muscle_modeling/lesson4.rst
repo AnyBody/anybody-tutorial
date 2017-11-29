@@ -1,8 +1,6 @@
 Lesson 4: Wrapping Muscles
 ==========================
 
-.. include:: /caution_old_tutorial.rst
-
 Many muscles in the body are wrapped over bones and slide on the bony
 surfaces when the body moves. This means that the contact forces between
 the bone and the muscle are always perpendicular to the bone surface,

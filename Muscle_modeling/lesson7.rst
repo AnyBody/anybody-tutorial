@@ -1,8 +1,6 @@
 Lesson 7: Ligaments
 ===================
 
-.. include:: /caution_old_tutorial.rst
-
 Ligaments are passive structures that connect articulating bones and
 keep joints assembled. Mechanically they are much like muscles but with
 no active contractile element. Ligaments only provide forces when they
@@ -10,7 +8,7 @@ are stretched by the relative movement of the bones they connect.
 
 This tutorial demonstrates how to define, control, and calibrate
 ligaments. We need a model to work on. Please download and save the
-model :download:`*Demo.Ligament.any* <Downloads/Demo.Ligament.any>`. Once you
+model :download:`Demo.Ligament.any <Downloads/Demo.Ligament.any>`. Once you
 have stored it on your hard disk, load it into the AnyBody Modeling
 System and run the InitialConditions operation.
 
