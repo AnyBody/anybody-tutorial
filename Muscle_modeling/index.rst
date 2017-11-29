@@ -1,8 +1,6 @@
 Muscle Modeling
 ===============
 
-.. include:: /caution_old_tutorial.rst
-
 This tutorial introduces the many facilities for modeling muscles in the
 AnyBody Modeling System. It includes the different options for muscle
 types and muscle models, and furthermore introduces ligament modeling.

@@ -1,9 +1,6 @@
 Introduction to Muscle Modeling
 =================================
 
-.. include:: /caution_old_tutorial.rst
-
-
 |Muscles back|
 
 Muscles are the actuators of living bodies. They are activated by the
