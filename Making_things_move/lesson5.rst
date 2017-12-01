@@ -15,16 +15,16 @@ are easy to drive with your own data and which contain some really neat features
 for data processing.
 
 
-.. note:: Make sure you have installed a your own copy of the AnyBody Model repository (AMMR). 
+.. note:: Make sure you have installed your own copy of the AnyBody Model repository (AMMR). 
      See the :ammr:ref:`AMMR documentation <installing_ammr>`.
 
 1. Go to the folder :file:`Application/MocapExamples/Plug-in-gait_Simple`.
 
-3. Open :file:`LowerExtremity.main.any` in the AnyBody Modeling System
+2. Open :file:`LowerExtremity.main.any` in the AnyBody Modeling System
 
-This is a gait model of comprising only the lower extremities and the necessary
+This is a gait model comprising only the lower extremities and the necessary
 part of the upper body for attachment of muscles. The model is based on a C3D
-file with "Plug In gait" marker protocol, and three force platforms. You can
+file with "Plug in Gait" marker protocol, and three force platforms. You can
 easily modify this to any other movement, simply by importing a different C3D
 file to drive the model with.
 
@@ -53,7 +53,7 @@ The model defines three section/files which must be customized.
 * :file:`SubjectSpecificData.any`
 * :file:`TrialSpecificData.any`. 
 
-Following this structure is not strictly necssary, but good practice. Finally,
+Following this structure is not strictly necessary, but good practice. Finally,
 on line 13 we include the *AnyMocap* framework or base model. 
 
 Now please load the model and open up a new Model View. You should see
@@ -77,7 +77,7 @@ order. The flow of the model is illustrated in the following figure.
 Parameter identification
 --------------------------------------
 
-If you look closely at the model view you can see that the skeleton is equipped with
+If you look closely at the model view, you can see that the skeleton is equipped with
 markers and if you zoom in a little, you can also see that the markers
 carry small coordinate systems with red and green arrows.
 
@@ -145,7 +145,7 @@ You will see the model walking repeatedly over the force platforms,
 sometimes slowly and sometimes a bit faster depending on the speed of
 your computer and the progress of the computation. 
 
-.. note:: The process is speeded up significantly if you switch off the Model View. 
+.. note:: The process speeds up significantly if you switch off the Model View. 
 
 When operation is done you will see the line ``Optimization converged`` in the *Output* windows
 and final lines will be:
@@ -190,8 +190,8 @@ based models usually require an over-determinate kinematic solver to handle the
 excess in information that the optical markers provide. The over-determinate
 solver in AMS works great, but it will calculate velocities and accelerations
 numerically. That has some performance issues when running inverse dynamics
-analysis. To overcome the problem, the MOCAP analysis is split into a two-step
-producedure, as illustrated on  figure :numref:`model_flow_chart`, separating
+analysis. To overcome this problem, the MOCAP analysis is split into a two-step
+procedure, as illustrated on  figure :numref:`model_flow_chart`, separating
 the Marker tracking from the Inverse dynamic analysis.
 
 The overdeterminate kinematic analysis solves the model for positions, and
@@ -214,7 +214,7 @@ the bones; and finally executes a dynamic analysis to determine forces in the
 system. Run the analysis by selecting it from the Operations dropdown, and click "Run". 
 
 After the kinematic Marker tracking, the muscles are switched on, and the
-inverse dyanamic analysis starts. This step will usually be the slowest, due to
+inverse dynamic analysis starts. This step will usually be the slowest, due to
 the very high amount of detail of the model, requiring the computer to
 continuously calculate forces in more than 300 muscles. When the analysis is
 finished, you can open up a Chart view and investigate the results, for instance
@@ -288,7 +288,7 @@ to an end and you get the message:
 Next, we run the combined *Marker tracking* and *Inverse dynamics* (``Main.RunAnalysis``) operation.
 
 Which, after the analysis can provide a new hip joint force profile
-documenting that faster gait leadt to higher hip joint forces.
+documenting that faster gait lead to higher hip joint forces.
 
 .. image:: _static/lesson5/charview_higher_hip_forces.png
 
@@ -318,7 +318,7 @@ the arm motions while it tries to optimize segment lengths and marker
 positions. It takes 7 iterations and more time than before
 to optimize the model because this is a much larger problem, but as
 before you can speed up the process if you switch off the update of the
-Model View Window. It is possible to monitor the convergence of the
+Model View window. It is possible to monitor the convergence of the
 optimization problem from a Chart window like this:
 
 |Chart view, Kin objective|
@@ -327,7 +327,7 @@ Eventually, the optimization process terminates and you can switch run the
 *Marker tracking* and *inverse dynamics* (``Main.RunAnalysis``) and perform the
 analysis of the entire body including the muscle forces. 
 
-This full-body model with almost 1000 muscles fasicles takes considerable more
+This full-body model with almost 1000 muscle fascicles takes considerable more
 time to analyze but will reward you with very detailed information about the
 function of the muscle system in gait as illustrated below.
 
