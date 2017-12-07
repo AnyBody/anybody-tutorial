@@ -156,6 +156,15 @@ rst_epilog = f"""
 .. |CURRENT_YEAR| replace:: {current_year}
 """
 
+no_index = """
+.. meta::
+   :robots: noindex
+"""
+
+if tags.has('draft'):
+    rst_epilog = rst_epilog + no_index
+    
+
 
 # General information about the project.
 project = 'AnyBody Tutorials'
