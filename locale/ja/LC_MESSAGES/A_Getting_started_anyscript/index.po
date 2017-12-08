@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started_anyscript/index.rst:2
+msgid "Getting started: AnyScript Programming"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/index.rst:4
+msgid ""
+"This tutorial introduces the AnyScript modeling language, which is used "
+"for all modeling in AnyBody."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/index.rst:7
+msgid ""
+"The reader will get an understanding of the structure of the language, "
+"and key modeling objects such as segments, joints, muscles, kinematics "
+"and forces will be illustrated. A basic “arm” model will be created from "
+"scratch with two segments, joints and applied motion and forces."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/index.rst:12
+msgid ""
+"Once you’ll feel confident with these concepts you should move on to the "
+"next chapter \"`Getting Started with Modelling "
+"<../A_Getting_started_modeling/intro.html>`__\" to create a more "
+"anatomically realistic model using the full body model in the AMMR."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/index.rst:17
+msgid "Tutorial content"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/index.rst:38
+msgid "noindex"
+msgstr ""
+

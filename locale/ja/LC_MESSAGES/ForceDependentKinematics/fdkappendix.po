@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:2
+msgid "Appendix: Cleaning and Preparing STL Surfaces for Contact Calculation"
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:4
+msgid ""
+"To use the AnyForceSurfaceContact, it is necessary that the STL- or "
+"AnySurf-file fulfils some requirements to obtain good results."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid "The surface should not have sharp edges in the region of contact."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid ""
+"Sharp edges can cause a jump in calculation of the penetration depth of "
+"the two surfaces and thus can cause jumps in the contact force. For the "
+"FDK-solver, this is not easy to handle and can cause slow convergence or "
+"even failure."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid "The surface should not have too large curvatures."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid ""
+"Large curvatures on a surface cause, similar to sharp edges, lead to "
+"jumps in the calculation depth."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid ""
+"On the master surface in a contact pairing (i.e. the surface for which "
+"distances for each vertex to the slave surface are calculated) big "
+"curvatures on the surface means big variations of the vertex normal, "
+"which are used to calculate the force direction. Thus, large curvatures "
+"causes can cause large variations in the force directions."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid "The surface should not contain too small triangles."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid ""
+"Small triangles, i.e. vertices which are too close to each other are "
+"collapsed into one vertex during the process of converting STL-files to "
+"AnySurf objects. Thus, too small triangles end up as degenerated "
+"triangles with edges of zero length and without area. These triangles "
+"must be ignored in the contact calculation and warnings show up."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid ""
+"The face normal for each face of the surface should have a unique "
+"orientation."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid ""
+"Make sure that the surface normal and the numbering of triangles (best "
+"counter clockwise for a consistent definition of the outer face normal) "
+"are consistent. The normal is used to define inside and outside of the "
+"surface and thus, which direction is penetration."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:41
+msgid ""
+"To check the above mentioned requirements, you can use an external tool "
+"such as MeshLab (http://meshlab.sourceforge.net ). To smooth sharp edges "
+"and large curvatures, filters, such as Laplacian filters, or others can "
+"be used, depending on the surface. Checking the face normals can be done "
+"by using the function Render->Show Face Normal."
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:48
+msgid ""
+"To delete small triangles in the surface, the following workflow can be "
+"used:"
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:51
+msgid "Load STL-file in MeshLab"
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:53
+msgid ""
+"Use Filters->Cleaning and Repairing->Merge Close Vertices. Use an abs "
+"tolerance bigger than 0.0001"
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:56
+msgid "Use Filters->Cleaning and Repairing->Remove Duplicate Faces"
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid "Use Filters->Cleaning and Repairing->Remove Duplicate"
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst
+msgid "Vertices"
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:61
+msgid "Use Filters->Cleaning and Repairing->Remove Zero Area Faces"
+msgstr ""
+
+#: ../../ForceDependentKinematics/fdkappendix.rst:71
+msgid "noindex"
+msgstr ""
+

@@ -1,0 +1,418 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Making_things_move/lesson2.rst:2
+msgid "Lesson 2: Using motion capture data"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:4
+msgid ""
+"In biomechanics, we often want to make our models move as we have "
+"measured in the laboratory and the measurement technique would often be "
+"tracking of optical markers in space by means of synchronized cameras."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:9
+msgid ""
+"There are many such systems available commercially, but a common feature "
+"of most of the systems is that they are capable of saving data on a "
+"standard format called a C3D file."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:13
+msgid ""
+"A C3D file contains data of the spatial trajectory of optical markers "
+"fixed to the object whose motion we want to record. The file can also "
+"contain analog data such as force platform measurements or EMG."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:17
+msgid ""
+"AnyBody can read the data from a C3D file directly. Please download and "
+"save the file :download:`pendulum.c3d <Downloads/pendulum.c3d>` in the "
+"directory where you saved the :file:`Pendulum.any` file."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:21
+msgid ""
+"Next, place the cursor in the editor window just before the "
+":code:`AnyKinMotion` object, click the Classes tab (on the right side of "
+"the screen), unfold the class list, and locate the :code:`AnyInputC3D` "
+"class. Right-click the class and choose “Insert Class Template”."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:71
+msgid ""
+"As you can see, the class has a lot of settings, but for now we shall "
+"only use two of them, namely FileName and ConstructChartOnOff. We also "
+"give a name to the object:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:87
+msgid ""
+"``ConstructChartOnOff`` instructs the C3D object to not draw 3D "
+"trajectories."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:90
+msgid "Now, try loading the model again. You may get the following error message:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:97
+msgid ""
+"C3D files contain marker trajectories covering a certain time span and "
+"what goes on outside that interval is undefined. Furthermore, the very "
+"beginning and very end of that time span may not be useful for the motion"
+" interpolation due to initial transients."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:102
+msgid ""
+"If you have a C3D file of unknown duration, then you somehow have to "
+"figure out its start and end times to enable AnyBody to analyze it. A "
+"simple way to do this is to allow AnyBody to load the file by temporarily"
+" disabling the study section of your model. This will eliminate the "
+"study’s conflicting start and end times. Just block-select the study "
+"section and click the “Comment out” tool button over the editor window "
+"(or press :literal:`Ctrl+Shift+k`):"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:118
+msgid ""
+"Now the model should load with no problems, and you can go to the tree "
+"view in the left hand side of the screen, click the Model tab and unfold "
+"the MyModel tree down to the C3D object as shown below."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:122
+msgid "|Model tree|"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:124
+msgid ""
+"A bit down in this object you find the Header section. When you unfold it"
+" you get access to a number of basic properties of the C3D file. Each "
+"time you double-click a property, a window will pop up and give you its "
+"value. The important properties in question are these:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:135
+msgid ""
+"This shows that the file has a total of 1000 frames at 100 frames/sec, "
+"i.e. the simulation time spans ten seconds. We can now go to the editor "
+"window and remove the temporary double slashes in front of each line in "
+"the study section."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:150
+msgid "…and insert specifications of simulation time:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:163
+msgid ""
+"There is also an automated way to handle the problem. The frame rate "
+"variables we have just processed manually can also be referred to "
+"directly in the study section, such that the tStart and tEnd parameters "
+"automatically adapt to the C3D file. Try this instead:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:181
+msgid ""
+"Notice that we start the simulation ``2*Kinematics.ApproxVelAccPerturb`` "
+"after the beginning of the recorded motion and we end it similarly before"
+" the end of the recording. The variable "
+"``Kinematics.ApproxVelAccPerturb`` contains information about the "
+"algorithm’s necessary elbow room on each side of the analyzed interval. "
+"This eliminates possible numerical trouble with end points."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:188
+msgid ""
+"Now the model should load and the Model View window will display a small,"
+" grey dot to the right of the pendulum end."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:191
+msgid "|small dot|"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:193
+msgid ""
+"The small dot is in fact the single marker contained in "
+":file:`Pendulum.c3d`. A typical file from a real motion capture "
+"experiment can contain dozens of markers, but in the interest of "
+"simplicity we have just included a single one here. The ``AnyInputC3D`` "
+"object automatically creates the small dots and the drivers necessary to "
+"move them around as they were recorded. If you run the Kinematics "
+"operation, you will see the pendulum move as before, while the marker "
+"performs an oscillating motion back and forth"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:202
+msgid ""
+"So how do we get the marker to drive the pendulum? This can be done quite"
+" easily with the AnyKinDriverMarker object. The steps are:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:205
+msgid "Remove the existing driver that makes the pendulum rotate."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:207
+msgid ""
+"Drive the marker point, ``P1``, on the pendulum to follow the data "
+"recorded in the C3D file."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:210
+msgid ""
+"Start by selecting the existing ``AnyKinMotion`` driver and comment it "
+"out of the model. That takes care of step 1."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:213
+msgid ""
+"Then click the Classes tab on the right side of the screen, insert a new "
+"``AnyKinDriverMarker`` template, and give it a name:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:236
+msgid ""
+"Just as before, the ``AnyKinDriverMarker`` object needs to know what to "
+"drive and what to drive it with. The “what to drive” part is the position"
+" of ``P1`` on the pendulum. This is specified with the first reference "
+"frame in the object:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:261
+msgid ""
+"The marker coordinates in the C3D file are recorded in the laboratory "
+"coordinate system, which we chall assume is our global reference frame. "
+"Driving from ``GlobalRef`` is default in linear measures, so we need not "
+"mention ``GlobalRef`` explicitly in the ``AnyKinDriverMarker`` object."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:266
+msgid ""
+"We are going to drive the point directly by means of the interpolation "
+"function specifying the marker trajectory in the C3D object. First, give "
+"a reasonable name to the ``AnyParamFun`` and remove the stuff after the "
+"equality sign:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:292
+msgid ""
+"Then click the Model tab in the tree view on the left hand side of the "
+"editor window, unfold the MyModel branch and subsequently the ``C3D`` "
+"object -> ``Points`` -> ``Markers`` -> ``L000`` and arrive at "
+"``PosInterpol`` as shown below."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:297
+msgid "|Model tree 2|"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:299
+msgid ""
+"This is the actual interpolation function of the marker in question. "
+"Place the cursor after the equality sign of the ``AnyParamFun`` line, "
+"right-click the PosInterpol object, and choose “Insert object name”. You "
+"should get this:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:324
+msgid ""
+"Now load the model and run the kinematic analysis. You will get the "
+"following error message:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:332
+msgid ""
+"It is time to think back to the concept of degrees-of-freedom, DoF. In "
+"the beginning of the tutorial, we established that the free pendulum has "
+"one DoF. But the marker trajectory has three coordinates and therefore "
+"wants to drive ``P1`` of the pendulum in :math:`x`, :math:`y` and "
+":math:`z`, i.e. two DoFs more than we have available."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:338
+msgid ""
+"There are two possible solutions to this problem. Either we pick only one"
+" of the directions given by the marker and let the revolute joint decide "
+"the rest, or we have to accept that the pendulum cannot follow the marker"
+" completely in all three DoFs, i.e. something has to give."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:343
+msgid ""
+"Driving just one direction would be fairly simple in this case, but in a "
+"more complicated model with many markers, the selection of a subset of "
+"directions to drive can be a very tedious process."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:347
+msgid ""
+"Another aspect to consider is that marker data are measured and therefore"
+" always infested with various types of errors and noise. One of the "
+"serious errors in motion capture technology is the so-called soft tissue "
+"artifact or skin artifact. It comes from the fact that markers are placed"
+" on the skin at some distance from the bone whose motion they are "
+"supposed to record. Between the marker and the bone are layers of skin, "
+"fat and muscle, so the marker never moves exactly with the bone. It is "
+"therefore natural in the model to presume that the connection between the"
+" marker and the bone is not a rigid one, and when that is the case, "
+"AnyBody will accept drivers on more DoFs than the model actually has."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:359
+msgid ""
+"Resolving the kinematics in the presence of moving markers is somewhat "
+"more complicated numerically, so we have to ask for a specific kinematics"
+" solver that can handle it. This is done in the study section:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:378
+msgid ""
+"The two additional lines select a kinematic solver for the "
+"InitialConditions and Kinematics operations that will accept more "
+"kinematic constraints than the system has DoFs."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:382
+msgid ""
+"See `Andersen MS, Damsgaard M, and Rasmussen J. 2007 "
+"<http://www.tandfonline.com/doi/abs/10.1080/10255840802459412>`_ for "
+"detailed information about the algorithm behind the overdeterminate "
+"kinematic analysis."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:385
+msgid ""
+"Now you can reload and run the kinematic analysis and you should see the "
+"pendulum following the marker movement. You cannot see the marker during "
+"the movement because it is hidden inside the pendulum. In fact, the "
+"marker is not strictly necessary for the analysis and we can get rid of "
+"it altogether by an additional specification in the C3D object:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:409
+msgid ""
+"With the unnecessary marker gone from the model, the kinematic analysis "
+"runs much faster than before. Each marker adds DoFs and constraints to "
+"the model, and they require solution time. It is therefore more efficient"
+" to leave the markers out unless you really need them."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:414
+msgid ""
+"Now that there is driver between pendulum and the marker, it is possible "
+"to simultaneously draw both the point on the pendulum and the marker from"
+" the C3D file. To do this, start by placing the cursor inside the "
+"AnyKinDriverMarker object."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:419
+msgid ""
+"Then click the Classes tab on the right side of screen, insert a new "
+"``AnyDrawKinMeasure`` template, remove the properties we will not need "
+"and give it a name:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:447
+msgid "If you reload the model, you should see something like this:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:449
+msgid "|Model view AnyKinDriver marker|"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:451
+msgid ""
+"The blue dot illustrates the marker from the c3d file and the red line is"
+" drawn to illustrate the difference between the point on the segment and "
+"the measured point. Please notice that there is a small ball hidden "
+"inside yellow sphere from the drawing of the segment. The plot also shows"
+" a label “KDM”, which indicates that it is an ``AnyKinDriverMarker`` that"
+" is drawn."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:458
+msgid ""
+"The line between the two points and the label can be removed by changing "
+"the ``Label`` and ``Line`` settings to Off. Let us also change the size "
+"of the dots such that we can see both the point on the segment as well as"
+" the measured point."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:473
+msgid "Reloading the model should show you something like this:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:475
+msgid "|Model view DrawKinMeasure|"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:477
+msgid ""
+"Let us briefly investigate the kinematic constraints of our model. Click "
+"the Model tab in the tree view on the left hand side of the screen and "
+"unfold the ``Joint`` branch. Inside you find ``Constraints``, and after "
+"unfolding that branch you find the property ``CType``. If you double-"
+"click it, the popup window shows the following:"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:487
+msgid ""
+"``CType`` appears to be a vector with five components, owing to the fact "
+"that a revolute joint has five constraints, and CType specifies that all "
+"of these are ``Hard``. This means that the kinematic solver is not "
+"allowed to violate any of them."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:492
+msgid ""
+"If you similarly locate and unfold the ``C3DMotion`` object you again "
+"find a ``CType``, and double-clicking it reveals"
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:499
+msgid ""
+"We have implicitly specified that the joint is a hard constraint while "
+"the marker is a soft constraint. Joints automatically have their "
+"constraint types set to Hard and ``AnyKinDriverMarker`` objects "
+"automatically have soft constraints, but these rules can be overridden by"
+" the user by explicit specification of ``CType`` in the respective "
+"objects."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:506
+msgid ""
+"In :doc:`Lesson 3 <lesson3>` we investigate how to filter noise out of "
+"the measured data."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:512
+msgid "**Next lesson:** :doc:`lesson3`."
+msgstr ""
+
+#: ../../Making_things_move/lesson2.rst:530
+msgid "noindex"
+msgstr ""
+

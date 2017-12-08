@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Validation_of_models/index.rst:2
+msgid "Validation of Models"
+msgstr ""
+
+#: ../../Validation_of_models/index.rst:4
+msgid ""
+"This tutorial explains the setup of model validation studies in which "
+"models can be verified and validated by comparison with empirical data."
+msgstr ""
+
+#: ../../Validation_of_models/index.rst:9
+msgid "Tutorial content"
+msgstr ""
+
+#: ../../Validation_of_models/index.rst:25
+msgid "noindex"
+msgstr ""
+

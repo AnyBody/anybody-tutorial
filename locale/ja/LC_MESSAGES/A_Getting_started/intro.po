@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started/intro.rst:2
+msgid "Getting Started Tutorial"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:4
+msgid ""
+"The AnyBody Modeling System caters to a wide range of users with very "
+"different modeling needs. Some may simply want to load and run an "
+"existing model, some may need to modify an existing or build their own "
+"model bottom-up. These tutorials serve as a common starting point for all"
+" such new users."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:11
+msgid "The AnyBody Managed Model Repository (AMMR)"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:12
+msgid ""
+"The AnyBody software comes along with an inbuilt model repository. This "
+"is the AMMR, a collection of human body models that are based on the "
+"latest research studies."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:16
+msgid ""
+"**Most importantly, it comes with a set of demo models** (eg: MoCap based"
+" walking model, cycling etc.) that can serve as a useful learning tool, "
+"or even as the foundations for own modeling studies. As a new user, you "
+"are likely to find yourself in one of the following scenarios."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:21
+msgid ""
+"Loading a model from AMMR and changing simple parameters like the applied"
+" load or the posture."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:24
+msgid ""
+"Modifying one of the existing motion capture models from the repository "
+"to your own lab/experimental setup."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:27
+msgid ""
+"Modifying a model from the repository with some similarity to what you "
+"want. For instance, a normal bicycle model could be changed into a "
+"recumbent bike."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:31
+msgid ""
+"Constructing a body model and its environment bottom-up, like when you’re"
+" modeling an animal or making a new detailed joint model. Such bottom-up "
+"modeling is described in the tutorial \":doc:`Getting Started AnyScript "
+"Programming </A_Getting_started_anyscript/intro>`\"."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:36
+msgid ""
+"These various levels of model building complexity are covered in "
+"\":doc:`Getting Started: Modeling "
+"<../A_Getting_started_modeling/intro>`\" in the \":doc:`Making Things "
+"Move <../Making_things_move/intro>`\" tutorial."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:43
+msgid "Goal for this tutorial"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:44
+msgid ""
+"We will take the top-down approach in this tutorial and use the model "
+"repository to accomplish the following:"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:47
+msgid ""
+"Create a new standing model using the Human Standing template model, load"
+" it in a given posture, and practice how to use the Model View functions."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:51
+msgid "Learn how to change the posture of the human model."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:53
+msgid ""
+"Run the inverse dynamics analysis of the model and review the analysis "
+"results. Change the posture of the human model and see how it will give "
+"us a different result."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:57
+msgid "This entire tutorial relies heavily on using the AMMR described above."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:60
+msgid "Setup the AMMR"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:61
+msgid ""
+"Before you continue you must unpack the entire repository and save it on "
+"your hard disk. To get a copy of the AMMR press the Demo tab in the "
+"AnyBody assistant dialog box."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:65
+msgid "|AnyBody assistent|"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:67
+msgid ""
+"The Demo tab will install a copy of the AMMR in your documents folder by "
+"default. It is good practice to create a second local copy of the AMMR so"
+" that you do not overwrite the existing AMMR folder by accident."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:72
+msgid "AMMR structure"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:73
+msgid ""
+"With the repository unpacked, let us take a brief look at its structure. "
+"Please open a file manager and navigate to the place you unpacked the "
+"repository. You should see a folder structure that includes the following"
+" subfolders:"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:78
+msgid ""
+"“Application” includes the models that can be loaded into AnyBody and "
+"actually simulate some biomechanical situation, such as cycling, lifting "
+"a box or propelling a wheelchair. “Body” contains models of body parts "
+"and collections of body parts which are used by the applications. For "
+"instance, Body includes a lumbar spine model, which is used by all the "
+"applications needing an upper body."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:85
+msgid ""
+"A closer inspection of the Application branch reveals that it has three "
+"subfolders:"
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:88
+msgid ""
+"The “Beta” folder contains models that are unfinished, but they may still"
+" be useful. The “Examples” folder contains many models doing different "
+"activities of daily living, and it is very likely that you will be able "
+"to find a model doing something similar to what you want. The "
+"“Validation” folder contains models that have been used for validation "
+"purposes, typically by comparison of the model predictions with "
+"experimental measurements."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:99
+msgid ""
+"With that knowledge, you are all set to go, and you can proceed with "
+":doc:`Lesson 1: Creating the standing model <lesson1>` using template."
+msgstr ""
+
+#: ../../A_Getting_started/intro.rst:115
+msgid "noindex"
+msgstr ""
+

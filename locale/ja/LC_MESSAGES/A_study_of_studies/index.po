@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_study_of_studies/index.rst:2
+msgid "A Study of Studies"
+msgstr ""
+
+#: ../../A_study_of_studies/index.rst:4
+msgid ""
+"In AnyBody, all types of analysis, whether pure mechanical system "
+"analysis, musculoskeletal analysis or design analysis, are carried out by"
+" objects that are referred to as \"studies\"."
+msgstr ""
+
+#: ../../A_study_of_studies/index.rst:8
+msgid ""
+"Studies have operations that can be executed to perform the analysis. The"
+" objective of this tutorial is to explain the sequence of a typical study"
+" from its mechanical system information, to the initial conditions, "
+"kinematics to the inverse dynamic analysis."
+msgstr ""
+
+#: ../../A_study_of_studies/index.rst:15
+msgid "Tutorial content"
+msgstr ""
+
+#: ../../A_study_of_studies/index.rst:34
+msgid "noindex"
+msgstr ""
+

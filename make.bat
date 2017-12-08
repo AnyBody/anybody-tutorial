@@ -13,6 +13,13 @@ set SPHINXPROJ=AnyBodyTutorials
 
 if "%1" == "" goto help
 
+if "%1" == "html-da" goto da
+
+if "%1" == "html-ja" goto ja
+
+if "%1" == "clean" goto clean
+
+
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
 	echo.
@@ -28,6 +35,24 @@ if errorlevel 9009 (
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
 goto end
+
+:da
+%SPHINXBUILD% -M html %SOURCEDIR% _build_da -D language=da
+goto end
+
+:ja
+%SPHINXBUILD% -M html %SOURCEDIR% _build_ja -D language=ja
+goto end
+
+:clean
+%SPHINXBUILD% -M %1 %SOURCEDIR% _build %SPHINXOPTS%
+%SPHINXBUILD% -M %1 %SOURCEDIR% _build_ja %SPHINXOPTS%
+%SPHINXBUILD% -M %1 %SOURCEDIR% _build_da %SPHINXOPTS%
+goto end
+
+goto end
+
+
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%

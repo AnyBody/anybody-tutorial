@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:2
+msgid "Lesson 1: Basic Concepts"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:4
+msgid ""
+"To follow this tutorial it is recommended first to watch the introductory"
+" video found in Help -> AnyBody Assistant, which visually demonstrates "
+"several important GUI features."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:8
+msgid "|AnyBody Assistent|"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:10
+msgid ""
+"Let us begin by creating a new AnyScript model from scratch. On the menu "
+"click File -> New from template… this will bring up a new window in which"
+" you choose “Basic Main” and provide a “Target Name” (e.g., *NewModel*) "
+"and click OK."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:15
+msgid "|Editor NewModel.main.any|"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:17
+msgid ""
+"The new file that opens up in the text editor contains a basic skeleton "
+"for your model, based on a built-in template."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:21
+msgid "What are “Classes”?"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:23
+msgid ""
+"Let's have a look at what the system has generated for you. If we forget "
+"about most of the text and comments, the overall structure of the model "
+"looks like this:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:41
+msgid ""
+"What you see is a hierarchy of braces - just like in a C, C++, or Java "
+"computer program. The outermost pair of braces is named \"Main\". "
+"Everything else in the model goes between these braces. The name assigned"
+" to a pair of braces in the script will show up as a folder/directory in "
+"the Model Tree."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:47
+msgid ""
+"Right now, there are two other sections inside the Main braces: The "
+"\"AnyFolder MyModel\" and the \"AnyBodyStudy MyStudy\". These are usually"
+" the two core components of most AnyBody models."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:51
+msgid ""
+"The code creates two objects - MyModel & MyStudy - which perform very "
+"specific actions. The software developers have already pre-built these "
+"actions into templates that you can use to create these objects. **These "
+"inbuilt object templates are also known as CLASSES - eg., AnyFolder, "
+"AnyBodyStudy**."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:57
+msgid ""
+"The object named \"MyModel\" (and of type AnyFolder) is simply an "
+"organizational folder for containing the entire model you are going to "
+"build. Let us change the folder name “MyModel” to “ArmModel”."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:61
+msgid ""
+"The object named \"MyStudy\" (and of type AnyBodyStudy) is a collection "
+"of simulation tasks that you want to perform with your model. The "
+":doc:`*Study of Studies* <../A_study_of_studies/intro>` tutorial contains"
+" much more information about these subjects. For now, let's just rename "
+"\"MyStudy\" to \"ArmModelStudy\"."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:67
+msgid ""
+"**In the forthcoming AnyScript text we'll highlight each change by red. "
+"Just make the changes in the file, and *don't forget to also change other"
+" occurrences of “MyModel” to “ArmModel”* later in the file.**"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:72
+msgid "What does this file contain so far?"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:74
+msgid ""
+"Let's look a little closer at the contents of what is now the ArmModel "
+"folder:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:98
+msgid ""
+"The only actual model element in the ArmModel is the declaration of the "
+"\"AnyFixedRefFrame GlobalRef\". All models need a reference frame - a "
+"coordinate system - to work in, so the system has created one for you."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:102
+msgid ""
+"An AnyFixedRefFrame is a predefined data type you can use when you need "
+"it. What you have here is the definition of an object of that type. The "
+"object gets the name \"GlobalRef\", and we can subsequently refer to it "
+"anywhere in the ArmModel by that name."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:107
+msgid ""
+"You will notice that there is a \"to do\" comment inside the braces of "
+"this reference frame suggesting that you add points for grounding the "
+"model. Don't do it just yet. We will return to this task later."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:111
+msgid ""
+"But here's an important notice: Everything you define in this tutorial "
+"from now on is part of the ArmModel folder and should go between its pair"
+" of braces. If you define something outside these braces that should have"
+" been inside, then the necessary references between the elements of the "
+"model will not work."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:118
+msgid "Loading an AnyBody model"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:120
+msgid ""
+"You should be ready to load the model now by pressing the |Loadbutton "
+"image| icon in the toolbar or the F7 key."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:123
+msgid ""
+"This action will load whatever file is chosen in the text editor. If a "
+"file is already loaded, the above action will simply reload the file "
+"until you give another file loading priority by right-clicking its tab "
+"and select “Load Model”."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:128
+msgid "|Load model right click menu|"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:130
+msgid "You may get a similar message in the Output Window."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:148
+msgid "Basic troubleshooting"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:150
+msgid ""
+"If you mistype something, you will get an error message. A common mistake"
+" is to forget a semicolon somewhere. Try removing the last semicolon in "
+"the AnyScript file, and load again. You get a message saying something "
+"like:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:159
+msgid ""
+"First, there is a message ID, then a file location and finally the body "
+"of the message. The former two are written in blue and underlined to show"
+" the underlying active links. The file location is the line where the bug"
+" was found by the system. If you click this link, the text cursor will "
+"jump to the file and exact line where the error was found. Remember that "
+"an error can sometimes be caused by something you mistyped earlier in the"
+" file so that you actually have to change something elsewhere in your "
+"model. Try clicking the error number ERROR(SCR.PRS11). This will give you"
+" a little pop-up window with a complete explanation:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:169
+msgid "|Error popup dialog|"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:171
+msgid ""
+"We now assume that you have removed the errors and have loaded the model "
+"successfully."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:177
+msgid ""
+"**Next lesson:** If you are up to it, let's continue onward to "
+":doc:`Lesson 2: Segments <lesson2>`."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson1.rst:199
+msgid "noindex"
+msgstr ""
+

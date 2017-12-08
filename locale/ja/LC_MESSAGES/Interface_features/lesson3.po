@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Interface_features/lesson3.rst:2
+msgid "Lesson 3: The Chart View"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:4
+msgid "The AnyBody Modeling System has the Chart View for displaying results:"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:6
+msgid ""
+"The Chart View gives you the opportunity to make two-dimensional line "
+"plots and three-dimensional surface plots. You can make identical charts "
+"in the Chart View and inside the model scene, i.e., in Model View."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:10
+msgid "|Chart view window|"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:12
+msgid ""
+"We will use the CrossTrainer model from the previous tutorial and "
+"investigate the results (see details on how to load and run the model in "
+"the previous tutorial)"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:16
+msgid ""
+"Once the operation is complete, open the Chart View by clicking the Chart"
+" tab in the Model View."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:19
+msgid ""
+"Notice that the window is divided into a tree pane on the left and the "
+"actual data area to the right."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:22
+msgid ""
+"The tree in the Chart View has been filtered so that you only see the "
+"output data. This particular category of data only becomes available when"
+" an operation is started. To reach the output data, expand the tree "
+"through Main.Study.Output."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:28
+msgid "Global output data"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:30
+msgid ""
+"Directly below the tree’s Output node, you will find data pertaining to "
+"the \"global\" properties of the model:"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:33
+msgid "Ekin - the total kinetic energy of the system"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:35
+msgid "Epot - the total potential energy of the system"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:37
+msgid ""
+"Emech - the total mechanical energy of the system, i.e. the sum of "
+"potential and kinetic energies"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:40
+msgid "Pmech - the mechanical power of the system"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:42
+msgid ""
+"To plot some different data e.g. by clicking Ekin, Epot, and Emech in "
+"turn."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:46
+msgid "Time-dependent data"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:48
+msgid ""
+"The usual way of looking at data is as a function of time or rather time "
+"steps. If you expand the Model branch down to the "
+"HumanModelHumanModel.Right.Leg.Seg section, you can investigate the "
+"movement of e.g. a foot segment. Expand the tree until you get to the "
+"Talus object as shown to the left. Then click the r property. This "
+"displays three curves on the screen corresponding to the x, y, and z "
+"coordinates of the talus’ reference frame. The color codes of the chart "
+"view are red, green and blue in that order, so red is for x, green is for"
+" y, and blue is for z."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:58
+msgid "|Chart view with plots|"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:60
+msgid ""
+"Let us look at more complex data, let us find the muscles in the tree by "
+"expanding to Main.Study.Output.Model.HumanModel.Right.Mus. Take the first"
+" muscle, SoleusMedialis1SoleusMedialis1, and click the Fm property."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:64
+msgid "|Chart view, single plot|"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:66
+msgid ""
+"**An asterisk (``*``) serves as a placeholder in the Chart; if you click "
+"in the Value field and type an asterisk instead of “Medialis1”, you will "
+"see all Soleus muscles (muscles whose names start with Soleus).**"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:70
+msgid "|Chart view multiple plots with asterix|"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:72
+msgid ""
+"If you choose SelectedOutput in the model tree, you will find some pre-"
+"chosen quantities that are useful from a biomechanical point of view, for"
+" example, joint reaction forces, moments and muscle envelopes."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:77
+msgid "Detailed data investigation"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:79
+msgid ""
+"If you hold the mouse pointer still above the curve for a moment, a small"
+" box will pop up and give you the name of the data series and the value "
+"at the current cursor position (interpolated if between data points)."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:85
+msgid "Working with several Series"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:87
+msgid ""
+"You can plot several data series in the same Chart View. If we, for "
+"example, want to compare the muscle force of the Soleus muscles to the "
+"VastusMedialis muscles, we press the button ‘Add series’, select the FM "
+"property of a VastusMedialis muscle from the tree and use the asterisk to"
+" show all the muscles the same way as we did it before."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:93
+msgid "|Chart view, series|"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:96
+msgid "Exporting data"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:98
+msgid ""
+"Basically, there are two options for exporting your data. You can export "
+"the graph as an image or as a data matrix. You can also save the graph as"
+" a separate file using or copy it to the clipboard and insert it into an "
+"existing file."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:103
+msgid "Copy to clipboard :"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:105
+msgid "As a bitmap picture"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:107
+msgid ""
+"As text: copies the graph data to the clipboard in text format. You can "
+"paste them into a spreadsheet or a text editor."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:110
+msgid "As a hi-res bitmap picture"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:112
+msgid "To Python Matplotlib chart: This function is currently in testing"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:114
+msgid ""
+"Save as image file using the icon |image5|, file name, location and type "
+"can be selected:"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:117
+msgid "Bitmap, jpg, gif, png or tiff picture:"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:119
+msgid ""
+"Text or CSV data file: Saves plot data in CSV format in column formatted "
+"text file."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:122
+msgid ""
+"Python file: Exports as python script creating a plot using the library "
+"Matplotlib."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:125
+msgid ""
+"A word of caution regarding the text option: Different countries have "
+"different conventions for decimal numbers. Some use a point as decimal "
+"separator, and some use a comma. The numbers copied to the clipboard from"
+" the Chart View follow the nationality settings for the decimal point or "
+"comma."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:132
+msgid "User-defined abscissa and 3D graphs"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:134
+msgid ""
+"The default abscissa in the chart view is time. However, you can in "
+"principle plot data against any scalar property the system has computed. "
+"For this, replace the Main.Study.Output.Abscissa.t specification in the "
+"Abscissa specification line."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:139
+msgid "|Chart view userdefined abscissa|"
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:141
+msgid ""
+"Alternatively, you can add a second abscissa to create a 3D graph. More "
+"icons will be activated when a second abscissa is identified. Typically "
+"these 3D graphs are used in parameter studies and optimizations. More "
+"detailed information is available in the “Parameter studies and "
+"optimization“ tutorial."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:150
+msgid "**Next lesson:** :doc:`lesson4`."
+msgstr ""
+
+#: ../../Interface_features/lesson3.rst:181
+msgid "noindex"
+msgstr ""
+

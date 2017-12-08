@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../The_mechanical_elements/lesson1.rst:2
+msgid "Lesson 1: Segments"
+msgstr ""
+
+#: ../../caution_old_tutorial.rst:2
+msgid ""
+"**Old tutorial:** This tutorial has not yet been updated to ver. 7 of the"
+" AnyBody Modeling System. Some concepts may have changed."
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:7
+msgid ""
+"Segments are defined by the AnySeg keyword in AnyScript. They are the "
+"rigid bodies on which the system bases its analysis. In a body model, "
+"segments are usually bones, but since an AnyBody model often comprises "
+"various equipment and other items, segments are also used to model "
+"cranks, pedals, handles, tools, sports equipment, tables, chairs, and all"
+" the other environmental objects a body may be connected to."
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:14
+msgid ""
+"In fact, An AnyBody model does not have to entail a living body. You can "
+"easily create an AnyBody model of a machine in which no biological "
+"elements take part."
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:18
+msgid ""
+"Segments in AnyBody are basically a set of mass properties as you can see"
+" below."
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:21
+msgid "|segments|"
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:23
+msgid ""
+"Segments do not have any particular shape associated with them. By "
+"default a segment is originated in its Center of Mass (CoM), but it is "
+"possible to move the CoM away from the origin of the segment's reference "
+"frame. The mass properties are defined by means of a mass and an inertia "
+"tensor. The segments in the picture above visualize their mass properties"
+" by ellisoids."
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:30
+msgid ""
+"Another important property of a segment is that it can have nodes, so-"
+"called AnyRefNodes, assigned to it. The connections between the segment "
+"and the AnyRefNodes are rigid, so the nodes move with the segment. The "
+"nodes are visualized by the heads of the pins sticking out from the "
+"ellipsoids."
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:36
+msgid "A basic definition of a segment could go like this:"
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:47
+msgid ""
+"Notice that the AnyDrawSeg is just an empty pair of braces signifying "
+"that we are using the standard settings. This will produce the following "
+"image:"
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:51
+msgid "|Potato segment|"
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:53
+msgid ""
+"The AnyDrawSeg always represents segments as ellipsoids with axis ratios "
+"corresponding to the inertia properties. But the AnyDrawSeg class has "
+"multiple settings that can be used to control the appearence of the "
+"segment:"
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:58
+msgid "|Drawobjects|"
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:60
+msgid ""
+"Please refer to the reference manual for further explanation. The "
+":doc:`Getting Started with AnyScript "
+"<../A_Getting_started_anyscript/intro>` tutorial provides examples of "
+"segment definitions."
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:68
+msgid "**Next lesson:** Next up is :doc:`lesson2`."
+msgstr ""
+
+#: ../../The_mechanical_elements/lesson1.rst:88
+msgid "noindex"
+msgstr ""
+

@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Advanced_script_features/index.rst:2
+msgid "Advanced Script Features"
+msgstr ""
+
+#: ../../Advanced_script_features/index.rst:4
+msgid ""
+"The objective of this tutorial is to show some additional advanced "
+"features of the AnyBody Modeling System."
+msgstr ""
+
+#: ../../Advanced_script_features/index.rst:7
+msgid ""
+"AnyScript is a powerful programming language designed particularly to "
+"make life easy for body modelers. Generality and versatility, however, "
+"often come at the cost of complexity, and there are some advanced topics "
+"you must grasp to fully realize the potential of the language. This "
+"section presents some of those topics."
+msgstr ""
+
+#: ../../Advanced_script_features/index.rst:14
+msgid "Tutorial content"
+msgstr ""
+
+#: ../../Advanced_script_features/index.rst:31
+msgid "noindex"
+msgstr ""
+

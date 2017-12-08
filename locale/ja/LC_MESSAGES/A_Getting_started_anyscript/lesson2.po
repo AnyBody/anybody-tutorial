@@ -1,0 +1,304 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:2
+msgid "Lesson 2: Defining Segments and Displaying Objects"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:4
+msgid ""
+"Here's an AnyScript file to start on if you have not completed the "
+"previous lesson: :download:`*demo.lesson2.any* "
+"<Downloads/demo.lesson2.any>`"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:8
+msgid ""
+"The building blocks of any mechanical system are called segments. They "
+"are the rigid elements that represent your model. When modeling a human, "
+"they usually correspond to the bones of the body. However, they can also "
+"be used to model machines, exoskeletons and other non-human model "
+"components. Hence the more general term \"segment\" [#f1]_."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:14
+msgid ""
+"A segment is just a coordinate system that can move around in space and "
+"change its orientation. It has an origin where its center of mass is "
+"assumed to be located, and it has axes coinciding with its principal "
+"inertia axes."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:20
+msgid "Creating a segment"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:22
+msgid ""
+"We shall start by defining a folder for the segments. Please add the "
+"following text to your model (new text marked by red):"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:45
+msgid ""
+"Try loading the model by clicking the \\ |Load button image| icon or the "
+"F7 key. If you expand the ArmModel branch in the tree view, you should "
+"see a new, empty folder named Segs. We are now ready to add a segment to "
+"the model, and this would probably be a good time to introduce you to the"
+" **Class Inserter**."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:51
+msgid "|Classes tab|"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:53
+msgid ""
+"You will find a tab called Classes on the right edge of your AnyBody "
+"interface. Clicking on the tab shows a **Class List** which contains all "
+"the predefined classes in AnyScript."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:57
+msgid ""
+"To insert a segment start by placing your text cursor inside the newly "
+"defined AnyFolder Segs. Then find the class AnySeg in the Class List and "
+"double-click it to insert its template into your text editor."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:61
+msgid "You should get this:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:81
+msgid ""
+"This AnySeg class template contains all possible properties that you may "
+"want to set. Properties that are active are mandatory to provide (the "
+"template contains some default values), while the commented ones are "
+"optional. You can delete any unnecessary optinal properties. For AnySeg, "
+"Mass and Jii are mandatory properties. The former is the mass of the "
+"segment object while the latter is the diagonal elements of its inertia "
+"tensor."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:89
+msgid ""
+"Let us give the new segment the name UpperArm and set its Mass = 2 and "
+"also assign reasonable values for Jii:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:102
+msgid "Load the model again and notice the warning you get Among the messages:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:104
+msgid ""
+"*Model Warning: Study 'Main.ArmStudy' contains too few kinematic "
+"constraints to be kinematically determinate.*"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:107
+msgid ""
+"This tells you that your model has more degrees of freedom than "
+"constraints. We will take care of this in the next lesson"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:111
+msgid "Displaying a segment"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:113
+msgid ""
+"Now that we have a physical object in the model let's see what it looks "
+"like. To make something visible in AnyBody, you have to add a drawing "
+"object which defines visibility:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:128
+msgid ""
+"Reload the model, and look at the Model View (you might have to press the"
+" |Zoom button image| zoom all button to locate your segment) . If you "
+"entered the inertia properties in the Jii specification as written above,"
+" then your ellipsoid should be ten times as long as it is wide. Try "
+"changing the \"0.001\" to \"0.01\" and reload. The ellipsoid becomes "
+"spherical. The dimensions of the ellipsoid are scaled this way to fit the"
+" mass properties of the segment you are defining. Now change Jii back to "
+"{0.001,0.01,0.01} again."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:138
+msgid "Adding point nodes to a segment"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:140
+msgid ""
+"We will eventually attach things like muscles, joints, forces etc. to our"
+" segments. We hence need attachment points. They are defined in the local"
+" coordinate system of the segment. Figuring out these points for complex,"
+" realistic models can be a laborious task, but you can often grab the "
+"point locations based on existing reference points defined in most AMMR "
+"models."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:147
+msgid ""
+"For this model, let us assume that you know the coordinates of all the "
+"points on UpperArm. Instead of going through the drill with the object "
+"inserter, you can copy and paste the following lines:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:186
+msgid "|Model view One Segment|"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:188
+msgid ""
+"Try loading the model again and have a look at the graphical "
+"representation. If you zoom out enough, you should see your points "
+"floating around the ellipsoid connected to its center of gravity by "
+"yellow pins."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:193
+msgid ""
+"One segment does not make much of a mechanism, so let's define a forearm "
+"as well. In the segs folder, add these lines:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:226
+msgid "Creating a second segment"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:228
+msgid ""
+"When you reload the model, you may not see the forearm immediately "
+"because it looks exactly the same (Similar mass properties and point "
+"locations) and is placed exactly on top of the upper arm."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:232
+msgid ""
+"Let us change the initial/load time position of the two segments so we "
+"can see both. The properties for this is r0 and Axes0 for location and "
+"rotation."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:236
+msgid ""
+"Remember that this is only the initial position before running any "
+"analysis. When you run your model, it will ignore the initial positions "
+"and obey any constraints you specify. A joint is a constraint that "
+"constrains the movement between segments. More on this in the next "
+":doc:`Lesson <lesson3>`."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:242
+msgid ""
+"For now, let us change the position and rotation of the segments at load "
+"time."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:255
+msgid "and"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:265
+msgid "This will clearly separate the segments in your Model View:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:267
+msgid "|Model view two segments|"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:269
+msgid ""
+"So far so good. But it might improve the visual impression if the were "
+"also oriented a bit like we would expect an arm to be. This involves the "
+"Axes0 property, which is really a rotation matrix. Such matrices are a "
+"bit difficult to cook up on the fly. The predefined version in the "
+"UpperArm segment looks like this:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:283
+msgid "Rotation matrices in AnyBody"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:285
+msgid ""
+"If your spatial thinking is good, you can start figuring out unit vectors"
+" for the coordinate system orientation you want and insert them into the "
+"Axes0 specification instead of the existing ones."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:289
+msgid ""
+"Note that matrices in AnyBody are arranged row-wise, so {1, 0, 0} in "
+"Axes0 is the first row of a 3x3 matrix."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:292
+msgid ""
+"There is an easier solution for generating the rotation matrix: AnyScript"
+" has a standard function named RotMat, which returns a rotation matrix "
+"corresponding to a given axis and rotation angle. Therefore, we can "
+"specify:"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:304
+msgid ""
+"When you reload again, you will see that the UpperArm is indeed rotated "
+"-90 degrees about the z axis as the function arguments indicate. Notice "
+"the multiplication of the angle by pi/180. AnyBody identifies the word "
+"\"pi\" as 3.14159... and dividing this with 180 gives the conversion "
+"factor between degrees and radians."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:310
+msgid "Angles in AnyBody are always in radians."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:312
+msgid ""
+"In the next section, we will look at how joints can be used to constrain "
+"the movement of segments and allow them to articulate the way we desire."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:318
+msgid ""
+"**Next lesson:** So if you are up to it, let's continue onward to "
+":doc:`Lesson 3: Connecting segments by joints <lesson3>`."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:321
+msgid "Footnotes"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:322
+msgid ""
+"In rigid body dynamics terminology, a \"segment\" would be called a "
+"\"rigid body\", but to avoid unnecessary confusion between the rigid "
+"bodies and the total body model, we have chosen to use \"segments\" for "
+"the rigid parts of the model."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/lesson2.rst:346
+msgid "noindex"
+msgstr ""
+

@@ -1,0 +1,373 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Interface_features/lesson2.rst:2
+msgid "Lesson 2: The Model View Window"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:4
+msgid ""
+"The Model View is a graphical representation of your AnyBody model. You "
+"can open up to four Model Views open at the time, and you can enable "
+"these additional windows from View->Model Views."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:8
+msgid "|Open model view windows|"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:10
+msgid ""
+"The Model View only displays a particular type of model elements called "
+"\"Draw Objects\" which are inserted into AnyScript definitions of "
+"segments, muscles, nodes, surfaces, etc. For example, see the AnyDrawSeg "
+"object used to visualize a segment in this tutorial\\ **.**"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:16
+msgid "Introduction to Model View"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:18
+msgid ""
+"The Model View displays and updates the model as the simulation operation"
+" proceeds. These updates can involve movements, shapes or colors, etc. "
+"that reflect changes such as muscle force fluctuations."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:22
+msgid ""
+"Once the operation has been completed, the **replay slider bar** at the "
+"top lets you freely navigate to any time instant, where both the Model "
+"View and values in the Model Tree will be instantly updated."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:26
+msgid ""
+"The Model View allows you to save individual image frames which can "
+"subsequently be used to make a video animation playing a speed of your "
+"choice."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:31
+msgid "Running a Simulation"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:33
+msgid ""
+"Switch to the Operations tab. Select the RunApplication in the tree click"
+" the **Start operation icon**."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:36
+msgid "|Model tree toolbar, start operation|"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:38
+msgid ""
+"Once completed, merely click on InverseDynamics in the Operations tree. "
+"You will notice that the replay toolbar slider shifts from gray to blue."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:42
+msgid ""
+"Now try to drag the slider forwards and backward and notice how the Model"
+" View changes\\ |Replay slider toolbarb|"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:45
+msgid ""
+"If you have run several operations, you can replay them individually by "
+"changing the selected operation in the tree."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:49
+msgid "The Toolbar"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:51
+msgid "The Model View has its own toolbar with the following buttons:"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:53
+msgid "|Model view toolbar|"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:55
+msgid ""
+"**On/Off:** When switched off, the other buttons are disabled, and the "
+"model is no longer updated. However switching it off may speed up your "
+"simulations."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:59
+msgid "**Properties** **:** Opens the properties window."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:61
+msgid ""
+"**Pan tool:** Dragging the cursor with the left mouse button down moves "
+"the model image."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:64
+msgid ""
+"**Zoom tool:** Hold the left mouse button down, and drag up/down for "
+"zooming in/out."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:67
+msgid ""
+"**Spin tool:** 3D rotation of the model when left mouse button is held "
+"down."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:70
+msgid "**Zoom all:** Refits the view to show all drawing elements."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:72
+msgid ""
+"**Default views:** Predefined views on planes: xy plane (standard), yz or"
+" xz plane."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:75
+msgid "**Rotate 90:** Rotates the view 90 degrees"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:77
+msgid "**Rotate 180:** Rotates the view 180 degrees"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:79
+msgid ""
+"**Record start/stop:** Starts/stops the video frame capturing. Explained "
+"in more detail below."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:82
+msgid ""
+"**Frame count:** Displays the number of captured frames during a "
+"recording."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:85
+msgid "**Snapshot:** Takes a single snapshot of the model."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:88
+msgid "Model View Properties"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:90
+msgid ""
+"The Model View properties contain four groups and should be displayed as "
+"a tree in a separate tab. To learn, click on any of the properties with "
+"the |Folder icon| symbol and hit the F1 key. This should open the "
+"AnyScript Reference Manual where sub-properties are defined."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:96
+msgid "Recording video"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:98
+msgid ""
+"The allows you to save individual image frames of a motion for subsequent"
+" processing into a video animation."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:101
+msgid ""
+"The function works much like a video tape recorder, in the sense that you"
+" can |Record buttons|\\ push the red record button any time you like, and"
+" what happens in the window is subsequently saved for further processing."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:106
+msgid "Let us see how it works."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:108
+msgid "Try clicking the record button."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:110
+msgid ""
+"A file manager will pop up and request you to select a location and file."
+" We recommend the Jpeg file format due to the lesser memory demand."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:114
+msgid ""
+"The frame counter will light up, the \"Rec\" letters flashes and the stop"
+" button becomes active indicating that you can push it. Any activity that"
+" takes place in the window will now be recorded."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:118
+msgid ""
+"Try manually spinning the model **a little** with the mouse and notice "
+"how the frame counter adds up. The system only grabs frames when the "
+"picture actually changes, for example when you replay your simulation "
+"results."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:123
+msgid ""
+"Push \"Stop recording\" when you have saved 100 frames. The system will "
+"ask you if you want to save the images, say yes. The saved images should "
+"look like this: {image\\_000.jpeg, image\\_001.jpeg, …, image\\_099.jpeg]"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:128
+msgid ""
+"The AnyBody Modeling System does not provide a video editing facility to "
+"process these files into an AVI, MPEG or similar video file format, but "
+"many third-party utilities are available for this purpose. For more "
+"details, please see https://anyscript.org/tips-n-tricks/creating-videos-"
+"from-your-simulations/"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:135
+msgid "Working with the Model View contents"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:137
+msgid ""
+"We have already mentioned that Model View shows draw objects in the model"
+" and that there are two types of these objects:"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:140
+msgid "Auto-generated draw objects"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:142
+msgid "Model-defined draw objects"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:144
+msgid ""
+"Auto-generated objects are crude representations that are useful during "
+"the development, while model-defined objects serve to make the most "
+"pleasing views that suit your presentation needs."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:148
+msgid "All draw objects can appear in the following states:"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:150
+msgid "Visible or invisible"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:152
+msgid "Transparent"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:154
+msgid "Selected"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:156
+msgid ""
+"These states you can control while the model is loaded, either directly "
+"from Model View or from the Model Tree. We shall return to this in a "
+"moment."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:161
+msgid "Model View State Actions"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:163
+msgid ""
+"Let us take a look at how you can interact with the states of Model View "
+"draw objects. Right-clicking an object in Model View will bring up its "
+"context menu."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:167
+msgid "|Model view right click|"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:169
+msgid ""
+"From here you can show, hide, make transparent, etc. Reset means to bring"
+" the object back to its original state (at loading time), which can be "
+"either visible or invisible depending on the object. The more “complex "
+"looking” options at the bottom of the menu help you navigate to the "
+"relevant portions of the Model Tree. Try them out, they are quite "
+"intuitive to understand and may help you further on!"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:177
+msgid "Selections in the Model View"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:179
+msgid ""
+"Graphical objects in the Model View can be selected by single-clicking "
+"them with the left mouse button. Doing so will visually mark the object "
+"as selected by turning it into a reddish color. Multiple objects can be "
+"selected by left-clicking the objects sequentially. Left-clicking a "
+"selected object again will remove it from the current selection. The "
+"currently selected objects can be deselected by either left-clicking "
+"somewhere in the background, or by using the “Deselect all” option in the"
+" right-click context menu."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:189
+msgid "Setting the Model View from the Model Tree"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:191
+msgid ""
+"The context menu options for setting Model View state action for draw "
+"objects is also available from the Model Tree. The context menu in the "
+"Model Tree has a Model View item, which includes exactly the same sub-"
+"menu we looked at above, please see the image below."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:196
+msgid "|Model tree right click menu|"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:199
+msgid "Draw groups"
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:201
+msgid ""
+"You can change the state of a group of drawing objects simultaneously by "
+"using “draw groups” that can be created by the class AnyDrawGroup. Please"
+" refer to :doc:`Lesson 7 <lesson7>` for an example of their usage."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:209
+msgid "**Next lesson:** :doc:`lesson3`."
+msgstr ""
+
+#: ../../Interface_features/lesson2.rst:242
+msgid "noindex"
+msgstr ""
+

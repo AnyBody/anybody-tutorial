@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started_modeling/intro.rst:2
+msgid "Introduction: Getting Started with Modeling"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:4
+msgid ""
+"The objective of this tutorial is to give an understanding of more "
+"complex models using a full body model. A model will be created using a "
+"template and will be adapted to explain the reaction of the human body to"
+" an environment."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:9
+msgid ""
+"Developing accurate models of the human body is an enormous task, and it "
+"is not something each user can do from scratch. We often have to rely on "
+"models other people have made, and if we keep improving and exchanging "
+"them, we shall end up with an excellent supply of models that fit most "
+"purposes. `*The AnyBody Managed Model Repository* "
+"<https://www.anybodytech.com/software/model-repository-ammr/>`__ that has"
+" been described in a previous chapter is an attempt to provide such a "
+"library. Additionally, there are templates available that allow an easy "
+"start into a new model application."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:19
+msgid ""
+"These are some of the tasks you will want to accomplish with predefined "
+"models:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:22
+msgid ""
+"To change the model pieces to fit your own purposes - preferably without "
+"tampering with the interior workings of the parts you are using."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:26
+msgid "To be able to combine existing body parts to larger models."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:28
+msgid ""
+"To be able to attach the parts you can find to model bits you construct "
+"yourself."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:31
+msgid ""
+"All this can be done very elegantly in the AnyScript language provided "
+"you keep it in mind when you construct your models. The AnyBody Model "
+"Repository applications and templates are built that way, and they "
+"contain numerous examples of the technique. In short, it uses the "
+"following elements of the language to make it happen:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:37
+msgid "Include files"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:39
+msgid "Parameters"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:41
+msgid "Equipping parts with their own interfaces"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:43
+msgid ""
+"While there are many different ways models could be constructed to obtain"
+" the modularity we are looking for, the AnyScript Model Repository "
+"represents one very well-structured solution, and AnyBody Technology "
+"strongly recommends following the structure of this library when new "
+"models are developed."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:49
+msgid ""
+"When an existing application is similar enough to what you want to do to "
+"form the basis of the new application, then you can just copy that "
+"application and modify it as you want. But sometimes it will be clearer "
+"to users to build their own models from the bottom-up. We will consider "
+"the second situation and try to create a new model using templates."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:55
+msgid ""
+"This tutorial is based on version 1.6 of the AnyBody Managed Model "
+"Repository. Please notice that the repository models are subject to "
+"frequent updates. The newest version of the AMMR will be packaged with "
+"the latest version of the AnyBody Modeling System. Also, the demo models "
+"provided in the AnyBody Modeling System may be updated compared to the "
+"version used here."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:62
+msgid ""
+"With the AnyBody Modeling System, you already have a repository of models"
+" available, for details, please see the AnyBody Assistant available from "
+"the menu. This tutorial has been written using the AnyBody Managed Model "
+"Repository Ver. 1.6 (AMMRV1.6)."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:71
+msgid ""
+"**Next lesson:** With that done, please proceed to Lesson 1: "
+":doc:`Starting with a new Model <lesson1>` using a template."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/intro.rst:83
+msgid "noindex"
+msgstr ""
+
