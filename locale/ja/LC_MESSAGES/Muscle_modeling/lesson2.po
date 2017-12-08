@@ -1,0 +1,241 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Muscle_modeling/lesson2.rst:2
+msgid "Lesson 2: Controlling Muscle Drawing"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:4
+msgid ""
+"Muscles can be displayed in a variety of fashions depending on the "
+"specifications in the AnyDrawMuscle object. Let us take a look at its "
+"definition again:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:15
+msgid ""
+"It obviously does not contain much, so every setting is at its default "
+"value leading to the following display of the muscle:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:18
+msgid "|simple model with muscle|"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:20
+msgid ""
+"Let us play around with the settings a bit. An easy way to display all "
+"the settings is to discard our manually defined AnyDrawMuscle object and "
+"insert a template from the class tree instead:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:24
+msgid "|class tree AnyDrawMuscle|"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:26
+msgid ""
+"Erase the previous AnyDrawMuscle, right-click the AnyDrawMuscle in the "
+"tree view, and insert an instance:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:65
+msgid ""
+"Notice that the <ObjectName> must be manually changed to drw (or any "
+"other sensible name). The commented lines (with // in front) are the "
+"optional settings. Un-commenting them will not change much because the "
+"values they have listed are the default settings. So we need to change "
+"some of the values."
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:71
+msgid ""
+"The first thing we shall try is to make the muscle bulge. We do this by "
+"setting the value of the Bulge variable to 1. What this transates to is "
+"to make the muscle bulging proportional to the force in the muscle:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:90
+msgid ""
+"When you try this, you will find that the muscle has become thinner, but "
+"you really cannot see it bulge much. The problem is that the thickness of"
+" the muscle is scaled by another factor in addition to the force. This "
+"enables the system to create nice visualizations for intensive and light "
+"exercises alike. The additional factor is the variable MaxStress. The "
+"following will increase the muscle thickness:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:112
+msgid ""
+"Why does a smaller value of MaxStress lead to a thicker muscle? Well, you"
+" can think of the force in a muscle as being the product of a tissue "
+"stress and the cross sectional area. So, the smaller the tissue stress, "
+"the larger the cross sectional area for a given force. Thus, reducing the"
+" value of MaxStress increases the muscle thickness. If you reload and run"
+" the inverse dynamic analysis you will see that the muscle now has a "
+"significant thickness. Its thickness does not change much over the "
+"movement, though. This is because the muscle force is nearly constant "
+"over time for the problem we have defined. If we let the joint flex a bit"
+" more, then the moment arm of the muscle will become progressively "
+"smaller, and we will get a larger muscle force. The easy way to "
+"accomplish this is to increase the angular velocity of the joint driver:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:138
+msgid ""
+"Reload the model and run the InverseDynamicAnalysis operation again. You "
+"will see that the arm now flexes up to an almost vertical position. If "
+"you plot the muscle force, Fm, again in a chart view, then you can see "
+"how the muscle force goes up drastically with the reduced moment arm:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:145
+msgid ""
+"Consequently the muscle now bulges more towards the end of the movement "
+"than it does in the beginning:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:148
+msgid "|Chart view Muscle1.Fm|"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:150
+msgid ""
+"The muscle thickness does not have to reflect force. Choosing other "
+"values for the Bulging property will give other results:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:156
+msgid "**Bulging value**"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:156
+msgid "**Effect**"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:156
+msgid "**Comment**"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:158
+msgid "0"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:158
+msgid "No bulging"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:158
+msgid "This is the default value"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:160
+msgid "1"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:160
+msgid "Muscle force"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:160
+msgid "Thickness is proportional to force"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:162
+msgid "2"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:162
+msgid "Muscle strength"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:162
+msgid "Constant in this case (but relevant for more advanced muscle models)"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:164
+msgid "3"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:164
+msgid "Muscle activity"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:164
+msgid "The ratio between muscle force and muscle strength"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:166
+msgid "4"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:166
+msgid "Constant volume"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:166
+msgid "The muscle gets thicker when it contracts"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:169
+msgid ""
+"Muscle state can also be visualized with color. This allows for using "
+"bulging to visualize the force, while, for instance, muscle activity can "
+"be visualized with color. Try the following:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:188
+msgid ""
+"When you reload and run the InverseDynamicAnalysis, you will notice that "
+"the red shade of the muscle changes as its activity grows:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:191
+msgid "|Simple model two positions|"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:193
+msgid ""
+"When the activity is zero, the color defaults to a rather pale red. You "
+"can control this \"initial\" value of the scaled color through the "
+"property RGBColorscale. As the activity grows towards 1, the color "
+"approaches the default value of the muscle given in the RGB property. For"
+" instance, if you want the color interpolated from a cold blue to a warm "
+"red as the muscle activity increases, you can use the following settings:"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:216
+msgid ""
+"Finally, the muscle drawing object has a couple of properties in common "
+"with other drawing objects: You can control the transparency of the "
+"object through the property of that name. Opacity = 1 means opaque, and "
+"with Opacity = 0, the object becomes completely invisible. All values in "
+"between causes the object to be semi-transparent. You can also turn of "
+"the display of the object entirely off by setting DrawOnOff = 0;"
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:226
+msgid "**Next lesson:** :doc:`lesson3`."
+msgstr ""
+
+#: ../../Muscle_modeling/lesson2.rst:243
+msgid "noindex"
+msgstr ""
+

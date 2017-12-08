@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Advanced_script_features/lesson1.rst:2
+msgid "Lesson 1: Using References"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:4
+msgid ""
+"AnyScript is really a programming language, and just like any other "
+"programming language you can define variables and assign values to them. "
+"For instance, you may write"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:15
+msgid "Folders are also variables, and a folder definition can go like this:"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:25
+msgid ""
+"However, folders cannot be assigned like a and b above, so the following "
+"is illegal:"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:34
+msgid ""
+"In general, you can only do direct assignment of value variables, i.e. "
+"variables containing numbers or collection of numbers. This assignment is"
+" allowed:"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:45
+msgid ""
+"But folder assignments are not allowed. So how can you refer to large "
+"portions of the model in just one assignment operation? The answer is "
+"that you can refer by reference, and just about any assignment between "
+"variables of compatible type will work:"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:56
+msgid ""
+"The ampersand, ``&``, in front of the variable name specifies that this "
+"is a reference. What it means that MyFolderCopy will just point to "
+"MyFolder, so whatever you do to MyFolderCopy will happen to MyFolder. It "
+"is as simple as that. A pointer variable takes up very little space in "
+"the computer because it does not copy the data it is pointing to."
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:62
+msgid ""
+"This demo example illustrates some of the important uses of pointer "
+"variables: :download:`demo.creatingandreferringtoobjects.any "
+"<Downloads/demo.creatingandreferringtoobjects.any>`"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:69
+msgid "**Next lesson:** :doc:`lesson2`."
+msgstr ""
+
+#: ../../Advanced_script_features/lesson1.rst:80
+msgid "noindex"
+msgstr ""
+

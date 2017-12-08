@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started_modeling/lesson1.rst:2
+msgid "Lesson 1: Starting with a New Model"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:4
+msgid ""
+"In some cases, it may be difficult to find an existing model that is "
+"sufficiently similar to what you want to obtain. In such a case it can be"
+" reasonable to begin the modeling project from a new model rather than an"
+" existing model. This is what we shall explore in the forthcoming "
+"lessons. We shall design a model of a **single leg stepping on a pedal**."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:12
+msgid "Generic model structure"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:14
+msgid ""
+"Let us first review the structure of the repository in slightly more "
+"detail. One of the objectives of its structure is to enable a clear "
+"division between the body parts and the applications we hook them up to. "
+"This comes through in the data structure of the model we are going to "
+"construct. Here is a brief overview of the principles behind that "
+"structure."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:21
+msgid "|ModelTree|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:23
+msgid ""
+"The model is primarily divided into three folders as shown above. In "
+"fact, the structure contains a few more parts that we will get to later, "
+"but the elements shown above are the more important."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:27
+msgid ""
+"At the top below the “Main” folder, you see the \"HumanModel\". This is "
+"where we keep the body parts that we are importing from the Body part of "
+"the repository. This folder contains objects such as segments (bones), "
+"joints, muscles, and ligaments. We also keep information about the "
+"scaling of the model in this folder. In general, you don’t need to modify"
+" this information directly."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:34
+msgid ""
+"Next, you can see the “Model” folder which contains all the information "
+"of your model. Below this Model folder, you can find another HumanModel "
+"folder, and this is the reference of the actual HumanModel below the Main"
+" folder."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:39
+msgid ""
+"It is just as important to notice what this folder does not contain: "
+"movement drivers, forces, and joints between the model and the "
+"environment. The external hardware parts of the models such as chairs, "
+"bicycles, tools, or, in the present case, a pedal are stored in the "
+"“Environment” folder."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:45
+msgid ""
+"To link the body model together with the environment, we use the "
+"\"ModelEnvironmentConnection\" folder which is typically containing the "
+"joint between the objects of the two former folders."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:50
+msgid "Creating model from template"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:52
+msgid ""
+"Let us start building the foot pedal model. The toolbar button "
+"\"Template\" will generate a default template model that looks much like "
+"this (let us set the target name as “MyPedal”):"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:56
+msgid "|New template model button|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:58
+msgid "|New Template dialog|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:60
+msgid ""
+"If you press the OK button, it will open an editor window of "
+"“MyPedal.main.any” file that includes the following lines:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:106
+msgid ""
+"Let’s load this default template model and open a Model View; then you "
+"can see the HumanModel on your screen like this:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:109
+msgid "|Model view Full body|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:111
+msgid ""
+"Using the Human template, you could easily introduce the HumanModel into "
+"your own model framework. This means that you could prepare the "
+"“HumanModel” folder information in your Model Tree."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:115
+msgid "If you can double-click the following line,"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:126
+msgid ""
+"This will open the “Environment.any” file which is created by the Human "
+"template."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:136
+msgid ""
+"This folder is for keeping defining the environment. In this case, it is "
+"the global reference frame, i.e. ground, and the pedal that the foot is "
+"going to step on. In fact, let us define the global reference frame in "
+"this folder right away (notice that new AnyScript code is written in red "
+"while existing code has the normal syntax highlighting):"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:155
+msgid ""
+"Click the \"Save\" button or Ctrl-S to save what you have typed in this "
+"Environment.any file."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:159
+msgid "Add pedal segment"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:161
+msgid ""
+"We now have the framework for adding the pedal to the model. We are "
+"presuming a pedal hinged in one end and the foot pushing in the other. We"
+" will define the segment and the hinge in the Environment.any file:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:192
+msgid ""
+"If you reload the model by pressing the F7 button and open a Model View, "
+"then you will see the new segment:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:195
+msgid "|Model view new segment|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:197
+msgid ""
+"This pedal is hinged to the origin of the global reference frame, but "
+"there is not much information else yet. In the next lesson, we shall look"
+" at how we can adjust the human model to fit the purpose of your "
+"simulation using AnyBody."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:205
+msgid ""
+"**Next lesson:** Next up is :doc:`Lesson 2: Adjusting the human model "
+"<lesson2>`."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson1.rst:229
+msgid "noindex"
+msgstr ""
+

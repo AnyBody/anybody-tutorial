@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Troubleshooting_anyscript/intro.rst:2
+msgid "Trouble Shooting AnyScript Models"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:4
+msgid ""
+"If you think mechanics is simple, it's probably just because you haven't "
+"worked with three-dimensional space yet. The laws of mechanics are pretty"
+" easy to comprehend as long as stuff is moving on a one-dimensional line."
+" When you go to two dimensions, complications such as rotational inertia "
+"and centrifugal forces start to play a role, but the equations are still "
+"not very difficult. The third dimension is what complicates things "
+"enormously and even to the point that mere kinematics becomes a matter "
+"for university scholars. It is quite literally rocket science."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:14
+msgid ""
+"A system like AnyBody is a tremendous help in this situation because it "
+"sets up and handles all the equations inside the system and relieves you "
+"of the task of actually handling the mathematics. But the system does not"
+" prevent you from creating models where the syntax or semantics of the "
+"model is invalid, where segments cannot reach their joints, where the "
+"kinematics is undefined, or where there are not enough muscles to balance"
+" the forces in the system. You are likely to run into all these problems."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:23
+msgid "More precisely, you can get the following types of errors:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:25
+msgid "Load-time errors - when the AnyScript model is syntactically erroneous"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:28
+msgid "Run-time errors - when a successfully loaded model refuses to be analyzed."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:32
+msgid "Load-time errors"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:34
+msgid ""
+"A load-time error occurs when you load a model by pressing F7 or the M<-S"
+" icon on top of each window. This causes the system to attempt a "
+"compilation of the model you have in the window, and any errors occurring"
+" in this respect are load-time errors."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:39
+msgid ""
+"Load-time errors are problems with the syntax of the AnyScript model you "
+"have authored. Such a model must honor a number of very formal semantic "
+"rules to be valid, and if it fails the test of any of those, you will get"
+" a load-time error."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:44
+msgid ""
+"Each possible error that can occur is associated with an error message, "
+"and the system will print the message in the message window at the bottom"
+" of the screen, for instance like this:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:52
+msgid "or like this:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:58
+msgid "or this:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:64
+msgid ""
+"As you can see, error messages adhere to a certain structure. The first "
+"part after ERROR is the file in which the system encountered the error. "
+"Notice that this may be a different file from the one you were loading "
+"because the main file may spawn to include files during the loading of "
+"the model."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:70
+msgid ""
+"After the file name you find a number in parenthesis. This is the number "
+"of the line where the error occurred. If you double-click the file name "
+"or the number, the file opens, and the cursor is placed at the line in "
+"question. Be sure to click the file name or line number and not the error"
+" message."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:76
+msgid ""
+"After the line number comes the actual specification of the error. With "
+"good descriptive error messages and easy access to the error location you"
+" should have the problem fixed in no time. Unfortunately things are not "
+"always that nice. First of all, the error messages are not always very "
+"descriptive. This is a problem the AnyBody Modeling System shares with "
+"any other computer language compiler in the market. It is not because "
+"programmers specifically want to bother their users. The problem is "
+"simply that error messages are generated by a very formal semantic "
+"analysis. This makes them very different from the natural human "
+"expression of the problem, and they can be difficult for the user to "
+"understand. But you can get used to them and people have been known to "
+"even grow fond of their conciseness."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:89
+msgid ""
+"The second and more serious problem is that the error may occur in a "
+"totally different location from where it really is. Let's take an "
+"example: Suppose by mistake you have included the wrong file like this:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:100
+msgid ""
+"somewhere in the model. When the compiler spawns to the wrong file it is "
+"likely to meet statements or references to objects that do not exist. The"
+" compiler will report en error in WrongFile.any, but the real error is in"
+" the file that included WrongFile.any."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:105
+msgid "Here are some typical errors and their consequences:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:108
+msgid "Forgotten semicolon"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:110
+msgid ""
+"Every statement in AnyScript must be terminated by a semicolon, and it is"
+" easy to forget. The consequence is that the compiler will proceed to the"
+" next line and probably report that it has encountered something "
+"unexpected there. By closer investigation, the next line may be fully in "
+"order, and you get confused. The problem was really on the former line."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:116
+msgid "Notice also that end braces must also have a semicolon after them."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:119
+msgid "Unbalanced braces"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:121
+msgid ""
+"Braces ``{}`` are used to group things together in AnyScript. They must "
+"be coherent and balanced, and if you have one too few or one too many it "
+"can completely change the structure of the code, and you can get strange "
+"error messages. The best remedy is to use consistent indentations in the "
+"code. This makes it easy to follow the brace level and spot mistakes."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:128
+msgid ""
+"The AnyScript editor can indent your code automatically. If you select "
+"all the text and press Alt-F8, all lines are indented according to the "
+"brace level, and this often makes it much easier to see where the problem"
+" is. Beware that the missing brace can be in an include file."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:135
+msgid "Mix-up of decimal points and commas"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:137
+msgid ""
+"Some nationalities use decimal commas, and some use decimal points. The "
+"AnyBody Modeling System consistently uses decimal points regardless of "
+"the nationality settings in your computer. If you type a comma in place "
+"of a decimal point, you will get a syntax error."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:143
+msgid "Mix-up of of letters"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:144
+msgid ""
+"Beware that there is a difference between the letter 'O' and the digit "
+"zero, '0', and the letter 'l' and the digit one, '1'."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:148
+msgid "Inconsistent use of capitals"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:149
+msgid ""
+"AnyScript is case-sensitive, so these two statements refer to different "
+"variables:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:156
+msgid ""
+"This also means that predefined class names such as AnyVar or AnyFolder "
+"must be written with correct capitalization."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:159
+msgid "Missing reference operator"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:160
+msgid "If by mistake you assign two folders to each other:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:166
+msgid "you will get the error message:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:172
+msgid ""
+"What the message means is that this type of assignment is not allowed. "
+"You may argue that the error message is misleading because '=' is indeed "
+"an assignment operator. However, operators in AnyScript are polymorphic, "
+"and they are interpreted in the context of the variables they operate on,"
+" and for two folders no proper assignment operator exists. So, while "
+"rhetorically correct, what the statement really means is that you are "
+"missing an ampersand, '&'. Assignment of folders to each other must be by"
+" reference like this."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:186
+msgid "Missing expected members"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:188
+msgid ""
+"Some classes in AnyScript have members that must be initialized. For "
+"instance, this declaration"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:199
+msgid "will produce the error:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:205
+msgid ""
+"The reason is that AnySeg has a property called Jii which must be given a"
+" value before the definition is complete. Similarly, some objects have "
+"properties that are untouchable. This declaration:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:215
+msgid "also causes an error:"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:221
+msgid ""
+"because t is a protected variable. It is set automatically by the system "
+"and cannot be assigned a value by the user."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:226
+msgid "Run-time errors"
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:228
+msgid ""
+"Run-time errors occur during analysis of a successfully loaded model. "
+"Their nature and remedies are completely dependent on the nature of the "
+"study. Please refer to the tutorial \":doc:`*A study of studies* "
+"</A_study_of_studies/intro>`\" for further information."
+msgstr ""
+
+#: ../../Troubleshooting_anyscript/intro.rst:242
+msgid "noindex"
+msgstr ""
+

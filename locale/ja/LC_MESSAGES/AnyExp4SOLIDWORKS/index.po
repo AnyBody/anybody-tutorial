@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../AnyExp4SOLIDWORKS/index.rst:2
+msgid "Making Models using SOLIDWORKS"
+msgstr ""
+
+#: ../../AnyExp4SOLIDWORKS/index.rst:5
+msgid ""
+"This tutorial shows how a CAD model designed in SOLIDWORKS can be "
+"imported into AnyBody and interact with the human model. This allows for "
+"analysis and optimization of the ergonomics of products."
+msgstr ""
+
+#: ../../AnyExp4SOLIDWORKS/index.rst:9
+msgid ""
+"The AnyBody Exporter™ for SOLIDWORKS® (AnyExp4SOLIDWORKS™), is an add-in "
+"for SOLIDWORKS, which allows export of SOLIDWORKS assembly models to "
+"AnyBody."
+msgstr ""
+
+#: ../../AnyExp4SOLIDWORKS/index.rst:12
+msgid ""
+"AnyBody and SOLIDWORKS is a powerful combination if you want to design "
+"and analyze mechanical systems with a close relationship with human. It "
+"is convenient to manage the model of your system in the CAD system with "
+"its powerful design functionality and then transfer the model to AnyBody "
+"for human-integrated mechanical analysis. AnyExp4SOLIDWORKS makes this "
+"transfer of the model easy."
+msgstr ""
+
+#: ../../AnyExp4SOLIDWORKS/index.rst:19
+msgid ""
+"After finalizing your CAD model, then with the AnyExp4SOLIDWORKS add-in "
+"you can translate it into a corresponding AnyScript model. This AnyScript"
+" model will include all mass properties, initial positions and geometry "
+"information of all individual parts in your CAD assembly. Also all the "
+"mate information of your CAD assembly will be translated into several "
+"corresponding AnyScript constraint objects."
+msgstr ""
+
+#: ../../AnyExp4SOLIDWORKS/index.rst:28
+msgid "Tutorial content"
+msgstr ""
+
+#: ../../AnyExp4SOLIDWORKS/index.rst:45
+msgid "noindex"
+msgstr ""
+

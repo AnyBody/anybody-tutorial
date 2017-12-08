@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started/lesson1.rst:2
+msgid "Lesson 1: Creating a Standing Model"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:4
+msgid ""
+"The model repository contains many applications in the Examples folder. A"
+" few of these are generic in nature and can serve dual purposes: Either "
+"they can be used as they are or they can be modified and become models of"
+" something else. In this lesson, we will load the Standing Model as it is"
+" and introduce the available options."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:10
+msgid ""
+"The standing model can be found in the repository under "
+"Applications/Examples. The model comprises most of the available body "
+"parts in the library. The main file is called StandingModel.Main.any and "
+"this is the one you must load to see the model."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:15
+msgid ""
+"You can open the file with the File->Open menu in AnyBody or through "
+"Windows Explorer."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:18
+msgid ""
+"The standing model has a few predefined features and some that you can "
+"modify. Here is a short list:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:21
+msgid ""
+"The model is supported by having both feet always connected to the "
+"ground, even when the feet move."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:24
+msgid ""
+"The posture of the model is controlled via anatomical angles for all "
+"major joints except the ankles. The model has a place where these joint "
+"angles can be specified directly. We shall return to this topic shortly."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:29
+msgid ""
+"The model automatically balances its posture by means of the ankle angles"
+" such that its collective center of mass remains vertically above the "
+"ankle joints. For instance, if the model extends the arms, the entire "
+"model will move slightly backward to maintain the balance."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:34
+msgid ""
+"The model has a set of predefined points to which three-dimensional "
+"external forces can be applied; they are defined as spatial vectors. When"
+" doing so, the muscles of the model will be recruited to balance the "
+"external forces."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:40
+msgid "Open model template"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:42
+msgid ""
+"In this chapter, we will show you how to create a new standing model "
+"using templates. You do this by pressing the Create Model button |Model "
+"button| in the editor window toolbar or the create model button in the "
+"mainframe toolbar:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:47
+msgid "|ModelLoadButton|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:49
+msgid ""
+"The Template dialogue opens and displays a list of pre-defined templates "
+"supported in the AnyBody Managed Model Repository (AMMR). Choose the "
+"‘Human Standing’ template and select the folder you want to save your new"
+" Human Standing model in. To demonstrate, let us create a ‘MyModels’ "
+"folder in the ‘AMMR\\\\Application\\\\’ folder and set it as the target "
+"folder. Save the model as ‘MyStandingHuman’. Press the OK button on "
+"completion."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:57
+msgid "|TemplateDialog|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:59
+msgid ""
+"Your new ‘MyStandingHuman.main.any’ file opens in the script Editor. The "
+"location of the file is shown in the title bar:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:62
+msgid "|MyStandingHumanModel.main.any|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:65
+msgid "Load model"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:67
+msgid ""
+"To see the graphical representation of the model, you need to load. "
+"Load/reload is a frequent operation and has been assigned to function key"
+" F7. You may also load your model by clicking |Load|."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:72
+msgid "Display the model"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:74
+msgid ""
+"After loading is completed, the Model View window opens and shows the "
+"standing model: (You can open it manually from View -> Model Views)."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:77
+msgid "|Model View|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:79
+msgid ""
+"The icons in the toolbar at the top of the Model View window allow you to"
+" modify the image: zoom, pan, rotate, etc. They should be mostly self-"
+"explanatory. Now is a good time to play a bit around with them and to "
+"familiarize yourself with the options."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:84
+msgid ""
+"In practical use it is often necessary to change quickly between these "
+"functions, so keyboard shortcuts have been provided:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:87
+msgid "The Ctrl button activates the Pan function."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:89
+msgid "The Shift button activates the Zoom function."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:91
+msgid "The Ctrl-Shift combination activates the rotation function."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:93
+msgid ""
+"If you have a scrolling wheel on your mouse, this will zoom the model in "
+"and out."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:100
+msgid "You can now proceed to :doc:`lesson2`."
+msgstr ""
+
+#: ../../A_Getting_started/lesson1.rst:122
+msgid "noindex"
+msgstr ""
+

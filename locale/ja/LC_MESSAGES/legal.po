@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../legal.rst:5
+msgid "Legal, Trademarks and Copyrights"
+msgstr ""
+
+#: ../../legal.rst:8
+msgid "Remarks about documentation"
+msgstr ""
+
+#: ../../legal.rst:10
+msgid ""
+"This documentation is intended for qualified users who will exercise "
+"sound engineering judgment and expertise in the use of the AnyBody™ "
+"Software. The AnyBody™ Software is inherently complex, and the examples "
+"and procedures in this documentation are not intended to be exhaustive or"
+" to apply to any particular situation. Users are cautioned to satisfy "
+"themselves as to the accuracy and results of their analyses."
+msgstr ""
+
+#: ../../legal.rst:17
+msgid ""
+"This documentation and the software described in this documentation are "
+"subject to change without prior notice."
+msgstr ""
+
+#: ../../legal.rst:20
+msgid ""
+"No part of this documentation may be reproduced or distributed in any "
+"form without prior written permission of AnyBody Technology."
+msgstr ""
+
+#: ../../legal.rst:23
+msgid ""
+"AnyBody Software refers to the following software products/- modules that"
+" are products of AnyBody Technology A/S, Denmark:"
+msgstr ""
+
+#: ../../legal.rst:26
+msgid "The AnyBody Modeling System™ (AMS)"
+msgstr ""
+
+#: ../../legal.rst:28
+msgid "The AnyBody Managed Model Repository™ (AMMR)"
+msgstr ""
+
+#: ../../legal.rst:30
+msgid "AnyBody Exporter for SOLIDWORKS™ (ANYEXP4SOLIDWORKS™)"
+msgstr ""
+
+#: ../../legal.rst:32 ../../legal.rst:67
+msgid "AnyFE2Abaqus™"
+msgstr ""
+
+#: ../../legal.rst:34 ../../legal.rst:69
+msgid "AnyFE2APDL™"
+msgstr ""
+
+#: ../../legal.rst:37
+msgid "Software License Agreement"
+msgstr ""
+
+#: ../../legal.rst:39
+msgid ""
+"The tutorials are licensed under the AnyBody™ Software License Agreement "
+"under the same terms as the \"AnyBody Managed Model Repository\" (AMMR) "
+"stated in the Agreement. This agreement can be found e.g. in the "
+"software’s menus and/or in the installation directory, or online at:"
+msgstr ""
+
+#: ../../legal.rst:44
+msgid "See: https://www.anybodytech.com/legal/software-license-agreement/"
+msgstr ""
+
+#: ../../legal.rst:48
+msgid "Trademarks"
+msgstr ""
+
+#: ../../legal.rst:50
+msgid ""
+"The AnyBody™ Software includes products that are registered trademarks or"
+" trademarks of AnyBody Technology A/S in Denmark and/or other countries. "
+"Further information about trademarks and brands can be found at "
+"*www.anybodytech.com/legal/trademarks-and-brands/*."
+msgstr ""
+
+#: ../../legal.rst:55
+msgid "The AnyBody™ Logo"
+msgstr ""
+
+#: ../../legal.rst:57
+msgid "AnyBody™"
+msgstr ""
+
+#: ../../legal.rst:59
+msgid "AnyScript™"
+msgstr ""
+
+#: ../../legal.rst:61
+msgid "The AnyBody Modeling System™ (AMS™)"
+msgstr ""
+
+#: ../../legal.rst:63
+msgid "The AnyBody Managed Model Repository™ (AMMR™)"
+msgstr ""
+
+#: ../../legal.rst:65
+msgid "AnyBody Exporter™ for SOLIDWORKS (ANYEXP4SOLIDWORKS™)"
+msgstr ""
+
+#: ../../legal.rst:71
+msgid "AnyMoCap™"
+msgstr ""
+
+#: ../../legal.rst:73
+msgid "Force-Dependent Kinematics™ (FDK™)"
+msgstr ""
+
+#: ../../legal.rst:75
+msgid ""
+"All other brand and product names mentioned herein are the trademarks and"
+" registered trademarks of their respective owners. Of special note are "
+"the following:"
+msgstr ""
+
+#: ../../legal.rst:79
+msgid ""
+"SOLIDWORKS® is a registered trademark of Dassault Systèmes SolidWorks "
+"Corporation."
+msgstr ""
+
+#: ../../legal.rst:82
+msgid ""
+"ABAQUS®, SIMULIA® are registered trademarks of Dassault Systèmes Simulia "
+"Corporation."
+msgstr ""
+
+#: ../../legal.rst:85
+msgid "ANSYS® is a registered trademark of Ansys, Inc."
+msgstr ""
+
+#: ../../legal.rst:87
+msgid "Microsoft®, Windows® are registered trademarks of Microsoft Corporation."
+msgstr ""
+
+#: ../../legal.rst:93
+msgid "Copyright Notice"
+msgstr ""
+
+#: ../../legal.rst:95
+msgid ""
+"This documentation and the associated products contain proprietary and "
+"confidential technology, information and creative works owned by AnyBody "
+"Technology A/S and their respective licensors, if any."
+msgstr ""
+
+#: ../../legal.rst:99
+msgid ""
+"Any use, copying, publication, distribution, display, modification, or "
+"transmission of such information and technology in whole or in part in "
+"any form or by any means without the prior express written permission of "
+"AnyBody Technology A/S is strictly prohibited. Except where expressly "
+"provided by AnyBody Technology A/S in writing, possession of this "
+"technology shall not be construed to confer any license or rights under "
+"any AnyBody Technology A/S intellectual property rights, whether by "
+"estoppel, implication, or otherwise."
+msgstr ""
+
+#: ../../legal.rst:108
+msgid ""
+"Copyright © 2002–|CURRENT_YEAR| AnyBody Technology A/S. All Rights "
+"Reserved."
+msgstr ""
+
+#: ../../legal.rst:111
+msgid "Making References to Software and Models"
+msgstr ""
+
+#: ../../legal.rst:113
+msgid ""
+"When referring to the AnyBody™ Software in papers, journals etc.  The "
+"licensee is requested to use the following academic conventions for the "
+"AnyBody Modeling System:"
+msgstr ""
+
+#: ../../legal.rst:117
+msgid ""
+"The AnyBody Modeling System (Version |AMS_VERSION|) (|CURRENT_YEAR|). "
+"[Computer software]. Aalborg, Denmark: AnyBody Technology. Available from"
+" http://www.anybodytech.com"
+msgstr ""
+
+#: ../../legal.rst:121
+msgid ""
+"When referring to specific models from the AnyBody Managed Model "
+"Repository use:"
+msgstr ""
+
+#: ../../legal.rst:124
+msgid ""
+"The AnyBody Managed Model Repository (Version |AMMR_VERSION|) "
+"(|CURRENT_YEAR|). [Computer software]. Aalborg, Denmark: AnyBody "
+"Technology. Available from `http://www.anybodytech.com "
+"<http://www.anybodytech.com>`__"
+msgstr ""
+
+#: ../../legal.rst:136
+msgid "noindex"
+msgstr ""
+

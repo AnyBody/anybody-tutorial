@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started_anyscript/intro.rst:2
+msgid "Getting started: AnyScript Programming"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/intro.rst:4
+msgid ""
+"AnyScript is the model definition language of the AnyBody Modeling System"
+" (AMS). It has been specially designed for describing the workings of the"
+" human body along with environmental objects that it may work along with,"
+" for example, exoskeletons, sports equipment, workplaces, etc."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/intro.rst:10
+msgid ""
+"In this tutorial, you will create your first AnyScript model, a "
+"simplified model of an arm."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/intro.rst:13
+msgid ""
+"Each lesson (after lesson 1) begins with a link to a file with the "
+"AnyScript code. If you have a problem getting your to code work, simply "
+"download the file and start from there."
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/intro.rst:20
+msgid "Let's get started with :doc:`Lesson 1: Basic concepts <lesson1>`"
+msgstr ""
+
+#: ../../A_Getting_started_anyscript/intro.rst:32
+msgid "noindex"
+msgstr ""
+

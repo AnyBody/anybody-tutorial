@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../The_mechanical_elements/intro.rst:2
+msgid "The Mechanical Elements"
+msgstr ""
+
+#: ../../caution_old_tutorial.rst:2
+msgid ""
+"**Old tutorial:** This tutorial has not yet been updated to ver. 7 of the"
+" AnyBody Modeling System. Some concepts may have changed."
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:7
+msgid ""
+"Musculoskeletal modeling is really just an advanced application of the "
+"laws of mechanics described by one of the greatest scientists of all "
+"times, Sir Isaac Newton, more than 300 years ago. So the elements of the "
+"models you are working on in the AnyBody Modeling System are mostly "
+"mechanical in nature, and to use them you must have sound understanding "
+"of the laws of mechanics in general and of Newton's three laws of motion "
+"in particular."
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:15
+msgid "The mechanical elements of an AnyBody model are"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:17
+msgid "**Segments** used to represent bones and other rigid elements of models"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst
+msgid "**Joints**"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst
+msgid ""
+"used to connect segments and allow them to articulate with respect to "
+"each other"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst
+msgid "**Drivers**"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst
+msgid ""
+"used to specify the movement the model should perform and optionally "
+"provide power input as motors"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst
+msgid "**Kinematic measures**"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst
+msgid "abstraction representation of kinematical constraints"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst
+msgid "**Forces**"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst
+msgid "forces applied to the model"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:33
+msgid ""
+"This tutorial also contains a short introduction to inverse dynamics and "
+"how it differs from forward dynamics."
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:36
+msgid "This tutorial consists of the following lessons:"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:38
+msgid ":doc:`Lesson 1: Segments <lesson1>`"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:40
+msgid ":doc:`Lesson 2: Joints <lesson2>`"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:42
+msgid ":doc:`Lesson 3: Drivers <lesson3>`"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:44
+msgid ":doc:`Lesson 4: Kinematic Measures <lesson4>`"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:46
+msgid ":doc:`Lesson 5: Forces <lesson5>`"
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:51
+msgid "**Next lesson:** Let's head for :doc:`lesson1`."
+msgstr ""
+
+#: ../../The_mechanical_elements/intro.rst:70
+msgid "noindex"
+msgstr ""
+

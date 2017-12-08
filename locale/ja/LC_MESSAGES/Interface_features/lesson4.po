@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Interface_features/lesson4.rst:2
+msgid "Lesson 4: The Model Tree and Object Description"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:4
+msgid ""
+"The Model Tree, on left side of the AnyBody screen, provides a quick "
+"overview of your model."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:8
+msgid "‘Locate in AnyScript’ and ‘Locate in Model Tree’"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:10
+msgid ""
+"These functions make it easier to navigate between the three different "
+"modes in which the model is represented in AnyBody - the Model View, "
+"AnyScript, and the Model Tree."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:14
+msgid ""
+"Watch the video mentioned in the :doc:`User Interface Introduction "
+"tutorial <intro>` to learn more."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:18
+msgid "The Object Description"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:20
+msgid ""
+"The Object Description can be opened from the context menu that appears "
+"upon right-clicking an object in the Model Tree, or alternatively by "
+"double-clicking that object. The information window (G in the figure "
+"below)also displays the object description in a more condensed format."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:25
+msgid "|GUI overview|"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:27
+msgid "|Object description window|"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:29
+msgid ""
+"The Object Description primarily contains hyperlinks to the Model Tree "
+"and AnyScript file where the object was constructed. In the case, you see"
+" an empty value for this object (Thigh = {…}) since it is a folder object"
+" which only serves as a container for sub-folders."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:34
+msgid ""
+"Mechanical objects, operation objects, study objects, etc., provide "
+"additional information in the Object Description. Below is a picture of "
+"the Object Description of a musculoskeletal study (class AnyBodyStudy) "
+"containing mechanical system information of the model to be simulated:"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:39
+msgid "|Object description on Studies|"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:41
+msgid ""
+"The Comments section contains the so-called Documentation Comments, which"
+" are made in the AnyScript source; please refer to the AnyScript "
+"Reference Manual for more details on Documentation Comments and how to "
+"make them."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:46
+msgid ""
+"The Object description for the study is an excellent way to get an "
+"overview of what is contained in a model and which joints and drivers are"
+" being applied."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:50
+msgid "**Important Notes:**"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:52
+msgid ""
+"There isn’t always a one-to-one correspondence between an AnyScript "
+"object and the Model Tree. Eg: When you use #include to call the same "
+"AnyScript file twice, from different parts of the main model file"
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:56
+msgid ""
+"Reference objects (appear with a |Folder link icon| in the Model Tree) "
+"are actually just local gateways to another object that may be created in"
+" a different part of your AnyScript code. For programming ease, you can "
+"use a locally created reference object as a substitute for your original."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:62
+msgid "This concludes this lesson on browsing the model."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:66
+msgid "**Next lesson:** :doc:`lesson5`."
+msgstr ""
+
+#: ../../Interface_features/lesson4.rst:91
+msgid "noindex"
+msgstr ""
+

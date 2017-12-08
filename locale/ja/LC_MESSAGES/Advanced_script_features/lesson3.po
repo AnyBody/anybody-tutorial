@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Advanced_script_features/lesson3.rst:2
+msgid "Lesson 3: Mathematical Expressions"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson3.rst:4
+msgid ""
+"One of the definite advantages of a modeling language like AnyScript is "
+"that mathematical expressions become a natural element in model "
+"construction. By means of mathematical expressions in models you can make"
+" the model parametric, enable scaling in various ways, and create "
+"dependencies between elements."
+msgstr ""
+
+#: ../../Advanced_script_features/lesson3.rst:10
+msgid ""
+"In AnyScript you can in principle write a mathematical expression "
+"involving variables and references to other objects and to time anywhere "
+"in an object definition where you would otherwise use a number. "
+"Furthermore, AnyScript handles scalar numbers, vectors, matrices, and in "
+"fact tensors of arbitrary dimensions."
+msgstr ""
+
+#: ../../Advanced_script_features/lesson3.rst:16
+msgid ""
+"Unlike most programming languages, definition sequence does not have any "
+"significance in an AnyScript model. This means that variables can refer "
+"to other variables that are created further down in the model like this:"
+msgstr ""
+
+#: ../../Advanced_script_features/lesson3.rst:26
+msgid ""
+"Instead of the sequence of **definition**, AnyScript variables depend on "
+"the sequence of **evaluation**. Some expressions are can be evaluated "
+"when the model is loaded, while others have to wait for certain "
+"operations to complete. For instance, a muscle force is not known until "
+"an InverseDynamicAnalysis operation is performed. The systems keeps track"
+" of when everything is evaluated and will complain if you try to use a "
+"variable prematurely."
+msgstr ""
+
+#: ../../Advanced_script_features/lesson3.rst:34
+msgid ""
+"For instance, kinematic analysis is the first step of an inverse dynamic "
+"analysis, so you can make an external force or a muscle strength depend "
+"on a position. This is because forces and muscles strengths are not used "
+"until after the kinematic analysis when the positions have been "
+"evaluated. However, you cannot make a position depend on a muscle force "
+"because muscle forces are always computed after positions."
+msgstr ""
+
+#: ../../Advanced_script_features/lesson3.rst:41
+msgid ""
+"Much of the capability of the mathematical expressions is demonstrated in"
+" the example :download:`Demo.MathExpressions.any "
+"<Downloads/Demo.MathExpressions.any>`."
+msgstr ""
+
+#: ../../Advanced_script_features/lesson3.rst:53
+msgid "noindex"
+msgstr ""
+

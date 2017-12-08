@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started/lesson3.rst:2
+msgid "Lesson 3: Reviewing Analysis Results"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:4
+msgid ""
+"AnyBody contains a number of facilities to investigate the results of an "
+"analysis. One of them is the Chart View, which is a standard graphing "
+"tool. To open it, click the “Chart 1” tab in the Model View window. To "
+"open Chart views manually go to View -> Charts."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:10
+msgid "Introducing chart view"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:12
+msgid ""
+"The tree expands to reveal the entire structure of output data generated "
+"by AnyBody. Every element in the model generates some form of output from"
+" the analysis, so the tree is vast. One of the first nodes you encounter "
+"is the MaxMuscleActivity variable:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:17
+msgid "|Chart view tree|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:19
+msgid ""
+"If you select MaxMuscleActivity you will see the following information. "
+"The line is flat, because you have analyzed a static standing posture "
+"which does not change with time:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:23
+msgid "|Chart view|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:25
+msgid ""
+"If you want to see details of the real values on the graph, click this "
+"button |getting started 8|. It adds a table with values below the chart:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:28
+msgid "|Chart view Data button|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:30
+#, python-format
+msgid ""
+"This chart shows you that to stand upright; the model is using about 13% "
+"of its strength. This means that the highest muscle activation level in "
+"the system is about 13% of the muscles’ maximum strength."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:35
+msgid "Hip forces – Standing posture"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:37
+msgid ""
+"Many biomechanical researchers want to see joint reactions forces, joint "
+"moments (by muscles) and muscle activations. For your convenience, the "
+"so-called ‘SelectedOutput’ folder contains all those representative "
+"values. You will find the folder in the model tree here:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:42
+msgid "|Chartview Selected output tree|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:44
+msgid ""
+"From this folder, we will take a look at the reaction forces in the right"
+" hip joint. Navigate to the ‘Right.Leg.JointReactionForce’ folder by "
+"expanding the tree view like this:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:48
+msgid "|Chartview JointReactionForce tree|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:50
+msgid ""
+"If you select the ‘Hip\\_ProximoDistalForce’, you will see its graph in "
+"the Chart View. The graph will show a constant line instead of a curve."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:53
+msgid "|Chartview ProximoDistalForce|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:55
+msgid ""
+"From this chart, we could see that there is about 382N force at the right"
+" hip joint in the proximodistal direction. If you select another value "
+"from the left-hand side of the model tree, the ‘Value’ property of Chart "
+"View will change accordingly."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:60
+msgid ""
+"It is possible to select and display several properties simultaneously in"
+" Chart View by using the asterisk (:literal:`*`) character. If you "
+"double- click the ‘Value’ property of your Chart View, it becomes "
+"editable. Let us edit the last :literal:`Hip_ProximoDistalForce` term to "
+":literal:`Hip_*`."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:65
+msgid "|Chart view asterix selection|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:67
+msgid ""
+"Now you will see the ‘Hip_MediolateralForce’, ‘Hip_ProximoDistalForce’ "
+"and ‘Hip_AnteroPosteriorForce’ in the same Chart View."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:71
+msgid "Hip forces - Bent posture"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:73
+msgid ""
+"The final step of this chapter is to change the posture of the human "
+"model to see what happens to the hip joint reaction force."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:76
+msgid ""
+"To adjust the posture of the human model, let us open your Mannequin.any "
+"file and change the PelvisThoraxExtension value from 0 to -60."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:96
+msgid ""
+"Press the F7 button to reload the model and run the RunApplication "
+"operation in the model tree. This will show the modified posture of the "
+"human model in the Model View."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:100
+msgid "|Model view Human bowing|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:102
+msgid "Next, we will check the changes in the right hip joint reaction forces."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:104
+msgid "|Chart view: bowing hip reaction forces|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:106
+msgid ""
+"As you can see in the above Chart View, the biggest hip joint reaction "
+"force component is the ProximoDistalForce, and its value is about 807N. "
+"So compared to the normal standing posture model, the value has almost "
+"doubled. The forces of the Mediolateral and AnteroPosterior have also "
+"increased."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:112
+msgid ""
+"Congratulations! You have just completed your first biomechanical "
+"analysis with the AnyBody Modeling System. You are ready to explore the "
+"facilities of the system and the model on your own and could try changing"
+" the posture in the mannequin.any file and investigate the new results."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:118
+msgid ""
+"You may also want to check our `library of previous webcast "
+"<https://www.anybodytech.com/anybody.html?fwd=webcasts>`__\\ s for topics"
+" of particular interest to you."
+msgstr ""
+
+#: ../../A_Getting_started/lesson3.rst:150
+msgid "noindex"
+msgstr ""
+

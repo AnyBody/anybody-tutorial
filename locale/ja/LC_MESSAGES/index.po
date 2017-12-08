@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../index.rst:3
+msgid "AnyBody Tutorials!"
+msgstr ""
+
+#: ../../index.rst:5
+msgid ""
+"Welcome to the AnyBody Tutorials. This is a good place to start learning "
+"how to do musculoskeltal modeling in the AnyBody Modeling System."
+msgstr ""
+
+#: ../../index.rst:15
+msgid ""
+"You can find the available tutorials in the sidebar. The tutorials are "
+"ordered in a suitable sequence for many new users unfamiliar with "
+"AnyBody, but this sequence may not be optimal for you depending on your "
+"background and interests."
+msgstr ""
+
+#: ../../index.rst:19
+msgid ""
+"It can be recommended to start with the Getting Started tutorials, of "
+"which there are three."
+msgstr ""
+
+#: ../../index.rst:22
+msgid ""
+"If you are a new user, also spend 7 minutes to watch the introductory "
+"video above, before stating the tutorials."
+msgstr ""
+
+#: ../../index.rst:25
+msgid "Contributing"
+msgstr ""
+
+#: ../../index.rst:26
+msgid "We highly appreciate any contributions to Tutorials!"
+msgstr ""
+
+#: ../../index.rst:28
+msgid ""
+"If you find typos, missing links or anything else wrong, don't hesitate "
+"to fix it. It is as easy as forking `the repository on GitHub "
+"<https://github.com/AnyBody/anybody-tutorial>`__ , making your changes, "
+"and issuing a pull request."
+msgstr ""
+
+#: ../../index.rst:33
+msgid "More details are in the :doc:`how to contribute section <contributing>`."
+msgstr ""
+
+#: ../../index.rst:50
+msgid "noindex"
+msgstr ""
+

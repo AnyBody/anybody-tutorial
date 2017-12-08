@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Scaling/index.rst:2
+msgid "Personalizing Your Model"
+msgstr ""
+
+#: ../../Scaling/index.rst:4
+msgid ""
+"Musculoskeletal models must be adaptable to sizes and anatomy of various "
+"individuals to be useful for product design and to be used for "
+"applications, where high geometric accuracy is required, e.g. surface "
+"articulations and patient-specific pre-operative planning. A general "
+"method for scaling musculoskeletal models has been implemented in the "
+"AMMR. It allows the usage of built-in, user-defined anthropometric "
+"scaling laws as well as individual segment morphing."
+msgstr ""
+
+#: ../../Scaling/index.rst:11
+msgid ""
+"The AMMR documentation for instructions how to configure the model to use"
+" built-in scaling laws and provide general anthropometric information."
+msgstr ""
+
+#: ../../Scaling/index.rst:14
+msgid ""
+"This tutorial introduces an advanced procedure of model personalization "
+"by means of nonlinear morphing for both, bone surface and relevant soft "
+"tissue attachment sites, to take a subject-specific shape. In this "
+"example, bone geometries segmented from medical images will be used to "
+"demonstrate how geometrically accurate subject-specific models can be "
+"constructed."
+msgstr ""
+
+#: ../../Scaling/index.rst:21
+msgid "Tutorial content"
+msgstr ""
+
+#: ../../Scaling/index.rst:37
+msgid "noindex"
+msgstr ""
+

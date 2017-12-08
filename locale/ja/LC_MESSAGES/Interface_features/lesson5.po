@@ -1,0 +1,410 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Interface_features/lesson5.rst:2
+msgid "Lesson 5: The Command Line Application"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:4
+msgid ""
+"The AnyBody Modeling System comes with a command line application named "
+"AnyBodyCon.exe; sometimes referred to as the AnyBody Console Application."
+" You will find this .exe file in the AnyBody installation directory."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:9
+msgid ""
+"While lacking a graphical interface, it has the full functionality of the"
+" GUI version and is helpful for batch processing of models from Matlab, "
+"Python, Java and JavaScript or C++."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:13
+msgid "|AnyBodyCon window|"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:15
+msgid ""
+"It is not possible to build models using the console application but "
+"gives faster performance running operations on existing model. The "
+"console application can be used manually, or it can take input from a "
+"macro file containing commands."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:21
+msgid "Interactive mode"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:23
+msgid ""
+"We need a model to work on, so please download and save "
+"*Demo.outputfile.any* in a working directory."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:26
+msgid "**Important:** To start the console application:"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:28
+msgid ""
+"Launch the command prompt, change directory to where you have saved "
+"Demo.outputfile.any"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:31
+msgid ""
+"Run the .exe file using its full path, e.g. ``\"C:\\Program "
+"Files\\AnyBody Technology\\AnyBody.7.0\\AnyBodyCon.exe\"``."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:34
+msgid "Console commands"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:36
+msgid ""
+"It only understands eight different commands. You can always get help by "
+"using the 'help' command or by calling AnyBodyCon with an /? argument. "
+"The table below contains a description of the commands accepted by the "
+"AnyBody console."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:42
+msgid "**Command name**"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:42
+msgid "**Functionality**"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:44
+msgid "load \"filename.any\""
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:44
+msgid "Example: load \"demo.outputfile.any\""
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:46
+msgid "Loads an AnyScript model into the system and compiles it."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:48
+msgid "operation <op.name>"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:48
+msgid "Example: operation Main.ArmStudy.InverseDynamics"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:50
+msgid ""
+"This command sets the active operation. This must be the first thing you "
+"do after loading."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:52
+msgid "Run"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:52
+msgid "Example: run"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:54
+msgid "Runs the active operation."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:56
+msgid "Runmacro"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:56
+msgid "Example runmacro “filename.anymcr”"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:58
+msgid "This command loads and executes an anymcr file."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:60
+msgid "Step"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:60
+msgid "Example: step"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:62
+msgid "Solves a single time step of the active operation."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:64
+msgid "Reset"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:64
+msgid "Example: reset"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:66
+msgid "Resets the active operation."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:68
+msgid "print <object>"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:68
+msgid "Example: print Main.ArmModel.Jnts.Shoulder.Pos"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:70
+msgid "Prints the value of a single object."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:72
+msgid "printdown <object>"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:72
+msgid "Example: printdown Main.ArmModel.Jnts"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:74
+msgid "Recursively prints the values of all elements in an object folder."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:76
+msgid "exit"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:76
+msgid "Example: Exit"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:78
+msgid "Exits and returns to the command prompt."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:82
+msgid "Using the console application"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:84
+msgid ""
+"Start AnyBodyCon.exe from the command prompt and issue the command "
+"sequence"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:94
+msgid ""
+"When the operation has finished, we are left with no idea of what the "
+"simulation results are! But wait, the model has been programmed to write "
+"some output files."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:98
+msgid ""
+"For understanding how open demo.outputfile.any model in the GUI Windows "
+"version of AnyBody Modeling System. You will notice two **AnyOutputFile**"
+" objects inside the ArmStudy."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:144
+msgid ""
+"If you open a file manager and look at the directory where you are "
+"running the model, you will notice that two new comma-separated value "
+"files have been generated: out1.csv and out2.csv. The semicolon separator"
+" between numbers was defined in the AnyOutputFile above."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:149
+msgid ""
+"You can open these files in Microsoft Excel, where each column of data "
+"corresponds to the variables defined in the AnyOutputFile command."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:152
+msgid ""
+"You can also save the output when using the GUI version by right-clicking"
+" on the Output subfolder of the Study folder in the Model Tree and "
+"choosing “Save Data”. We can replicate this in the console as follows"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:165
+msgid ""
+"The full model output (as opposed to select variables shown in the "
+"AnyOutputFile) will be saved in h5 format in the working directory. These"
+" results can either be read into MATLAB or Python or be re-loaded into "
+"AnyBody GUI (Right click the output sub-folder of the study, and select "
+"“Load Data”) for review."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:172
+msgid "Using define and path statements for loading a model"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:174
+msgid ""
+"If you are firstly unfamiliar with these statements, you can find an "
+"introduction in the tutorial Getting started: AnyScript Programming. They"
+" give us some limited control over modifying the model from the command "
+"line application. As a simple example, let us use a #define to change the"
+" number of time steps in our operation."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:202
+msgid "If we now exchange"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:208
+msgid "from our operation sequence with"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:214
+msgid "we will see that our model will only to 50 timesteps now."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:217
+msgid "Non-interactive Mode"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:219
+msgid ""
+"One of the main strengths of the console application is that it can be "
+"executed by other software such as Matlab, Visual Basic or Python. You "
+"can store the commands for such executions of the console in a macro file"
+" having the extension \".anymcr\"."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:224
+msgid ""
+"As with the interactive mode, we can use #define- and #path statements "
+"for purposes like changing the output file name, which may need to be "
+"different each time the console application is called. For this, we first"
+" need to modify the AnyScript file with an OUTPUTFILE argument:"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:276
+msgid ""
+"Further we create an .anymcr file which we can call ‘runarm.anymcr’. It "
+"contains the following operations"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:286
+msgid "We can now execute the macro file by calling"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:292
+msgid ""
+"from the folder where we saved our model and the macro file. It will "
+"create an output file called ‘armoutput.anydata.h5’ which we specified in"
+" the .any file."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:296
+msgid ""
+"To change the name of the output file, we can call the macro again with a"
+" #define statement for the file name"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:303
+msgid ""
+"What the construction :literal:`—“\\” … \\””` is doing, in this case, is "
+"that it will define a quoted string for the #define statement similar to "
+"the definition in the .any file. As a result we see that the output is "
+"written to the file ‘myoutput.anydata.h5’."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:308
+msgid ""
+"You are now ready to let the command line application be part of a system"
+" for biomechanical data processing of your own design."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:312
+msgid "Path specification"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:314
+msgid ""
+"As mentioned earlier, you can add the path of AnyBodyCon.exe to the PATH "
+"environmental variable for your command prompt to ease the call to "
+"AnyBodyCon.exe from anywhere. This you can do from the command prompt "
+"with a statement such as:"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:323
+msgid ""
+"It will add AnyBodyCon.exe's path to the existing path definition. Notice"
+" that there cannot be any space between :literal:`;` and the following "
+"path :literal:`c:\\...` and that you can see the resulting path by simply"
+" calling the internal path command again without arguments."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:328
+msgid ""
+"These statements will only take effect until the current command prompt "
+"is closed, but you can also add the path of AnyBodyCon.exe permanently to"
+" the path for all command prompts. In Windows XP for instance, you do "
+"this from Control Panel -> System under the Advanced tab. You should, "
+"however, be aware that multiple versions of AnyBody may be installed on "
+"the computer at the same time, and therefore, multiple versions of "
+":literal:`AnyBodyCon.exe` may exist in different locations. Thus, your "
+"path specification not only makes it easy to call "
+":literal:`AnyBodyCon.exe`; it will also specify which version that will "
+"be used. This can make it unclear which version you are actually using if"
+" you need several of them."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:339
+msgid ""
+"To be in full control of multiple AnyBody installations, you can define "
+"aliases by the following procedure:"
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:342
+msgid ""
+"Make a directory with .bat files or shortcuts to the AnyBodyCon.exe "
+"version you will need. Name the bat-files so you can recognize the "
+"different versions, e.g. AnyBodyCon61.bat and AnyBodyCon70.bat. The bat "
+"files contain a single statement, the call of AnyBodyCon.exe with its "
+"full path."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:348
+msgid "Add this directory to the permanent path of the command prompt."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:350
+msgid ""
+"You can now call the different versions of AnyBodyCon via the bat files, "
+"so the bat file names are working as aliases for the real .exe files."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:356
+msgid "**Next lesson:** :doc:`lesson6`."
+msgstr ""
+
+#: ../../Interface_features/lesson5.rst:370
+msgid "noindex"
+msgstr ""
+

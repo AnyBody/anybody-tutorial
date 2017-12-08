@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started_modeling/lesson4.rst:2
+msgid "Lesson 4: Kinetics - Computing Forces"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:4
+msgid ""
+"With the kinematic analysis in place, we are ready to compute forces and "
+"investigate ergonomic properties of the pedal arrangement. We shall "
+"presume that the pedal is loaded by a spring, the force of which the leg "
+"must overcome when stepping on the pedal. In this lesson, we will step by"
+" step define the spring force and look at its effect on the leg."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:10
+msgid ""
+"A force can be added to any kinematic measure using the AnyForce class. "
+"If the kinematic measure is a length (linear), then an AnyForce is a "
+"force, and if it is an angle (rotational), the AnyForce automatically "
+"becomes a moment. In the present case, we shall add the AnyForce to the "
+"kinematic measure of the pedal's hinge (rotational). Let us initially "
+"study the measure. Run the “Kinematics” analysis again, open an AnyChart "
+"View, and browse your way through the tree to "
+"Main.Study.Output.Model.Environment.HingeJoint.Pos. You should see the "
+"following graph:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:20
+msgid "|Chart view HingeJoint.Pos|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:22
+msgid ""
+"The analysis runs in time from zero to one second, and the pedal angle "
+"develops in this time from 100 degrees (1.74 rad) to 145 degrees (2.53 "
+"rad). Let us presume that the pedal is loaded by a linear spring that is "
+"slack at 0 degrees and increases its moment linearly with the rotation of"
+" the hinge. We might be wondering: What would be a comfortable spring "
+"stiffness for a pedal like that? Not having much experience with pedal "
+"design it might be difficult to imagine just how stiff the spring should "
+"be, and we could find ourselves developing a series of hardware "
+"prototypes with different springs and perhaps conducting subjective "
+"investigations with test subjects."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:34
+msgid "Include pedal spring force"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:36
+msgid ""
+"Let us do it with AnyBody instead. We shall start out by declaring an "
+"AnyForce to play the role of the spring. Since this is not a part of the "
+"body, it is logical to place it in the Environment.any file. Here's what "
+"to add:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:56
+msgid ""
+"The AnyForce contains a reference to the HingeJoint. Since the degree of "
+"freedom in the HingeJoint is rotational, the force is as described above "
+"turned into a moment and applied to the hinge. The specification of F is "
+"the actual size of the load. We have made it proportional to the "
+"HingeJoint.Pos, which is the hinge angle, and we have initially set the "
+"spring stiffness to 0.0 (Nm/degree), to investigate the effect of having "
+"no spring before we start adding a spring force. Notice, by the way, the "
+"minus sign in front of spring constant. It has no importance now, but "
+"when we start adding non-zero stiffness, it will signify that the spring "
+"force goes against the angle, i.e. pushes back onto the foot."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:68
+msgid "Turn off default reaction forces"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:70
+msgid ""
+"There are just a couple of things we need to do before we can do the "
+"InverseDynamicAnalysis operation and compute the forces: All the drivers "
+"we added in the previous lesson have motors built into them. This means "
+"that whatever force or moment is necessary to perform the movement will "
+"be provided by the drivers, and there will be nothing for the muscles to "
+"do. Motors in drivers are technically reaction forces, and they can be "
+"turned off inside the driver. Let us open the “JointsAndDrivers.any” file"
+" and do the following modifications:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:137
+msgid ""
+"And you should remove the additional reactions on the pelvis which are "
+"created by the Human template. The purpose of these additional reactions "
+"on the pelvis is to provide the necessary supports on the human pelvis to"
+" run the inverse dynamics if users may not define enough support forces "
+"on either both feet or pelvis. But because now this model has an "
+"AnyStdJoint which is defined between the "
+"Main.Model.Environment.GlobalRef.Hpoint and the pelvis segment, you don’t"
+" need to use these additional reactions on the pelvis anymore. You can "
+"remove them by commenting out the “Model\\\\Reactions.any” in the main "
+"file like this:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:167
+msgid "Adding muscles"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:169
+msgid ""
+"There is one more thing we have to do: The human model has no muscles at "
+"the moment. This can be corrected by a simple change of BM statements in "
+"the main file:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:195
+msgid "Investigating results"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:197
+msgid ""
+"Now, reload the model and run the RunApplication operation in the Model "
+"Tree. The model should look like this:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:200
+msgid "|InverseDynamics_End|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:202
+msgid ""
+"Notice that the muscle forces are illustrated by the bulging of the "
+"muscles. In the AnyChart view near the top of the tree, you can find the "
+"“Main.Study.Output.Model.HumanModel.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope”."
+" It expresses the maximum muscle activation level among all the muscles "
+"in the right leg. Plotting this property in the AnyChart View gives you "
+"the following result:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:209
+msgid "|Chart view Muscles.Envelope|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:211
+#, python-format
+msgid ""
+"Obviously holding the leg out in the air like that without the support of"
+" a pedal spring and holding up the weight of the pedal as well requires "
+"about slightly less than from about 9% to 6% of the leg’s strength."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:216
+msgid "Now, let us study the effect of spring stiffness. We initially try:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:223
+msgid "This produces the following envelope curve:"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:225
+msgid "|Chart view Muscles.Envelope 2|"
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:227
+msgid ""
+"Obviously, the level is lower now. The envelope is at around 2%, so the "
+"spring really seems to help. This can make it easier for the operator to "
+"control the pedal and thereby enhance the operability."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:231
+msgid ""
+"The completed model is available here: :download:`PedalModel.zip "
+"<Downloads/PedalModel.zip>`."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:234
+msgid ""
+"The AnyBody Modeling System is all about making this type of "
+"investigation easy. The mechanical model we have put together in four "
+"simple lessons has a complexity worthy of a Ph.D. project if you develop "
+"it bottom up. In AnyBody, this is a matter of a few hours of work when "
+"using the predefined models of the repository."
+msgstr ""
+
+#: ../../A_Getting_started_modeling/lesson4.rst:257
+msgid "noindex"
+msgstr ""
+

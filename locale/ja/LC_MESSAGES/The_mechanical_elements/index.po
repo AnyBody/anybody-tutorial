@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../The_mechanical_elements/index.rst:2
+msgid "The Mechanical Elements"
+msgstr ""
+
+#: ../../caution_old_tutorial.rst:2
+msgid ""
+"**Old tutorial:** This tutorial has not yet been updated to ver. 7 of the"
+" AnyBody Modeling System. Some concepts may have changed."
+msgstr ""
+
+#: ../../The_mechanical_elements/index.rst:7
+msgid ""
+"This tutorial demonstrates many of the mechanical objects available in "
+"AnyScript, such as segments, joints, drivers, forces, and the very "
+"versatile kinematic measures."
+msgstr ""
+
+#: ../../The_mechanical_elements/index.rst:12
+msgid "Tutorial content"
+msgstr ""
+
+#: ../../The_mechanical_elements/index.rst:37
+msgid "noindex"
+msgstr ""
+

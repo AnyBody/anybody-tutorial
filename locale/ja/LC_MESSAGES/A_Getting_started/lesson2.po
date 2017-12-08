@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../A_Getting_started/lesson2.rst:2
+msgid "Lesson 2: Controlling the Posture"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:4
+msgid ""
+"The Standing Model has been set up to have its posture defined by the "
+"specification of anatomical angles in the joints. These specifications "
+"have been collected in one of the model files, **Mannequin.any**. Scroll "
+"down your model file until you come to the point where the Mannequin.any "
+"file is included. Here is a step by step description:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:11
+msgid "Mannequin file structure"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:23
+msgid ""
+"This line means that your model will use this Mannequin.any file which is"
+" located in the Model folder of your model folder."
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:26
+msgid ""
+"If you double-click the above line in the editor window **after loading "
+"your model**, the mannequin file opens up in a new tab. Then you see the "
+"following structure. (In the interest of legibility we have removed many "
+"of the lines):"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:57
+msgid ""
+"This file is typical for the AnyScript language in the sense that it is "
+"organized in so-called folders, which is a hierarchy formed by the "
+"braces. Each pair of braces delimits an independent part of the model "
+"with its variables and other definitions and can be seen in the model "
+"tree as a folder."
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:63
+msgid ""
+"Everything in this file is contained in the Mannequin folder. It contains"
+" specifications of joint angles, movements, and externally applied loads "
+"on the body (optional). Each of these specifications is again subdivided "
+"into parts for the right and left-hand sides of the body respectively. "
+"The first folder, Posture, contains joint angle specifications. You can "
+"set any of the joint angles to a reasonable value (in degrees), and when "
+"you reload the model, it will change its posture accordingly. Please make"
+" sure that the values are as follows:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:100
+msgid ""
+"When these parameters are set for the right-hand side, the left-hand side"
+" automatically follows along and creates a symmetric posture. This "
+"happens because each of the corresponding settings in the Left folder "
+"just refers to the settings in the right folder. The ability to do this "
+"is an important part of the AnyScript language: Anywhere a number is "
+"expected, you can write a reference to a variable instead, or even a "
+"mathematical expression, if necessary."
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:108
+msgid ""
+"If at any time you want a non-symmetric posture, simply replace some of "
+"the variable references in the Left folder by numbers of your choice."
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:111
+msgid ""
+"Further down in the Mannequin.any file you will find the folder "
+"PostureVel. This is organized exactly like Posture, but the numbers you "
+"specify here are joint angular velocities in degrees per second. For now,"
+" please leave all the values in this folder as zero."
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:116
+msgid "Now it is time to perform an analysis."
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:119
+msgid "Running an analysis"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:121
+msgid ""
+"On the left-hand side of the screen, you find a tall, narrow window with "
+"tabs on its left edge. Please select the Operations tab and find the "
+"following:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:125
+msgid "|RunApplication|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:127
+msgid ""
+"What you see are different operations, i.e. analysis types, the system "
+"can perform on the model. Select the “RunApplication” and click the “Run”"
+" button on the toolbar (image below):"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:131
+msgid "|Run toolbar|"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:133
+msgid ""
+"You will see the model move slightly into position and you are finally "
+"awarded the following message:"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:136
+msgid "1.0) Inverse dynamic analysis..."
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:138
+msgid "1.10) ...Inverse dynamic analysis completed"
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:140
+msgid ""
+"You have just completed your first analysis of an AnyBody model. In the "
+"next lesson, we shall briefly examine the results and also see what "
+"happens if we change the posture: :doc:`Lesson 3: Reviewing analysis "
+"results <lesson3>`."
+msgstr ""
+
+#: ../../A_Getting_started/lesson2.rst:158
+msgid "noindex"
+msgstr ""
+

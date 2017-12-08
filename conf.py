@@ -163,11 +163,11 @@ rst_epilog = f"""
 
 no_index = """
 .. meta::
-   :robots: noindex
+   :name=robots content=noindex: \ 
 """
 
-if tags.has('draft'):
-    rst_epilog = rst_epilog + no_index
+#if tags.has('draft'):
+rst_epilog = rst_epilog + no_index
     
 
 

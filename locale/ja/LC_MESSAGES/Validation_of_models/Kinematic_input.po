@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, AnyBody Technology
+# This file is distributed under the same license as the AnyBody Tutorials
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: AnyBody Tutorials 7.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../Validation_of_models/Kinematic_input.rst:2
+msgid "Kinematic Input Validation"
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:4
+msgid ""
+"The picture below shows the thorax position variation over time recorded "
+"by digitizing images from a video capture (model curtesy of the Technical"
+" University of Vienna) of ergometer rowing. The red curve is the "
+"horizontal position, and the green curve is the vertical position. The "
+"lateral position remains zero and is the blue curve. It looks very "
+"reasonable, and it does not seem to be infested with significant noise."
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:11
+msgid "|rowpos.gif|"
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:13
+msgid ""
+"To find velocities, the system automatically differentiates positional "
+"data with respect to time and we get the following:"
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:16
+msgid "|rowvel.gif|"
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:18
+msgid ""
+"It still looks reasonable except for a suspicion that the maximum "
+"velocity around 12 m/s may be a bit high over such a short distance. The "
+"system dfferentiates the velocity function to obtain the accelerations, "
+"which subsequently according to the second law of Newton will generate "
+"forces:"
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:24
+msgid "|rowacc.gif|"
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:26
+msgid ""
+"This graph still looks nice and smooth, but notice the values: The "
+"maximum acceleration is around 300 m/s^2 or 30 g. Notice that this is for"
+" the thorax and not a distal segment like a hand or a foot. It is not "
+"realistic, and it is in fact an artifact produced by the amplification of"
+" small errors in the positional signal through the two subsequent "
+"differentiations."
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:33
+msgid ""
+"If you work with recorded movement data, then it is very important to "
+"check that the accelerations are within reasonable limits. The movement "
+"is input in inverse dynamics, and if the accelerations are unrealistic, "
+"then the muscle and joint forces will be too."
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:38
+msgid ""
+"Too high acceerations are usually due to lack of smoothness of the "
+"recorded motion data. The solution is often to apply smoothing with a low"
+" pass filter to reduce the unrealistic acceleratons."
+msgstr ""
+
+#: ../../Validation_of_models/Kinematic_input.rst:57
+msgid "noindex"
+msgstr ""
+
