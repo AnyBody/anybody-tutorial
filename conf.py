@@ -114,7 +114,12 @@ index_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+language = 'da'
+
+locale_dirs = ['locale/']
+
+gettext_compact = False
+
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -142,7 +147,7 @@ ams_version_x = ams_version_short + '.x'
 
 
 ammr_version = os.environ.get('AMMR_VERSION', '2.0.0')
-if not re.match('^\d\.\d\.\d$',ammr_version):
+if not re.match('^\d\.\d\.\d$', ammr_version):
     raise ValueError('Wrong format for AMMR version, environment variable')
 ammr_version_short = ammr_version.rpartition('.')[0]
 
