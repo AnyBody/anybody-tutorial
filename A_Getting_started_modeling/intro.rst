@@ -52,7 +52,7 @@ application and modify it as you want. But sometimes it will be clearer
 to users to build their own models from the bottom-up. We will consider
 the second situation and try to create a new model using templates.
 
-This tutorial is based on version 1.6 of the AnyBody Managed Model
+This tutorial is based on version |AMMR_VERSION_SHORT| of the AnyBody Managed Model
 Repository. Please notice that the repository models are subject to
 frequent updates. The newest version of the AMMR will be packaged with
 the latest version of the AnyBody Modeling System. Also, the demo models
@@ -61,9 +61,7 @@ version used here.
 
 With the AnyBody Modeling System, you already have a repository of
 models available, for details, please see the AnyBody Assistant
-available from the menu. This tutorial has been written using the
-AnyBody Managed Model Repository Ver. 1.6 (AMMRV1.6).
-
+available from the menu. 
 
 
 .. rst-class:: without-title
