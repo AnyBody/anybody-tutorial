@@ -15,44 +15,25 @@ latest research studies.
 
 **Most importantly, it comes with a set of demo models** (eg: MoCap
 based walking model, cycling etc.) that can serve as a useful learning
-tool, or even as the foundations for own modeling studies. As a new
-user, you are likely to find yourself in one of the following scenarios.
+tool, or even as the foundations for own modeling studies. 
 
--  Loading a model from AMMR and changing simple parameters like the
-   applied load or the posture.
+Building models from the bottom-up is described further in ":doc:`Getting Started AnyScript Programming </A_Getting_started_anyscript/intro>`".
 
--  Modifying one of the existing motion capture models from the
-   repository to your own lab/experimental setup.
+Modifying the postures and motion of an existing model is introduced in ":doc:`Getting Started:
+Modeling <../A_Getting_started_modeling/intro>`" and the ":doc:`Making
+Things Move <../Making_things_move/intro>`" tutorials.
 
--  Modifying a model from the repository with some similarity to what
-   you want. For instance, a normal bicycle model could be changed into
-   a recumbent bike.
-
--  Constructing a body model and its environment bottom-up, like when
-   you’re modeling an animal or making a new detailed joint model. Such
-   bottom-up modeling is described in the tutorial 
-   ":doc:`Getting Started AnyScript Programming </A_Getting_started_anyscript/intro>`".
-
-These various levels of model building complexity are covered in
-":doc:`Getting Started:
-Modeling <../A_Getting_started_modeling/intro>`" in the ":doc:`Making
-Things Move <../Making_things_move/intro>`" tutorial.
-
-.. rubric:: Goal for this tutorial
+.. rubric:: Goals for this tutorial
 
 
-We will take the top-down approach in this tutorial and use the model
-repository to accomplish the following:
+This tutorial takes the top-down approach and aims to accomplish the following:
 
-1. Create a new standing model using the Human Standing template model,
-   load it in a given posture, and practice how to use the Model View
-   functions.
+1. Create a new standing model using the Human Standing template model
 
-2. Learn how to change the posture of the human model.
+2. Learn how to load & change the posture of the human model, and use the Model View window
 
 3. Run the inverse dynamics analysis of the model and review the
-   analysis results. Change the posture of the human model and see how
-   it will give us a different result.
+   analysis results.
 
 This entire tutorial relies heavily on using the AMMR described above.
 
@@ -70,28 +51,23 @@ so that you do not overwrite the existing AMMR folder by accident.
 
 .. rubric:: AMMR structure
 
-With the repository unpacked, let us take a brief look at its structure.
-Please open a file manager and navigate to the place you unpacked the
+Open a file manager and navigate to the directory where you unpacked the
 repository. You should see a folder structure that includes the
 following subfolders:
 
-“Application” includes the models that can be loaded into AnyBody and
-actually simulate some biomechanical situation, such as cycling, lifting
-a box or propelling a wheelchair. “Body” contains models of body parts
-and collections of body parts which are used by the applications. For
-instance, Body includes a lumbar spine model, which is used by all the
-applications needing an upper body.
+-   **Application** includes simulations of biomechanical situations, such as cycling, lifting
+    a box or propelling a wheelchair. 
+-   **Body** contains models of body parts and collections of body parts which are used by the applications, 
+    such as the lumbar spine model, leg models etc.
 
-A closer inspection of the Application branch reveals that it has three
-subfolders:
+A closer inspection of the Application branch reveals that it has three subfolders:
 
-The “Beta” folder contains models that are unfinished, but they may
-still be useful. The “Examples” folder contains many models doing
-different activities of daily living, and it is very likely that you
-will be able to find a model doing something similar to what you want.
-The “Validation” folder contains models that have been used for
-validation purposes, typically by comparison of the model predictions
-with experimental measurements.
+-   The **Beta** folder contains models that are unfinished, but they may
+    still be useful. 
+-   The **Examples** folder contains many models doing different activities of daily living, and it is very likely that you
+    will be able to find a model doing something similar to what you want.
+-   The **Validation** folder contains models that have been used for validation purposes, typically by comparison of the model predictions
+    with experimental measurements.
 
 .. rst-class:: without-title
 
