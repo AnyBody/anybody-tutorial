@@ -4,37 +4,39 @@ Lesson 4: Imparting movement with Drivers
 .. note:: Here's an AnyScript file to start on if you have not completed the
     previous lesson: :download:`*demo.lesson4.any* <Downloads/demo.lesson4.any>`.
 
-|ModelView Arm2D initial load|
-
 If you have completed the three previous lessons, you should have a
 model with an upper arm grounded at the shoulder joint and connected to
 a forearm by the elbow. What we want to do now is to make the arm move.
 
-How can an arm with no muscles move? Well, in reality, it cannot, but in
-what we are about to do here, the movement comes first, and the muscle
-forces afterward. **This technique is known as inverse dynamics.** We
-shall get to the muscles in the next lesson and stick to the movement in
-this one.
+|ModelView Arm2D initial load|
 
-What are drivers?
------------------
+**Can an arm without muscles move? Well, in reality no, but AnyBody simulations use
+the inverse dynamics technique, where we prescribe motion first and then deduce
+the values of muscle forces which produce the motion.**
 
-Our mechanism has two degrees of freedom because it can rotate at the
-shoulder and at the elbow. This means that we have to specify two
-drivers. The natural way is to drive the shoulder and elbow rotations
-directly, and this is in fact what we shall do. But we could also choose
-any other two measures as long as they uniquely determine the position
-of all the segments in the mechanism. If you were building this model
-for some ergonomic investigation, you might want to drive the end point
-of the forearm where the wrist should be located in x and y coordinates
-to simulate the operation of some handles or controls. And this would be
-just as valid a model because the end point position uniquely determines
-the elbow and shoulder rotations.
+Measures & drivers
+-------------------
 
-Creating an AnyKinEqSimple driver
----------------------------------
+We need to specify the motion for two degrees of freedom (DOF) of our arm mechanism, because it has hinge joints at the
+shoulder and at the elbow. 
 
-For now, let's make a new folder and define two drivers:
+- **Measures** are AnyBody objects which literally measure the value of a specific DOF within the model.
+
+- **Drivers** are AnyBody objects which constrain the value of a measure to a constant value or a mathemtical function of time.
+
+In this model, we therefore need two drivers, to specify motions for the two DOF. We therefore also need two measures, 
+which we will chose to be measures of the shoulder and elbow joint angle values.
+
+.. note:: There is no unique way to choose measures that need to be driven (i.e. constrained). **What's important is that 
+    the measures represent two independent DOFs of the model.** For example, in this case, we could have used the X and Y coordinates
+    of the end-point of the ForeArm segment (the wrist). 
+
+    **Creating driver constraints for more than 2 DOFs in this case would also over-constrain the model and lead to errors.**
+
+Creating an constant velocity motion driver
+--------------------------------------------
+
+Let's create a new folder and define two drivers:
 
 .. code-block:: AnyScriptDoc
 
@@ -56,12 +58,13 @@ For now, let's make a new folder and define two drivers:
          }; // Driver folder§
 
 
-This is much like what we have seen before. The folder contains two
-objects: ShoulderMotion and ElbowMotion. Each of these is of class
-AnyKinEqSimpleDriver. A driver is really nothing but a mathematical
-function of time. The AnyKinEqSimpleDriver is particularly simple in
-that starts at some position at time = 0 and increases or decreases at a
-constant velocity from there. These two drivers are attached to joints,
+The folder contains two objects named "ShoulderMotion" and "ElbowMotion", belonging to the
+"AnyKinEqSimpleDriver" class. 
+
+An "AnyKinEqSimpleDriver" constrains the position of given measures to a given value 
+at time = 0, and changes this position at constant velocity thereon. 
+
+These measures supplied to these drivers -  drivers are attached to joints,
 and therefore they drive joint rotations. But the same driver class
 could also be used to drive translations, for instance the cartesian
 position of a point.
