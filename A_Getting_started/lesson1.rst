@@ -1,54 +1,36 @@
 Lesson 1: Creating a Standing Model
 ==================================================
 
-The model repository contains many applications in the Examples folder.
-A few of these are generic in nature and can serve dual purposes: Either
-they can be used as they are or they can be modified and become models
-of something else. In this lesson, we will load the Standing Model as it
-is and introduce the available options.
-
-The standing model can be found in the repository under
-Applications/Examples. The model comprises most of the available body
-parts in the library. The main file is called StandingModel.Main.any and
+The standing model can be found in the AMMR folder under
+Applications/Examples. The main file is called StandingModel.Main.any and
 this is the one you must load to see the model.
 
-You can open the file with the File->Open menu in AnyBody or through
-Windows Explorer.
+While you can open the file with the File->Open menu in AnyBody, **this tutorial will teach you how to
+create your own model by using StandingModel as a starting template.**
 
-The standing model has a few predefined features and some that you can
-modify. Here is a short list:
+Key (modifiable) features of the standing model are:
 
--  The model is supported by having both feet always connected to the
-   ground, even when the feet move.
+-  Both feet are always connected to the ground.
 
--  The posture of the model is controlled via anatomical angles for all
-   major joints except the ankles. The model has a place where these
-   joint angles can be specified directly. We shall return to this topic
-   shortly.
+-  The **posture** is controlled via anatomical angles for all
+   major joints except the ankles. 
 
--  The model automatically balances its posture by means of the ankle
-   angles such that its collective center of mass remains vertically
-   above the ankle joints. For instance, if the model extends the arms,
-   the entire model will move slightly backward to maintain the balance.
+-  The model **automatically balances** by keeping its center of mass vertically
+   above the ankle joints. Eg., If the arms extend forward, the body will move move slightly backward to maintain the balance.
 
--  The model has a set of predefined points to which three-dimensional
-   external forces can be applied; they are defined as spatial vectors.
-   When doing so, the muscles of the model will be recruited to balance
-   the external forces.
+-  **Three-dimensional external forces** can be applied to predefined points on the model. Muscle forces may change, to resist these forces and maintain balance.
+   
 
 Open model template
 -------------------
 
-In this chapter, we will show you how to create a new standing model
-using templates. You do this by pressing the Create Model button |Model
-button| in the editor window toolbar or the create model button in the
-mainframe toolbar:
+To create a new standing model using the template model in the AMMR, click the Create Model button |Model
+button| in the toolbar:
 
 |ModelLoadButton|
 
 The Template dialogue opens and displays a list of pre-defined templates
-supported in the AnyBody Managed Model Repository (AMMR). Choose the
-‘Human Standing’ template and select the folder you want to save your
+supported in the AMMR. Choose the ‘Human Standing’ template and select the folder you want to save your
 new Human Standing model in. To demonstrate, let us create a ‘MyModels’
 folder in the ‘AMMR\\Application\\’ folder and set it as the target
 folder. Save the model as ‘MyStandingHuman’. Press the OK button on
@@ -64,14 +46,14 @@ location of the file is shown in the title bar:
 Load model
 ----------
 
-To see the graphical representation of the model, you need to load.
+To see the **3D graphical representation of the model**, you need to load.
 Load/reload is a frequent operation and has been assigned to function
-key F7. You may also load your model by clicking |Load|.
+key **F7**. You may also load your model by clicking |Load| in the toolbar.
 
 Display the model
 -----------------
 
-After loading is completed, the Model View window opens and shows the
+When loading is completed, the Model View window opens and shows the
 standing model: (You can open it manually from View -> Model Views).
 
 |Model View|

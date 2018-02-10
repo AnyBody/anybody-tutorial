@@ -5,22 +5,16 @@ Here's an AnyScript file to start on if you have not completed the
 previous lesson:
 :download:`*demo.lesson2.any* <Downloads/demo.lesson2.any>`
 
-The building blocks of any mechanical system are called segments. They
-are the rigid elements that represent your model. When modeling a human,
-they usually correspond to the bones of the body. However, they can also
-be used to model machines, exoskeletons and other non-human model
-components. Hence the more general term "segment" [#f1]_.
+The basic building blocks of a mechanical system are the "segments" [#f1]_. In AnyBody,
+the segments treated as rigid elements which represent human bones as well as non-human components such as exoskeleton/machine parts etc.
 
-A segment is just a coordinate system that can move around in space and
-change its orientation. It has an origin where its center of mass is
-assumed to be located, and it has axes coinciding with its principal
-inertia axes.
+**A segment is just a coordinate system with mass and inertial properties, which can move around freely in 3D space.**
 
-Creating a segment
-------------------
+Creating a segment (using the Class Inserter)
+----------------------------------------------
 
 We shall start by defining a folder for the segments. Please add the
-following text to your model (new text marked by red):
+following text to your model (new text marked in red):
 
 .. code-block:: AnyScriptDoc
 
@@ -42,21 +36,21 @@ following text to your model (new text marked by red):
        }; // ArmModel
 
 
-Try loading the model by clicking the \ |Load button image| icon or the
-F7 key. If you expand the ArmModel branch in the tree view, you should
-see a new, empty folder named Segs. We are now ready to add a segment to
-the model, and this would probably be a good time to introduce you to
+Load the model by clicking the \ |Load button image| icon or the
+F7 key. If you expand the "ArmModel" folder in the tree view, you should
+see a new, empty folder named "Segs". 
+
+We are now ready to add a segment to the model, and this would probably be a good time to introduce you to
 the **Class Inserter**.
 
 |Classes tab|
 
-You will find a tab called Classes on the right edge of your AnyBody
-interface. Clicking on the tab shows a **Class List** which contains all
-the predefined classes in AnyScript.
+The Classes tab on the right edge of your AnyBody
+interface opens a **Class List** containing all the predefined classes in AnyScript.
 
-To insert a segment start by placing your text cursor inside the newly
-defined AnyFolder Segs. Then find the class AnySeg in the Class List and
-double-click it to insert its template into your text editor.
+**To insert a segment, start by placing your text cursor within the braces of the newly
+defined "AnyFolder Segs". Then find the class "AnySeg" in the Class List and
+double-click it to insert its template into your text editor.**
 
 You should get this:
 
@@ -78,16 +72,16 @@ You should get this:
          }; // Segs folder
 
 
-This AnySeg class template contains all possible properties that you may
-want to set. Properties that are active are mandatory to provide (the
-template contains some default values), while the commented ones are
-optional. You can delete any unnecessary optinal properties. For AnySeg,
-Mass and Jii are mandatory properties. The former is the mass of the
-segment object while the latter is the diagonal elements of its inertia
-tensor.
+Every object in AnyBody defined by some properties that are both mandatory (the
+template contains some default values) or optional (these properties are commented out). 
+You can delete all optional properties except for r0 and Axes0. 
 
-Let us give the new segment the name UpperArm and set its Mass = 2 and
-also assign reasonable values for Jii:
+**For AnySeg, Mass (segment mass) and Jii (diagonal elements of the inertia tensor) are the mandatory properties. Note that by default,
+the segment's coordinate system is located at the center of mass, with its local coordinate system being the principal axes of inertia.**
+
+You can however change this by editing the properties sCoM and Jij. Refer to the Anyscript Reference Manual for more information.
+
+Let us rename the segment as "UpperArm" and set its :literal:`Mass = 2` and :literal:`Jii = {0.001, 0.01, 0.01}`:
 
 .. code-block:: AnyScriptDoc
 
@@ -99,20 +93,18 @@ also assign reasonable values for Jii:
            }; §//UpperArm§
 
 
-Load the model again and notice the warning you get Among the messages:
+Load the model again and notice the warnings you get. Amongst other messages:
 
 *Model Warning: Study 'Main.ArmStudy' contains too few kinematic
 constraints to be kinematically determinate.*
 
-This tells you that your model has more degrees of freedom than
-constraints. We will take care of this in the next lesson
+**This means that your model some degrees of freedom, for which AnyBody does not have any motion or constraint information.
+It therefore cannot evaluate the model's kinematics.** We will take care of this in the next lesson
 
 Displaying a segment
 --------------------
 
-Now that we have a physical object in the model let's see what it looks
-like. To make something visible in AnyBody, you have to add a drawing
-object which defines visibility:
+To make something visible in AnyBody, you have to add a drawing object which defines visibility:
 
 .. code-block:: AnyScriptDoc
 
@@ -126,27 +118,17 @@ object which defines visibility:
 
 
 Reload the model, and look at the Model View (you might have to press
-the |Zoom button image| zoom all button to locate your segment) . If you
-entered the inertia properties in the Jii specification as written
-above, then your ellipsoid should be ten times as long as it is wide.
-Try changing the "0.001" to "0.01" and reload. The ellipsoid becomes
-spherical. The dimensions of the ellipsoid are scaled this way to fit
-the mass properties of the segment you are defining. Now change Jii back
-to {0.001,0.01,0.01} again.
+the |Zoom button image| button to locate your segment) . The segment is displayed as an ellipsoid whose dimensions capture the 
+mass distribution represented by Jii.  Changing any one component of Jii will alter the shape of the ellipse.
 
 Adding point nodes to a segment
 -------------------------------
 
-We will eventually attach things like muscles, joints, forces etc. to
-our segments. We hence need attachment points. They are defined in the
-local coordinate system of the segment. Figuring out these points for
-complex, realistic models can be a laborious task, but you can often
-grab the point locations based on existing reference points defined in
-most AMMR models.
+We to define some nodes in the local coordinate system of the segment, for eventually attaching muscles, joints, forces etc. to
+the segment. **Figuring out these node locations for the actual human models can be a laborious task, but you can often use ready-made anatomical 
+nodes defined in most AMMR models.**
 
-For this model, let us assume that you know the coordinates of all the
-points on UpperArm. Instead of going through the drill with the object
-inserter, you can copy and paste the following lines:
+For this model, copy and paste the following lines into your file:
 
 .. code-block:: AnyScriptDoc
 
@@ -185,13 +167,14 @@ inserter, you can copy and paste the following lines:
 
 |Model view One Segment|
 
-Try loading the model again and have a look at the graphical
-representation. If you zoom out enough, you should see your points
-floating around the ellipsoid connected to its center of gravity by
+If you reload the model, you should see the newly added nodes connected to the center of gravity by
 yellow pins.
 
-One segment does not make much of a mechanism, so let's define a forearm
-as well. In the segs folder, add these lines:
+
+Creating a second segment
+-------------------------
+
+You will now add a forearm segment to the mechanism by copy-pasting these lines:
 
 .. code-block:: AnyScriptDoc
 
@@ -221,26 +204,17 @@ as well. In the segs folder, add these lines:
     
        }; // Segs folder
 
+**When you reload the model, you may not see the forearm immediately
+because it's defined to look exactly the same and is loaded exactly on top of the upper arm.**
 
-Creating a second segment
--------------------------
+To solve this problem, you can change the initial/load time position of the two segments by adjusting
+r0 (translation w.r.t global frame at load-time) and Axes0 (rotation matrix w.r.t global frame at load-time).
 
-When you reload the model, you may not see the forearm immediately
-because it looks exactly the same (Similar mass properties and point
-locations) and is placed exactly on top of the upper arm.
+**Remember that your simulation, will only use these load-time positions as an initial guess, on the way to 
+enforcing specified motions and constraints (such as joints between segments). More on this in the next**
+:doc:`**Lesson** <lesson3>`.
 
-Let us change the initial/load time position of the two segments so we
-can see both. The properties for this is r0 and Axes0 for location and
-rotation.
-
-Remember that this is only the initial position before running any
-analysis. When you run your model, it will ignore the initial positions
-and obey any constraints you specify. A joint is a constraint that
-constrains the movement between segments. More on this in the next
-:doc:`Lesson <lesson3>`.
-
-For now, let us change the position and rotation of the segments at load
-time.
+For now, let us first change r0 - the global position of the segment at load-time.
 
 .. code-block:: AnyScriptDoc
 
@@ -266,11 +240,15 @@ This will clearly separate the segments in your Model View:
 
 |Model view two segments|
 
-So far so good. But it might improve the visual impression if the were
-also oriented a bit like we would expect an arm to be. This involves the
-Axes0 property, which is really a rotation matrix. Such matrices are a
-bit difficult to cook up on the fly. The predefined version in the
-UpperArm segment looks like this:
+
+Rotation matrices in AnyBody
+----------------------------
+
+To improve the visual impression of the arm segments at load time, we will set 
+the Axes0 property, which is really a rotation matrix. 
+
+
+You UpperArm segment currently looks like this:
 
 .. code-block:: AnyScriptDoc
 
@@ -279,20 +257,12 @@ UpperArm segment looks like this:
              §Axes0 = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};§
 
 
-Rotation matrices in AnyBody
-----------------------------
-
-If your spatial thinking is good, you can start figuring out unit
-vectors for the coordinate system orientation you want and insert them
-into the Axes0 specification instead of the existing ones. 
-
 .. note:: Note that matrices in AnyBody are arranged row-wise, so {1, 0, 0} in Axes0 is the
     first row of a 3x3 matrix.
 
-There is an easier solution for generating the rotation matrix:
-AnyScript has a standard function named RotMat, which returns a rotation
-matrix corresponding to a given axis and rotation angle. Therefore, we
-can specify:
+Rotation matrices are a bit difficult to cook up on the fly. If your spatial thinking is good, you could maybe figure out
+the exact expressions for all 9 components of the 3x3 Axes0 matrix. **An easier solution is to use a standard function named 
+"RotMat", which returns a rotation matrix corresponding to a given axis and rotation angle. Therefore, we can specify:**
 
 .. code-block:: AnyScriptDoc
 
@@ -301,11 +271,10 @@ can specify:
              §Axes0 = RotMat(-90*pi/180, z);§
 
 
-When you reload again, you will see that the UpperArm is indeed rotated
--90 degrees about the z axis as the function arguments indicate. Notice
-the multiplication of the angle by pi/180. AnyBody identifies the word
-"pi" as 3.14159... and dividing this with 180 gives the conversion
-factor between degrees and radians. 
+When you reload again, you will see that the UpperArm rotated
+-90 degrees about the global z axis, as the function arguments indicate. The "RotMat" functions needs
+rotations as radians, hence the multiplication of the 90 degree angle by pi/180. AnyBody identifies the word
+"pi" as 3.14159.
 
 .. note:: Angles in AnyBody are always in radians.
 

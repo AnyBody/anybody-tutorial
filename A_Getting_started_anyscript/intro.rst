@@ -3,12 +3,12 @@ Getting started: AnyScript Programming
 
 AnyScript is the model definition language of the AnyBody Modeling
 System (AMS). It has been specially designed for describing the workings
-of the human body along with environmental objects that it may work
+of the human body along with environmental objects that it may be working
 along with, for example, exoskeletons, sports equipment, workplaces,
 etc.
 
-In this tutorial, you will create your first AnyScript model, a
-simplified model of an arm.
+**In this tutorial, you will create your first AnyScript model, a
+simplified model of an arm.**
 
 Each lesson (after lesson 1) begins with a link to a file with the
 AnyScript code. If you have a problem getting your to code work, simply

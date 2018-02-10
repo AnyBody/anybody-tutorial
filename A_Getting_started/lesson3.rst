@@ -1,64 +1,57 @@
 Lesson 3: Reviewing Analysis Results
 ====================================
 
-AnyBody contains a number of facilities to investigate the results of an
-analysis. One of them is the Chart View, which is a standard graphing
-tool. To open it, click the “Chart 1” tab in the Model View window. To
+You can plot simulation results as graphs by using the **Chart View**, 
+which can be opened by clicking the “Chart 1” tab in the Model View window. To
 open Chart views manually go to View -> Charts.
 
 Introducing chart view
 ----------------------
 
-The tree expands to reveal the entire structure of output data generated
-by AnyBody. Every element in the model generates some form of output
-from the analysis, so the tree is vast. One of the first nodes you
-encounter is the MaxMuscleActivity variable:
+The Chart view also contains a model tree, where each folder element contains some form of simulation output.
+One of the first nodes you encounter is the MaxMuscleActivity variable:
 
 |Chart view tree|
 
-If you select MaxMuscleActivity you will see the following information.
-The line is flat, because you have analyzed a static standing posture
-which does not change with time:
+Selecting MaxMuscleActivity plots this variable vs time. The plot is a flat line 
+due to the static posture of the model. 
 
 |Chart view|
 
-If you want to see details of the real values on the graph, click this
+If you want to see details of the actual values being plotted, click this
 button |getting started 8|. It adds a table with values below the chart:
 
 |Chart view Data button|
 
-This chart shows you that to stand upright; the model is using about 13%
-of its strength. This means that the highest muscle activation level in
-the system is about 13% of the muscles’ maximum strength.
+
+**This chart shows you that when standing upright, the most active muscle in model is using about 15%
+of that particular muscle's maximum strength.** 
 
 Hip forces – Standing posture
 -----------------------------
 
 Many biomechanical researchers want to see joint reactions forces, joint
 moments (by muscles) and muscle activations. For your convenience, the
-so-called ‘SelectedOutput’ folder contains all those representative
-values. You will find the folder in the model tree here:
+so-called **SelectedOutput** folder contains all those representative
+values. You will find the folder in the tree here:
 
 |Chartview Selected output tree|
 
-From this folder, we will take a look at the reaction forces in the
-right hip joint. Navigate to the ‘Right.Leg.JointReactionForce’ folder
+Navigate to the ‘Right.Leg.JointReactionForce’ folder
 by expanding the tree view like this:
 
 |Chartview JointReactionForce tree|
 
-If you select the ‘Hip\_ProximoDistalForce’, you will see its graph in
-the Chart View. The graph will show a constant line instead of a curve.
+If you select the ‘Hip\_ProximoDistalForce’, you will see its value vs time in
+the Chart View. 
 
 |Chartview ProximoDistalForce|
 
-From this chart, we could see that there is about 382N force at the
-right hip joint in the proximodistal direction. If you select another
-value from the left-hand side of the model tree, the ‘Value’ property of
-Chart View will change accordingly.
+From this chart, we can see that there is about 334 force at the
+right hip joint in the proximodistal direction. 
 
-It is possible to select and display several properties simultaneously
-in Chart View by using the asterisk (:literal:`*`) character. If you double- click
+**It is possible to select and plot several outputs simultaneously
+by using the asterisk character** (:literal:`*`). If you double-click
 the ‘Value’ property of your Chart View, it becomes editable. Let us
 edit the last :literal:`Hip_ProximoDistalForce` term to :literal:`Hip_*`.
 
@@ -73,7 +66,7 @@ Hip forces - Bent posture
 The final step of this chapter is to change the posture of the human
 model to see what happens to the hip joint reaction force.
 
-To adjust the posture of the human model, let us open your Mannequin.any
+To adjust the posture of the human model, open your Mannequin.any
 file and change the PelvisThoraxExtension value from 0 to -60.
 
 .. code-block:: AnyScriptDoc
@@ -94,7 +87,7 @@ file and change the PelvisThoraxExtension value from 0 to -60.
 
 
 Press the F7 button to reload the model and run the RunApplication
-operation in the model tree. This will show the modified posture of the
+operation in the Operations tree. This will show the modified posture of the
 human model in the Model View.
 
 |Model view Human bowing|
@@ -103,16 +96,14 @@ Next, we will check the changes in the right hip joint reaction forces.
 
 |Chart view: bowing hip reaction forces|
 
-As you can see in the above Chart View, the biggest hip joint reaction
-force component is the ProximoDistalForce, and its value is about 807N.
-So compared to the normal standing posture model, the value has almost
+In the above Chart View, the largest hip joint reaction
+force component is the ProximoDistalForce at about 919N.
+So compared to the normal standing posture model, the value has more than
 doubled. The forces of the Mediolateral and AnteroPosterior have also
 increased.
 
 Congratulations! You have just completed your first biomechanical
-analysis with the AnyBody Modeling System. You are ready to explore the
-facilities of the system and the model on your own and could try
-changing the posture in the mannequin.any file and investigate the new
+analysis with the AnyBody Modeling System. Try changing the posture in the mannequin.any file and investigate the new
 results.
 
 You may also want to check our `library of previous
