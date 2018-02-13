@@ -22,19 +22,18 @@ shoulder and at the elbow.
 
 - **Measures** are AnyBody objects which literally measure the value of a specific DOF within the model.
 
-- **Drivers** are AnyBody objects which constrain the value of a measure to a constant value or a mathemtical function of time.
+- **Drivers** are AnyBody objects which constrain the value of a measure to a constant value or a mathematical function of time. **Drivers** essentially assemble and impart motion to your mechanisms.
 
 In this model, we therefore need two drivers, to specify motions for the two DOF. We therefore also need two measures, 
 which we will chose to be measures of the shoulder and elbow joint angle values.
 
-.. note:: There is no unique way to choose measures that need to be driven (i.e. constrained). **What's important is that 
-    the measures represent two independent DOFs of the model.** For example, in this case, we could have used the X and Y coordinates
-    of the end-point of the ForeArm segment (the wrist). 
+.. note:: **There is no unique way to choose measures that need to be driven (i.e. constrained). What's important is that 
+    the measures represent the total number of DOFs in your model.** For example in this arm model, we could have used the X and Y coordinates
+    of the end-point of the ForeArm segment (the wrist), instead of the shoulder and elbow angles. 
+    **Creating driver constraints for more than 2 DOFs in this case would over-constrain the model and lead to errors.**
 
-    **Creating driver constraints for more than 2 DOFs in this case would also over-constrain the model and lead to errors.**
-
-Creating an constant velocity motion driver
---------------------------------------------
+Creating a constant velocity joint motion 
+------------------------------------------
 
 Let's create a new folder and define two drivers:
 
@@ -61,15 +60,21 @@ Let's create a new folder and define two drivers:
 The folder contains two objects named "ShoulderMotion" and "ElbowMotion", belonging to the
 "AnyKinEqSimpleDriver" class. 
 
-An "AnyKinEqSimpleDriver" constrains the position of given measures to a given value 
-at time = 0, and changes this position at constant velocity thereon. 
+**All AnyBody drivers only work on the measures that are supplied to them. The "AnyKinEqSimpleDriver" used in this case, constrains 
+the measure positions to a given value at time = 0 ("DriverPos") and changes this position at constant velocity thereon ("DriverVel").**
 
-These measures supplied to these drivers -  drivers are attached to joints,
-and therefore they drive joint rotations. But the same driver class
-could also be used to drive translations, for instance the cartesian
+Since the measures supplied to the above drivers are joints, the drivers produce joint rotation.
+But the same driver class could be used to drive translations, for instance the cartesian
 position of a point.
 
-The lines
+.. note:: Since these drivers drive angles, the units are radians and
+    radians/sec.
+
+
+**The following lines assign the shoulder and elbow joint angle measures to the respective drivers.
+Standard AnyBody joints created using classes such as "AnyRevoluteJoint", "AnySphericalJoint" etc. automatically function as measures.
+More customized measures can be created using classes such as "AnyKinLinear", "AnyKinRotational" etc. 
+(see** :doc:`*this lesson* <../The_mechanical_elements/lesson4>`).:
 
 .. code-block:: AnyScriptDoc
 
@@ -83,34 +88,23 @@ and
            AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
 
 
-are the ones that affiliate the two drivers with the shoulder and elbow
-joints respectively. They are constructed the same way as the joint
-definition in :doc:`*Lesson 3* <lesson3>` in the sense that a local
-variable, Jnt, is declared and can be used instead of the longer global
-name if we need to reference the joint somewhere else inside the driver.
-Notice also the use of the reference operator '&' that causes the local
-variable to be a pointer to the global one rather than a copy. It means
-that if some property of the globally defined joint changes, then the
-local version changes with it.
+Just like in :doc:`*Lesson 3* <lesson3>`, these lines also
+use the reference operator '&' to point the local variable "Jnt" towards the 
+actual shoulder/elbow joint objects existing in a different folder
 
-The specifications of DriverPos and DriverVel are the starting value of
-the driver and the constant velocity, respectively. 
+Since "Jnt" is a reference, it will automatically update as the joint state changes during motion.
 
-.. note:: Since these drivers drive angles, the units are radians and
-    radians/sec.
-
-Try loading the model again by hitting F7. If you did not mistype
-anything, you should get the message "Loaded successfully" and no
-warning messages about lacking kinematic constraints this time.
 
 Running simulations - making things move!
 -----------------------------------------
 
-This is good news because you are now actually ready to see the model
-move. If you look closer at the model tree window, it has a second tab
-labelled “Operations”. This is the place where the AnyBody system places
-your studies, and from this window, you can execute them, i.e., start
-analyses and calculations.
+Re-load the model by hitting F7, and you should see the message "Loaded successfully" with NO
+warning messages about lacking kinematic constraints this time. You're now ready to get this model moving.
+
+**The model tree window has a second tab labelled “Operations”.
+This window shows a curated version of the model tree, by only displaying 
+the "Studies" or simulation objects created in your model.**
+
 
 |Operations ArmStudy|
 
