@@ -30,11 +30,12 @@ button| in the toolbar:
 |ModelLoadButton|
 
 The Template dialogue opens and displays a list of pre-defined templates
-supported in the AMMR. Choose the ‘Human Standing’ template and select the folder you want to save your
-new Human Standing model in. To demonstrate, let us create a ‘MyModels’
-folder in the ‘AMMR\\Application\\’ folder and set it as the target
-folder. Save the model as ‘MyStandingHuman’. Press the OK button on
-completion.
+supported in the AMMR. Choose the **Human Standing** template and select the
+folder you want to save your new Human Standing model in. To demonstrate, let us
+save the model in the 'AnyBody.\ |AMS_VERSION_X|\ /AMMR.v\ |AMMR_VERSION|\ -Demo' directory 
+which we extracted in the :doc:`introduction <intro>` for this tutorial.
+
+Give the model a name, for example :file:`MyStandingHuman`, and pres **OK** to save. 
 
 |TemplateDialog|
 
@@ -42,6 +43,10 @@ Your new ‘MyStandingHuman.main.any’ file opens in the script Editor. The
 location of the file is shown in the title bar:
 
 |MyStandingHumanModel.main.any|
+
+.. warning:: If you saved your model in an other location be 
+          sure to modify the :file:`../libdef.any` file so it points 
+          to AMMR repository you want to use. 
 
 Load model
 ----------
@@ -66,11 +71,11 @@ to familiarize yourself with the options.
 In practical use it is often necessary to change quickly between these
 functions, so keyboard shortcuts have been provided:
 
--  The Ctrl button activates the Pan function.
+-  The *Ctrl* button activates the Pan function.
 
--  The Shift button activates the Zoom function.
+-  The *Shift* button activates the Zoom function.
 
--  The Ctrl-Shift combination activates the rotation function.
+-  The *Ctrl-Shift* combination activates the rotation function.
 
 -  If you have a scrolling wheel on your mouse, this will zoom the model
    in and out.
@@ -85,7 +90,7 @@ functions, so keyboard shortcuts have been provided:
    
 .. |ModelLoadButton| image:: _static/lesson1/image_2.png
    
-.. |TemplateDialog| image:: _static/lesson1/image_3.png
+.. |TemplateDialog| image:: _static/lesson1/image_3b.png
    
 .. |MyStandingHumanModel.main.any| image:: _static/lesson1/image_4.png
    

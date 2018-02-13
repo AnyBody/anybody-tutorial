@@ -45,13 +45,6 @@ of the lines):
          AnyFolder Left = {
          };
        };
-    
-       AnyFolder Load = {
-         AnyFolder Right = {
-         };
-         AnyFolder Left = {
-         };
-       };  // Loads
      };
 
 
@@ -59,7 +52,7 @@ of the lines):
 
 **Once loading is complete, you can scan this folder structure in the Model tree** on the left of your screen.
 
-All contents of this file are contained within the Mannequin folder. There are sub-folders for external loads (optional), 
+All contents of this file are contained within the Mannequin folder. There are sub-folders for 
 postural join angles (in degrees), angular velocities (in degrees/second), and right and left-hand sides of the body.
 
 Changing any of the joint angles and reloading the model, will change the model's posture at load time. To start with, ensure that the contents of the Right
