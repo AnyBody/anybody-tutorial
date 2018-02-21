@@ -27,10 +27,9 @@ shoulder and at the elbow.
 In this model, we therefore need two drivers, to specify motions for the two DOF. We therefore also need two measures, 
 which we will chose to be measures of the shoulder and elbow joint angle values.
 
-.. note:: **There is no unique way to choose measures that need to be driven (i.e. constrained). What's important is that 
-    the measures represent the total number of DOFs in your model.** For example in this arm model, we could have used the X and Y coordinates
-    of the end-point of the ForeArm segment (the wrist), instead of the shoulder and elbow angles. 
-    **Creating driver constraints for more than 2 DOFs in this case would over-constrain the model and lead to errors.**
+.. note:: It is only important that the measures being driven represent the total independent model DOFs. 
+    For this arm model with 2DOF remaining, we can apply motion drivers to the shoulder & elbow joints OR the X and Y coordinates
+    of the end-point of the ForeArm segment (the wrist). Creating more than 2 driver constraints will over-constrain the model and lead to errors.
 
 Creating a constant velocity joint motion 
 ------------------------------------------
@@ -67,8 +66,7 @@ Since the measures supplied to the above drivers are joints, the drivers produce
 But the same driver class could be used to drive translations, for instance the cartesian
 position of a point.
 
-.. note:: Since these drivers drive angles, the units are radians and
-    radians/sec.
+.. note:: Since these drivers drive angles, the units are radians and radians/sec.
 
 
 **The following lines assign the shoulder and elbow joint angle measures to the respective drivers.
@@ -92,29 +90,27 @@ Just like in :doc:`*Lesson 3* <lesson3>`, these lines also
 use the reference operator '&' to point the local variable "Jnt" towards the 
 actual shoulder/elbow joint objects existing in a different folder
 
-Since "Jnt" is a reference, it will automatically update as the joint state changes during motion.
+Since "Jnt" is a reference, it will automatically update as the joint angles change during motion.
 
 
 Running simulations - making things move!
 -----------------------------------------
 
 Re-load the model by hitting F7, and you should see the message "Loaded successfully" with NO
-warning messages about lacking kinematic constraints this time. You're now ready to get this model moving.
+warning messages about the lack kinematic constraints. You're now ready to get this model moving.
 
-**The model tree window has a second tab labelled “Operations”.
-This window shows a curated version of the model tree, by only displaying 
-the "Studies" or simulation objects created in your model.**
+.. note:: The object named "ArmModelStudy" (of "AnyBodyStudy" class) creates simulations to run your model through - "ArmModelStudy" 
+    contains a reference object (created with a **&**) pointing to the "ArmModel" folder. You can create
+    multiple "AnyBodyStudy" objects, each of which simulates the same mechanical model but with different motion drivers.
 
+**Step 1**: Simulations in AnyBody are termed "Studies". To run a kinematic analysis of the model:
+
+-   Click on the operations drop-down menu at the top (see figure below).
+-   Select "Main.ArmModelStudy.Kinematics"
 
 |Operations ArmStudy|
 
-Try expanding the ArmStudy root. You will get a list of the study types
-that the system can perform. "Study" is a common name for operations you
-can perform on a model. Try clicking the KinematicAnalysis study. With
-the buttons in the Operations window, you can now execute various types
-of analysis.
-
-The Execute toolbar above the operations tree contains three buttons
+**Step 2**: Click the "Run Operation" button on the Execute toolbar. This toolbar is next to the drop-down menu, and contains three buttons
 |Model tree toolbar Execute buttons|:
 
 -  **Run operation**: Starts or pauses the chosen operation. Shortcut
@@ -127,59 +123,37 @@ The Execute toolbar above the operations tree contains three buttons
    You must reset before you start a new analysis that was previously
    aborted. Shortcut F4 
 
+Since we have no muscles so far, a kinematic analysis is really all that
+makes sense. With a kinematic analysis, you can investigate positions, velocities, and
+accelerations. But force, power, energy or other such things are not computed. These properties are calculated by the
+**InverseDynamics** study.
+
 Replaying a simulation
 ----------------------
 
-All these functions are also available from the main frame toolbar
-|Execute toolbar| and the menu Operation.
-
-Now, try your luck with the **KinematicAnalysis** study and the Run
-button. What should happen is that the model starts to move as the
-system runs through 101 timesteps of the study.
+While the analysis is running, you can see the model move in the Model View window.
 
 When the analysis in finished, you can use the replay panel to replay
-the model as you do in a movie player.
+the motion as you would in a movie player.
 
 |Replay toolbar|
 
-Since we have no muscles so far, kinematic analysis is really all that
-makes sense. A kinematic analysis is pure motion. The model moves, and
-you can subsequently investigate positions, velocities, and
-accelerations. But no force, power, energy or other such things are
-computed. These properties are calculated by the
-**InverseDynamicAnalysis**.
 
 Fetching simulation results
 ---------------------------
 
-The analysis has 101 time steps corresponding to a division of the total
-analysis time into 100 equal pieces. The total time span simulated in
-the analysis is 1 sec. These are default values because we did not
-specify them when we defined the ArmModelStudy in the AnyScript model.
-If you want more or fewer time steps or a longer or shorter analysis
-interval, all you have to do is to set the corresponding property in the
-ArmModelStudy definition. When you click "Run", all the time steps are
-executed in sequence, and the mechanism animates in the graphics window.
+If you look at the "ArmModelStudy" object in the AnyScript window, start/end times and the 
+number of simulation steps (time frames) are not specified. These are actually optional parameters
+when using the "AnyBodyStudy" class, which by default creates an analysis of 100 steps and spanning 1 second. 
 
-So far, the model was merely a two-bar mechanism moving at constant
-joint angular velocities. However, the system has actually computed
-information that might be interesting to investigate. **All the analysis
-results are available in the ArmModelStudy branch of the tree view**.
+**To view the output variables of the last run study, open the "ArmModelStudy" folder in the model tree and expand the "Output" folder.**
 
-Directly under the ArmModelStudy branch, you find the **Output branch**
-where all computed results are stored. Notice that the Output branch
-contains the same folders we defined in the AnyScript model: GlobalRef,
-Segs, and so on. In the Segs folder you find ForeArm, and in that a
-branch for each of the nodes we defined on the arm. Try expanding the
-branch for the HandNode. It contains the field 'r' which is the position
-vector of the node. We might want to know the precise position of the
-HandNode at each time in the analysis, for instance, if we were doing an
-ergonomic study and wanted to know if the hand had collided with
-anything on its way.
+Since the "ArmModelStudy" contained a reference object pointing to the "ArmModel" folder, the "Output"
+folder contains the instantaneous values of all the time varying contents (including sub-folders) within "ArmModel".
 
-If you double-click the 'r' node, the instantaneous position vector
-(depending on where your replay slider is) of the hand node for each
-time step is dumped in the message window at the bottom of the screen.
+In "Output-> Model -> Segs -> ForeArm", you find all the nodes on the segment. Within the "HandNode"
+sub-folder, you will find :literal:`r` - the position vector of the node. Clicking on :literal:`r` 
+shows the hand position vector for each time instant in the Information Window.
 
 Plotting simulation results
 ---------------------------

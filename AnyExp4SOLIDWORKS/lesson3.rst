@@ -216,7 +216,7 @@ machine, but because he was not designed to sit on the machine, we need
 to change his position so it is relative to the fitness machine. We do
 this by changing the mannequin of the model. Since we do not want to
 spend too much time positioning the human model in this tutorial, we
-will use the file ‘Mannequin.any’. Copy the file to the Model subfolder
+will use the file :download:`*Mannequin.any* <Downloads/Mannequin.any>` (click to download). Copy the file to the Model subfolder
 to overwrite it.
 
 When we now load the model and run the Kinematics, we will see that out

@@ -47,15 +47,12 @@ organizational folder for containing the entire model you are going to
 build. Let us change the folder name "MyModel" to "ArmModel".
 
 The object named "MyStudy" (of type "AnyBodyStudy") is a collection of
-simulation tasks that you want to perform with your model. 
+simulation tasks that you want to perform with your model. The :doc:`*Study of Studies* <../A_study_of_studies/intro>` tutorial
+contains much more information on simulation studies.
 
-The :doc:`*Study of Studies* <../A_study_of_studies/intro>` tutorial
-contains much more information on simulation studies. For now, let's just
-rename "MyStudy" to "ArmModelStudy".
-
-**In the forthcoming AnyScript text we'll highlight each change by red.
-Just make the changes in the file, and don't forget to also change
-ALL occurrences of "MyModel" to "ArmModel" later in the file.**
+.. warning:: Rename "MyStudy" to "ArmModelStudy", and change all occurences of "MyModel" to "ArmModel". 
+    All changes to your model will be highlighted in red hereon.
+    
 
 What does this file contain so far?
 -----------------------------------
