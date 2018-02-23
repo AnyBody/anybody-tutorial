@@ -158,7 +158,15 @@ shows the hand position vector for each time instant in the Information Window.
 Plotting simulation results
 ---------------------------
 
-However, we often prefer to plot our results. With the default layout,
+Let us say, you want to plot the translation of the hand node over the course of movement.
+
+Find the variable "Main.ArmModel.Segs.ForeArm.HandNode" in the model tree, and click the |Chart button| button
+that you find in the model tree window.
+
+You will be prompted to choose a Chart view to plot the variable in. When your model has multiple studies, you will also have 
+to choose the exact study for which you want to plot the variable vs time. Remember that two studies may use the same model, 
+but subject them through different motions/forces.  
+
 this feature is located in the same window as Model View under the tab
 called “Chart 1”. You can also open it from the pull-down menus by
 choosing View -> Charts -> ...
@@ -197,6 +205,8 @@ the real biomechanics, we must add some muscles to the model.
 .. |Execute toolbar| image:: _static/lesson4/image4.png
     
 .. |Replay toolbar| image:: _static/lesson4/image5.png
+
+.. |Chart button| image:: _static/lesson4/image5b.png
     
 .. |Chart view HandNode| image:: _static/lesson4/image6.png
    
