@@ -15,20 +15,36 @@ Matlab, Python, Java and JavaScript or C++.
 It is not possible to build models using the console application but
 gives faster performance running operations on existing model. The
 console application can be used manually, or it can take input from a
-macro file containing commands. 
+macro file containing commands.
+
+.. seealso:: The `AnyPyTools <https://github.com/AnyBody-Research-Group/AnyPyTools>`__ Python library
+             developed at Aalborg University. It greatly simplifies working with the console application. 
 
 Interactive mode
 ----------------
 
 We need a model to work on, so please download and save
-*Demo.outputfile.any* in a working directory.
+:download:`Demo.OutputFile.any <Downloads/Demo.OutputFile.any>` in a working directory.
 
 **Important:** To start the console application:
 
-1. Launch the command prompt, change directory to where you have saved
-   Demo.outputfile.any
+1. Launch the command prompt and change directory to where you have saved
+   ``Demo.outputfile.any``
 
-2. Run the .exe file using its full path, e.g. ``"C:\Program Files\AnyBody Technology\AnyBody.7.0\AnyBodyCon.exe"``.
+2. Run ``anybodycon.exe`` using its full path, 
+  
+   .. code-block:: bat
+    
+        C:\path\to\model>"C:\Program Files\AnyBody Technology\AnyBody.7.1\AnyBodyCon.exe"
+
+        AnyBody Console Application
+        AnyBodyCon.exe version : 7. 1. 1. 6004 (64-bit version)
+        Build : 17585.48300
+        Copyright (c) 1999 - 2018 AnyBody Technology A/S
+
+
+        Current path: C:\path\to\model
+        >
 
 Console commands
 ----------------
@@ -41,41 +57,41 @@ AnyBody console.
 +-----------------------+----------------------------------------------------------------------------------------------+
 | **Command name**      | **Functionality**                                                                            |
 +=======================+==============================================================================================+
-| load "filename.any"   | Example: load "demo.outputfile.any"                                                          |
+| load "<filename>"     | Loads an AnyScript model into the system and compiles it.                                    |           
 |                       |                                                                                              |
-|                       | Loads an AnyScript model into the system and compiles it.                                    |
+|                       | Example: ``load "demo.outputfile.any"``                                                      |
 +-----------------------+----------------------------------------------------------------------------------------------+
-| operation <op.name>   | Example: operation Main.ArmStudy.InverseDynamics                                             |
+| operation <op.name>   |This command sets the active operation. This must be the first thing you do after loading.    |
 |                       |                                                                                              |
-|                       | This command sets the active operation. This must be the first thing you do after loading.   |
+|                       | Example: ``operation Main.ArmStudy.InverseDynamics``                                         |
 +-----------------------+----------------------------------------------------------------------------------------------+
-| Run                   | Example: run                                                                                 |
+| Run                   | Runs the active operation.                                                                   |
 |                       |                                                                                              |
-|                       | Runs the active operation.                                                                   |
+|                       | Example: ``run``                                                                             |
 +-----------------------+----------------------------------------------------------------------------------------------+
-| Runmacro              | Example runmacro “filename.anymcr”                                                           |
+| Runmacro              | This command loads and executes an anymcr file.                                              |
 |                       |                                                                                              |
-|                       | This command loads and executes an anymcr file.                                              |
+|                       | Example: ``runmacro "filename.anymcr"``                                                      |
 +-----------------------+----------------------------------------------------------------------------------------------+
-| Step                  | Example: step                                                                                |
+| Step                  | Solves a single time step of the active operation.                                           |
 |                       |                                                                                              |
-|                       | Solves a single time step of the active operation.                                           |
+|                       | Example: ``step``                                                                            |
 +-----------------------+----------------------------------------------------------------------------------------------+
-| Reset                 | Example: reset                                                                               |
+| Reset                 | Resets the active operation.                                                                 |
 |                       |                                                                                              |
-|                       | Resets the active operation.                                                                 |
+|                       | Example: ``reset``                                                                           |
 +-----------------------+----------------------------------------------------------------------------------------------+
-| print <object>        | Example: print Main.ArmModel.Jnts.Shoulder.Pos                                               |
+| print <object>        | Prints the value of a single object.                                                         |
 |                       |                                                                                              |
-|                       | Prints the value of a single object.                                                         |
+|                       | Example: ``print Main.ArmModel.Jnts.Shoulder.Pos``                                           |
 +-----------------------+----------------------------------------------------------------------------------------------+
-| printdown <object>    | Example: printdown Main.ArmModel.Jnts                                                        |
+| printdown <object>    | Recursively prints the values of all elements in an object folder.                           |
 |                       |                                                                                              |
-|                       | Recursively prints the values of all elements in an object folder.                           |
+|                       | Example: ``printdown Main.ArmModel.Jnts``                                                    |
 +-----------------------+----------------------------------------------------------------------------------------------+
-| exit                  | Example: Exit                                                                                |
+| exit                  | Exits and returns to the command prompt.                                                     |
 |                       |                                                                                              |
-|                       | Exits and returns to the command prompt.                                                     |
+|                       | Example: ``exit``                                                                            |
 +-----------------------+----------------------------------------------------------------------------------------------+
 
 Using the console application
@@ -97,7 +113,7 @@ some output files.
 
 For understanding how open demo.outputfile.any model in the GUI Windows
 version of AnyBody Modeling System. You will notice two
-**AnyOutputFile** objects inside the ArmStudy.
+``AnyOutputFile`` objects inside the ArmStudy.
 
 .. code-block:: AnyScriptDoc
 
@@ -287,7 +303,7 @@ We can now execute the macro file by calling
 
 .. code-block:: bat
 
-    C:\Program Files\AnyBody Technology\AnyBody.7.0AnyBodyCon.exe" /m “runarm.anymcr”
+    C:\Program Files\AnyBody Technology\AnyBody.7.1\AnyBodyCon.exe" /m “runarm.anymcr”
 
 from the folder where we saved our model and the macro
 file. It will create an output file called ‘armoutput.anydata.h5’ which
@@ -298,7 +314,7 @@ a #define statement for the file name
 
 .. code-block:: bat
 
-    C:\Program Files\AnyBody Technology\AnyBody.7.0\AnyBodyCon.exe" /m runarm.anymcr /def OUTPUTFILE=---"\"myoutput.anydata.h5\""
+    C:\Program Files\AnyBody Technology\AnyBody.7.1\AnyBodyCon.exe" /m runarm.anymcr /def OUTPUTFILE=---"\"myoutput.anydata.h5\""
     
 What the construction :literal:`—“\” … \””` is doing, in this case,
 is that it will define a quoted string for the #define statement similar
@@ -318,7 +334,7 @@ with a statement such as:
 
 .. code-block:: bat
 
-    path %path%;C:\Program Files\AnyBody Technology\AnyBody.7.0;
+    path %path%;C:\Program Files\AnyBody Technology\AnyBody.7.1;
 
 It will add AnyBodyCon.exe's path to the existing path
 definition. Notice that there cannot be any space between :literal:`;` and the
