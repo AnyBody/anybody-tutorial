@@ -128,7 +128,6 @@ exclude_patterns = ['_build', 'README.rst', 'Thumbs.db', '.DS_Store']
 
 # Exclude the following tutorials
 exclude_patterns.extend([
-    'A_Getting_started_AMMR',
     'caution_old_tutorial.rst'
 ])
 
