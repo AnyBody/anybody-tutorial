@@ -22,19 +22,17 @@ shoulder and at the elbow.
 
 - **Measures** are AnyBody objects which literally measure the value of a specific DOF within the model.
 
-- **Drivers** are AnyBody objects which constrain the value of a measure to a constant value or a mathemtical function of time.
+- **Drivers** are AnyBody objects which constrain the value of a measure to a constant value or a mathematical function of time. **Drivers** essentially assemble and impart motion to your mechanisms.
 
 In this model, we therefore need two drivers, to specify motions for the two DOF. We therefore also need two measures, 
 which we will chose to be measures of the shoulder and elbow joint angle values.
 
-.. note:: There is no unique way to choose measures that need to be driven (i.e. constrained). **What's important is that 
-    the measures represent two independent DOFs of the model.** For example, in this case, we could have used the X and Y coordinates
-    of the end-point of the ForeArm segment (the wrist). 
+.. note:: It is only important that the measures being driven represent the total independent model DOFs. 
+    For this arm model with 2DOF remaining, we can apply motion drivers to the shoulder & elbow joints OR the X and Y coordinates
+    of the end-point of the ForeArm segment (the wrist). Creating more than 2 driver constraints will over-constrain the model and lead to errors.
 
-    **Creating driver constraints for more than 2 DOFs in this case would also over-constrain the model and lead to errors.**
-
-Creating an constant velocity motion driver
---------------------------------------------
+Creating a constant velocity joint motion 
+------------------------------------------
 
 Let's create a new folder and define two drivers:
 
@@ -61,15 +59,20 @@ Let's create a new folder and define two drivers:
 The folder contains two objects named "ShoulderMotion" and "ElbowMotion", belonging to the
 "AnyKinEqSimpleDriver" class. 
 
-An "AnyKinEqSimpleDriver" constrains the position of given measures to a given value 
-at time = 0, and changes this position at constant velocity thereon. 
+**All AnyBody drivers only work on the measures that are supplied to them. The "AnyKinEqSimpleDriver" used in this case, constrains 
+the measure positions to a given value at time = 0 ("DriverPos") and changes this position at constant velocity thereon ("DriverVel").**
 
-These measures supplied to these drivers -  drivers are attached to joints,
-and therefore they drive joint rotations. But the same driver class
-could also be used to drive translations, for instance the cartesian
+Since the measures supplied to the above drivers are joints, the drivers produce joint rotation.
+But the same driver class could be used to drive translations, for instance the cartesian
 position of a point.
 
-The lines
+.. note:: Since these drivers drive angles, the units are radians and radians/sec.
+
+
+**The following lines assign the shoulder and elbow joint angle measures to the respective drivers.
+Standard AnyBody joints created using classes such as "AnyRevoluteJoint", "AnySphericalJoint" etc. automatically function as measures.
+More customized measures can be created using classes such as "AnyKinLinear", "AnyKinRotational" etc. 
+(see** :doc:`*this lesson* <../The_mechanical_elements/lesson4>`).:
 
 .. code-block:: AnyScriptDoc
 
@@ -83,44 +86,31 @@ and
            AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
 
 
-are the ones that affiliate the two drivers with the shoulder and elbow
-joints respectively. They are constructed the same way as the joint
-definition in :doc:`*Lesson 3* <lesson3>` in the sense that a local
-variable, Jnt, is declared and can be used instead of the longer global
-name if we need to reference the joint somewhere else inside the driver.
-Notice also the use of the reference operator '&' that causes the local
-variable to be a pointer to the global one rather than a copy. It means
-that if some property of the globally defined joint changes, then the
-local version changes with it.
+Just like in :doc:`*Lesson 3* <lesson3>`, these lines also
+use the reference operator '&' to point the local variable "Jnt" towards the 
+actual shoulder/elbow joint objects existing in a different folder
 
-The specifications of DriverPos and DriverVel are the starting value of
-the driver and the constant velocity, respectively. 
+Since "Jnt" is a reference, it will automatically update as the joint angles change during motion.
 
-.. note:: Since these drivers drive angles, the units are radians and
-    radians/sec.
-
-Try loading the model again by hitting F7. If you did not mistype
-anything, you should get the message "Loaded successfully" and no
-warning messages about lacking kinematic constraints this time.
 
 Running simulations - making things move!
 -----------------------------------------
 
-This is good news because you are now actually ready to see the model
-move. If you look closer at the model tree window, it has a second tab
-labelled “Operations”. This is the place where the AnyBody system places
-your studies, and from this window, you can execute them, i.e., start
-analyses and calculations.
+Re-load the model by hitting F7, and you should see the message "Loaded successfully" with NO
+warning messages about the lack of kinematic constraints. You're now ready to get this model moving.
+
+.. note:: The object named "ArmModelStudy" (of "AnyBodyStudy" class) creates simulations to run your model through. "ArmModelStudy" 
+    contains a reference object (created with a **&**) pointing to the "ArmModel" folder. You can create
+    multiple "AnyBodyStudy" objects, each of which simulates the same mechanical model but with different motion drivers.
+
+**Step 1**: Simulations in AnyBody are termed "Studies". To run a kinematic analysis of the model:
+
+-   Click on the operations drop-down menu at the top (see figure below).
+-   Select "Main.ArmModelStudy.Kinematics"
 
 |Operations ArmStudy|
 
-Try expanding the ArmStudy root. You will get a list of the study types
-that the system can perform. "Study" is a common name for operations you
-can perform on a model. Try clicking the KinematicAnalysis study. With
-the buttons in the Operations window, you can now execute various types
-of analysis.
-
-The Execute toolbar above the operations tree contains three buttons
+**Step 2**: Click the "Run Operation" button on the Execute toolbar. This toolbar is next to the drop-down menu, and contains three buttons
 |Model tree toolbar Execute buttons|:
 
 -  **Run operation**: Starts or pauses the chosen operation. Shortcut
@@ -133,86 +123,59 @@ The Execute toolbar above the operations tree contains three buttons
    You must reset before you start a new analysis that was previously
    aborted. Shortcut F4 
 
+Since we have no muscles so far, a kinematic analysis is really all that
+makes sense. With a kinematic analysis, you can investigate positions, velocities, and
+accelerations. But force, power, energy or other such things are not computed. These properties are calculated by the
+**InverseDynamics** study.
+
 Replaying a simulation
 ----------------------
 
-All these functions are also available from the main frame toolbar
-|Execute toolbar| and the menu Operation.
-
-Now, try your luck with the **KinematicAnalysis** study and the Run
-button. What should happen is that the model starts to move as the
-system runs through 101 timesteps of the study.
+While the analysis is running, you can see the model move in the Model View window.
 
 When the analysis in finished, you can use the replay panel to replay
-the model as you do in a movie player.
+the motion as you would in a movie player.
 
 |Replay toolbar|
 
-Since we have no muscles so far, kinematic analysis is really all that
-makes sense. A kinematic analysis is pure motion. The model moves, and
-you can subsequently investigate positions, velocities, and
-accelerations. But no force, power, energy or other such things are
-computed. These properties are calculated by the
-**InverseDynamicAnalysis**.
 
 Fetching simulation results
 ---------------------------
 
-The analysis has 101 time steps corresponding to a division of the total
-analysis time into 100 equal pieces. The total time span simulated in
-the analysis is 1 sec. These are default values because we did not
-specify them when we defined the ArmModelStudy in the AnyScript model.
-If you want more or fewer time steps or a longer or shorter analysis
-interval, all you have to do is to set the corresponding property in the
-ArmModelStudy definition. When you click "Run", all the time steps are
-executed in sequence, and the mechanism animates in the graphics window.
+If you look at the "ArmModelStudy" object in the AnyScript window, start/end times and the 
+number of simulation steps (time frames) are not specified. These are actually optional parameters
+when using the "AnyBodyStudy" class, which by default creates an analysis of 100 steps and spanning 1 second. 
 
-So far, the model was merely a two-bar mechanism moving at constant
-joint angular velocities. However, the system has actually computed
-information that might be interesting to investigate. **All the analysis
-results are available in the ArmModelStudy branch of the tree view**.
+**To view the output variables of the study that was run, open the "ArmModelStudy" folder in the model tree and expand the "Output" folder.**
 
-Directly under the ArmModelStudy branch, you find the **Output branch**
-where all computed results are stored. Notice that the Output branch
-contains the same folders we defined in the AnyScript model: GlobalRef,
-Segs, and so on. In the Segs folder you find ForeArm, and in that a
-branch for each of the nodes we defined on the arm. Try expanding the
-branch for the HandNode. It contains the field 'r' which is the position
-vector of the node. We might want to know the precise position of the
-HandNode at each time in the analysis, for instance, if we were doing an
-ergonomic study and wanted to know if the hand had collided with
-anything on its way.
+Since the "ArmModelStudy" contained a reference object ("Model") pointing to the "ArmModel" folder, the "Output"
+folder contains the instantaneous values of all the time varying variables (including variables in sub-folders) within "ArmModel".
 
-If you double-click the 'r' node, the instantaneous position vector
-(depending on where your replay slider is) of the hand node for each
-time step is dumped in the message window at the bottom of the screen.
+In "ArmModelStudy-> Output-> Model -> Segs -> ForeArm" in the **model tree**, you find all the nodes on the segment. Within the "HandNode"
+sub-folder, you will find :literal:`r` - the position vector of the node. Clicking on :literal:`r` 
+shows the hand position vector (w.r.t global) for each time instant in the Information Window.
 
 Plotting simulation results
 ---------------------------
 
-However, we often prefer to plot our results. With the default layout,
-this feature is located in the same window as Model View under the tab
-called “Chart 1”. You can also open it from the pull-down menus by
-choosing View -> Charts -> ...
+Let us say, you want to plot the position vector of the hand node over the course of movement.
 
-This gives you a new window structured just like the editor window with
-a tree view to the left, but with an empty field for graphing results.
+Find the variable "Main.ArmModel.Segs.ForeArm.HandNode.r" in the model tree, and click the |Chart button| button
+found at the top of the model tree window.
 
-The tree in this window is much like the tree in the editor window
-except that some of the data has been filtered out so that you mainly
-see the parts of the tree that are relevant in terms of results or
-output. You can expand the tree in the chart window through ArmStudy and
-Output until you come to the HandNode. When you pick the property 'r',
-you get three curves corresponding to the movement of the three
-Cartesian coordinates of this node during the simulated time period. Try
-holding the mouse pointer over one of the curves for a moment. A small
-label with the global name of the data of the curve appears. All data
-computed in AnyBody can be visualized this way.
+**You will be prompted to choose a Chart view (Chart views 1-4) to plot the variable in. If your model has more than one study, you will also have 
+to choose the exact study for which you want to plot the variable vs time** (Remember that two studies may use the same model, 
+but subject them through different motions/forces).  
+
+The plot should now should up in the chart view. Since position vector :literal:`r` has 3 coordinates, three curves will be shown.
+Hovering your mouse over each curve shows a small label with the global name of the data, ending with coordinate indices 0,1 or 2.
+
+All data computed in AnyBody can be visualized this way.
+
+.. note:: The chart view contains a filtered down version of the model tree, which only displays "AnyBodyStudy" objects. This 
+    tree can also be used for plotting purposes.
 
 |Chart view HandNode|
-
-So far, we have only the kinematic data to look at. Before we can start
-the real biomechanics, we must add some muscles to the model.
 
 .. rst-class:: without-title
 .. seealso::
@@ -229,6 +192,8 @@ the real biomechanics, we must add some muscles to the model.
 .. |Execute toolbar| image:: _static/lesson4/image4.png
     
 .. |Replay toolbar| image:: _static/lesson4/image5.png
+
+.. |Chart button| image:: _static/lesson4/image5b.png
     
 .. |Chart view HandNode| image:: _static/lesson4/image6.png
    

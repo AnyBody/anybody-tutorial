@@ -98,7 +98,7 @@ Load the model again and notice the warnings you get. Amongst other messages:
 *Model Warning: Study 'Main.ArmStudy' contains too few kinematic
 constraints to be kinematically determinate.*
 
-**This means that your model some degrees of freedom, for which AnyBody does not have any motion or constraint information.
+**This means that your model has some degrees of freedom, for which AnyBody does not have any motion or constraint information.
 It therefore cannot evaluate the model's kinematics.** We will take care of this in the next lesson
 
 Displaying a segment

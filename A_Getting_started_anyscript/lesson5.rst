@@ -4,31 +4,23 @@ Lesson 5: Definition of Muscles and External Forces
 .. note:: Here's an AnyScript file to start on if you have not completed the
     previous lesson: :download:`demo.lesson5.any <Downloads/demo.lesson5.any>`.
 
-We have seen that models in AnyBody can move even though they do not
-have any muscles. This is because we can ask the system to perform a
-simple kinematic analysis that does not consider forces.
+The model so far has been capable of motion despite lacking muscles. 
+This is because a kinematic analysis that does not consider forces.
 
-Skeletal muscles are very complicated mechanical actuators. They produce
-movement by pulling on our bones in complicated patterns determined by
-our central nervous system. One of the main features of AnyBody is that
-the system is able to predict realistic activation patterns for the
-muscles based on movement and external load.
+Skeletal muscles produce movement by pulling on our bones. Muscle actions 
+are coordinated in complicated patterns determined by our central nervous system. 
+
+**AnyBody helps you predict realistic muscle activation patterns for a given movement and external load.**
 
 Creating a muscle model
 -----------------------
 
-The behavior of real muscles depends on their operating conditions,
-tissue composition, oxygen supply, and many other properties, and
-scientists are still debating exactly how they work and what properties
-are important for their function. In AnyBody, you can use several
-different models for the muscles' behavior, and some of them are quite
-sophisticated. Introducing all the features of muscle modeling is a
-subject fully worthy of :doc:`its own
-tutorial <../Muscle_modeling/intro>`. Here, we shall just
-define one very simple muscle model and use it indiscriminately for all
-the muscles of the arm we are building.
+The exact behaviour of muscle tissue is a widely researched (and debated) topic.
 
-As always, we start by creating a folder for the muscles:
+AnyBody offers several models of varying sophistication, for modelling muscle behaviour. A detailed introduction 
+to muscle modeling can be found here :doc:`its own tutorial <../Muscle_modeling/intro>`. 
+
+Here, we will create a very simple muscle model and use it to model our arm model muscles. We start by creating a folder for the muscles:
 
 .. code-block:: AnyScriptDoc
 
@@ -36,8 +28,10 @@ As always, we start by creating a folder for the muscles:
            }; // Muscles folder§
 
 
-The next step is to create a muscle model that the define the general
-properties of all the muscles.
+The next step is to create a muscle model that defines the properties that will be assumed common for all the muscles.
+
+.. note:: Since properties such as Max muscle strength, fiber length etc. differ between muscles, realistic AMMR human body models
+    define unique muscle models for each muscle element.
 
 .. code-block:: AnyScriptDoc
 
@@ -49,18 +43,17 @@ properties of all the muscles.
            }; // Muscles folder
 
 
-Introducing a muscle to the model
+Creating a muscle
 ---------------------------------
 
-Now we can start adding muscles. Remember that muscles cannot push, so
-to allow a joint to move in both directions you have to define one
-muscle on each side of the joint in two dimensions. If you work in three
-dimensions and you have, say, a spherical joint, then you may need much
-more muscles than that. In fact, it can sometimes be difficult to figure
-out exactly how many muscles are required to drive a complex body model.
+Since muscles can only pull, we need to define at least one
+muscle on each side of every revolute joint. 
 
-Let's add just one muscle to start with. Including the following lines
-in the ArmModel will do the trick:
+When working with a three-dimensional spherical joint, you may need more muscles. 
+In fact, it can be difficult to figure out the minimum number of muscles required 
+to drive a complex body model.
+
+Let's add just one muscle to start with, the elbow-flexor muscle named Brachialis:
 
 .. code-block:: AnyScriptDoc
 
@@ -80,41 +73,38 @@ in the ArmModel will do the trick:
           }; // Muscles folder
 
 
-This is a definition of the elbow flexor, brachialis. The type of this
-muscle is AnyViaPointMuscle. It means that it goes from its origin to
-insertion via a number of predefined points. The via-points are the
-AnyRefNodes defined in the second and third property lines. If you have
-a muscle that goes in a straight line from origin to insertion, then you
-can just define two points as we have done here. If you have a more
-complicated muscle path, then all you need to do is to add the points in
-between the origin and insertion.
+**This muscle is created by the** ``AnyViaPointMuscle`` **class. These are muscles which begin at 
+an origin point, pass through a number of pre-defined via points, and finally terminate
+at the insertion.**
 
-The physiological behavior of the muscle is defined by the first
-property
+``Org`` **and** ``Ins`` **are the origin and insertion of the Brachialis. They are reference objects,
+pointing to reference nodes named "Brachialis" that have already been created on the "UpperArm"**
+
+The Brachialis muscle is our model lacks any via-points. However if a muscle has via points, we must insert
+reference objects to respective via-point nodes in the lines between ``Org`` and ``Ins``, in the correct order. 
+
+The physiological behavior of the muscle is defined by the first line:
 
 .. code-block:: AnyScriptDoc
 
                AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
 
 
-You can see that it points right back to the muscle model we started out
-by creating. Notice the two leading dots. Finally, the line
+You can see that it points right back to the muscle model we have already created(Notice the two leading dots). Finally, the following line :
 
 .. code-block:: AnyScriptDoc
 
                AnyDrawMuscle DrwMus = {};
 
+displays the muscle in your model view window.
 
-ensures that the muscle is visible in the graphics window. Let's have a
-look at it. Make sure you have the Model View window open and hit F7.
-You should see a thick, red line connecting the muscle's origin and
-insertion points. There are other ways to visualize muscles, but we
-shall save that for the :doc:`dedicated muscle
+Upon re-loading the model, youu should see a thick, red line connecting the muscle's origin and
+insertion points. There are other ways to visualize muscles, and these are described here :doc:`dedicated muscle
 tutorial <../Muscle_modeling/intro>`.
 
-Notice that the muscle's position on the body might be a little strange
-because we have not yet positioned the segments relative to each other
-by a kinematic analysis.
+.. note:: The muscle path may appear strange because the mechanism hasn't been assembled by a kinematic analysis. Try running
+    the kinematics muscles 
+
 
 Adding more muscles
 -------------------
