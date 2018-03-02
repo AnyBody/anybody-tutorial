@@ -97,9 +97,9 @@ Running simulations - making things move!
 -----------------------------------------
 
 Re-load the model by hitting F7, and you should see the message "Loaded successfully" with NO
-warning messages about the lack kinematic constraints. You're now ready to get this model moving.
+warning messages about the lack of kinematic constraints. You're now ready to get this model moving.
 
-.. note:: The object named "ArmModelStudy" (of "AnyBodyStudy" class) creates simulations to run your model through - "ArmModelStudy" 
+.. note:: The object named "ArmModelStudy" (of "AnyBodyStudy" class) creates simulations to run your model through. "ArmModelStudy" 
     contains a reference object (created with a **&**) pointing to the "ArmModel" folder. You can create
     multiple "AnyBodyStudy" objects, each of which simulates the same mechanical model but with different motion drivers.
 
@@ -146,49 +146,36 @@ If you look at the "ArmModelStudy" object in the AnyScript window, start/end tim
 number of simulation steps (time frames) are not specified. These are actually optional parameters
 when using the "AnyBodyStudy" class, which by default creates an analysis of 100 steps and spanning 1 second. 
 
-**To view the output variables of the last run study, open the "ArmModelStudy" folder in the model tree and expand the "Output" folder.**
+**To view the output variables of the study that was run, open the "ArmModelStudy" folder in the model tree and expand the "Output" folder.**
 
-Since the "ArmModelStudy" contained a reference object pointing to the "ArmModel" folder, the "Output"
-folder contains the instantaneous values of all the time varying contents (including sub-folders) within "ArmModel".
+Since the "ArmModelStudy" contained a reference object ("Model") pointing to the "ArmModel" folder, the "Output"
+folder contains the instantaneous values of all the time varying variables (including variables in sub-folders) within "ArmModel".
 
-In "Output-> Model -> Segs -> ForeArm", you find all the nodes on the segment. Within the "HandNode"
+In "ArmModelStudy-> Output-> Model -> Segs -> ForeArm" in the **model tree**, you find all the nodes on the segment. Within the "HandNode"
 sub-folder, you will find :literal:`r` - the position vector of the node. Clicking on :literal:`r` 
-shows the hand position vector for each time instant in the Information Window.
+shows the hand position vector (w.r.t global) for each time instant in the Information Window.
 
 Plotting simulation results
 ---------------------------
 
-Let us say, you want to plot the translation of the hand node over the course of movement.
+Let us say, you want to plot the position vector of the hand node over the course of movement.
 
-Find the variable "Main.ArmModel.Segs.ForeArm.HandNode" in the model tree, and click the |Chart button| button
-that you find in the model tree window.
+Find the variable "Main.ArmModel.Segs.ForeArm.HandNode.r" in the model tree, and click the |Chart button| button
+found at the top of the model tree window.
 
-You will be prompted to choose a Chart view to plot the variable in. When your model has multiple studies, you will also have 
-to choose the exact study for which you want to plot the variable vs time. Remember that two studies may use the same model, 
-but subject them through different motions/forces.  
+**You will be prompted to choose a Chart view (Chart views 1-4) to plot the variable in. If your model has more than one study, you will also have 
+to choose the exact study for which you want to plot the variable vs time** (Remember that two studies may use the same model, 
+but subject them through different motions/forces).  
 
-this feature is located in the same window as Model View under the tab
-called “Chart 1”. You can also open it from the pull-down menus by
-choosing View -> Charts -> ...
+The plot should now should up in the chart view. Since position vector :literal:`r` has 3 coordinates, three curves will be shown.
+Hovering your mouse over each curve shows a small label with the global name of the data, ending with coordinate indices 0,1 or 2.
 
-This gives you a new window structured just like the editor window with
-a tree view to the left, but with an empty field for graphing results.
+All data computed in AnyBody can be visualized this way.
 
-The tree in this window is much like the tree in the editor window
-except that some of the data has been filtered out so that you mainly
-see the parts of the tree that are relevant in terms of results or
-output. You can expand the tree in the chart window through ArmStudy and
-Output until you come to the HandNode. When you pick the property 'r',
-you get three curves corresponding to the movement of the three
-Cartesian coordinates of this node during the simulated time period. Try
-holding the mouse pointer over one of the curves for a moment. A small
-label with the global name of the data of the curve appears. All data
-computed in AnyBody can be visualized this way.
+.. note:: The chart view contains a filtered down version of the model tree, which only displays "AnyBodyStudy" objects. This 
+    tree can also be used for plotting purposes.
 
 |Chart view HandNode|
-
-So far, we have only the kinematic data to look at. Before we can start
-the real biomechanics, we must add some muscles to the model.
 
 .. rst-class:: without-title
 .. seealso::
