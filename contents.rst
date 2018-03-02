@@ -18,6 +18,7 @@ Tutorials
     A_Getting_started/index 
     A_Getting_started_anyscript/index
     A_Getting_started_modeling/index
+    A_Getting_started_AMMR/index
     Interface_features/index
     A_study_of_studies/index
     Making_things_move/index
