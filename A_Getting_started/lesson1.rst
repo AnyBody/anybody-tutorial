@@ -12,13 +12,13 @@ Key (modifiable) features of the standing model are:
 
 -  Both feet are always connected to the ground.
 
--  The **posture** is controlled via anatomical angles for all
+-  The posture is controlled via anatomical angles for all
    major joints except the ankles. 
 
--  The model **automatically balances** by keeping its center of mass vertically
+-  The model automatically balances by keeping its center of mass vertically
    above the ankle joints. Eg., If the arms extend forward, the body will move move slightly backward to maintain the balance.
 
--  **Three-dimensional external forces** can be applied to predefined points on the model. Muscle forces may change, to resist these forces and maintain balance.
+-  Three-dimensional external forces can be applied to predefined points on the model. Muscle forces may change, to resist these forces and maintain balance.
    
 
 Open model template
@@ -30,12 +30,14 @@ button| in the toolbar:
 |ModelLoadButton|
 
 The Template dialogue opens and displays a list of pre-defined templates
-supported in the AMMR. Choose the **Human Standing** template and select the
-folder you want to save your new Human Standing model in. To demonstrate, let us
-save the model in the 'AnyBody.\ |AMS_VERSION_X|\ /AMMR.v\ |AMMR_VERSION|\ -Demo' directory 
-which we extracted in the :doc:`introduction <intro>` for this tutorial.
+supported in the AMMR. 
 
-Give the model a name, for example :file:`MyStandingHuman`, and pres **OK** to save. 
+**Choose the Human Standing template and select the
+folder you want to save your new Human Standing model in.** To demonstrate, let us
+save the model in the 'AnyBody.\ |AMS_VERSION_X|\ /AMMR.v\ |AMMR_VERSION|\ -Demo' directory 
+which we extracted in the :doc:`*introduction* <intro>` of this tutorial.
+
+Give the model a name, for example :file:`MyStandingHuman`, and press OK to save. 
 
 |TemplateDialog|
 

@@ -206,6 +206,7 @@ anything yet. In this simple model it is easy to find the relative path
 of the pertinent nodes on the upper arm and the forearm, but in a
 complex model, this can be difficult. So we use "Absolute folder paths".
 
+
 Absolute folder path (and some useful tips)
 -------------------------------------------
 

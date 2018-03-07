@@ -4,7 +4,7 @@ Lesson 2: Controlling the Posture
 The Standing Model has been set up to have its posture defined by the
 specification of anatomical angles in the joints. 
 
-These specifications have been collected in one of the model files, **Mannequin.any**. Scroll
+These specifications have been collected in one of the model files, Mannequin.any. Scroll
 down your model file until you come to the point where the Mannequin.any
 file is included. Here is a step by step description:
 
@@ -24,8 +24,8 @@ Mannequin file structure
 **This line means that your model will use this Mannequin.any file located in the Model folder, 
 relative to the location of the main file that you're viewing.**
 
-**Double-clicking the file name in the editor window after loading
-your model opens the mannequin file opens up in a new tab.** Then you see the
+Double-clicking the file name in the editor window after loading
+your model opens the mannequin file opens up in a new tab. Then you see the
 following structure. (In the interest of legibility we have removed many
 of the lines):
 
@@ -48,9 +48,9 @@ of the lines):
      };
 
 
-**The section between each pair of braces is said to be a Folder**, with all variables defined therein forming the folder contents.
+**The section between each pair of braces is said to be a Folder, with all variables defined therein forming the folder contents.**
 
-**Once loading is complete, you can scan this folder structure in the Model tree** on the left of your screen.
+Once loading is complete, you can scan this folder structure in the Model tree on the left of your screen.
 
 All contents of this file are contained within the Mannequin folder. There are sub-folders for 
 postural join angles (in degrees), angular velocities (in degrees/second), and right and left-hand sides of the body.
@@ -89,7 +89,8 @@ and Left sub-folders are as follows.
 If you scroll down, you'll see that the contents of left-hand side folder are set to be equal
 to those from the Right folder, in order to create a symmetric posture. 
 
-**This is an important feature of the AnyScript language: Instead of numbers, you can create references to other variables and mathematical expressions wherever necessary.**
+**This is an important feature of the AnyScript language: Instead of numbers, you can create references to other variables or write
+ mathematical expressions wherever necessary.**
 
 To create a non-symmetric posture, simply replace some of the variable references in the Left folder with numbers of your choice.
 
@@ -122,8 +123,8 @@ awarded the following message:
 
 You have just completed your first analysis with an AnyBody model. In the
 next lesson, we will examine the effects of posture on the results
-: :doc:`Lesson 3: Reviewing analysis
-results <lesson3>`.
+: :doc:`*Lesson 3: Reviewing analysis
+results* <lesson3>`.
 
 .. |RunApplication| image:: _static/lesson2/image1.png
    

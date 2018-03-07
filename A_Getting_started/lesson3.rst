@@ -1,9 +1,9 @@
 Lesson 3: Reviewing Analysis Results
 ====================================
 
-You can plot simulation results as graphs by using the **Chart View**, 
+**You can plot simulation results as graphs by using the Chart View, 
 which can be opened by clicking the “Chart 1” tab in the Model View window. To
-open Chart views manually go to View -> Charts.
+open Chart views manually go to View -> Charts.**
 
 Introducing chart view
 ----------------------
