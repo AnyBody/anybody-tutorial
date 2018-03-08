@@ -36,9 +36,9 @@ The next step is to create a muscle model that defines the properties that will 
 .. code-block:: AnyScriptDoc
 
            AnyFolder Muscles = {
-             §// Simple muscle model with constant strength = 300 Newton
+             §// Simple muscle model with constant strength = 400 Newton
              AnyMuscleModel MusMdl = {
-               F0 = 300;
+               F0 = 400;
              };§
            }; // Muscles folder
 
@@ -60,7 +60,7 @@ Let's add just one muscle to start with, the elbow-flexor muscle named Brachiali
            AnyFolder Muscles = {
              // Simple muscle model with constant strength = 300 Newton
              AnyMuscleModel MusMdl = {
-               F0 = 300;
+               F0 = 400;
              };
     
              §//---------------------------------
@@ -78,7 +78,7 @@ an origin point, pass through a number of pre-defined via points, and finally te
 at the insertion.**
 
 ``Org`` **and** ``Ins`` **are the origin and insertion of the Brachialis. They are reference objects,
-pointing to reference nodes named "Brachialis" that have already been created on the "UpperArm"**
+pointing to reference nodes named "Brachialis" that have already been created on the "UpperArm" and "ForeArm"**
 
 The Brachialis muscle in our model lacks via-points. However if a muscle has via points, we must insert
 reference objects to respective via-point nodes in the lines between ``Org`` and ``Ins``, in the correct order. 
@@ -90,8 +90,7 @@ The physiological behavior of the muscle is defined by the first line:
                AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
 
 
-You can see that it points right back to the muscle model we have already created (Notice the two leading dots). Finally, the following line 
-displays the muscle in your model view window:
+You can see that it points right back to the muscle model we have already created (:ref:`*Notice the two leading dots* <Relative folder paths - Why use ‘.’ and ‘..’ in AnyScript?>`). Finally, the following line displays the muscle in your model view window:
 
 .. code-block:: AnyScriptDoc
 
@@ -187,7 +186,7 @@ Your model (in the image above) doesn't appear to be connected properly at the e
 joint constraints during a simulation.
 
 Use the operation drop down menu to run the "InitialConditions" operation. If you don't remember
-how this is done, refer to the section on running kinematics in :doc:`*Lesson 4* <lesson4>`.
+how this is done, refer to :ref:`*this prior tutorial* <Running a simulation analysis>`.
 
 The assembled model should resemble the following figure.
 
@@ -207,7 +206,7 @@ a gravity vector in the "ArmModelStudy" object.
     passing through the table surface. Similarly motion constraints such as joint angle motions need a driving 
     force to maintain the specified trajectory.  
 
-By default, all drivers in your model apply the necessary constraint forces (also called constraint reactions) for their own kinematic constraints.
+By default, all drivers in your model apply the necessary constraint forces (also called driver reactions) for their respective kinematic constraints.
 
 **The constraint "force" is actually a generalized force i.e. whether it is actually a force or torque 
 depends on the type of measure that a driver constrains. For example, a driver on a rotational measure, will apply torques, while one on 
@@ -249,10 +248,10 @@ The InverseDynamicAnalysis and plotting muscle forces
 Run the the **InverseDynamicAnalysis** operation from the operations drop-down menu.
 In this analysis, the AnyBody system computes all muscle, joint forces and much more.
 
-Review the instructions from :doc:`*Lesson 4* <lesson4>` on plotting simulation results. 
+Review the instructions from :ref:`*this prior tutorial* <Introducing chart view>` on plotting simulation results. 
 
 To plot the muscle forces in the brachialis muscle, open 
-"Main.ArmModel.Muscles.Brachialis" in the model tree, and plot the variable named ``Fm``.
+"Main.Study.Output.Model.Muscles.Brachialis" in the chart view's model tree, and plot the variable named ``Fm``.
 You should get a curve that looks like the one below.
 
 |image2|
@@ -275,7 +274,7 @@ Creating external loads
 You may want to investigate the model's behavior in different loading situations, such as when the hand
 is carrying a dumbbell. Let us imagine that the model is performing a dumbbell curl. 
 
-We start by creating a node on the forearm at the location of the palm. Add this within the curly braces of the ForeArm object:
+We start by creating a node on the forearm at the location of the palm. Add this within the curly braces of the "ForeArm" object:
 
 .. code-block:: AnyScriptDoc
 

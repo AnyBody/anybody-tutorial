@@ -68,7 +68,7 @@ Relocating your STL object
 ----------------------------
 
 When you attach something to a segment, it is by default positioned
-at the segment's origin which is also its center of mass. (You saw this earlier :doc:`*here* <lesson2>`) 
+at the segment's origin which is also its center of mass. (This was discussed earlier :ref:`* over here* <Creating a segment (using the Class Inserter)>`) 
 
 Therfore moving the dumbbell to the hand is as simple as relocating the "DrwSTL" object
 from the "ForeArm" folder to the "PalmNode" subfolder. Cut-paste the entire code for the 

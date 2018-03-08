@@ -12,13 +12,13 @@ do musculoskeletal modeling in the AnyBody Modeling System.
     Your browser does not support the video tag.
     </video>
 
-You can find the available tutorials in the sidebar. The tutorials are ordered in a suitable sequence for many
-new users unfamiliar with AnyBody, but this sequence may not be optimal
+You can find the available tutorials in the sidebar. The tutorials are ordered in a suitable sequence for 
+new users who are unfamiliar with AnyBody, but this sequence may not be optimal
 for you depending on your background and interests.
 
 It is recommended to start with the three Getting Started tutorials.
 
-.. note:: If you are a new user, please spend 7 minutes to watch the introductory video above, before stating the tutorials.
+.. note:: If you are a new user, please spend 7 minutes to watch the introductory video above, before beginning the tutorials.
 
 .. rubric:: Contributing
 
