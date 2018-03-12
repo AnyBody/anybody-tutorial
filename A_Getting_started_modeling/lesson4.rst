@@ -31,7 +31,8 @@ Since this is not a part of the human body, it is logical to place it in the Env
 to add:
 
 .. code-block:: AnyScriptDoc
-
+     
+     ... 
      AnyRevoluteJoint HingeJoint = {
        Axis = z;
        AnyFixedRefFrame &Ground = .GlobalRef;
@@ -56,7 +57,7 @@ Turn off default reaction forces
 --------------------------------
 
 As mentioned in this :ref:`*previous section* <Switching off driver reactions when muscles do the job (Important!)>`, 
-the "Reaction.Type" property for all kinematic drivers that describe muscle-actuated motions must be set to "Off".
+the "Reaction.Type" property for all kinematic drivers that act on muscle-actuated joints must be set to "Off".
 
 .. code-block:: AnyScriptDoc
 
@@ -125,7 +126,7 @@ on the pelvis is to provide the necessary supports on the human pelvis
 to run the inverse dynamics if users may not define enough support
 forces on either both feet or pelvis.
 
-Since your model has a driver between ground and pelvis (which applies the default reaction forces),
+Since your model has a joined named "SeatPelvis" between ground and pelvis (which will apply the default reaction forces),
 you can comment out “Model\\Reactions.any” in the main file:
 
 .. code-block:: AnyScriptDoc
@@ -181,7 +182,7 @@ Now, reload the model and run the "RunApplication" operation from the operations
 
 |InverseDynamics_End|
 
-Plot “Main.HumanModel.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope” (see :ref:`*this for help* <Plotting simulation results>`).
+Plot “Main.Study.Output.Model.HumanModel.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope” (see :ref:`*this for help* <Plotting simulation results>`).
 It expresses the maximum muscle activation level seen across all the muscles
 in the right leg at a given instant:
 
@@ -189,8 +190,7 @@ in the right leg at a given instant:
 
 Obviously holding the leg out in the air like that without the support
 of a pedal spring and holding up the weight of the pedal as well
-requires about slightly less than from about 9% to 6% of the leg’s
-strength.
+requires about 6% to 9% of the leg’s strength.
 
 Now, let us study the effect of spring stiffness. In "Environment.any", we change the spring stiffness:
 

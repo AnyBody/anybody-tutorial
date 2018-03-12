@@ -24,7 +24,7 @@ For this pedal model, you will configure the human model as follows:
 
 -  The left leg segments will be excluded.
 
--  There will be no muscle in the right leg segments.
+-  There will be no muscles in the right leg.
 
 This is implemented by declaring the corresponding BM statements just before
 the inclusion of the “HumanModel.any” file.

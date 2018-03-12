@@ -114,15 +114,17 @@ and the applications we hook them up to.
 
 |ModelTree|
 
-Just below “Main”, you see the "HumanModel" folder which holds all the body
-parts that are imported from the AMMR, such as segments (bones), joints, muscles etc.
+**Just below “Main”, you see the "HumanModel" folder which holds all the body
+parts that are imported from the AMMR, such as segments (bones), joints, muscles etc.**
+
 Information for scaling the size of the default human model is also stored here.
 In general, you won’t need to modify this information directly.
 
 The "Model" folder comes next this holds information specific to the application you're creating.
 In this case, this is the pedal model. The "Model" folder is sub-divided into three sub-folders:
 
-- **HumanModel** - This is a local reference to the "Main.HumanModel", located within the "Model" folder.
+- **HumanModel** - This is a local reference to the "Main.HumanModel", located within the "Model" folder. 
+  :ref:`*This section* <Reference objects and the ‘&’ symbol>` can help you recollect what reference objects are. 
 
 - **Environment** - This contains external hardware such as chairs,
   bicycles, tools, or, in the present case, a pedal.

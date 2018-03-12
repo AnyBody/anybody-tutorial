@@ -48,11 +48,12 @@ is one model feature that will make your life easier.
 **The human model includes "default drivers" which can constrain the human model's posture
 to the joint angles and velocities set in the "Mannequin.any" file.**
 
-These constraint enforced by the default drivers are defined as ‘soft’
+The constraint enforced by the default drivers are defined as ‘soft’
 constraints - constraints that be overridden by the 19 'hard constraints' which we will define.
 
 **You can therefore sequentially add the 19 hard drivers on top of the soft default drivers, and deactivate the default
-drivers at the very end. The advantage is that you have a model whose kinematics can be tested at every step along the way.**
+drivers at the** :ref:`*very end of this lesson* <Check if model is kinematically determined?>` **. The advantage is that you have a model whose 
+kinematics can be tested at every step along the way.**
 
 Step 1: Fixing the pelvis to ground
 -----------------------------------------------
@@ -71,13 +72,14 @@ In the "Environment.any" file, add the following within the "GlobalReferenceFram
          };§
        }; // Global reference frame
 
+**Reload the model (F7).**
 
 Hpoint is a term used in the seating industry to characterize
 the position of the pelvis in a seat. Here we shall simply attach the
 pelvis to this point by means of a rigid connection.
 
 **Drivers which connect the human and environment are traditionally placed in a folder called
-"ModelEnvironmentConnection" (** :doc:`*explained here* <lesson1>` **), and for historical reasons, it is placed in
+"ModelEnvironmentConnection" (** :ref:`*explained here* <The model structure>` **), and for historical reasons, it is placed in
 an** ``#include`` **file called "JointsAndDrivers.any". Let’s open this file by
 double-clicking of the following line in the main file**:
 
@@ -213,8 +215,8 @@ once they are properly defined.**
 Step 2: Locking pelvis-thorax rotation
 --------------------------------------
 
-The only purpose of the trunk in this model is to anchor the psoas muscles connected 
-to the leg. So we will set to zero, the angles and velocities of 3 DOF of pelvis-thorax flexion, lateral bending and axial rotation.
+The only purpose of the trunk in this model is to anchor the psoas muscles which move 
+the leg. So we will set to zero, the angles and velocities of 3 DOF of pelvis-thorax flexion, lateral bending and axial rotation.
 
 We will place the drivers enforcing these constraints in the "Drivers" folder within "JointsAndDrivers.any" (shown below):
 
@@ -235,7 +237,7 @@ We will place the drivers enforcing these constraints in the "Drivers" folder wi
     };
 
 
-Then insert a"PelvisThoraxDriver" into the Drivers folder, created using the ``AnyKinEqSimpleDriver`` class. 
+Insert a"PelvisThoraxDriver" into the Drivers folder, created using the ``AnyKinEqSimpleDriver`` class. 
 You already know how to create model objects from scratch by using the 
 the "Class Inserter" (:ref:`*described here* <Creating a segment (using the Class Inserter)>`). More details on properties
 such as DriverPos, DriverVel etc. can be (:ref:`*found here* <Creating a constant velocity joint motion>`) :
@@ -295,7 +297,7 @@ Step 4: Connecting the foot to the pedal
 -----------------------------------------
 
 The foot will be connected to the pedal by a spherical joint. We have assumed 
-the connection node on the foot to be the "MetatarsalJoint2Node". This is
+the connection node on the foot to be the "MetatarsalJoint2Node". The driver is
 defined inside the "JointsAndDrivers.any" file in the following way:
 
 .. code-block:: AnyScriptDoc
@@ -327,13 +329,15 @@ DOFs to always equal zero. Just as in Steps 3 & 4, this will be done using ``Any
     AnyFolder Drivers = 
     {
     ...
-      AnyKinEqSimpleDriver NeckJntDriver = 
+      AnyKinEqSimpleDriver SkullThoraxDriver =  
       {
-        AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.NeckJoint;
+        AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxFlexion;
+        AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxLateralBending;        
+        AnyKinMeasure& ref2 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxRotation;   
         
-        DriverPos = pi/180*{0};
-        DriverVel = pi/180*{0};
-       };
+        DriverPos = pi/180*{0,0,0};
+        DriverVel = pi/180*{0,0,0};
+      };
       
       §AnyKinEqSimpleDriver AnkleDriver = 
       {
@@ -474,35 +478,28 @@ constraints from the joints and the drivers in the model.**
 In general, the total number of DOFs in the model should be exactly as
 same as the total number of kinematic constraints in the model. But at
 the moment, the number of kinematic constraints is larger than that of
-DOFs. In this kind of situation, the kinematics of the model may not be
-determined uniquely because there are more equations to be solved than
-the number of unknowns in the system. This may frequently happen if the
-user may not consider this concept of the DOFs and the constraints.
+DOFs. 
 
-But you should know why there are more constraints than you have defined
-and how AnyBody could solve the kinematics of the model even in this
-situation. In the “HumanModel” folder there is a subfolder of which name
-is ‘DefaultMannequinDrivers’. In that folder, there are some default
-drivers which can control the posture of the human model based on the
-values in the Mannequin.any file.
+**In some cases, having more constraints than DOFs (also called a redundant set of constraints) results in a failed kinematic simulation,
+because the system is over-constrained.**
+
+However our AnyBody model seems to work despite this constraint redundancy. Why?
+
+This is because, these 150 - 132 = 18 "extra" constraints were also "soft" constraints enforced by the 
+“default mannequin drivers” described :ref:`*here earlier* <The “Default mannequin drivers”>`.
+
+The "DefaultMannequinDrivers" can be found in a subfolder of the “HumanModel” folder, as shown in the figure below.
+These drivers control the human model's posture based on the values in the "Mannequin.any" file.
 
 |Model tree Default manequin drivers|
 
-The reason why these default drivers exist is that sometimes the user
-may have some difficulties in finding which human joints should be
-driven or what kinds of constraints should be defined for the human
-model. In order to provide a more convenient way of modeling, these
-default drivers of human model can help users even if they may miss some
-necessary drivers to run the kinematics perfectly. And because these
-default drivers are defined as “Soft” constraints, the kinematics of the
-model can be solved with the other normal “Hard” type constraints.
-“Soft” constraint means that it can be compromised with other Soft and
-Hard Constraints.
+Because these default drivers are defined as “Soft” constraints, they were compromised in
+favour of the "Hard" constraints specified in Steps 1 to 7 in this document. 
 
-Because you could define all necessary “Hard” constraints to run the
-kinematics, let us find the way how to remove these default drivers from
-your model. You can just add one more BM statement in the main file to
-control the default drivers of the human model like this:
+This avoided an over-constrained situation and kinematics could therefore be solved.
+
+Since you could define all necessary “Hard” constraints, 
+the default drivers can now be removed by just adding one more BM statement to the main file:
 
 .. code-block:: AnyScriptDoc
 
