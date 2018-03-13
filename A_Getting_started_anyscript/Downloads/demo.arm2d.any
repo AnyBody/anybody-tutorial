@@ -140,7 +140,7 @@ Main = {
     AnyFolder Muscles = {
       // Simple muscle model with constant strength = 300 Newton
       AnyMuscleModel MusMdl = {
-        F0 = 300;
+        F0 = 400;
       };
       
       //---------------------------------
@@ -222,7 +222,6 @@ Main = {
   // The study: Operations to be performed on the model
   AnyBodyStudy ArmStudy = {
     AnyFolder &Model = .ArmModel;
-    InverseDynamics.Criterion.Type = MR_MinMaxStrict;
     Gravity = {0.0, -9.81, 0.0};
   };
   

@@ -423,7 +423,6 @@ This resembles what you did in :ref:`*this earlier chapter* <Creating a constant
         MeasureOrganizer = {2};
         DriverPos = {0};
         DriverVel = {0};
-        //Reaction.Type = {Off};
       };
       
       §AnyKinEqSimpleDriver PedalDriver = 
@@ -431,7 +430,6 @@ This resembles what you did in :ref:`*this earlier chapter* <Creating a constant
         AnyKinMeasure &ref0 = Main.Model.Environment.HingeJoint;
         DriverPos = pi/180*{100};
         DriverVel = pi/180*{45};
-        Reaction.Type = {Off};
       };§  
     };
 
