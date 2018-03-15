@@ -9,6 +9,8 @@ the segments are treated as rigid elements which represent human bones as well a
 
 **A segment is just a coordinate system with mass and inertial properties, which can move around freely in 3D space.**
 
+.. _class-inserter:
+
 Creating a segment (using the Class Inserter)
 ----------------------------------------------
 

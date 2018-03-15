@@ -14,6 +14,8 @@ a forearm by the elbow. What we want to do now is to make the arm move.
 the inverse dynamics technique, where we prescribe motion first and then deduce
 the values of muscle forces which produce the motion.**
 
+.. _measures-and-drivers:
+
 Measures & drivers
 -------------------
 
@@ -33,6 +35,8 @@ which we will chose to be measures of the shoulder and elbow joint angle values.
     of the end-point of the ForeArm segment (the wrist). 
     
     Creating more than 2 driver constraints will over-constrain the model and lead to errors.
+
+.. _anykineqsimpledriver:
 
 Creating a constant velocity joint motion 
 ------------------------------------------
@@ -88,7 +92,7 @@ Since the measures constrained by these drivers are angles, the units
 of "DriverPos" and "DriverVel" are radians and radians/sec respectively.
 
 
-Just like in :ref:`*Lesson 3* <Reference objects and the ‘&’ symbol>`, these lines also
+Just like in :ref:`*Lesson 3* <reference-objects>`, these lines also
 use the reference operator ``&`` to point the local variable "Jnt" towards the 
 actual shoulder/elbow joint objects existing in a different folder
 
@@ -109,7 +113,7 @@ warning messages about the lack of kinematic constraints. You're now ready to ge
     that are specific to that study.
 
 **You must now run the "Main.ArmModelStudy.Kinematics" operation. If you need to refer back to how this is done, look at**
-:ref:`*this prior tutorial* <Running a simulation analysis>`.
+:ref:`*this prior tutorial* <running-analysis>`.
 
 
 Since we have no muscles so far, a kinematic analysis is really all that
@@ -153,7 +157,7 @@ Plotting simulation results
 Let us say, you want to plot the position vector of the hand node over the course of movement.
 
 You need to find and plot the variable ".....ForeArm.HandNode.r" in the chart view. If you need help with the chart view,
-refer to :ref:`*this prior tutorial on plotting* <Introducing chart view>`.
+refer to :ref:`*this prior tutorial on plotting* <chart-view>`.
 
 If you're having trouble finding the correct output variable in the chart view's filtered model tree, refer to the figure below.
 

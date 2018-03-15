@@ -80,7 +80,7 @@ extensions = [
     'cloud_sptheme.ext.table_styling',
     'inline_highlight',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.autosectionlabel'
+    # 'sphinx.ext.autosectionlabel'
 ]
 
 

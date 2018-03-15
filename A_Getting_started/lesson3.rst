@@ -1,6 +1,7 @@
 Lesson 3: Reviewing Analysis Results
 ====================================
 
+.. _chart-view:
 
 Introducing chart view
 ----------------------

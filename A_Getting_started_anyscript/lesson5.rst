@@ -90,7 +90,7 @@ The physiological behavior of the muscle is defined by the first line:
                AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
 
 
-You can see that it points right back to the muscle model we have already created (:ref:`*Notice the two leading dots* <Relative folder paths - Why use ‘.’ and ‘..’ in AnyScript?>`). Finally, the following line displays the muscle in your model view window:
+You can see that it points right back to the muscle model we have already created (:ref:`*Notice the two leading dots* <relative-folder-path>`). Finally, the following line displays the muscle in your model view window:
 
 .. code-block:: AnyScriptDoc
 
@@ -186,12 +186,14 @@ Your model (in the image above) doesn't appear to be connected properly at the e
 joint constraints during a simulation.
 
 Use the operation drop down menu to run the "InitialConditions" operation. If you don't remember
-how this is done, refer to :ref:`*this prior tutorial* <Running a simulation analysis>`.
+how this is done, refer to :ref:`*this prior tutorial* <running-analysis>`.
 
 The assembled model should resemble the following figure.
 
 
 |image1|
+
+.. _driver-reactions:
 
 Switching off driver reactions when muscles do the job (Important!)
 --------------------------------------------------------------------
@@ -248,7 +250,7 @@ The InverseDynamicAnalysis and plotting muscle forces
 Run the the **InverseDynamicAnalysis** operation from the operations drop-down menu.
 In this analysis, the AnyBody system computes all muscle, joint forces and much more.
 
-Review the instructions from :ref:`*this prior tutorial* <Introducing chart view>` on plotting simulation results. 
+Review the instructions from :ref:`*this prior tutorial* <chart-view>` on plotting simulation results. 
 
 To plot the muscle forces in the brachialis muscle, open 
 "Main.Study.Output.Model.Muscles.Brachialis" in the chart view's model tree, and plot the variable named ``Fm``.

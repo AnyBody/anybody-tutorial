@@ -96,6 +96,8 @@ To create a non-symmetric posture, you would have to replace some of the express
 Scrolling further below, you will find the "PosturVel folder". This is organized exactly like Posture, but the numbers here specify
 joint angular velocities in degrees per second. For now, please leave all the values in this folder as zero.
 
+.. _running-analysis:
+
 Running a simulation analysis
 -----------------------------
 

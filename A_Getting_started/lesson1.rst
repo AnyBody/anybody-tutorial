@@ -18,9 +18,10 @@ Key (modifiable) features of the standing model are:
 
 -  External forces can be applied to predefined nodes on the model. Muscle forces may change, to resist these forces and maintain balance.
    
+.. _model-templates:
 
 Model templates
--------------------
+---------------
 
 To create a new standing model using the template model in the AMMR, click the "Create New from template" button |Model
 button| in the toolbar:
@@ -47,6 +48,8 @@ location of the file is shown in the title bar:
 .. warning:: If you saved your model in an other location be 
           sure to modify the :file:`../libdef.any` file so it points 
           to AMMR repository you want to use. 
+
+.. _loading-a-model:
 
 Loading a model
 ---------------

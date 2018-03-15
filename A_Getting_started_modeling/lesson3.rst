@@ -24,7 +24,7 @@ With no environmental constraints defined so far, the human body has the followi
 - 2 DOF of rotation (flexion + eversion) at the ankle
 
 **Total Human + pedal DOFs adds up to 19. In other words, we to need to specify 19 constraints before the model is kinematically determinate.
-We will do this using the concepts of "Measures and Drivers" introduced in** :ref:`*this previous chapter* <Measures & drivers>`.
+We will do this using the concepts of "Measures and Drivers" introduced in** :ref:`*this previous chapter* <measures-and-drivers>`.
 
 The following steps specify a total of 19 driver constraints for the model:
 
@@ -38,6 +38,7 @@ The following steps specify a total of 19 driver constraints for the model:
 
 **Each of these steps is implemented in sequence below.**
 
+.. _mannequin-drivers:
 
 The "Default mannequin drivers"
 ---------------------------------
@@ -52,7 +53,7 @@ The constraint enforced by the default drivers are defined as ‘soft’
 constraints - constraints that be overridden by the 19 'hard constraints' which we will define.
 
 **You can therefore sequentially add the 19 hard drivers on top of the soft default drivers, and deactivate the default
-drivers at the** :ref:`*very end of this lesson* <Check if model is kinematically determined?>` **. The advantage is that you have a model whose 
+drivers at the** :ref:`*very end of this lesson* <kinematically-determined>` **. The advantage is that you have a model whose 
 kinematics can be tested at every step along the way.**
 
 Step 1: Fixing the pelvis to ground
@@ -79,7 +80,7 @@ the position of the pelvis in a seat. Here we shall simply attach the
 pelvis to this point by means of a rigid connection.
 
 **Drivers which connect the human and environment are traditionally placed in a folder called
-"ModelEnvironmentConnection" (** :ref:`*explained here* <The model structure>` **), and for historical reasons, it is placed in
+"ModelEnvironmentConnection" (** :ref:`*explained here* <model-structure>` **), and for historical reasons, it is placed in
 an** ``#include`` **file called "JointsAndDrivers.any". Let’s open this file by
 double-clicking of the following line in the main file**:
 
@@ -126,7 +127,7 @@ frame. "Pelvis" must point to the origin of "PelvisSeg", which you can find in t
 "HumanModel->BodyModel->Trunk->SegmentsLumbar->PelvisSeg".**
 
 To find and insert the absolute paths for these nodes into AnyScript, quickly refer back 
-to :ref:`*this previous section* <Absolute folder path (and some useful tips)>`.
+to :ref:`*this previous section* <absolute-folder-path>`.
 
 You should now have the following:
 
@@ -239,8 +240,8 @@ We will place the drivers enforcing these constraints in the "Drivers" folder wi
 
 Insert a"PelvisThoraxDriver" into the Drivers folder, created using the ``AnyKinEqSimpleDriver`` class. 
 You already know how to create model objects from scratch by using the 
-the "Class Inserter" (:ref:`*described here* <Creating a segment (using the Class Inserter)>`). More details on properties
-such as DriverPos, DriverVel etc. can be (:ref:`*found here* <Creating a constant velocity joint motion>`) :
+the "Class Inserter" (:ref:`*described here* <class-inserter>`). More details on properties
+such as DriverPos, DriverVel etc. can be (:ref:`*found here* <anykineqsimpledriver>`) :
 
 .. code-block:: AnyScriptDoc
 
@@ -362,7 +363,7 @@ out of the ground (a spherical joint connection, like in Step 4). You can still 
 You will now constrain this medio-lateral knee movement in your model.
 
 This is done using an ``AnyKinLinear`` measure and a ``AnyKinEqSimpleDriver`` driver acting on that measure
-(:ref:`*read more one measures & drivers here* <Measures & drivers>`):
+(:ref:`*read more one measures & drivers here* <measures-and-drivers>`):
 
 .. code-block:: AnyScriptDoc
 
@@ -405,7 +406,7 @@ Step 7: Specify pedal movement
 -------------------------------
 
 We will specify motion for the pedal's hinge joint again using the ``AnyKinEqSimpleDriver``.
-This resembles what you did in :ref:`*this earlier chapter* <Creating a constant velocity joint motion>`.
+This resembles what you did in :ref:`*this earlier chapter* <anykineqsimpledriver>`.
 
 .. code-block:: AnyScriptDoc
 
@@ -443,10 +444,12 @@ longer complains about the model being kinematically indeterminate.**
 Running kinematics
 ------------------
 
-Select and run the ‘Main.Study.Kinematics’ operation from the operations dropdown menu (:ref:`*more info here* <Running a kinematic simulation>`). 
+Select and run the ‘Main.Study.Kinematics’ operation from the operations dropdown menu (:ref:`*more info here* <running-analysis>`). 
 This will show you the movement of the entire system as the pedal is rotating.
 
 |Operation Result Kinematics|
+
+.. _kinematically-determined:
 
 Check if model is kinematically determined?
 --------------------------------------------
@@ -484,7 +487,7 @@ because the system is over-constrained.**
 However our AnyBody model seems to work despite this constraint redundancy. Why?
 
 This is because, these 150 - 132 = 18 "extra" constraints were also "soft" constraints enforced by the 
-“default mannequin drivers” described :ref:`*here earlier* <The “Default mannequin drivers”>`.
+“default mannequin drivers” described :ref:`*here earlier* <mannequin-drivers>`.
 
 The "DefaultMannequinDrivers" can be found in a subfolder of the “HumanModel” folder, as shown in the figure below.
 These drivers control the human model's posture based on the values in the "Mannequin.any" file.

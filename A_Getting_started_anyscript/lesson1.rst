@@ -6,7 +6,7 @@ Lesson 1: Basic Concepts
 
 To create an AnyScript model from scratch, go to "File menu -> New from template…" this will bring up a new window in
 which you choose "Basic Main" and provide a "Target Name" (e.g.,
-*NewModel*) and click OK. This is similar to :ref:`*this step* <Model templates>` from the previous tutorial.
+*NewModel*) and click OK. This is similar to :ref:`*this step* <model-templates>` from the previous tutorial.
 
 |Editor NewModel.main.any|
 
@@ -91,7 +91,7 @@ Loading an AnyBody model
 ------------------------
 
 You should be ready to load the model now. If cannot recollect how this is done,
-refer to :ref:`*this section* <Loading a model>`  from a previous tutorial.
+refer to :ref:`*this section* <loading-a-model>`  from a previous tutorial.
 
 You may get message similar to the one below, in the Output Window.
 

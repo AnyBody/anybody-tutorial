@@ -112,6 +112,8 @@ We create a new ``AnyFolder`` object, to contain all joints in the model:
 
 The ``AnyRevoluteJoint`` class creates a revolute joint object connecting two nodes on different segments.
 
+.. _relative-folder-path:
+
 Relative folder paths - Why use ‘.’ and ‘..’ in AnyScript?
 ----------------------------------------------------------
 
@@ -133,6 +135,8 @@ If you neglected the two dots, then AnyBody would search for the two objects in 
 to find them. This "dot" system is quite similar to the system you may
 know from directory structures in Dos, Windows, Unix, or just about any
 other computer operating system.
+
+.. _reference-objects:
 
 Reference objects and the ‘&’ symbol
 ------------------------------------
@@ -209,6 +213,7 @@ anything yet. In this simple model it is easy to find the relative path
 of the pertinent nodes on the upper arm and the forearm, but in a
 complex model, this can be difficult. So we use "Absolute folder paths".
 
+.. _absolute-folder-path:
 
 Absolute folder path (and some useful tips)
 -------------------------------------------
