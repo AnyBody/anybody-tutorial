@@ -88,8 +88,8 @@ AnyBody allows for the definition of joints that only provide kinematic
 constraints but not the associated reaction forces. In fact, the system
 also allows the opposite: Reaction forces without kinematic constraints.
 For an in-depth discussion of some of these issues, please refer to the
-:doc:`*tutorial on mechanical
-elements* <../The_mechanical_elements/intro>`. For now, the
+:doc:`tutorial on mechanical
+elements <../The_mechanical_elements/intro>`. For now, the
 bottom line is that counting reactions can sometimes be tricky, and the
 Mechanical System Information in Object Description is helpful in this
 respect.

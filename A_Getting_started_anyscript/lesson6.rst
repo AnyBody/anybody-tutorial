@@ -2,7 +2,7 @@ Lesson 6: Adding Real Bone Geometries
 =====================================
 
 .. note:: Here's an AnyScript file to start on if you have not completed the
-    previous lesson: :download:`*demo.lesson6.any* <Downloads/demo.lesson6.any>`.
+    previous lesson: :download:`demo.lesson6.any <Downloads/demo.lesson6.any>`.
 
 So far the model graphically resembles a "stick figure representation".
 However realistic bone geometries can improve both aesthetics and
@@ -68,7 +68,7 @@ Relocating your STL object
 ----------------------------
 
 When you attach something to a segment, it is by default positioned
-at the segment's origin which is also its center of mass. (This was discussed earlier :ref:`* over here* <class-inserter>`) 
+at the segment's origin which is also its center of mass. (This was discussed earlier :ref:`over here <class-inserter>`) 
 
 Therfore moving the dumbbell to the hand is as simple as relocating the "DrwSTL" object
 from the "ForeArm" folder to the "PalmNode" subfolder. Cut-paste the entire code for the 
@@ -139,7 +139,7 @@ The RGB property specifies the blend of colors Red, Green, and Blue on a normali
 |ModelView dumbbell3|
 
 This completes the Getting Started with AnyScript tutorial. The final
-result of your efforts is in :download:`*demo.arm2d.any <Downloads/demo.arm2d.any>`.
+result of your efforts is in :download:`demo.arm2d.any <Downloads/demo.arm2d.any>`.
 
 
 .. |oldleg1| image:: _static/lesson6/image1.jpeg

@@ -2,7 +2,7 @@ Lesson 4: Imparting movement with Drivers
 =========================================
 
 .. note:: Here's an AnyScript file to start on if you have not completed the
-    previous lesson: :download:`*demo.lesson4.any* <Downloads/demo.lesson4.any>`.
+    previous lesson: :download:`demo.lesson4.any <Downloads/demo.lesson4.any>`.
 
 If you have completed the three previous lessons, you should have a
 model with an upper arm grounded at the shoulder joint and connected to
@@ -75,7 +75,7 @@ But the same driver class could be used to drive translations, for instance a sl
 The following lines assign the shoulder and elbow joint angle measures to the respective drivers.
 Standard AnyBody joints created using classes such as ``AnyRevoluteJoint``, ``AnySphericalJoint`` etc. automatically function as measures.
 More customized measures can be created using classes such as ``AnyKinLinear``, ``AnyKinRotational`` etc. 
-(see :doc:`*this lesson* <../The_mechanical_elements/lesson4>`).:
+(see :doc:`this lesson <../The_mechanical_elements/lesson4>`).:
 
 .. code-block:: AnyScriptDoc
 
@@ -92,7 +92,7 @@ Since the measures constrained by these drivers are angles, the units
 of "DriverPos" and "DriverVel" are radians and radians/sec respectively.
 
 
-Just like in :ref:`*Lesson 3* <reference-objects>`, these lines also
+Just like in :ref:`Lesson 3 <reference-objects>`, these lines also
 use the reference operator ``&`` to point the local variable "Jnt" towards the 
 actual shoulder/elbow joint objects existing in a different folder
 
@@ -113,7 +113,7 @@ warning messages about the lack of kinematic constraints. You're now ready to ge
     that are specific to that study.
 
 **You must now run the "Main.ArmModelStudy.Kinematics" operation. If you need to refer back to how this is done, look at**
-:ref:`*this prior tutorial* <running-analysis>`.
+:ref:`this prior tutorial <running-analysis>`.
 
 
 Since we have no muscles so far, a kinematic analysis is really all that
@@ -157,7 +157,7 @@ Plotting simulation results
 Let us say, you want to plot the position vector of the hand node over the course of movement.
 
 You need to find and plot the variable ".....ForeArm.HandNode.r" in the chart view. If you need help with the chart view,
-refer to :ref:`*this prior tutorial on plotting* <chart-view>`.
+refer to :ref:`this prior tutorial on plotting <chart-view>`.
 
 If you're having trouble finding the correct output variable in the chart view's filtered model tree, refer to the figure below.
 
@@ -165,7 +165,7 @@ If you're having trouble finding the correct output variable in the chart view's
 
 .. rst-class:: without-title
 .. seealso::
-    **Next lesson:** This is the subject of :doc:`*Lesson 5: Definition of muscles and external forces* <lesson5>`.
+    **Next lesson:** This is the subject of :doc:`Lesson 5: Definition of muscles and external forces <lesson5>`.
 
 
 

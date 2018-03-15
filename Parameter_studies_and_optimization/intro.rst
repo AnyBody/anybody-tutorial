@@ -30,7 +30,7 @@ behavior of the model. Some examples of applications are:
 seat height and seat horizontal position.`
 
 This functionality is provided through two complementary
-:doc:`*studies* </A_study_of_studies/intro>`:
+:doc:`studies </A_study_of_studies/intro>`:
 
 The **AnyParamStudy** performs an exhaustive search of the variable
 space computing the model's reaction to every combination of the

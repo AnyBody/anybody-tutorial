@@ -34,7 +34,7 @@ supported in the AMMR.
 **Choose the "Human Standing" template and select the
 folder you want to save your new Human Standing model in.** To demonstrate, let us
 save the model in the 'AnyBody.\ |AMS_VERSION_X|\ /AMMR.v\ |AMMR_VERSION|\ -Demo' directory 
-which we extracted in the :doc:`*introduction* <intro>` of this tutorial.
+which we extracted in the :doc:`introduction <intro>` of this tutorial.
 
 Give the model a name, for example :file:`MyStandingHuman`, and press OK to save. 
 

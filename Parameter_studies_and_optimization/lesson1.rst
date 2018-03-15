@@ -22,8 +22,8 @@ OptimBike.zip <Downloads/OptimBike.zip>` and unpack it to some
 pertinent place on your hard disk.
 
 The bicycle model is pretty much the 2DBike that you may know from the
-`*AnyBody Managed Model
-Repository* <https://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
+`AnyBody Managed Model
+Repository <https://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
 In fact, the structure of the model is as in the repository, so we have
 maintained the traditional division between the BRep directory
 containing the human body model and the ARep directory containing the

@@ -8,7 +8,7 @@ body parts: legs, arms, and trunk.
 
 **Body model configuration refers to the selection of limb segments to include, muscle model types,
 scaling algorithms etc. These are done by setting switches known as Body model (BM) parameters. 
-The configuration process is described in greater detail in this** `*document* <https://anyscript.org/ammr-doc/bm_config/index>`__
+The configuration process is described in greater detail in this** `document <https://anyscript.org/ammr-doc/bm_config/index>`__
 
 
 

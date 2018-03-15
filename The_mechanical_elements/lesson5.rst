@@ -363,9 +363,9 @@ Further studies:
 The following two examples illustrate more of the features of forces in
 AnyBody.
 
-1. :download:`*Demo.Forces.any* <Downloads/Demo.Forces.any>`
+1. :download:`Demo.Forces.any <Downloads/Demo.Forces.any>`
 
-2. :download:`*Demo.AnyForce.any* <Downloads/Demo.AnyForce.any>`
+2. :download:`Demo.AnyForce.any <Downloads/Demo.AnyForce.any>`
 
 The first example is a rather basic application of time-varying forces
 to the aimple arm model. In addition to the subjects covered in the

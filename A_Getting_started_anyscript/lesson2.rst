@@ -2,7 +2,7 @@ Lesson 2: Defining Segments and Displaying Objects
 ==================================================
 
 .. note:: Here's an AnyScript file to start on if you have not completed the previous lesson:
-    :download:`*demo.lesson2.any* <Downloads/demo.lesson2.any>`
+    :download:`demo.lesson2.any <Downloads/demo.lesson2.any>`
 
 The basic building blocks of a mechanical system are the "segments" [#f1]_. In AnyBody,
 the segments are treated as rigid elements which represent human bones as well as non-human components such as exoskeleton/machine parts etc.

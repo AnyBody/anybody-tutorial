@@ -143,8 +143,8 @@ awarded the following message:
 
 You have just completed your first analysis with an AnyBody model. In the
 next lesson, we will examine the effects of posture on the results
-: :doc:`*Lesson 3: Reviewing analysis
-results* <lesson3>`.
+: :doc:`Lesson 3: Reviewing analysis
+results <lesson3>`.
 
 .. |RunApplication| image:: _static/lesson2/image1.png
    
