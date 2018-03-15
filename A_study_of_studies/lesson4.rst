@@ -33,9 +33,9 @@ the dynamic equilibrium equations for a equal amount of unknown forces,
 the so-called reaction forces.
 
 To conclude this tutorial, please try InverseDynamics operations in the
-arm model, :download:`*arm2d.any* <Downloads/arm2d.any>`, and the slider crank
+arm model, :download:`arm2d.any <Downloads/arm2d.any>`, and the slider crank
 mechanism,
-:download:`*demo.SliderCrank3D.any* <Downloads/Demo.SliderCrank3D.any>`. In both
+:download:`demo.SliderCrank3D.any <Downloads/Demo.SliderCrank3D.any>`. In both
 case, you will now see forces being calculated, i.e. forces that a
 non-zero in the output. But please also notice how the slider crank
 study is defined with simpler AnyMechStudy whereas the arm model uses

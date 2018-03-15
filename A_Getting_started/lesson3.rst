@@ -110,8 +110,8 @@ Congratulations! You have just completed your first biomechanical
 analysis with the AnyBody Modeling System. Try changing the posture in the "Mannequin.any" file and investigate the new
 results.
 
-You may also want to check our `*library of previous
-webcasts* <https://www.anybodytech.com/anybody.html?fwd=webcasts>`__  
+You may also want to check our `library of previous
+webcasts <https://www.anybodytech.com/anybody.html?fwd=webcasts>`__  
 for topics of particular interest to you.
 
 .. |Chart view tree| image:: _static/lesson3/image1.png

@@ -56,7 +56,7 @@ no spring. The minus sign in the expression means that the spring will always op
 Turn off default reaction forces
 --------------------------------
 
-As mentioned in this :ref:`*previous section* <driver-reactions>`, 
+As mentioned in this :ref:`previous section <driver-reactions>`, 
 the "Reaction.Type" property for all kinematic drivers that act on muscle-actuated joints must be set to "Off".
 
 .. code-block:: AnyScriptDoc
@@ -182,7 +182,7 @@ Now, reload the model and run the "RunApplication" operation from the operations
 
 |InverseDynamics_End|
 
-Plot “Main.Study.Output.Model.HumanModel.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope” (see :ref:`*this for help* <chart-view>`).
+Plot “Main.Study.Output.Model.HumanModel.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope” (see :ref:`this for help <chart-view>`).
 It expresses the maximum muscle activation level seen across all the muscles
 in the right leg at a given instant:
 

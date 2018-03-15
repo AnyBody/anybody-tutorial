@@ -103,12 +103,12 @@ Running kinematic analysis
 Now that you know the basics of kinematic analysis, let us look at how
 it is performed. We need an example to work on, and this one will serve
 the purpose:
-:download:`*demo.SliderCrank3D.any* <Downloads/Demo.SliderCrank3D.any>`
+:download:`demo.SliderCrank3D.any <Downloads/Demo.SliderCrank3D.any>`
 
 |demo.SliderCrank3D.any|
 
-When you load it and open a :doc:`*Model
-View* <../Interface_features/lesson3>` you will see that
+When you load it and open a :doc:`Model
+View <../Interface_features/lesson3>` you will see that
 this is a very simple mechanism comprising only three segments. They are
 not yet connected correctly at their joints, but they will be if you run
 the Kinematics operation. Go to the Study tree, pick Kinematics and
@@ -116,7 +116,7 @@ click the run button. You will see the model assemble and start moving.
 
 The Kinematics operation is precisely an analysis. It assembles data
 when it runs, and you can subsequently investigate those results in the
-:doc:`*ChartFX* <../Interface_features/lesson3>` view. Pick
+:doc:`ChartFX <../Interface_features/lesson3>` view. Pick
 Window -> ChartFX (new) to open it. The kind of results you can get from
 the Kinematics study is everything that has to do with positions,
 velocities, and accelerations. You may expand the tree until you reach
@@ -163,7 +163,7 @@ model grabs something with both hands.
 
 Although the kinematic analysis is useful in its own right for lots of
 purposes, it is also the first step of the InverseDynamics operation,
-the subject of :doc:`*the next lesson* <lesson4>`.
+the subject of :doc:`the next lesson <lesson4>`.
 
 
 .. rst-class:: without-title

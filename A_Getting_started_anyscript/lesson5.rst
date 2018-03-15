@@ -18,7 +18,7 @@ Creating a muscle model
 The exact behaviour of muscle tissue is a widely researched (and debated) topic.
 
 AnyBody offers several models of varying sophistication, for modelling muscle behaviour. A detailed introduction 
-to muscle modeling can be found here :doc:`*its own tutorial* <../Muscle_modeling/intro>`. 
+to muscle modeling can be found here :doc:`its own tutorial <../Muscle_modeling/intro>`. 
 
 Here, we will create a very simple muscle model and use it to model our arm model muscles. We start by creating a folder for the muscles:
 
@@ -90,15 +90,15 @@ The physiological behavior of the muscle is defined by the first line:
                AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
 
 
-You can see that it points right back to the muscle model we have already created (:ref:`*Notice the two leading dots* <relative-folder-path>`). Finally, the following line displays the muscle in your model view window:
+You can see that it points right back to the muscle model we have already created (:ref:`Notice the two leading dots <relative-folder-path>`). Finally, the following line displays the muscle in your model view window:
 
 .. code-block:: AnyScriptDoc
 
                AnyDrawMuscle DrwMus = {};
 
 Upon re-loading the model, you should see a thick, red line connecting the muscle's origin and
-insertion points. There are other ways to visualize muscles, and these are described here in a :doc:`*dedicated muscle
-tutorial* <../Muscle_modeling/intro>`.
+insertion points. There are other ways to visualize muscles, and these are described here in a :doc:`dedicated muscle
+tutorial <../Muscle_modeling/intro>`.
 
 The muscle path may appear strange because the mechanism hasn't been assembled by a kinematic analysis. 
 
@@ -186,7 +186,7 @@ Your model (in the image above) doesn't appear to be connected properly at the e
 joint constraints during a simulation.
 
 Use the operation drop down menu to run the "InitialConditions" operation. If you don't remember
-how this is done, refer to :ref:`*this prior tutorial* <running-analysis>`.
+how this is done, refer to :ref:`this prior tutorial <running-analysis>`.
 
 The assembled model should resemble the following figure.
 
@@ -250,7 +250,7 @@ The InverseDynamicAnalysis and plotting muscle forces
 Run the the **InverseDynamicAnalysis** operation from the operations drop-down menu.
 In this analysis, the AnyBody system computes all muscle, joint forces and much more.
 
-Review the instructions from :ref:`*this prior tutorial* <chart-view>` on plotting simulation results. 
+Review the instructions from :ref:`this prior tutorial <chart-view>` on plotting simulation results. 
 
 To plot the muscle forces in the brachialis muscle, open 
 "Main.Study.Output.Model.Muscles.Brachialis" in the chart view's model tree, and plot the variable named ``Fm``.
@@ -310,14 +310,14 @@ development is also different. It now reaches a maximum during the
 movement and drops off again.
 
 .. note:: Applied forces do not have to be constant. They can change with time
-    and other properties in the model.  Please refer to the :doc:`*tutorial on
-    forces* <../The_mechanical_elements/intro>` for more
+    and other properties in the model.  Please refer to the :doc:`tutorial on
+    forces <../The_mechanical_elements/intro>` for more
     details.
 
 **The model you've built here here was anatomically simplified, and it can be a
 difficult job to define a realistic body model from scratch. We recommend that users
-start out with the body models available in the** `*AnyBody Managed Model
-Repository* <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
+start out with the body models available in the** `AnyBody Managed Model
+Repository <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
 
 
 .. rst-class:: without-title

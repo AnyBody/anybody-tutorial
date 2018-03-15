@@ -56,13 +56,13 @@ interesting implications:
 The principle of include files in demonstrated in the following four
 interconnected files:
 
--  :download:`*demo.include.any* <Downloads/demo.include.any>` (the main file)
+-  :download:`demo.include.any <Downloads/demo.include.any>` (the main file)
 
--  :download:`*demo.include2.any* <Downloads/demo.include2.any>`
+-  :download:`demo.include2.any <Downloads/demo.include2.any>`
 
--  :download:`*demo.include3.any* <Downloads/demo.include3.any>`
+-  :download:`demo.include3.any <Downloads/demo.include3.any>`
 
--  :download:`*demo.include4.any* <Downloads/demo.include4.any>`
+-  :download:`demo.include4.any <Downloads/demo.include4.any>`
 
 |Include tree|
 

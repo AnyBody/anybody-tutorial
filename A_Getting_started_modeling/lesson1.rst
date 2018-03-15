@@ -125,7 +125,7 @@ The "Model" folder comes next this holds information specific to the application
 In this case, this is the pedal model. The "Model" folder is sub-divided into three sub-folders:
 
 - **HumanModel** - This is a local reference to the "Main.HumanModel", located within the "Model" folder. 
-  :ref:`*This section* <reference-objects>` can help you recollect what reference objects are. 
+  :ref:`This section <reference-objects>` can help you recollect what reference objects are. 
 
 - **Environment** - This contains external hardware such as chairs,
   bicycles, tools, or, in the present case, a pedal.

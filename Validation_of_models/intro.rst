@@ -56,8 +56,8 @@ of the population?
 Model Data Uncertainties
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-In general, the models in the `*AnyScript Managed Model
-Repository* <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__
+In general, the models in the `AnyScript Managed Model
+Repository <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__
 are based on data reported in the literature. They often come from
 studies of one or few subjects or cadavers, and the data has little or
 no statistical significance. You will find the references of the data
@@ -91,8 +91,8 @@ to the model input. Some typical cases are:
    its usual operation interval. A too short tendon will cause a muscle
    to excert passive force and likely cause muscles on the other side of
    the joint to work more than they are supposed to. Please notice that
-   AnyBody has facilities for calibrating tendon lengths. :doc:`*The muscle
-   modeling tutorial* </Muscle_modeling/intro>` has
+   AnyBody has facilities for calibrating tendon lengths. :doc:`The muscle
+   modeling tutorial </Muscle_modeling/intro>` has
    in-depth information about these issues.
 
 Boundary Conditions
@@ -149,8 +149,8 @@ wants to make the best of its resources. The user has some amount of
 control over this criterion, but in its basic form it is a minimum
 fatigue criterion that distributes the loads as evenly as possible
 between the muscles taking their individual strengths into account.
-Please refer to :doc:`*A Study of
-Studies* </A_study_of_studies/intro>` for more detailed
+Please refer to :doc:`A Study of
+Studies </A_study_of_studies/intro>` for more detailed
 information.
 
 So the system basically presumes that the body has the knowledge and the
