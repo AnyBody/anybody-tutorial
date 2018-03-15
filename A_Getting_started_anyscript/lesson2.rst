@@ -1,14 +1,15 @@
 Lesson 2: Defining Segments and Displaying Objects
 ==================================================
 
-Here's an AnyScript file to start on if you have not completed the
-previous lesson:
-:download:`*demo.lesson2.any* <Downloads/demo.lesson2.any>`
+.. note:: Here's an AnyScript file to start on if you have not completed the previous lesson:
+    :download:`*demo.lesson2.any* <Downloads/demo.lesson2.any>`
 
 The basic building blocks of a mechanical system are the "segments" [#f1]_. In AnyBody,
-the segments treated as rigid elements which represent human bones as well as non-human components such as exoskeleton/machine parts etc.
+the segments are treated as rigid elements which represent human bones as well as non-human components such as exoskeleton/machine parts etc.
 
 **A segment is just a coordinate system with mass and inertial properties, which can move around freely in 3D space.**
+
+.. _class-inserter:
 
 Creating a segment (using the Class Inserter)
 ----------------------------------------------
@@ -41,15 +42,15 @@ F7 key. If you expand the "ArmModel" folder in the tree view, you should
 see a new, empty folder named "Segs". 
 
 We are now ready to add a segment to the model, and this would probably be a good time to introduce you to
-the **Class Inserter**.
+the Class Inserter.
 
 |Classes tab|
 
-The Classes tab on the right edge of your AnyBody
-interface opens a **Class List** containing all the predefined classes in AnyScript.
+**The Classes tab on the right edge of your AnyBody
+interface opens a Class List containing all the predefined classes in AnyScript.**
 
 **To insert a segment, start by placing your text cursor within the braces of the newly
-defined "AnyFolder Segs". Then find the class "AnySeg" in the Class List and
+defined "AnyFolder Segs". Then find the class** ``AnySeg`` **in the Class List and
 double-click it to insert its template into your text editor.**
 
 You should get this:
@@ -76,10 +77,10 @@ Every object in AnyBody defined by some properties that are both mandatory (the
 template contains some default values) or optional (these properties are commented out). 
 You can delete all optional properties except for r0 and Axes0. 
 
-**For AnySeg, Mass (segment mass) and Jii (diagonal elements of the inertia tensor) are the mandatory properties. Note that by default,
-the segment's coordinate system is located at the center of mass, with its local coordinate system being the principal axes of inertia.**
+For an ``AnySeg`` object ``Mass`` (segment mass) and ``Jii`` (diagonal elements of the inertia tensor) are the mandatory properties. Note that by default,
+the segment's coordinate system is located at the center of mass, with its local coordinate system being the principal axes of inertia.
 
-You can however change this by editing the properties sCoM and Jij. Refer to the Anyscript Reference Manual for more information.
+You can however change this by editing the properties ``sCoM`` and ``Jij``. Go to "Help->Anyscript Reference" for more information on the ``AnySeg`` class's properties.
 
 Let us rename the segment as "UpperArm" and set its :literal:`Mass = 2` and :literal:`Jii = {0.001, 0.01, 0.01}`:
 
@@ -125,7 +126,9 @@ Adding point nodes to a segment
 -------------------------------
 
 We to define some nodes in the local coordinate system of the segment, for eventually attaching muscles, joints, forces etc. to
-the segment. **Figuring out these node locations for the actual human models can be a laborious task, but you can often use ready-made anatomical 
+the segment. 
+
+**Figuring out these node locations for the actual human models can be a laborious task, but you can often use ready-made anatomical 
 nodes defined in most AMMR models.**
 
 For this model, copy and paste the following lines into your file:
@@ -174,7 +177,7 @@ yellow pins.
 Creating a second segment
 -------------------------
 
-You will now add a forearm segment to the mechanism by copy-pasting these lines:
+You will now add a forearm segment to the mechanism by copy-pasting these lines into the "Segs" folder:
 
 .. code-block:: AnyScriptDoc
 
@@ -211,8 +214,7 @@ To solve this problem, you can change the initial/load time position of the two 
 r0 (translation w.r.t global frame at load-time) and Axes0 (rotation matrix w.r.t global frame at load-time).
 
 **Remember that your simulation, will only use these load-time positions as an initial guess, on the way to 
-enforcing specified motions and constraints (such as joints between segments). More on this in the next**
-:doc:`**Lesson** <lesson3>`.
+enforcing specified motions and constraints (such as joints between segments). More on this in the next lesson.**
 
 For now, let us first change r0 - the global position of the segment at load-time.
 
@@ -261,7 +263,9 @@ You UpperArm segment currently looks like this:
     first row of a 3x3 matrix.
 
 Rotation matrices are a bit difficult to cook up on the fly. If your spatial thinking is good, you could maybe figure out
-the exact expressions for all 9 components of the 3x3 Axes0 matrix. **An easier solution is to use a standard function named 
+the exact expressions for all 9 components of the 3x3 Axes0 matrix. 
+
+**An easier solution is to use a standard function named 
 "RotMat", which returns a rotation matrix corresponding to a given axis and rotation angle. Therefore, we can specify:**
 
 .. code-block:: AnyScriptDoc

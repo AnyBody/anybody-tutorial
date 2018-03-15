@@ -18,7 +18,7 @@ Creating a muscle model
 The exact behaviour of muscle tissue is a widely researched (and debated) topic.
 
 AnyBody offers several models of varying sophistication, for modelling muscle behaviour. A detailed introduction 
-to muscle modeling can be found here :doc:`its own tutorial <../Muscle_modeling/intro>`. 
+to muscle modeling can be found here :doc:`*its own tutorial* <../Muscle_modeling/intro>`. 
 
 Here, we will create a very simple muscle model and use it to model our arm model muscles. We start by creating a folder for the muscles:
 
@@ -36,9 +36,9 @@ The next step is to create a muscle model that defines the properties that will 
 .. code-block:: AnyScriptDoc
 
            AnyFolder Muscles = {
-             §// Simple muscle model with constant strength = 300 Newton
+             §// Simple muscle model with constant strength = 400 Newton
              AnyMuscleModel MusMdl = {
-               F0 = 300;
+               F0 = 400;
              };§
            }; // Muscles folder
 
@@ -49,8 +49,8 @@ Creating a muscle
 Since muscles can only pull, we need to define at least one
 muscle on each side of every revolute joint. 
 
-When working with a three-dimensional spherical joint, you may need more muscles. 
-In fact, it can be difficult to figure out the minimum number of muscles required 
+When working with models containing three-dimensional spherical joints, you may need more muscles. 
+It can be quite difficult to figure out the minimum number of muscles required 
 to drive a complex body model.
 
 Let's add just one muscle to start with, the elbow-flexor muscle named Brachialis:
@@ -60,7 +60,7 @@ Let's add just one muscle to start with, the elbow-flexor muscle named Brachiali
            AnyFolder Muscles = {
              // Simple muscle model with constant strength = 300 Newton
              AnyMuscleModel MusMdl = {
-               F0 = 300;
+               F0 = 400;
              };
     
              §//---------------------------------
@@ -78,9 +78,9 @@ an origin point, pass through a number of pre-defined via points, and finally te
 at the insertion.**
 
 ``Org`` **and** ``Ins`` **are the origin and insertion of the Brachialis. They are reference objects,
-pointing to reference nodes named "Brachialis" that have already been created on the "UpperArm"**
+pointing to reference nodes named "Brachialis" that have already been created on the "UpperArm" and "ForeArm"**
 
-The Brachialis muscle is our model lacks any via-points. However if a muscle has via points, we must insert
+The Brachialis muscle in our model lacks via-points. However if a muscle has via points, we must insert
 reference objects to respective via-point nodes in the lines between ``Org`` and ``Ins``, in the correct order. 
 
 The physiological behavior of the muscle is defined by the first line:
@@ -90,26 +90,22 @@ The physiological behavior of the muscle is defined by the first line:
                AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
 
 
-You can see that it points right back to the muscle model we have already created(Notice the two leading dots). Finally, the following line :
+You can see that it points right back to the muscle model we have already created (:ref:`*Notice the two leading dots* <relative-folder-path>`). Finally, the following line displays the muscle in your model view window:
 
 .. code-block:: AnyScriptDoc
 
                AnyDrawMuscle DrwMus = {};
 
-displays the muscle in your model view window.
+Upon re-loading the model, you should see a thick, red line connecting the muscle's origin and
+insertion points. There are other ways to visualize muscles, and these are described here in a :doc:`*dedicated muscle
+tutorial* <../Muscle_modeling/intro>`.
 
-Upon re-loading the model, youu should see a thick, red line connecting the muscle's origin and
-insertion points. There are other ways to visualize muscles, and these are described here :doc:`dedicated muscle
-tutorial <../Muscle_modeling/intro>`.
-
-.. note:: The muscle path may appear strange because the mechanism hasn't been assembled by a kinematic analysis. Try running
-    the kinematics muscles 
-
+The muscle path may appear strange because the mechanism hasn't been assembled by a kinematic analysis. 
 
 Adding more muscles
 -------------------
 
-All the other muscles are defined in the same way:
+All the other muscles are defined in the same way. Your model should resemble the image seen further below:
 
 .. code-block:: AnyScriptDoc
 
@@ -179,45 +175,48 @@ All the other muscles are defined in the same way:
            };§
 
 
-Try adding the data and viewing the result by reloading. You should get
-a picture more or less as what you see below:
+
 
 |image0|
 
 The InitialConditions analysis
 ------------------------------
 
-The model does not seem to be correctly connected at the elbow. The
-ArmStudy actually contains a default operation for getting the elements
-ordered with respect to each other. It is the InitialConditions study in
-the tree at the upper left corner of the Main Frame. Try clicking it,
-then hit the start operation button, and the segments fall into position
-as shown below.
+Your model (in the image above) doesn't appear to be connected properly at the elbow because AnyBody only enforces the 
+joint constraints during a simulation.
+
+Use the operation drop down menu to run the "InitialConditions" operation. If you don't remember
+how this is done, refer to :ref:`*this prior tutorial* <running-analysis>`.
+
+The assembled model should resemble the following figure.
+
 
 |image1|
 
-We now have enough muscles in the model to start computing the muscle
-forces that can drive the motion. But there is one more detail to take
-care of, and it is both important and slightly intricate. The bottom
-line is: There must be something for the muscles to drive - some load to
-carry. We have not added any exterior forces to the model yet, but that
-is not the problem. You remember, perhaps, from :doc:`Lesson
-2 <lesson2>` that each segment has mass. Additionally, the
-ArmModelStudy is equipped with a standard gravity of -9.81 units in the
-global y direction. This means that gravity actually provides the
-external force the analysis needs to make any sense.
+.. _driver-reactions:
 
-Switching off driver forces when muscles do the job (Important!)
-----------------------------------------------------------------
+Switching off driver reactions when muscles do the job (Important!)
+--------------------------------------------------------------------
 
-What is the problem then? Well, unless you specify otherwise, drivers,
-like the ones we added to the elbow and shoulder joints, act like
-motors. This means that they provide whatever moment or force might be
-necessary to make the motion happen. Although it would be practical, few
-of us have motors built into our joints. Instead, we have very efficient
-muscles, so we want to leave the task of providing force in the model to
-them. The way to do that is to set a property called Reaction.Type for
-the driver to zero. This is how it's done for the shoulder:
+Even though you haven't added any external forces to your model, the model still 
+requires some assistive force to hold up its own weight. Note that you've specified 
+a gravity vector in the "ArmModelStudy" object.
+
+.. note:: A kinematic constraint needs to be enforced by an accompanying constraint force. 
+    For example, when you lean on a table, the normal reaction force on your hand maintains the
+    surface-surface constraint between hand and table. Were it not for the force you would have fallen, with your hand 
+    passing through the table surface. Similarly motion constraints such as joint angle motions need a driving 
+    force to maintain the specified trajectory.  
+
+By default, all drivers in your model apply the necessary constraint forces (also called driver reactions) for their respective kinematic constraints.
+
+**The constraint "force" is actually a generalized force i.e. whether it is actually a force or torque 
+depends on the type of measure that a driver constrains. For example, a driver on a rotational measure, will apply torques, while one on 
+a linear measure will apply forces. AnyBody reports all of these simply as "forces", and it is up to you to interpret them.**
+
+**The drivers for shoulder and elbow motion thus default to applying the required constraint reaction torques to sustain the joint motions.
+This is problematic, since we wish the muscles forces to be causing the motion instead. The default driver reactions must therefore be
+switched off by setting the "Reaction.Type" property.**
 
 .. code-block:: AnyScriptDoc
 
@@ -228,65 +227,56 @@ the driver to zero. This is how it's done for the shoulder:
              §Reaction.Type = {Off};§
            }; // Shoulder driver
 
+           //---------------------------------
+           AnyKinEqSimpleDriver ElbowMotion = {
+             AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
+             DriverPos = {90*pi/180};
+             DriverVel = {45*pi/180};
+             §Reaction.Type = {Off};§
+           }; // Elbow driver
+ 
 
-This additional line makes sure that the driver provides the motion but
-not the moment. Why would anyone ever want to model a joint with a motor
-in it? Well, models under development often do not have enough muscles
-to move. Such models will not work before the last muscle is added
-unless they have motors in the drivers, and it is practical to be able
-to run an analysis now and then during development to check that the
-model works correctly.
+On the other hand, the driver reactions come in handy in models under development, while you are still adding 
+muscles or other force elements to enforce the constraints. The driver reactions will allow you to successfully run
+inverse dynamic simulations at the intermediate model stages, by ensuring dynamic consistency.
 
-As you can see, the single Off is encapsulated in braces, {Off}. This is
-because it is a vector. A driver by default has several components
-depending on the number of joints it simultaneously drivers. Therefore
-all the data in the driver is in vector quantities. For syntactic
-reasons this applies even when the driver only controls one degree of
-freedom as it does here.
+The single ``Off`` is encapsulated in braces, ``{Off}`` because it is a vector. 
+A driver by can theoretically have any number of total DOF from all the measures 
+that it drives. Therefore all data in a driver are vector quantities, even when it is a 1 DOF driver . 
 
 The InverseDynamicAnalysis and plotting muscle forces
 -----------------------------------------------------
 
-Add a similar line to the definition of the elbow driver, and we are
-ready to compute muscle forces. Click the **InverseDynamicAnalysis** in
-the study tree, then the start operation button, and watch the model
-move. It should look exactly like in the kinematic analysis, however,
-during this analysis, the AnyBody system computes all muscle, joint
-forces and much more.
+Run the the **InverseDynamicAnalysis** operation from the operations drop-down menu.
+In this analysis, the AnyBody system computes all muscle, joint forces and much more.
 
-To see the results, you once again have to open a Chart window found in
-the tab next to the Model View tab. In this new window, expand the
-ArmStudy -> Output -> Model -> Muscles branch. You should see a list of
-all the muscles appearing. Each of them can be expanded to reveal the
-data inside. Let us expand the brachialis muscle and investigate its
-force variation over the movement. You should see a node named Fm. If
-you click it, you should get a curve like the one shown below:
+Review the instructions from :ref:`*this prior tutorial* <chart-view>` on plotting simulation results. 
+
+To plot the muscle forces in the brachialis muscle, open 
+"Main.Study.Output.Model.Muscles.Brachialis" in the chart view's model tree, and plot the variable named ``Fm``.
+You should get a curve that looks like the one below.
 
 |image2|
 
-Notice that the force in the muscle drops as the movement proceeds. This
-is quite as expected because the moment arm of the gravity about the
-elbow gets smaller as the elbow flexes, and less muscle force is
-therefore needed to carry it. If you look at the muscle force in the
-BicepsLong, you see a different pattern:
+The drop in muscle force with movement progression is due to the decreasing moment arm of the gravity 
+gravity vector about the elbow joint, as the elbow flexes. Therefore lesser the muscle force.
+
+If you look at the muscle force in the BicepsLong, you see a different pattern:
 
 |image3|
 
-This muscle grows in force during the movement. That is because it is
-influenced by the movement of two joints, namely the shoulder and the
+This muscle's force increases during the movement because this muscle supports both, the shoulder and the
 elbow. In addition, it collaborates both with DeltoidusA on shoulder
-flexion, and with the other elbow flexors, and these muscles all have to
-level their work in relation to each other.
+flexion, and with the other elbow flexors, and all these muscles have to
+adjust their work in relation to each other.
 
 Creating external loads
 -----------------------
 
-Now that we have the analysis going, we might want to investigate the
-model's behavior in different situations. A typical example could be to
-see how it carries an external load in addition to gravity. Let us
-imagine that the model is performing a dumbbell curl where it carries
-some load at the hand. We start by attaching a node to the forearm at
-the position of the palm. Add this definition to the ForeArm section:
+You may want to investigate the model's behavior in different loading situations, such as when the hand
+is carrying a dumbbell. Let us imagine that the model is performing a dumbbell curl. 
+
+We start by creating a node on the forearm at the location of the palm. Add this within the curly braces of the "ForeArm" object:
 
 .. code-block:: AnyScriptDoc
 
@@ -295,8 +285,7 @@ the position of the palm. Add this definition to the ForeArm section:
              };§
 
 
-The next step is to add an external force. We make a folder for this
-purpose:
+The next step is to add an external force. We make a new sub-folder for this purpose, within ArmModel:
 
 .. code-block:: AnyScriptDoc
 
@@ -310,9 +299,8 @@ purpose:
          };  // Loads folder§
 
 
-That's all there is to it. Now you can analyze how the model will react
-to a downward force of 100 N (approximately 10 kg dumbbell weight). If
-you reload, rerun, and investigate the BicepsLong force again, you
+Now you can reload the model and re-run inverse dynamics to analyze how the model reacts
+to a downward force of 100 N (approximately 10 kg dumbbell weight). The BicepsLong force again, you
 should see this:
 
 |image4|
@@ -322,15 +310,14 @@ development is also different. It now reaches a maximum during the
 movement and drops off again.
 
 .. note:: Applied forces do not have to be constant. They can change with time
-    and other properties in the model.  Please refer to the :doc:`tutorial on
-    forces <../The_mechanical_elements/intro>` for more
+    and other properties in the model.  Please refer to the :doc:`*tutorial on
+    forces* <../The_mechanical_elements/intro>` for more
     details.
 
-While the model described here was anatomically simplified, it can be a
-comprehensive job to define a realistic body model which is exactly why
-most users would probably start out using the body models available in
-the `AnyBody Managed Model
-Repository <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
+**The model you've built here here was anatomically simplified, and it can be a
+difficult job to define a realistic body model from scratch. We recommend that users
+start out with the body models available in the** `*AnyBody Managed Model
+Repository* <http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__.
 
 
 .. rst-class:: without-title

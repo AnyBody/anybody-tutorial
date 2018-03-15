@@ -1,57 +1,14 @@
 Lesson 1: Starting with a New Model 
 ====================================
 
-In some cases, it may be difficult to find an existing model that is
-sufficiently similar to what you want to obtain. In such a case it can
-be reasonable to begin the modeling project from a new model rather than
-an existing model. This is what we shall explore in the forthcoming
-lessons. We shall design a model of a **single leg stepping on a
-pedal**.
+In this tutorial, we will create a model of a single leg stepping on a
+pedal.
 
-Generic model structure
------------------------
+Creating a model from templates
+-------------------------------
 
-Let us first review the structure of the repository in slightly more
-detail. One of the objectives of its structure is to enable a clear
-division between the body parts and the applications we hook them up to.
-This comes through in the data structure of the model we are going to
-construct. Here is a brief overview of the principles behind that
-structure.
-
-|ModelTree|
-
-The model is primarily divided into three folders as shown above. In
-fact, the structure contains a few more parts that we will get to later,
-but the elements shown above are the more important.
-
-At the top below the “Main” folder, you see the "HumanModel". This is
-where we keep the body parts that we are importing from the Body part of
-the repository. This folder contains objects such as segments (bones),
-joints, muscles, and ligaments. We also keep information about the
-scaling of the model in this folder. In general, you don’t need to
-modify this information directly.
-
-Next, you can see the “Model” folder which contains all the information
-of your model. Below this Model folder, you can find another HumanModel
-folder, and this is the reference of the actual HumanModel below the
-Main folder.
-
-It is just as important to notice what this folder does not contain:
-movement drivers, forces, and joints between the model and the
-environment. The external hardware parts of the models such as chairs,
-bicycles, tools, or, in the present case, a pedal are stored in the
-“Environment” folder.
-
-To link the body model together with the environment, we use the
-"ModelEnvironmentConnection" folder which is typically containing the
-joint between the objects of the two former folders.
-
-Creating model from template
-----------------------------
-
-Let us start building the foot pedal model. The toolbar button
-"Template" will generate a default template model that looks much like
-this (let us set the target name as “MyPedal”):
+The toolbar button "Template" will generate a pop-up menu that looks like the image below.
+Select the "Human" template, set the "Target Folder" as per your convenience, but you must set the target name as “MyPedal”:
 
 |New template model button|
 
@@ -103,16 +60,11 @@ If you press the OK button, it will open an editor window of
     }; //Main
 
 
-Let’s load this default template model and open a Model View; then you
-can see the HumanModel on your screen like this:
+The you load the model, you should see the following image in your model view:
 
 |Model view Full body|
 
-Using the Human template, you could easily introduce the HumanModel into
-your own model framework. This means that you could prepare the
-“HumanModel” folder information in your Model Tree.
-
-If you can double-click the following line,
+Double-clicking the following line:,:
 
 .. code-block:: AnyScriptDoc
 
@@ -123,7 +75,7 @@ If you can double-click the following line,
     
 
 
-This will open the “Environment.any” file which is created by the Human template. 
+Opens up the “Environment.any” file which is created by the Human template. 
 
 .. code-block:: AnyScriptDoc
   
@@ -133,11 +85,9 @@ This will open the “Environment.any” file which is created by the Human temp
     };    
 
 
-This folder is for keeping defining the environment. In this case, it is
-the global reference frame, i.e. ground, and the pedal that the foot is
-going to step on. In fact, let us define the global reference frame in
-this folder right away (notice that new AnyScript code is written in red
-while existing code has the normal syntax highlighting):
+For this model, the only environment objects will be the global reference frame (i.e. ground), 
+and the pedal which the foot will be stepping on. You can define the global reference frame within the 
+environment folder as follows:
 
 .. code-block:: AnyScriptDoc
 
@@ -152,15 +102,45 @@ while existing code has the normal syntax highlighting):
 
 
 
-Click the "Save" button or Ctrl-S to save what you have typed in this
-Environment.any file.
+Click the "Save" button or Ctrl-S to save what you have typed in this Environment.any file and reload the model.
+
+.. _model-structure:
+
+The model structure
+-----------------------
+
+Let us first review the structure of the model in slightly more
+detail. This structure creates a clear division between the human body parts 
+and the applications we hook them up to. 
+
+|ModelTree|
+
+**Just below “Main”, you see the "HumanModel" folder which holds all the body
+parts that are imported from the AMMR, such as segments (bones), joints, muscles etc.**
+
+Information for scaling the size of the default human model is also stored here.
+In general, you won’t need to modify this information directly.
+
+The "Model" folder comes next this holds information specific to the application you're creating.
+In this case, this is the pedal model. The "Model" folder is sub-divided into three sub-folders:
+
+- **HumanModel** - This is a local reference to the "Main.HumanModel", located within the "Model" folder. 
+  :ref:`*This section* <reference-objects>` can help you recollect what reference objects are. 
+
+- **Environment** - This contains external hardware such as chairs,
+  bicycles, tools, or, in the present case, a pedal.
+
+- **ModelEnvironmentConnection** - This holds the measures and drivers that link the body model together to the environment. 
+
+
 
 Add pedal segment
 -----------------
 
-We now have the framework for adding the pedal to the model. We are
-presuming a pedal hinged in one end and the foot pushing in the other.
-We will define the segment and the hinge in the Environment.any file:
+The pedal will be hinged at one end, with the foot pushing down at the other.
+We will define the pedal segment and the hinge in the "Environment.any" file:
+
+This is achieved by the following lines:
 
 .. code-block:: AnyScriptDoc
 
@@ -189,15 +169,12 @@ We will define the segment and the hinge in the Environment.any file:
     };
 
     
-If you reload the model by pressing the F7 button and open a Model View,
-then you will see the new segment:
+If you reload the model, you will see the new segment in the model:
 
 |Model view new segment|
 
-This pedal is hinged to the origin of the global reference frame, but
-there is not much information else yet. In the next lesson, we shall
-look at how we can adjust the human model to fit the purpose of your
-simulation using AnyBody.
+**In the next lesson, we shall look at how you can customize the human model to fit the purpose of your
+simulation using AnyBody.**
 
 
 .. rst-class:: without-title

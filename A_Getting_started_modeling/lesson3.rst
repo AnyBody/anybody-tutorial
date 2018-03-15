@@ -1,66 +1,69 @@
 Lesson 3: Making Ends Meet
 ==========================
 
-So far we have accomplished to define an environment model with a simple
-pedal and a human model containing the trunk and the right leg. What the
-application is still missing is specifications of how the different
-elements are connected and how the model moves. With kinematics, it is
-usually a good idea, to begin with, an inventory of degrees of freedom
-(DOFs) in the model.
+Your model still lacks the the full specifications of how the human and 
+environment (pedal & ground) are connected, and how the model moves. 
+
+To ensure that sufficient kinematic information is provided to AnyBody, it is best to start with
+an inventory check on the degrees of freedom (DOFs) of the model.
 
 Degrees of freedom overview
 ---------------------------
 
-The pedal is simple: It is hinged to the global reference frame and
-therefore just has just one movement capability, namely a rotation about
-the hinge. The human model is more complicated. It is disconnected from
-everything and is, therefore, floating around in space. Furthermore, it
-has a number of internal degrees of freedom that must be controlled:
-Three rotations between the pelvis and the thorax segments, three
-rotations in the hip, one rotation in the knee, and two rotations in the
-ankle. With the 9 DOFs of the entire body model in space and the single
-DOF of the pedal, this adds up to 16 DOFs. In other words, we need 16
-constraints before the model is kinematically determinate.
+The pedal is simply hinged to the global reference frame, and has the following DOFs:
 
-This is what we plan to do:
+- 1 DOF of rotation at the hinge.
 
-1. The pelvis will be fixed completely at a point corresponding to the
-   contact to a seat. This will do away with 6 DOFs leaving us with 10
-   more to specify.
+With no environmental constraints defined so far, the human body has the following DOFs:
 
-2. The 3 rotations between the trunk and the thorax segments will be
-   specified by a driver to a constant position. This leaves us with 7
-   more constraints to specify.
+- 6 DOF because the body as a whole is currently "floating around in space"
+- 3 DOF of the spherical joint between pelvis and thorax rotation
+- 3 DOF of the spherical joint at the neck
+- 3 DOF of the spherical joint at the hip
+- 1 DOF of the revolute joint at the knee 
+- 2 DOF of rotation (flexion + eversion) at the ankle
 
-3. The foot will be connected to the pedal by a spherical joint having 3
-   constraints. This leaves us with 4 more constraints to specify.
+**Total Human + pedal DOFs adds up to 19. In other words, we to need to specify 19 constraints before the model is kinematically determinate.
+We will do this using the concepts of "Measures and Drivers" introduced in** :ref:`*this previous chapter* <measures-and-drivers>`.
 
-4. The ankle angle will be presumed fixed by two constraints. This
-   leaves 2 DOFs to be constrained.
+The following steps specify a total of 19 driver constraints for the model:
 
-5. The lateral position of the knee will be specified by a driver. This
-   leaves a single degree of freedom in the system.
+- Step 1 - 6 DOF constrained by fixing the pelvis rigidly to a point on ground (like a seat).
+- Step 2 - 3 DOF constrained by locking all 3 rotations between pelvis-thorax
+- Step 3 - 3 DOF constrained by locking all 3 rotations at neck
+- Step 4 - 3 DOF constrained by locking 3 translations between pedal and foot (a spherical joint)
+- Step 5 - 2 DOF constrained by fixing the 2 ankle DOFs
+- Step 6 - 1 DOF constrained by constraining the global, lateral position of the knee
+- Step 7 - 1 DOF constrained as pedal rotation at constant velocity 
 
-6. Finally, we are going to drive the pedal angle. With the
-   aforementioned constraints, this will allow us to specify the posture
-   of the entire system by this single driver.
+**Each of these steps is implemented in sequence below.**
 
-At the moment you don’t need to worry about this process of making
-constraints too much. From AMMR V1.6, this human model includes
-so-called ‘default drivers’ which can control the posture of human model
-using the joint angle values and velocities of the Mannequin.any file in
-your model. But because these default drivers are defined as ‘soft’
-constraints by default, you can just add your own drivers on top of
-those drivers. After defining all your own drivers, you can deactivate
-the default drivers using a corresponding BM statement.
+.. _mannequin-drivers:
 
-Fixing the pelvis to the global reference frame
+The "Default mannequin drivers"
+---------------------------------
+
+Do all 19 driver constraints mentioned above need to be added before a kinematic simulation will work? Yes. But there
+is one model feature that will make your life easier.
+
+**The human model includes "default drivers" which can constrain the human model's posture
+to the joint angles and velocities set in the "Mannequin.any" file.**
+
+The constraint enforced by the default drivers are defined as ‘soft’
+constraints - constraints that be overridden by the 19 'hard constraints' which we will define.
+
+**You can therefore sequentially add the 19 hard drivers on top of the soft default drivers, and deactivate the default
+drivers at the** :ref:`*very end of this lesson* <kinematically-determined>` **. The advantage is that you have a model whose 
+kinematics can be tested at every step along the way.**
+
+Step 1: Fixing the pelvis to ground
 -----------------------------------------------
 
-We previously joined the pedal to the origin of the global reference
-frame. This means that the 'seat' to which we shall fix the pelvis must
-be displaced a suitable distance from the origin. In the Environment.any
-file, add the following to the definition of the GlobalReferenceFrame:
+The pedal is currently hinged at the origin of the global reference
+frame. A "seat" node to which we fix the pelvis must therefore
+be displaced by a suitable distance from the origin. 
+
+In the "Environment.any" file, add the following within the "GlobalReferenceFrame" object:
 
 .. code-block:: AnyScriptDoc
 
@@ -70,15 +73,16 @@ file, add the following to the definition of the GlobalReferenceFrame:
          };§
        }; // Global reference frame
 
+**Reload the model (F7).**
 
-The name Hpoint is a term used in the seating industry to characterize
+Hpoint is a term used in the seating industry to characterize
 the position of the pelvis in a seat. Here we shall simply attach the
 pelvis to this point by means of a rigid connection.
 
-All such specifications are traditionally put into a folder called
-ModelEnvironmentConnection, and for historical reasons, it is placed in
-an include file called JointsAndDrivers.any. Let’s open this file by
-double-clicking of the following line in the main file:
+**Drivers which connect the human and environment are traditionally placed in a folder called
+"ModelEnvironmentConnection" (** :ref:`*explained here* <model-structure>` **), and for historical reasons, it is placed in
+an** ``#include`` **file called "JointsAndDrivers.any". Let’s open this file by
+double-clicking of the following line in the main file**:
 
 .. code-block:: AnyScriptDoc
 
@@ -102,7 +106,7 @@ Then you can see the following structure inside:
     
 
 
-Here let’s prepare an AnyStdJoint for the fixation of pelvis:
+Here let’s prepare an ``AnyStdJoint`` object named "SeatPelvis" for the fixation of pelvis:
 
 .. code-block:: AnyScriptDoc
 
@@ -115,22 +119,17 @@ Here let’s prepare an AnyStdJoint for the fixation of pelvis:
       };§
     };
 
+As you'd realize by now, both "Seat" and "Pelvis" are references to the two nodes that
+are being connected by the joint. 
 
+**The "Seat" node must point to the "Hpoint" node attached to "GlobalRef"
+frame. "Pelvis" must point to the origin of "PelvisSeg", which you can find in the model tree at 
+"HumanModel->BodyModel->Trunk->SegmentsLumbar->PelvisSeg".**
 
-The local pointer variables &Seat and &Pelvis need something to point
-to. The best way of locating the necessary points is to use the object
-tree at the left-hand side of the editor window. Place your cursor in
-the editor window on the &Seat line just before the final semicolon.
-Then expand the three in the left-hand side of the window through Model,
-Environment, GlobalRef to find the Hpoint that we defined previously.
-Right-click Hpoint and choose 'Insert Object Name'. The full name of
-the Hpoint is inserted at the position of the cursor.
+To find and insert the absolute paths for these nodes into AnyScript, quickly refer back 
+to :ref:`*this previous section* <absolute-folder-path>`.
 
-We must repeat the procedure for the Pelvis. Place the cursor on the
-&Pelvis line just before the semicolon and subsequently expand the
-object tree through HumanModel, BodyModel, Trunk, SegmentsLumbar. Inside
-the lumbar segments folder, you will find the PelvisSeg. Right-click and
-insert the object name. You should now have the following:
+You should now have the following:
 
 .. code-block:: AnyScriptDoc
 
@@ -144,11 +143,11 @@ insert the object name. You should now have the following:
     };
 
 
-Save the file and hit F7 to reload the model. The model still loads in
+Hit F7 to reload the model. The model still loads in
 the same position as before.
 
 The initial positions are controlled by the mannequin file. Open it up
-by double-clicking the following line:
+by double-clicking the following line, and make the changes show in red:
 
 .. code-block:: AnyScriptDoc
 
@@ -171,11 +170,9 @@ by double-clicking the following line:
 
 
 
-What we have done here is to specify the load-time position of the
-pelvis to the place where we have the seat. After reload you should be
-able to see in the model view that the body model has moved to a new
-position. It is also a good idea to specify the initial joint angles so
-that the foot comes closer to the pedal. This can be done further down
+You have specified the load-time position of the
+pelvis to the coordinates of the "Hpoint" node. It is also a good idea to specify the initial joint angles 
+in the leg so that the foot is closer to the pedal. This can be done further down
 in the Mannequin file:
 
 .. code-block:: AnyScriptDoc
@@ -208,24 +205,21 @@ in the Mannequin file:
     ...
 
 
-On reload, you will see that the body now loads in pretty much the
+**On reload, you will see that the body now loads in pretty much the
 desired position. Notice that this is only to bring the body close to
 where it will eventually be. It is not necessary to align the model
 exactly with the pedal. The kinematic constraints will take care of this
-once they are properly defined.
+once they are properly defined.**
 
 |Posture Adjustment1|
 
-Fix the trunk position
-----------------------
+Step 2: Locking pelvis-thorax rotation
+--------------------------------------
 
-In this model, the trunk does not play any kinematic role. Its purpose
-is only to include the psoas muscles connected to the leg. So we should
-simply set it to a fix position. The trunk has three free rotations,
-flexion, lateral bending and axial rotation plus the rotation of the
-skull that we will fix to zero degrees. This can be done by a so-called
-simple driver. In the JointsAndDrivers file we can see the ‘Driver’s
-folder below the Joints folder:
+The only purpose of the trunk in this model is to anchor the psoas muscles which move 
+the leg. So we will set to zero, the angles and velocities of 3 DOF of pelvis-thorax flexion, lateral bending and axial rotation.
+
+We will place the drivers enforcing these constraints in the "Drivers" folder within "JointsAndDrivers.any" (shown below):
 
 .. code-block:: AnyScriptDoc
 
@@ -244,7 +238,10 @@ folder below the Joints folder:
     };
 
 
-We then insert two simple drivers into the Drivers folder:
+Insert a"PelvisThoraxDriver" into the Drivers folder, created using the ``AnyKinEqSimpleDriver`` class. 
+You already know how to create model objects from scratch by using the 
+the "Class Inserter" (:ref:`*described here* <class-inserter>`). More details on properties
+such as DriverPos, DriverVel etc. can be (:ref:`*found here* <anykineqsimpledriver>`) :
 
 .. code-block:: AnyScriptDoc
 
@@ -258,31 +255,51 @@ We then insert two simple drivers into the Drivers folder:
         
         DriverPos = pi/180*{0,0,0};
         DriverVel = pi/180*{0,0,0};
-      };
-    
-      AnyKinEqSimpleDriver NeckJntDriver = 
+      };§
+    };
+
+
+Step 3: Locking neck rotation
+-------------------------------
+
+The following lines lock all 3 DOFs of rotation between the skull and the thorax (neck). The
+drivers are defined in a manner that is very similar to Step 2.
+
+
+.. code-block:: AnyScriptDoc
+
+    AnyFolder Drivers = 
+    {
+      AnyKinEqSimpleDriver PelvisThoraxDriver =  
       {
-        AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.NeckJoint;
-        DriverPos = pi/180*{0};
-        DriverVel = pi/180*{0};
-      }; §
+        AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxExtension;
+        AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxLateralBending;        
+        AnyKinMeasure& ref2 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxRotation;   
+        
+        DriverPos = pi/180*{0,0,0};
+        DriverVel = pi/180*{0,0,0};
+      };
+
+
+      §AnyKinEqSimpleDriver SkullThoraxDriver =  
+      {
+        AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxFlexion;
+        AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxLateralBending;        
+        AnyKinMeasure& ref2 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxRotation;   
+        
+        DriverPos = pi/180*{0,0,0};
+        DriverVel = pi/180*{0,0,0};
+      };§
     };
 
 
 
-Most of this came about the same way as we have done previously: The
-definition of the AnyKinEqSimpleDriver (and indeed its complex name)
-came from the Object Inserter in the Class Tree at the left-hand side of
-the editor window. The complete name of the thorax and neck rotations
-was inserted from the object tree. The joints are going to be static,
-and in their neutral position, so the DriverVel and DriverPos are simply
-zero.
+Step 4: Connecting the foot to the pedal
+-----------------------------------------
 
-Connecting the foot to the pedal
---------------------------------
-
-The foot will be connected to the pedal by a spherical joint. This is
-defined inside the JointsAndDrivers.any file in the following way:
+The foot will be connected to the pedal by a spherical joint. We have assumed 
+the connection node on the foot to be the "MetatarsalJoint2Node". The driver is
+defined inside the "JointsAndDrivers.any" file in the following way:
 
 .. code-block:: AnyScriptDoc
 
@@ -302,34 +319,26 @@ defined inside the JointsAndDrivers.any file in the following way:
     };
 
 
+Step 5: Locking the ankle angles
+---------------------------------
 
-We have cheated just a little. It is possible to define new nodes on the
-foot for attachment to a specific place, but we have taken the
-cheap-and-dirty solution of picking an existing point close to where we
-presume the contact with the pedal will be. The MetatarsalJoint2Node is
-a good approximation.
-
-Setting the ankle angle
------------------------
-
-In the Ankle of this human model, there are 2 degrees of freedom:
-AnklePlantarFlexion and SubTarEversoin. We wish to constrain these
-degrees of freedom to predefined values as zero. This can be done by the
-simple driver. We shall introduce the simple driver into the Drivers
-folder:
+In ankle has 2 DOFs - AnklePlantarFlexion and SubTarEversion. We will constrain both 
+DOFs to always equal zero. Just as in Steps 3 & 4, this will be done using ``AnyKinEqSimpleDriver``:
 
 .. code-block:: AnyScriptDoc
 
     AnyFolder Drivers = 
     {
     ...
-      AnyKinEqSimpleDriver NeckJntDriver = 
+      AnyKinEqSimpleDriver SkullThoraxDriver =  
       {
-        AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.NeckJoint;
+        AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxFlexion;
+        AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxLateralBending;        
+        AnyKinMeasure& ref2 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxRotation;   
         
-        DriverPos = pi/180*{0};
-        DriverVel = pi/180*{0};
-       };
+        DriverPos = pi/180*{0,0,0};
+        DriverVel = pi/180*{0,0,0};
+      };
       
       §AnyKinEqSimpleDriver AnkleDriver = 
       {
@@ -343,20 +352,18 @@ folder:
 
 
 
-The model should load again with no significant difference.
+Re-loading the model should show no significant differences.
 
-Fix the lateral position of the knee
-------------------------------------
 
-Imagine your pelvis on a seat and your foot resting on a point like the
-model is right now. You can still move your knee sideways either
-medially or laterally rotating the leg about an axis through the foot
-contact point and the hip joint. We must constrain this movement, and
-the easiest way to do it is by fixing the knee laterally.
+Step 6: Fix the lateral position of the knee
+----------------------------------------------
 
-We shall do this by another simple driver in conjunction with a linear
-measure which is so-called as AnyKinLinear class object. Let us add
-another driver to the Drivers folder:
+Imagine your pelvis on a seat (like in Step 1) and your foot resting at the tip of a sharp spike jutting
+out of the ground (a spherical joint connection, like in Step 4). You can still move your knee sideways. 
+You will now constrain this medio-lateral knee movement in your model.
+
+This is done using an ``AnyKinLinear`` measure and a ``AnyKinEqSimpleDriver`` driver acting on that measure
+(:ref:`*read more one measures & drivers here* <measures-and-drivers>`):
 
 .. code-block:: AnyScriptDoc
 
@@ -387,26 +394,19 @@ another driver to the Drivers folder:
     };
 
 
-The AnyKinLinear class is really a 3D vector between the two reference
-frames which it refers to, i.e., in this case, the position of the knee
-with respect to the global reference frame. However, we only wish to
-drive one of the coordinates of this vector, namely the lateral
-coordinate. This is the z coordinate, which in an AnyScript model has
-the index number as two because numbering index begins from 0. To drive
-only this one coordinate, we should specify the MeasureOrganizer inside
-the AnyKinEqSimpleDriver object, and this MeasureOrganizer can configure
-which components of the related kinematic measures can be controlled by
-its kinematic drivers. So in this case, the driver will neglect the x
-and y coordinates of the vector returned by the linear measure. You
-should be able to load the model again, but there is no visible
-difference.
+The ``AnyKinLinear`` object measures the 3D position vector between the two reference
+frames ``ref0`` and ``ref1`` which it refers to, i.e., in this case, the position of the knee
+with respect to the global reference frame. 
 
-Drive the pedal
----------------
+**We however, only wish to constrain the medio-lateral component of this vector, which is the global
+"Z" component. We hence specify the** ``MeasureOrganizer`` **property to specify that only the 3rd component of the measure
+which is given by the index 2 (0 being X, 1 being Y component) must be constrained by the driver.**
 
-The final step is to drive the movement of the pedal. It is hinged to
-the origin of the coordinate system, and we shall add a driver to the
-joint angle pretty much like we did with the ankle and the knee.
+Step 7: Specify pedal movement
+-------------------------------
+
+We will specify motion for the pedal's hinge joint again using the ``AnyKinEqSimpleDriver``.
+This resembles what you did in :ref:`*this earlier chapter* <anykineqsimpledriver>`.
 
 .. code-block:: AnyScriptDoc
 
@@ -424,7 +424,6 @@ joint angle pretty much like we did with the ankle and the knee.
         MeasureOrganizer = {2};
         DriverPos = {0};
         DriverVel = {0};
-        //Reaction.Type = {Off};
       };
       
       §AnyKinEqSimpleDriver PedalDriver = 
@@ -432,38 +431,32 @@ joint angle pretty much like we did with the ankle and the knee.
         AnyKinMeasure &ref0 = Main.Model.Environment.HingeJoint;
         DriverPos = pi/180*{100};
         DriverVel = pi/180*{45};
-        Reaction.Type = {Off};
       };§  
     };
 
 
-This puts the pedal in an initial 100-degree angle compared to vertical.
-It also specifies a movement with an angular velocity of 45 degrees per
-second, but let’s postpone the investigation of that for later.
+This puts the pedal in an initial 100-degree angle compared to vertical, from where
+this angle increases as a rate of 45 degrees per second.
 
-For now, hit F7 again to reload the model. Notice that the system no
-longer complains about the model being kinematically indeterminate.
+**For now, hit F7 again to reload the model. Notice that the system no
+longer complains about the model being kinematically indeterminate.**
 
 Running kinematics
 ------------------
 
-Select the ‘Main.Study.Kinematics’ and run this operation to see how
-your model works kinematically.
-
-|Operations tree Kinematics|
-
-Doing so will show you the movement of the entire system as the pedal is
-rotating.
+Select and run the ‘Main.Study.Kinematics’ operation from the operations dropdown menu (:ref:`*more info here* <running-analysis>`). 
+This will show you the movement of the entire system as the pedal is rotating.
 
 |Operation Result Kinematics|
 
-Check if model is kinematic determined?
----------------------------------------
+.. _kinematically-determined:
+
+Check if model is kinematically determined?
+--------------------------------------------
 
 Finally, you will check the number of DOFs and the number of kinematic
-constraints from the “Object Description” of the AnyBodyStudy object.
-You can find the “Object Description” of your AnyBodyStudy class object
-in the Model Tree of your model like this:
+constraints in the simulation from the “Object Description” of your "Study" object.
+You can find this here:
 
 |Operations tree object description|
 
@@ -471,50 +464,43 @@ Then you see the Object Description dialog will open.
 
 |ObjectDescription DOFs|
 
-This indicates that the total number of DOFs(degrees of freedom) in your
-model is 90. It makes sense because there are 15 segments in your model
-and each segment has 6 DOFs.
+**This indicates that the total number of DOFs(degrees of freedom) in your
+model is 132. It makes sense because there are 21 segments in your model
+and each segment has 6 DOFs.**
 
 If you scroll down this dialog a little bit more, then you can see the
 following section:
 
 |ObjectDescription Constraints1|
 
-The last message in the above screenshot lets us know that there are 106
-constraints from the joints and the drivers in the model.
+**The last message in the above screenshot lets us know that there are 150
+constraints from the joints and the drivers in the model.**
 
 In general, the total number of DOFs in the model should be exactly as
 same as the total number of kinematic constraints in the model. But at
 the moment, the number of kinematic constraints is larger than that of
-DOFs. In this kind of situation, the kinematics of the model may not be
-determined uniquely because there are more equations to be solved than
-the number of unknowns in the system. This may frequently happen if the
-user may not consider this concept of the DOFs and the constraints.
+DOFs. 
 
-But you should know why there are more constraints than you have defined
-and how AnyBody could solve the kinematics of the model even in this
-situation. In the “HumanModel” folder there is a subfolder of which name
-is ‘DefaultMannequinDrivers’. In that folder, there are some default
-drivers which can control the posture of the human model based on the
-values in the Mannequin.any file.
+**In some cases, having more constraints than DOFs (also called a redundant set of constraints) results in a failed kinematic simulation,
+because the system is over-constrained.**
+
+However our AnyBody model seems to work despite this constraint redundancy. Why?
+
+This is because, these 150 - 132 = 18 "extra" constraints were also "soft" constraints enforced by the 
+“default mannequin drivers” described :ref:`*here earlier* <mannequin-drivers>`.
+
+The "DefaultMannequinDrivers" can be found in a subfolder of the “HumanModel” folder, as shown in the figure below.
+These drivers control the human model's posture based on the values in the "Mannequin.any" file.
 
 |Model tree Default manequin drivers|
 
-The reason why these default drivers exist is that sometimes the user
-may have some difficulties in finding which human joints should be
-driven or what kinds of constraints should be defined for the human
-model. In order to provide a more convenient way of modeling, these
-default drivers of human model can help users even if they may miss some
-necessary drivers to run the kinematics perfectly. And because these
-default drivers are defined as “Soft” constraints, the kinematics of the
-model can be solved with the other normal “Hard” type constraints.
-“Soft” constraint means that it can be compromised with other Soft and
-Hard Constraints.
+Because these default drivers are defined as “Soft” constraints, they were compromised in
+favour of the "Hard" constraints specified in Steps 1 to 7 in this document. 
 
-Because you could define all necessary “Hard” constraints to run the
-kinematics, let us find the way how to remove these default drivers from
-your model. You can just add one more BM statement in the main file to
-control the default drivers of the human model like this:
+This avoided an over-constrained situation and kinematics could therefore be solved.
+
+Since you could define all necessary “Hard” constraints, 
+the default drivers can now be removed by just adding one more BM statement to the main file:
 
 .. code-block:: AnyScriptDoc
 
@@ -542,7 +528,7 @@ open the Object Description dialog of “Study” object in the Model Tree.
 
 |ObjectDescription Constraints2|
 
-You see that now the total number of constraints has been changed to 90
+You see that now the total number of constraints has been changed to 132
 and this is exactly as same as the total number of DOFs. Of course, you
 can still run the kinematics of your model.
 
@@ -554,9 +540,11 @@ can still run the kinematics of your model.
 
 
 .. |Posture Adjustment1| image:: _static/lesson3/image1.png
+  :height: 300px
+   
    
 .. |Operations tree Kinematics| image:: _static/lesson3/image2.png
-   
+     
 .. |Operation Result Kinematics| image:: _static/lesson3/image3.png
    
 .. |Operations tree object description| image:: _static/lesson3/image4.png
@@ -567,5 +555,7 @@ can still run the kinematics of your model.
    
 .. |Model tree Default manequin drivers| image:: _static/lesson3/image7.png
    
-.. |ObjectDescription Constraints2| image:: _static/lesson3/image8.png
+.. |ObjectDescription Constraints2| image:: _static/lesson3/image8.png 
+  
+  
    

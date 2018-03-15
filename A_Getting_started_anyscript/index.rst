@@ -4,13 +4,13 @@ Getting started: AnyScript Programming
 This tutorial introduces the AnyScript modeling language, which is used
 for all modeling in AnyBody. 
 
-The reader will get an understanding of the structure of the language, and key
+You will get an understanding of the structure of the language, and key
 modeling objects such as segments, joints, muscles, kinematics and forces will
-be illustrated. A basic “arm” model will be created from scratch with two
-segments, joints and applied motion and forces. 
+be illustrated. A basic “arm” model will be created from scratch, with two
+segments, joints and applied motion and forces.
 
-Once you’ll feel confident with these concepts you should move on to the next
-chapter "`Getting Started with Modelling <../A_Getting_started_modeling/intro.html>`__" to create a more anatomically realistic
+Once you feel confident with these concepts you should move on to the next
+chapter `*Getting Started with Modelling* <../A_Getting_started_modeling/intro.html>`__ to create a more anatomically realistic
 model using the full body model in the AMMR.
 
 .. rubric:: Tutorial content

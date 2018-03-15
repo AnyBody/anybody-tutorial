@@ -1,36 +1,33 @@
 Lesson 2: Adjusting the Human Model
 ===================================
 
-Having defined the environment in the previous lesson, the next step is
-to adjust your human model. The body model is divided into individual
+The next step is to configure the anatomy of your human model. The body model is divided into individual
 body parts: legs, arms, and trunk.
 
 .. todo:: Add a intersphinx link to AMMMR documentation on BM statments
 
-As we could learn from the chapter ``Getting started: The Model
-Repository (AMMR) <../A_Getting_started_AMMR/intro``, you can
-now use various kinds of BM (Body Model) statements which can control
-the configuration of your human model. All that you should know is to
-find the proper 
-`parameters <../A_Getting_started_AMMR/BodyModel.defs.parameters.html>`__
-and
-`constants <../A_Getting_started_AMMR/BodyModel.defs.constants.html>`__
-for the BM statements.
+**Body model configuration refers to the selection of limb segments to include, muscle model types,
+scaling algorithms etc. These are done by setting switches known as Body model (BM) parameters. 
+The configuration process is described in greater detail in this** `*document* <https://anyscript.org/ammr-doc/bm_config/index>`__
 
 
 
-For this pedal model, we will adjust the human model such as:
 
--  There will be no muscle in the trunk segment.
+Body model configuration
+-------------------------
 
--  Both the left and the right arm segments will be excluded.
+For this pedal model, you will configure the human model as follows:
+
+-  No muscles in the trunk segment.
+
+-  Both the left and the right arms will be excluded.
 
 -  The left leg segments will be excluded.
 
--  There will be no muscle in the right leg segments.
+-  There will be no muscles in the right leg.
 
-Then you should declare the corresponding BM statements just before
-including the “HumanModel.any” file.
+This is implemented by declaring the corresponding BM statements just before
+the inclusion of the “HumanModel.any” file.
 
 .. code-block:: AnyScriptDoc
 
@@ -58,7 +55,7 @@ including the “HumanModel.any” file.
       #include "<ANYBODY_PATH_BODY>\HumanModel.any"
     
 
-Try loading the model again. F7 should produce the encouraging message:
+Loading the model (F7 key) should produce the following message:
 
 .. code-block:: none
 
@@ -71,11 +68,11 @@ The model view should show you the following picture:
 
 |ModelView_Human_Adjusted|
 
-The warning message about the model containing too few kinematic
-constraints means that it is not ready yet to perform any movement. We
-have not made any specifications yet of how everything in the model is
-connected. This will be the topic of :doc:`Lesson 3: Making Ends
-Meet <lesson3>`.
+The message warns about the model containing too few kinematic
+constraints, which means that AnyBody lacks the full information needed to perform movement. 
+
+This is because we are yet to specify how the human and environment are connected in this model.
+This will be the topic of the next lesson.
 
 
 .. rst-class:: without-title

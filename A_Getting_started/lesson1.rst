@@ -2,40 +2,41 @@ Lesson 1: Creating a Standing Model
 ==================================================
 
 The standing model can be found in the AMMR folder under
-Applications/Examples. The main file is called StandingModel.Main.any and
-this is the one you must load to see the model.
+Applications/Examples. The main file is called StandingModel.Main.any.
 
-While you can open the file with the File->Open menu in AnyBody, **this tutorial will teach you how to
-create your own model by using StandingModel as a starting template.**
+**While a main file can be opened with the "File->Open" menu in AnyBody, do not do this! This tutorial will teach you an easier way
+to use StandingModel as a starting template.**
 
 Key (modifiable) features of the standing model are:
 
 -  Both feet are always connected to the ground.
 
--  The **posture** is controlled via anatomical angles for all
-   major joints except the ankles. 
+-  The posture is defined by the joint angles for all major joints except the ankles. 
 
--  The model **automatically balances** by keeping its center of mass vertically
-   above the ankle joints. Eg., If the arms extend forward, the body will move move slightly backward to maintain the balance.
+-  The model automatically balances by maintaining its center of mass vertically
+   above the ankle joints. Eg., If the arms extend forward, the moves backward to maintain the balance.
 
--  **Three-dimensional external forces** can be applied to predefined points on the model. Muscle forces may change, to resist these forces and maintain balance.
+-  External forces can be applied to predefined nodes on the model. Muscle forces may change, to resist these forces and maintain balance.
    
+.. _model-templates:
 
-Open model template
--------------------
+Model templates
+---------------
 
-To create a new standing model using the template model in the AMMR, click the Create Model button |Model
+To create a new standing model using the template model in the AMMR, click the "Create New from template" button |Model
 button| in the toolbar:
 
 |ModelLoadButton|
 
 The Template dialogue opens and displays a list of pre-defined templates
-supported in the AMMR. Choose the **Human Standing** template and select the
-folder you want to save your new Human Standing model in. To demonstrate, let us
-save the model in the 'AnyBody.\ |AMS_VERSION_X|\ /AMMR.v\ |AMMR_VERSION|\ -Demo' directory 
-which we extracted in the :doc:`introduction <intro>` for this tutorial.
+supported in the AMMR. 
 
-Give the model a name, for example :file:`MyStandingHuman`, and pres **OK** to save. 
+**Choose the "Human Standing" template and select the
+folder you want to save your new Human Standing model in.** To demonstrate, let us
+save the model in the 'AnyBody.\ |AMS_VERSION_X|\ /AMMR.v\ |AMMR_VERSION|\ -Demo' directory 
+which we extracted in the :doc:`*introduction* <intro>` of this tutorial.
+
+Give the model a name, for example :file:`MyStandingHuman`, and press OK to save. 
 
 |TemplateDialog|
 
@@ -48,15 +49,23 @@ location of the file is shown in the title bar:
           sure to modify the :file:`../libdef.any` file so it points 
           to AMMR repository you want to use. 
 
-Load model
-----------
+.. _loading-a-model:
 
-To see the **3D graphical representation of the model**, you need to load.
-Load/reload is a frequent operation and has been assigned to function
-key **F7**. You may also load your model by clicking |Load| in the toolbar.
+Loading a model
+---------------
 
-Display the model
------------------
+To see the 3D graphical representation of the model you need to load.
+
+**Load/reload is a frequent operation and has been assigned to function
+key F7. You may also load your model by clicking** |Load| **in the toolbar.**
+
+This action will load whatever file is chosen in the text editor. If a file is already loaded, the
+above action will simply reload the file until you give another file loading priority by right-clicking its tab and select “Load Model”.
+
+|Load model right click menu|
+
+The model view
+--------------------
 
 When loading is completed, the Model View window opens and shows the
 standing model: (You can open it manually from View -> Model Views).
@@ -97,3 +106,5 @@ functions, so keyboard shortcuts have been provided:
 .. |Model View| image:: _static/lesson1/image_5.png
    
 .. |Load| image:: _static/lesson1/image_6.png
+
+.. |Load model right click menu| image:: _static/lesson1/image_7.png

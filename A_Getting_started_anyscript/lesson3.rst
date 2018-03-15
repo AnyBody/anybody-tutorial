@@ -15,7 +15,9 @@ You can think of joints in two different ways:
 
 **In AnyBody, we consider joints as being constraints on freedom**. When you create
 two independent segments in AnyBody, they will have 2 x 6 = 12 degrees of freedom
-in total. Joints in AnyBody take away (or constrain) some of these degrees of freedom with the different joint types (eg. revolute, spherical etc.) 
+in total. 
+
+Joints in AnyBody take away (or constrain) some of these degrees of freedom with the different joint types (eg. revolute, spherical etc.) 
 differing only in the number and type of degrees of freedom they constrain.
 
 The global reference frame
@@ -40,12 +42,13 @@ It is already defined in the model template that you originally used, and is sho
 concept of mass associated with this frame.**
 
 You will now add some nodes to the global frame by copy-pasting the following lines into your model (Alternatively use the class inserter
-and then copy-paste the class properties):
+and then copy-paste the class properties alone):
 
 .. code-block:: AnyScriptDoc
 
          AnyFixedRefFrame GlobalRef = {
           §AnyDrawRefFrame DrwGlobalRef = {};
+
            AnyRefNode Shoulder = {
              sRel = {0,0,0};
            };
@@ -64,7 +67,7 @@ and then copy-paste the class properties):
         }; // Global reference frame
 
 
-The first line, "AnyDrawRefFrame ..." merely displays the global
+The first line, "``AnyDrawRefFrame`` ..." merely displays the global
 reference system in the graphics window. The remaining lines define point nodes attached to the global reference
 system.
 
@@ -86,7 +89,7 @@ Creating a revolute joint
 
 We can now connect the upper arm to the global reference frame through a shoulder joint.
 For this planar 2-D model, where we simplify the shoulder as a simple revolute joint (also known as a hinge joint). 
-We create a new "AnyFolder", to contain all joints in the model:
+We create a new ``AnyFolder`` object, to contain all joints in the model:
 
 .. code-block:: AnyScriptDoc
 
@@ -107,12 +110,14 @@ We create a new "AnyFolder", to contain all joints in the model:
     
        }; // Jnts folder§
 
-**The "AnyRevoluteJoint" class creates a revolute joint object connecting two segments.**
+The ``AnyRevoluteJoint`` class creates a revolute joint object connecting two nodes on different segments.
+
+.. _relative-folder-path:
 
 Relative folder paths - Why use ‘.’ and ‘..’ in AnyScript?
 ----------------------------------------------------------
 
-The "AnyRevoluteJoint" object named "Shoulder", needs to know which points on each segment to connect. For this
+The ``AnyRevoluteJoint`` object named "Shoulder", needs to know which nodes on each segment to connect. For this
 purpose, we have the lines:
 
 .. code-block:: AnyScriptDoc
@@ -121,15 +126,17 @@ purpose, we have the lines:
            AnyRefNode &UpperArmNode = ..Segs.UpperArm.ShoulderNode;
 
 
-**They refer to two nodes that we created earlier, located on the GlobalRef and UpperArm
+**They refer to two nodes that we created earlier, located on the "GlobalRef" and "UpperArm"
 segments. Notice the two dots in front of the names. They signify that
-the GlobalRef and Segs folders are defined two levels outside the folder
-where we are in the Model Tree.**
+the "GlobalRef" and "Segs" folders are defined two levels outside the folder
+we are writing into, in the model tree.**
 
-If you neglected the two dots, then AnyBody would search for the two objects in the Shoulder folder and fail
+If you neglected the two dots, then AnyBody would search for the two objects in the "Shoulder" folder and fail
 to find them. This "dot" system is quite similar to the system you may
 know from directory structures in Dos, Windows, Unix, or just about any
 other computer operating system.
+
+.. _reference-objects:
 
 Reference objects and the ‘&’ symbol
 ------------------------------------
@@ -138,10 +145,10 @@ You can see also see that the Shoulder point on GlobalRef has been given the loc
 This means that, within the current folder, we can simply refer to
 the point as "GroundNode" instead of the longer external reference.
 
-**You will also realize that GroundNode is merely a reference (a pointer) to GlobalRef.Shoulder
+**You will also realize that "GroundNode" is merely a reference (a pointer) to "GlobalRef.Shoulder"
 rather than a copy of it. We denote this by the** :literal:`&` **sign.** 
 
-If GlobalRef.Shoulder moves around, Shoulder.GroundNode will keep up with those changes in position. Hit F7 to reload the model again to make
+If "Main.ArmModel.GlobalRef.Shoulder" moves around, "Main.ArmModel.Jnts.Shoulder.GroundNode" will keep up with those changes in position. Hit F7 to reload the model again to make
 sure that the definition is correct.
 
 Customizing the revolute joint
@@ -159,8 +166,8 @@ By default, these coordinate systems are parallel to the segment frame. However,
 between these two frames can be altered by the user. Check the** :literal:`ARel` **property of and AnyRefNode
 object in the AnyScript Reference Manual for more information.**
 
-The AnyBody system is always three-dimensional, even when our model is
-two dimensional. The property Axis = z simply specifies that both
+The AnyBody Modeling System is always three-dimensional, even when our model is
+two dimensional. The property ``Axis = z`` simply specifies that both
 segments connected by that joint will rotate about the z axis of two nodes forming the joint. 
 
 In other words, the z-axes of the nodes on either connected segment will
@@ -206,6 +213,8 @@ anything yet. In this simple model it is easy to find the relative path
 of the pertinent nodes on the upper arm and the forearm, but in a
 complex model, this can be difficult. So we use "Absolute folder paths".
 
+.. _absolute-folder-path:
+
 Absolute folder path (and some useful tips)
 -------------------------------------------
 
@@ -238,8 +247,8 @@ annoying error message when we reload the model:
     Model Warning: Study 'Main.ArmStudy' contains too few kinematic
     constraints to be kinematically determinate.
 
-The explanation is that we have connected the model, but we have not
-specified its position yet. The shoulder and elbow joints can still take any
+The explanation is that we have created joints, but we have not
+specified the joint posture yet. The shoulder and elbow joints can still take any
 angular position, so there are two degrees of freedom whose kinematic
 states need to specified before AnyBody can solve for the mechanism's
 kinematics. This is taken care of by kinematic drivers.
