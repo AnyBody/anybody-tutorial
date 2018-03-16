@@ -86,7 +86,7 @@ Try inserting the red part of the code below:
     {
         AnyRevoluteJoint &Jnt = .Joint;
         §AnyFunPolynomial DriverFun = {
-            PolyCoef = {{0, 5, -0.4}}
+            PolyCoef = {{0, 5, -0.4}};
         };§
     };
 
