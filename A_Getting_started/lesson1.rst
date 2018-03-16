@@ -13,8 +13,9 @@ Key (modifiable) features of the standing model are:
 
 -  The posture is defined by the joint angles for all major joints except the ankles. 
 
--  The model automatically balances by maintaining its center of mass vertically
-   above the ankle joints. Eg., If the arms extend forward, the moves backward to maintain the balance.
+-  The model automatically balances itself by maintaining its center of mass vertically above the ankle joints. 
+   E.g., if the arms move forward, the entire body moves backwards to maintain the balance.
+
 
 -  External forces can be applied to predefined nodes on the model. Muscle forces may change, to resist these forces and maintain balance.
    
