@@ -97,7 +97,7 @@ Now we start to add our new knee joint by adding the knee implant parts
 to the model. We need the two STL files
 :download:`simplefemoral.stl <Downloads/simplefemoral.stl>` and
 :download:`simpletibial.stl <Downloads/simpletibial.stl>`. First, we define the
-femoral head as an AnySurfSTL inside the KneeCenter and add an
+femoral condyles as an AnySurfSTL inside the KneeCenter and add an
 AnyDrawSurf object inside to also be able to see the geometry:
 
 .. code-block:: AnyScriptDoc
@@ -148,7 +148,7 @@ AnyDrawSurf object inside to also be able to see the geometry:
 
 
 The geometry of the tibial plateau would be a little bit misplaced if we
-would just add it the same way as the femoral head. To adjust it to the
+would just add it the same way as the femoral condyles. To adjust it to the
 right position, we add a new node SurfSTLCenter centered at the right
 position and define the AnySurfSTL inside this node:
 

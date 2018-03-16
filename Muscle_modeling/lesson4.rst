@@ -71,13 +71,15 @@ statement, and change the cylinder parameters as shown below:
                Length = 0.4;
                //CapRatio = 0.1;
                //CapRatio2 = 0.1;
+               AnyDrawParamSurf drw = {};
              };§
            };
           
          };  // Global reference frame
 
 
-Most of this should be self explanatory. However, please notice that the
+Most of this should be self explanatory. However, notice that we inserted a 
+``AnyDrawParamSurf drw = {};`` to visualize the surface. Also please notice that the
 insertion point of the cylinder is at {0, 0, 0.2} corresponding exactly
 to half of the length of the cylinder of 0.4. This causes the cylinder
 to be inserted symmetrically about the xy plane as illustrated below:
@@ -102,6 +104,7 @@ interesting:
                Length = 0.4;
                //CapRatio = 0.1;
                //CapRatio2 = 0.1;
+               AnyDrawParamSurf drw = {};
              };
            };
 

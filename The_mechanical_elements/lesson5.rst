@@ -6,7 +6,7 @@ Lesson 5: Forces
 There are several types of forces in an AnyBody model; forces in joints,
 forces in muscles, and gravity forces working on the segments. This
 section, however, deals only with the application of external forces. We
-need something to work on, and here's a copy of the simple arm model you
+need something to work on, and :download:`here's a copy of the simple arm model <Downloads/Demo.Forces.1.any>` you
 can use. Please right-click here and save to your local disk
 (Demo.Forces.1.any). When you have saved the file, please open it up in
 AnyBody.

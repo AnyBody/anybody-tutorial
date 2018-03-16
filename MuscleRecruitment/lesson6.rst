@@ -132,7 +132,7 @@ recruitment criterion:
 
     AnyBodyStudy Study = {
         InverseDynamics.Criterion = {
-            Type = §MR\_MinMaxAux;§
+            Type = §MR_MinMaxAux;§
             §AuxQuadraticTerm.Weight = 1§;
         };
 
