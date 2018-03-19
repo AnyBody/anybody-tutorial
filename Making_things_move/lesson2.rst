@@ -259,7 +259,7 @@ reference frame in the object:
 
 
 The marker coordinates in the C3D file are recorded in the laboratory
-coordinate system, which we chall assume is our global reference frame.
+coordinate system, which we shall assume is our global reference frame.
 Driving from ``GlobalRef`` is default in linear measures, so we need not
 mention ``GlobalRef`` explicitly in the ``AnyKinDriverMarker`` object.
 

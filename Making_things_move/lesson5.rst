@@ -137,7 +137,7 @@ Running Parameter identification
 
 Without further ado, let us perform the optimization:
 
-Find the ``Main.RunParameterOptimzation`` in the operations dropdown, and run it.
+Find the ``Main.RunParameterIdentification`` in the operations dropdown, and run it.
 
 |Opertions RunModtionAndParameterOpt| 
 

@@ -116,8 +116,7 @@ click the run button. You will see the model assemble and start moving.
 
 The Kinematics operation is precisely an analysis. It assembles data
 when it runs, and you can subsequently investigate those results in the
-:doc:`ChartFX <../Interface_features/lesson3>` view. Pick
-Window -> ChartFX (new) to open it. The kind of results you can get from
+:doc:`Chart view <../Interface_features/lesson3>`. The kind of results you can get from
 the Kinematics study is everything that has to do with positions,
 velocities, and accelerations. You may expand the tree until you reach
 the Slider segment, and you can chart its acceleration by choosing the

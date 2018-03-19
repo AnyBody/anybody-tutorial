@@ -45,10 +45,6 @@ AnyBody's family of study classes looks like this:
 
          -  AnyBodyCalibrationStudy
 
-      -  AnyMechStudy1 (**deprecated!**)
-
-         -  AnyBodyStudy1 (**deprecated!**)
-
    -  AnyDesStudy (design variable studies, see *a separate tutorial*)
 
 In this tutorial, we shall focus on time varying studies and in
@@ -91,7 +87,7 @@ you can place some specifications. Whatever you put between the braces
 becomes part of the study. As every object, a study has some predefined
 properties that you either can set, must set, or cannot touch.
 
-When you create a new model by means of the menus File -> New Main, the
+When you create a new model by means of the menus ``File`` -> ``New from Template...``, the
 system automatically inserts an AnyBodyStudy for you (please do it and
 save the file under some relevant name). It looks like this:
 
@@ -126,14 +122,10 @@ choice. Please go ahead and load the model if you have not already done
 it by pressing F7 or the |script_to_model| icon.
 
 An AnyBodyStudy has many more predefined properties that you can play
-with. You can get an overview of these using the Mode Tree View, which
-is attached to the left of the Main Frame and to all AnyScript Editor
-window under the Model tab. Double-clicking any object in the Model Tree
+with. You can get an overview of these using the Model Tree View, which
+is attached to the left of the Main Frame. Double-clicking any object in the Model Tree
 will show you properties of the objects in the Object Description dialog
-box. You can also use the Model Browser to get an overview of the
-parameters of the studies. The Model Browser is opened from the menu
-Windows -> Model Browser, whereafter you can find the study in the Model
-Tree which is attached to the left of this window too.
+box.
 
 Most of the properties deal with solution methods, tolerances, and other
 stuff that is necessary or handy for advanced users. For a description
@@ -196,8 +188,8 @@ studies can easily be made with references to the common part and their
 respective distinctive part. Special studies that are used to initialize
 properties in the model, is also a case where it is indeed useful to be
 able to point to parts of the model. Muscle property calibration is such
-as case, which we shall look at in a special lesson of the Inverse
-Dynamics of Muscle Systems tutorial.
+a case, which we shall look at in a special lesson of the :doc:`Inverse
+Dynamics of Muscle Systems tutorial </MuscleRecruitment/index>`.
 
 The elements of a study
 -----------------------
@@ -215,7 +207,7 @@ the model elements the study is pointing at:
    particularly useful for inspection of the specified initial positions
    when having problems with the initial configuration of the mechanism.
 
--  Operatin **Kinematics**. A kinematic analysis is a simulation of the
+-  Operation **Kinematics**. A kinematic analysis is a simulation of the
    movement of the model without calculation of any sort of forces. This
    means that you can run Kinematics as soon as you have the movement
    defined uniquely. You don't need any muscles in the model for this
@@ -281,7 +273,7 @@ functionality in an AnyBodyStudy.
 
 We need a model with a bit more substance than the template we created
 above. If you do not already have our trusted arm model stored
-somewhere, *please download it here*, save it to your disk, and load it
+somewhere, :download:`please download it here <Downloads/arm2d.any>`, save it to your disk, and load it
 into AnyBody. 
 
 .. rst-class:: without-title

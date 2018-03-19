@@ -36,7 +36,7 @@ To conclude this tutorial, please try InverseDynamics operations in the
 arm model, :download:`arm2d.any <Downloads/arm2d.any>`, and the slider crank
 mechanism,
 :download:`demo.SliderCrank3D.any <Downloads/Demo.SliderCrank3D.any>`. In both
-case, you will now see forces being calculated, i.e. forces that a
+case, you will now see forces being calculated, i.e. forces that are
 non-zero in the output. But please also notice how the slider crank
 study is defined with simpler AnyMechStudy whereas the arm model uses
 AnyBodyStudy.
@@ -46,7 +46,7 @@ failure, because it cannot balance the mechanism. This is because the
 AnyMechStudy does not recognize the muscles as unknown forces. It
 regards them as applied (known) forces (which will be zero because their
 value is not defined anywhere) and therefore there are no forces to
-balance the moments exerted about the elbow and should joints by the
+balance the moments exerted about the elbow and shoulder joints by the
 external load.
 
 Much more details about inverse dynamics of musculoskeletal systems are

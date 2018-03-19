@@ -11,7 +11,7 @@ The simplest mechanism of motion drivers in AnyBody is called
 ``AnyKinMotion``. With Pendulum.any open in an editor and the model loaded,
 please place the cursor in the editor window just below then ending
 brace of the ``AnySeg Pendulum`` definition. Then click the Classes tab on
-the left-hand side of the editor window. Unfold the class list and
+the right-hand side of the editor window. Unfold the class list and
 scroll down to find ``AnyKinMotion`` . Right-click and insert an instance at
 the cursor position:
 
