@@ -82,7 +82,7 @@ error:
 
 .. code-block:: none
 
-    ERROR: Muscle recruitment analysis failed, simplex solver reports that solution does not satisfy all constraints.
+    ERROR(OBJ1) :   C:/../MuscleDemo.Ini.any(43)  :   MyStudy.InverseDynamics  :  No solution found :  There are fewer unknown forces (muscles and reactions) than dynamic equations.
 
 This is because the model does not have any muscles to balance the arm
 against the downward pull of gravity. Let us define the simplest

@@ -20,7 +20,7 @@ Main = {
         r0 = {0,-0.15,0};
         Axes0 = {{0,1,0},{-1,0,0},{0,0,1}};
         Mass = 2.0;
-        Jii = {0.005,0.01,0.01};
+        Jii = {0.002,0.005,0.005};
         AnyDrawSeg DrwSeg = {};
         AnyRefNode ShoulderNode = {
           sRel = {-0.2,0,0}; 
@@ -33,7 +33,7 @@ Main = {
       AnySeg LowerArm = {
         r0 = {0.25,-0.3,0};
         Mass = 2.0;
-        Jii = {0.005,0.01,0.01};
+        Jii = {0.002,0.005,0.005};
         AnyRefNode ElbowNode = {
           sRel = {-0.2,0,0};
         };
