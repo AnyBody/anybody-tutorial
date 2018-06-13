@@ -17,9 +17,8 @@ install:
   - conda config --add channels conda-forge # For sphinxcontrib.autoprogram
   - conda update -q conda 
   - conda info -a
-  - conda create -q -n doc-build-environment python=3.6 sphinx cloud_sptheme doctr pygments_anyscript
+  - conda create -q -n doc-build-environment python=3.6 sphinx=1.7.4 cloud_sptheme doctr pygments_anyscript
   - source activate doc-build-environment
-  #- pip install sphinxcontrib-fulltoc
 
 before_script:
   - rvm get head || true
