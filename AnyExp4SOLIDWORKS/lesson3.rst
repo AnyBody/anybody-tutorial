@@ -275,7 +275,7 @@ model.
     Total: 334
 
 This means that we are missing 44 constraints. These were the degrees 
-of freedom from released when we removed the default drivers. 
+of freedom released when we removed the default drivers. 
 This implies that the AnyBody human model contains 44
 degrees of freedom. So we have to define 44 other constraints for the human
 model.
