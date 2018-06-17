@@ -274,10 +274,10 @@ model.
     Other: 34
     Total: 334
 
-This means that we are missing 44 constraints. If you look in the
-‘Mannequin.any’ file, then you will find that there are 44 joint
-coordinate names. This implies that the AnyBody human model contains 44
-degrees of freedom. So we have to define 44 constraints for the human
+This means that we are missing 44 constraints. These were the degrees 
+of freedom released when we removed the default drivers. 
+This implies that the AnyBody human model contains 44
+degrees of freedom. So we have to define 44 other constraints for the human
 model.
 
 The AnyExp4SOLIDWORKS translator searches for user-defined reference
