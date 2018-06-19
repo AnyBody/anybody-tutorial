@@ -30,4 +30,4 @@ script:
   - git checkout $(git describe --tags `git rev-list --tags --max-count=1`);
   - make clean;
   - make html;
-  - doctr deploy --deploy-repo AnyBody/tutorials .;
+  - doctr deploy --deploy-repo --build-tags AnyBody/tutorials .;
