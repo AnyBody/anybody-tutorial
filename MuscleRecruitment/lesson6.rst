@@ -148,7 +148,7 @@ the effect of the Weight property, i.e. the :math:`\varepsilon` in the objective
 function, is somewhat problem dependent because the size of the sum that
 it multiplies depends on the number of muscles in the system while the
 size of the :math:`\beta` variable remains between 0 and 1 for normal problems. So
-models with many muscles would typically require a smaller value of:math:`\varepsilon`.
+models with many muscles would typically require a smaller value of :math:`\varepsilon`.
 
 From what we have seen so far, the MinMaxAux criterion looks ideal from
 a mathematical and physiological point-of-view. Unfortunately, there is
