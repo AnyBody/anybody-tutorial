@@ -64,7 +64,7 @@ Here's an extremely simple :download:`one-degree-of-freedom model <Downloads/Mus
        // The study: Operations to be performed on the model
        AnyBodyStudy MyStudy = {
          AnyFolder &Model = .MyModel;
-         InverseDynamics.Criterion.Type = MR*MinMaxStrict;
+         InverseDynamics.Criterion.Type = MR_MinMaxStrict;
          Gravity = {0.0, -9.81, 0.0};
        };
      };  // Main
