@@ -181,7 +181,7 @@ algorithm that is capable of handling overloaded muscles in the time
 steps when the Quadratic algorithm cannot handle the case within its
 bounds. We are going to return to this algorithm, the MinMax algorithm,
 in more detail later in this tutorial. For now, it suffices to say that
-the solution of the MinMax algorithm and the Qudratic algorithm with
+the solution of the MinMax algorithm and the Quadratic algorithm with
 upper bounds is the same at the single point where the organism is
 exactly 100% loaded. The points where the shift between the algorithms
 take place are clearly identifiable as the points where the envelope of
