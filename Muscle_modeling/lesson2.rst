@@ -69,7 +69,7 @@ values they have listed are the default settings. So we need to change
 some of the values.
 
 The first thing we shall try is to make the muscle bulge. We do this by
-setting the value of the Bulge variable to 1. What this transates to is
+setting the value of the Bulge variable to 1. What this translates to is
 to make the muscle bulging proportional to the force in the muscle:
 
 .. code-block:: AnyScriptDoc
