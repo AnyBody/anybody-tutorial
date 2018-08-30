@@ -60,7 +60,7 @@ If you press the OK button, it will open an editor window of
     }; //Main
 
 
-The you load the model, you should see the following image in your model view:
+When you load the model, you should see the following image in your model view:
 
 |Model view Full body|
 
