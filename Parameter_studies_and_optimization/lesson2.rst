@@ -243,7 +243,7 @@ changes.
 
 The optimal solution in the Model View looks like this:
 
-.. image:: _static/Optimization_studies/BikeOpt2.png
+.. image:: _static/Optimization_studies/bikeopt2.png
 
 Just above the ``Metab`` variable in the tree you can find the two
 independent variables, ``SaddleHeight`` and ``SaddlePos``, and they can be
