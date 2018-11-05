@@ -44,8 +44,8 @@ def seat_distance_constraint(x):
     return (math.sqrt(x[0] ** 2 + x[1] ** 2) - 0.66)
 
 constaints = {"type": "ineq", "fun": seat_distance_constraint}
-bounds = [(0.65, 0.73), (-0.22, -0.05)]
-initial_guess = (0.7, -0.15)
+bounds = [(0.61, 0.69), (-0.22, -0.05)]
+initial_guess = (0.68, -0.15)
 
 solution = scipy.optimize.minimize(
     objfun, initial_guess, constraints=constaints, bounds=bounds, method="SLSQP"

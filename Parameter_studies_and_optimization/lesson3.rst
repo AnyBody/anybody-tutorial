@@ -14,10 +14,10 @@ tools like MatLab etc.
 Requirements
 ------------
 
-Before we begin you need to install the Anaconda Python distribution. It is free and comes
-with most of the necessary packages preinstalled.
+Before we begin you need to install the Anaconda Python distribution. 
+It is free and comes with most of the necessary packages preinstalled.
 
-* Download and install Anaconda Python Distribution (>3.6)
+* `Download and install Anaconda Python Distribution (>3.6)<https://www.anaconda.com/download/>`__
 
 We also need one additional Python library (`AnyPyTools
 <https://anybody-research-group.github.io/anypytools-docs/>`__) which will make
@@ -31,20 +31,78 @@ command prompt and type:
      conda config --add channels conda-forge
      conda install anypytools
 
+Example python script
+---------------------
+
+First we show the full Python program used in this tutorial. 
+Secondly, we will go through and explain the different sections in the file.
+
+.. code-block:: python
+
+    import math
+    import scipy
+
+    from anypytools import AnyPyProcess
+    from anypytools.macro_commands import Load, OperationRun, Dump, SetValue
+
+    def run_model(saddle_height, saddle_pos, silent=False):
+        """Run the AnyBody model and return the metabolism results"""
+        macro = [
+            Load("BikeModel2D.main.any"),
+            SetValue("Main.BikeParameters.SaddleHeight", saddle_height),
+            SetValue("Main.BikeParameters.SaddlePos", saddle_pos),
+            OperationRun("Main.Study.InverseDynamics"),
+            Dump("Main.Study.Output.Pmet"),
+            Dump("Main.Study.Output.Abscissa.t"),
+        ]
+        app = AnyPyProcess(silent=silent)
+        results = app.start_macro(macro)
+        return results[0]
+
+
+    def objfun(x):
+        saddle_height = x[0]
+        saddle_pos = x[1]
+        result = run_model(saddle_height, saddle_pos, silent=True)
+
+        if "ERROR" in result:
+            raise ValueError("Failed to run model")
+
+        # Integrate Pmet
+        pmet = scipy.integrate.trapz(result["Pmet"], result["Abscissa.t"])
+        
+        return float(pmet)
+
+
+    def seat_distance_constraint(x):
+        """ Compute contraint value which must be larger than zero"""
+        return (math.sqrt(x[0] ** 2 + x[1] ** 2) - 0.66)
+
+    constaints = {"type": "ineq", "fun": seat_distance_constraint}
+    bounds = [(0.61, 0.69), (-0.22, -0.05)]
+    initial_guess = (0.68, -0.15)
+
+    solution = scipy.optimize.minimize(
+        objfun, initial_guess, constraints=constaints, bounds=bounds, method="SLSQP"
+    )
+
+    print(solution)
+
+A copy of the file can be :download:`downloaded here. <python-optimize/optimize.py>` 
+For now you can place the ``optimize.py`` next to your main file ``BikeModel2D.main.any``.
+If you didn't complete the model from :doc:`lesson 2 <lesson2>`, you can download the
+:download:`finshed model here <Downloads/OptimBike2-lesson3.zip>`.
+
 Running a model from Python
 ---------------------------
-
-If you didn't complete the model from :doc:`lesson 2 <lesson2>`, you can download the
-:download:`finshed model here <Downloads/OptimBike2-lesson3.zip>`. 
-
+ 
 For the external optimizers to work, we need a way to run AnyBody models from
-Python and record the results of the simulations. There are more information on
+Python and record the results of the simulations, so we need to create a function to do this. 
+There are more information on
 how to do this in the `documentaion for AnyPyTools
 <https://anybody-research-group.github.io/anypytools-docs/>`__. So here we will
 just show how the code looks and not discuss the details.
 
-First we create a new Python file ``optimize.py`` and place next to our main file ``BikeModel2D.main.any``.
-Within the file we create a Python function to run the AnyBody simulation. 
 
 .. code-block:: python
 
@@ -72,11 +130,11 @@ Within the file we create a Python function to run the AnyBody simulation.
     print(result["Main.Study.Output.Pmet"])
 
 
-The functions ``run_model()`` takes ``saddle_height`` and ``saddle_pos`` as input and return
+The function ``run_model()`` takes ``saddle_height`` and ``saddle_pos`` as input and return
 the ``Pmet`` metabolism output. 
 
-The two last lines are just for testing. They call the function and prints the result. 
-Let us test it by running the python file: 
+The two last lines are just for testing. They call the function and print the result. 
+Let us test it by running the python file up until this point and investigate the results: 
 
 .. code-block:: bat
 
@@ -93,7 +151,7 @@ Let us test it by running the python file:
      961.51890402  806.51623776  634.74029158  458.00117565  280.40563034
      121.30841553   21.54859903   28.97200722   26.82989147   17.2090334 ]
 
-
+As we expected the output contains the ``Pmet`` value for each timestep in our model. 
 
 Defining the objective function
 -------------------------------
@@ -101,13 +159,10 @@ Defining the objective function
 The next step is to define the objective function. The objective function should
 take an array of design values as input and return the objective function value.
 In :doc:`Lesson 2 <lesson2>` the objective function was the time integral of the
-metabolism variable. So we will do the same: 
-
-So remove the last two lines and add a new function like this. 
+metabolism variable. So we will do the same here:  
 
 .. code-block:: python
 
-    
     def objfun(x):
         saddle_height = x[0]
         saddle_pos = x[1]
@@ -124,19 +179,22 @@ So remove the last two lines and add a new function like this.
     pmet = objfun([0.66, -0.16])
     print(pmet) 
 
-
-Now let us try running the file again: 
+The last two lines are again for testing. We can now run the model until 
+this point and investigate the results. 
 
 .. code-block:: bat
 
      $ python optimize.py
      505.329399532772
 
+Now we get the time integral of the ``Pmet`` variable as as single value,
+and we are now ready to define the optimization process.
 
 Setting up the optimization study
 ---------------------------------
 
-Finally, we wrap things up by calling the ``scipy.optimize.minimize``....
+ We wrap things up by setting our constraint function and
+ call the ``scipy.optimize.minimize`` module.
 
 .. code-block:: python
 
@@ -145,12 +203,25 @@ Finally, we wrap things up by calling the ``scipy.optimize.minimize``....
         return (math.sqrt(x[0] ** 2 + x[1] ** 2) - 0.66)
     
     constaints = {"type": "ineq", "fun": seat_distance_constraint}
-    bounds = [(0.65, 0.73), (-0.22, -0.05)]
-    initial_guess = (0.7, -0.15)
+    bounds = [(0.61, 0.69), (-0.22, -0.05)]
+    initial_guess = (0.68, -0.15)
     
     solution = scipy.optimize.minimize(
         objfun, initial_guess, constraints=constaints, bounds=bounds, method="SLSQP"
     )
     
-    
     print(solution)
+
+And there we have it! 
+We can now take advantage of the many different algorithms and settings available in the ``scipy.optimize.minimize`` package.
+We could also usw a different package or customize our own algorithm, constraints etc.
+We could even run several different AnyBody models and optimize our objective function across all of them.
+The possibilities are practically endless.
+
+For more information regarding the ``AnyPyTools`` python package follow `this link.
+<https://anybody-research-group.github.io/anypytools-docs/>`__
+You can also check out this `webcast. <https://www.youtube.com/results?search_query=anybody+webcast+batch>`__
+
+For more information on the ``scipy.optimize.minimize`` package check out `this link.
+<https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html>`__
+
