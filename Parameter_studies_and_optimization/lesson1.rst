@@ -19,10 +19,10 @@ play around with. :download:`Please click here to download the zip file
 OptimBike.zip <Downloads/OptimBike2.zip>` and unpack it to some
 pertinent place on your hard disk.
 
-The bicycle model is pretty much the :ammr:`2D Bike
-<sphx_glr_auto_examples_Sports_plot_BikeModel2D.py>` that you may know from the
-:ammr:`AnyBody Managed Model Repository
-<index>`. 
+The bicycle model is pretty much the :ref:`2D Bike
+<ammr:sphx_glr_auto_examples_Sports_plot_BikeModel2D.py>` that you may know from the
+:doc:`AnyBody Managed Model Repository
+<ammr:index>`. 
 
 .. image:: _static/Defining_a_parameter/bike2D.png
 
@@ -214,7 +214,7 @@ The next specification deals with the parameters to vary:
 
 Please notice here that we have removed the '&'s that were inserted in
 the template in front of the variable names. Instead of pointing at
-``AnyDesVar``s defined elsewhere we include the entire definition right here
+``AnyDesVar``\ s defined elsewhere we include the entire definition right here
 in the study, and this is actually the usual way to do it. 
 
 Each ``AnyDesVar`` gets three properties set. The first one is called ``Val`` and
@@ -340,7 +340,7 @@ It is finally time try it out. If you have typed everything correctly,
 then you should be able to load the model. Then find the ``Main.ParamStudy.ParameterStudy`` opertion in
 the operation dropdown:
 
-.. image:: _static/Defining_a_parameter/peration_select.png
+.. image:: _static/Defining_a_parameter/operation_select.png
 
  
 Make sure you have a Model View window open. With the ParameterStudy select in
@@ -350,7 +350,7 @@ see that the hip joint is changing its position on a 5 x 5 grid. With a
 reasonably fast computer it should take a minute or less to do the 25
 analyses after which the computations stop.
 
-.. note:: If you turn off the model view, the computation should speed up . 
+.. note:: If you turn off the model view, the computation should speed up. 
 
  Congratulations! You have completed your first parameter study. Let us
  investigate the result.
@@ -358,18 +358,18 @@ analyses after which the computations stop.
 The obvious way to visualize the results of a study with two parameters
 is as a 3-D surface. The chart view in AnyBody can also do that.
 
-|anychart1.gif|
+.. image:: _static/Defining_a_parameter/anychart1.png
 
 The toolbar of this window indicates a kinship with the Model View
 window. Indeed, if you select the rotation button in the toolbar and
 drag the mouse with the left button down inside the coordinate system
 you will notice that the system rotates just like an ordinary Model
-View. Now, expand the Bike2D node in the tree until you can click the
+View. Now, expand the ``Model`` node in the tree until you can click the
 ParamStudy->Output->MaxAct->Val property. The coordinate system
 automatically attains a second abscissa axis and you can see a nice
 surface like this:
 
-|anychart2.gif|
+.. image:: _static/Defining_a_parameter/anychart2.png
 
 The surface shows the maximum muscle activity over the cycle for each of
 the 25 combinations of parameters and provides a very nice overview of
@@ -379,17 +379,16 @@ then? It is very simply to do:
 
 .. code-block:: AnyScriptDoc
 
-           AnyDesVar SaddleHeight = {
-             Val = Main.BikeParameters.SaddleHeight;
-             Min = Val - 0.05;
-             Max = Val + 0.0§5§;
-           };
-           AnyDesVar SaddlePos = {
-             Val = Main.BikeParameters.SaddlePos;
-             Min = Val - 0.§10§;
-             Max = Val + 0.10;
-           };
-
+    AnyDesVar SaddleHeight = {
+      Val = Main.BikeParameters.SaddleHeight;
+        Min = 0.61;
+        Max = 0.69 §+ 0.02§;
+    };
+    AnyDesVar SaddlePos = {
+      Val = Main.BikeParameters.SaddlePos;
+        Min = -0.22 §-0.03§;
+        Max = -0.05;
+    };
 
 When you re-run the parameter study, things will go well in the
 beginning, but towards the end of the 25 combinations you may notice
@@ -405,18 +404,21 @@ bit of slack, segments are slightly elastic, and the prescribed
 kinematics may be compromised. You can see very clearly what happens if
 you go back to the AnyChart View and study the new surface:
 
-|anychart3.gif|
+.. image:: _static/Defining_a_parameter/anychart3.png
 
 The surface is now completely dominated by the one combination, which is
 difficult for the model to do. You can still see the surface shape if
 you change the scale of the value axis. This and all other settings are
 available if you click
-the \ |chartsettings.gif|
+the \ |chartsettings.png|
 button in the toolbar. Doing so will produce a window with a tree view
-in which you can select ValueAxis->Max. Try setting Max to 0.2 and you
+in which you can select ``ValueAxis``->``Max``. Try setting Max to 0.25 and you
 should obtain the following:
 
-|anychart4.gif|
+.. |chartsettings.png| image:: _static/Defining_a_parameter/chartsettings.png
+
+
+.. image:: _static/Defining_a_parameter/anychart4.png
 
 What this study reveals is that in terms of muscle activity to drive the
 bicycle a high seat is advantageous, but there seems to be a very sharp
@@ -437,51 +439,52 @@ simple to add up the muscle metabolisms in the AnyBody study:
 
 .. code-block:: AnyScriptDoc
 
-         // The study: Operations to be performed on the model
-         AnyBodyStudy Study = {
-           AnyFolder &Model = .Model;     
-           RecruitmentSolver = MinMaxOOSolSimplex;
-           Gravity = {0.0, -9.81, 0.0};
-          
-           tEnd = Main.BikeParameters.T;
-           nStep = 50;
-     §      
-           // Useful variables for the optimization
-           AnyFolder &r = Main.Bike2D.Model.Leg2D.Right.Mus;
-           AnyFolder &l = Main.Bike2D.Model.Leg2D.Left.Mus;
-           AnyVar Pmet = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
-     §
-           AnyOutputFun MaxAct = {
-             Val = .MaxMuscleActivity;
-           };
-           
-     };
+  /// The study: Operations to be performed on the model
+  AnyBodyStudy Study = {
+    AnyFolder &Model = .Model;
+    nStep = 50;
+    
+    Gravity = {0.0, -9.81, 0.0};
+    tEnd = Main.BikeParameters.T;
+    
+    §// Useful variables for the optimization
+    AnyFolder &r = Main.Model.Leg2D.Right.Mus;
+    AnyFolder &l = Main.Model.Leg2D.Left.Mus;
+    AnyVar Pmet = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
+    §
+        
+    AnyOutputFun MaxAct = {
+      Val = .MaxMuscleActivity;
+    };
+  };
 
-Notice that we have defined the r and l variables for convenience to
-limit the size of the expressions. If you run the InverseDynamicAnalysis
+Notice that we have defined the ``r`` and ``l`` variables for convenience to
+limit the size of the expressions. If you run the InverseDynamics Analysis
 (go on and try!) you will find the new variable mentioned in the list of
-output, and you can chart it in a ChartFX View:
+output, and you can view it in the chart view.
 
-|metabcurve.gif|
+.. image:: _static/Defining_a_parameter/metabolism_curve.png
 
 The area under this curve is the total metabolism combusted over a crank
 revolution. To compute this we must introduce two more elements. The
-first one is an AnyOutputFun as we have seen it before. The purpose if
+first one is an ``AnyOutputFun`` as we have seen it before. The purpose if
 this function is to make it semantically possible to refer to the output
-of the Pmet variable before is has actually been computed:
+of the ``Pmet`` variable before is has actually been computed:
 
 .. code-block:: AnyScriptDoc
 
-           // Useful variables for the optimization
-           AnyFolder &r = Main.Bike2D.Model.Leg2D.Right.Mus;
-           AnyFolder &l = Main.Bike2D.Model.Leg2D.Left.Mus;
-           AnyVar Pmet = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
-           AnyOutputFun MaxAct = {
-             Val = .MaxMuscleActivity;
-           };
-     §      AnyOutputFun Metabolism = {
-             Val = .Pmet;
-           };§      
+    // Useful variables for the optimization
+    AnyFolder &r = Main.Model.Leg2D.Right.Mus;
+    AnyFolder &l = Main.Model.Leg2D.Left.Mus;
+    AnyVar Pmet = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
+        
+    AnyOutputFun MaxAct = {
+      Val = .MaxMuscleActivity;
+    };
+    §AnyOutputFun Metabolism = {
+      Val = .Pmet;
+    };§
+  };   
 
 
 The second missing element is the actual integration of the function.
@@ -490,32 +493,28 @@ AnyDesMeasure:
 
 .. code-block:: AnyScriptDoc
 
-        AnyParamStudy ParamStudy = {
-           Analysis = {
-             AnyOperation &op = ..Study.InverseDynamicAnalysis;
-           };
-           nStep = {§10§,§10§};
-           AnyDesVar SaddleHeight = {
-             Val = Main.BikeParameters.SaddleHeight;
-             Min = Val - 0.05;
-             Max = Val + 0.0§3§;
-           };
-    
-           AnyDesVar SaddlePos = {
-             Val = Main.BikeParameters.SaddlePos;
-             Min = Val - 0.0§7§;
-             Max = Val + 0.10;
-           };
-          
-           AnyDesMeasure MaxAct = {
-             Val = max(..Study.MaxAct());     
-           };
-    
-     §      AnyDesMeasure Metab = {
-             Val = secint(..Study.Metabolism(),..Study.tArray);     
-           };§
-          
-         };
+  AnyParamStudy ParamStudy = {
+    Analysis = {
+      AnyOperation &Operation = ..Study.InverseDynamics;
+    };
+    nStep = {§10§,§10§};
+    AnyDesVar SaddleHeight = {
+      Val = Main.BikeParameters.SaddleHeight;
+        Min = 0.61;
+        Max = 0.69 §/*+ 0.02*/§;
+    };
+    AnyDesVar SaddlePos = {
+      Val = Main.BikeParameters.SaddlePos;
+        Min = -0.22 §/*-0.03*/§;
+        Max = -0.05;
+    };
+    AnyDesMeasure MaxAct = {
+      Val = max(..Study.MaxAct());
+    };
+    §AnyDesMeasure Metab = {
+      Val = secint(..Study.Metabolism(),..Study.tArray);
+    };§
+  };  
 
 
 The secint function performs a numerical integration of the first
@@ -526,12 +525,12 @@ Notice the other two changes: We have changed the variable limits back
 to what they were before and we have decided to be a little more
 adventurous and have specified 10 variable steps in each direction. It
 is time to run the parameter study again. The new Metab variable is now
-available in the list under the ParamStudy in the AnyChart window and
+available in the list under the ``ParamStudy`` in the Chart window and
 can be plotted:
 
-|metab100.gif|
+.. image:: _static/Defining_a_parameter/anychart5.png
 
-We shall return to the capabilities of the AnyChart in more detail in
+We shall return to the capabilities of the Chart view in more detail in
 the :doc:`next lesson <lesson2>`, which deals with the
 definition of optimization studies.
 
