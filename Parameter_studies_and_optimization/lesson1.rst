@@ -147,7 +147,7 @@ general tidying up:
     };
     nStep = ;
     AnyDesVar &<Insert name0> = <Insert object reference (or full object definition)>;
-    //AnyDesVar &<Insert name1> = <Insert object reference (or full object definition)>; You can make any number of these objects!
+    AnyDesVar &<Insert name1> = <Insert object reference (or full object definition)>; You can make any number of these objects!
     AnyDesMeasure &<Insert name0> = <Insert object reference (or full object definition)>;
     //AnyDesMeasure &<Insert name1> = <Insert object reference (or full object definition)>; You can make any number of these objects!
   };
@@ -200,8 +200,8 @@ The next specification deals with the parameters to vary:
     nStep = ;
     AnyDesVar §SaddleHeight = {
       Val = Main.BikeParameters.SaddleHeight;
-      Min = 0.65;
-      Max = 0.73;
+      Min = 0.61;
+      Max = 0.69;
     };§
     AnyDesVar §SaddlePos = {
       Val = Main.BikeParameters.SaddlePos;
@@ -319,11 +319,11 @@ the final ``AnyParamStudy`` looks like this:
     Analysis = {
       AnyOperation &Operation = ..Study.InverseDynamics;
     };
-    nStep = {5,5};
+    §nStep = {5,5};§
     AnyDesVar SaddleHeight = {
       Val = Main.BikeParameters.SaddleHeight;
-        Min = 0.65;
-        Max = 0.73;
+        Min = 0.61;
+        Max = 0.69;
     };
     AnyDesVar SaddlePos = {
       Val = Main.BikeParameters.SaddlePos;
@@ -467,7 +467,7 @@ output, and you can view it in the chart view.
 
 The area under this curve is the total metabolism combusted over a crank
 revolution. To compute this we must introduce two more elements. The
-first one is an ``AnyOutputFun`` as we have seen it before. The purpose if
+first one is an ``AnyOutputFun`` as we have seen it before. The purpose of
 this function is to make it semantically possible to refer to the output
 of the ``Pmet`` variable before is has actually been computed:
 

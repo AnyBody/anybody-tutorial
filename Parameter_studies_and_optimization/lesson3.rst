@@ -6,8 +6,8 @@ facilities for optimizing. Sometimes that is not enough, either because the
 objective functions depends on data that is not easily included in AnyBody, or
 because a different solver is needed. 
 
-In this tutorial use an external optimizer together with AnyBody. The example is
-based on model from the :doc:`previous lesson <lesson2>` but uses an optimizer
+In this tutorial we use an external optimizer together with AnyBody. The example is
+based on the model from the :doc:`previous lesson <lesson2>` but uses an optimizer
 in the Python programming language. But the same could be achived with other
 tools like MatLab etc. 
 
@@ -34,7 +34,7 @@ command prompt and type:
 Running a model from Python
 ---------------------------
 
-If you didn't complate the model from :doc:`lesson 2 <lesson2>`, you can download the
+If you didn't complete the model from :doc:`lesson 2 <lesson2>`, you can download the
 :download:`finshed model here <Downloads/OptimBike2-lesson3.zip>`. 
 
 For the external optimizers to work, we need a way to run AnyBody models from

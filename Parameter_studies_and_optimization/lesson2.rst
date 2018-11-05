@@ -50,8 +50,8 @@ Minimize
 
 Subject to
 
-    *Saddle height within predefined limits
-    Saddle horizontal position within predefined limits*
+    *Saddle height within predefined limits* 
+    *Saddle horizontal position within predefined limits*
 
 In fact, this is precisely what we are going to do, but before we
 proceed, let us briefly look at the properties of a typical
