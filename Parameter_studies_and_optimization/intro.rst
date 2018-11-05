@@ -1,8 +1,6 @@
 Parameter Studies and Optimization
 ===================================================
 
-.. include:: /caution_old_tutorial.rst
-
 The AnyBody Modeling System has a nice mechanism that allows you to
 perform investigations of the model's reaction to its parameters and
 even to automatically find the set of parameters that causes a given
@@ -24,15 +22,17 @@ behavior of the model. Some examples of applications are:
    instance, the jump height given the body weight and limitations on
    muscular strength.
 
-.. image:: _static/intro/image1.gif
+..
 
-`Parameter study: Metabolic efficiency of a bicycle as a function of
-seat height and seat horizontal position.`
+    .. image:: _static/intro/image1.gif
+
+    Parameter study: Metabolic efficiency of a bicycle as a function of
+    seat height and seat horizontal position.
 
 This functionality is provided through two complementary
 :doc:`studies </A_study_of_studies/intro>`:
 
-The **AnyParamStudy** performs an exhaustive search of the variable
+The ``AnyParamStudy`` performs an exhaustive search of the variable
 space computing the model's reaction to every combination of the
 variables within a given interval. For instance, a parameter study could
 investigate the metabolic efficiency of a bicycle depending on the
@@ -45,7 +45,7 @@ is usually no problem to do, while a five parameter problem will lead to
 5^5 = 3125 analyses, which obviously is a more time-consuming
 undertaking, at least for larger models.
 
-The **AnyOptStudy** performs a systematic search within a parameter
+The ``AnyOptStudy`` performs a systematic search within a parameter
 space using optimization techniques of solutions that fulfill certain
 criteria. For instance, you could ask the study to find the saddle
 position that maximizes the metabolic efficiency of the bicycle while
@@ -58,9 +58,9 @@ parameter study.
 
 This tutorial devotes one lesson to each of the two study types:
 
-1. Defining a parameter study
+1. :doc:`Defining a parameter study <lesson1>`
 
-2. Optimization studies
+2. :doc:`Optimization studies <lesson2>`
 
 .. rst-class:: without-title
 .. seealso::
