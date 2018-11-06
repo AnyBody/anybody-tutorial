@@ -1,7 +1,7 @@
 Optimization Studies in Python
 ==============================
 
-The optimization study introduces in the preceding lesson used AnyBody's builtin
+The optimization study introduced in the preceding lesson used AnyBody's builtin
 facilities for optimizing. Sometimes that is not enough, either because the
 objective functions depends on data that is not easily included in AnyBody, or
 because a different solver is needed. 
@@ -180,7 +180,7 @@ Defining the objective function
 -------------------------------
 
 The next step is to define the objective function. The objective function should
-take an list of design values as input and return the objective function value.
+take a list of design values as input and return the objective function value.
 In :doc:`Lesson 2 <lesson2>` the objective function was the time integral of the
 metabolism variable. So we will do the same here with Scipy's
 :py:func:`scipy.integrate.trapz`: function. 
@@ -200,7 +200,7 @@ metabolism variable. So we will do the same here with Scipy's
 
         return float(pmet)
 
-.. note:: The function also checks results for errors reported
+.. note:: The function also checks the results for errors reported
     by AnyBody and raises a :py:exc:`ValueError` exception if that happens.
     There could be ways of handle error without failing but it is important to
     handle model failures, otherwise they may go unnoticed or mess with the
@@ -240,7 +240,8 @@ for the design variables.
 
 The documentation :py:func:`scipy.optimize.minimize` has more information on how to define bounds, contraints, tolerances, etc.
 
-Finally, we call the :py:func:`scipy.optimize.minimize` function run the optimizer. In this case we used the 
+Finally, we call the ``scipy.optimize.minimize`` function run the optimizer. In this case we used the 
+`SLSQP <https://docs.scipy.org/doc/scipy/reference/optimize.minimize-slsqp.html#optimize-minimize-slsqp>`__ algorithm. 
 
 .. code-block:: python
    :lineno-start: 46
@@ -271,7 +272,7 @@ Let us try to do this interactively and look at the results.
 
 And there we have it! 
 We can now take advantage of the many different algorithms and settings available for :py:func:`scipy.optimize.minimize`.
-We could also usw a different package or customize our own algorithm, constraints etc.
+We could also use a different package or customize our own algorithm, constraints etc.
 The possibilities are practically endless.
 
 
