@@ -329,6 +329,8 @@ Finally, the convergence criterion is fulfilled. It can be mentioned
 that the convergence criterion requires both objective and design
 changes to be small.
 
+.. _optimization-contraint:
+
 Constrained optimization
 ------------------------
 
