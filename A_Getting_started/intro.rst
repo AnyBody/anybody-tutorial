@@ -59,6 +59,8 @@ A closer inspection of the Application branch reveals that it has three subfolde
 -   The **Beta** folder contains models that are unfinished, but may still be useful. 
 -   The **Examples** folder contains many models of various activities of daily living, and it is likely that you
     will find a model that is similar to your own end goal.
+-   The **MocapExamples** folder contains models utilizing the AnyMoCap framework. If you have your own motion capture data this is a good place to start,
+    whether you want to analyze multi trial/subject MoCap data or a single subject wearing an inertial MoCap suit.  
 -   The **Validation** folder contains models that have been used for validation purposes, typically by comparison of the model predictions
     with experimental measurements.
 

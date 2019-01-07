@@ -1,11 +1,11 @@
-Lesson 1: Creating a Standing Model
+Lesson 1: Creating a Human Standing Model
 ==================================================
 
-The standing model can be found in the AMMR folder under
-Applications/Examples. The main file is called StandingModel.Main.any.
+The Human Standing model can be found in the AMMR folder under
+Applications/Examples/Human Standing. The main file is called Human Standing.Main.any.
 
-**While a main file can be opened with the "File->Open" menu in AnyBody, do not do this! This tutorial will teach you an easier way
-to use StandingModel as a starting template.**
+**While this file can be opened with the "File->Open" menu in AnyBody, do not do this! This tutorial will teach you an easier way
+to use the Human Standing model as a starting template.**
 
 Key (modifiable) features of the standing model are:
 
@@ -24,7 +24,7 @@ Key (modifiable) features of the standing model are:
 Model templates
 ---------------
 
-To create a new standing model using the template model in the AMMR, click the "Create New from template" button |Model
+To create a new Human Standing model using the template model in the AMMR, click the "Create New from template" button |Model
 button| in the toolbar:
 
 |ModelLoadButton|
