@@ -334,9 +334,9 @@ texinfo_documents = [
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.7", None),
-    "numpy": ("http://docs.scipy.org/doc/numpy/", None),
-    "scipy": ("http://docs.scipy.org/doc/scipy/reference", None),
-    "matplotlib": ("http://matplotlib.org", None),
+    "numpy": ("https://docs.scipy.org/doc/numpy", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
+    "matplotlib": ("https://matplotlib.org", None),
 }
 
 if tags.has("offline"):
