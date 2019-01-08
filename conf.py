@@ -344,7 +344,7 @@ if tags.has("offline"):
     intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/", None)
 else:
     if tags.has("draft"):
-        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/dev/", None)
+        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/ammr-2.2-beta/", None)
     else:
         intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/", None)
 
