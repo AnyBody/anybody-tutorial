@@ -2,7 +2,7 @@ Getting started: The Model Repository
 ======================================
 
 The AnyBody Model Repository (AMMR), is an open library of musculoskeletal
-models and examples ready to be used with the AnyBody Modelling System.
+models and examples ready to be used with the AnyBody Modeling System.
 
 The `AMMR documentation <https://anyscript.org/ammr-doc>`__ is hosted
 separately, and contains a few tutorials and other usefull information. The

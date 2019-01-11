@@ -1,7 +1,7 @@
 Lesson 2: Controlling the Posture
 =================================
 
-The Human Standing Model's posture is defined by the angles at the anatomical joints. 
+The Standing Model's posture is defined by the angles at the anatomical joints. 
 
 These specifications have been collected in one of the model files, "Mannequin.any". Scroll
 down to the line which says ``#include "Model\Mannequin.any"``. 
