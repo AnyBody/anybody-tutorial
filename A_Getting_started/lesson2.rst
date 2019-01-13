@@ -4,7 +4,7 @@ Lesson 2: Controlling the Posture
 The Standing Model's posture is defined by the angles at the anatomical joints. 
 
 These specifications have been collected in one of the model files, "Mannequin.any". Scroll
-down to the line which says ``#path BM_MANNEQUIN_FILE "Model\Mannequin.any"``. 
+down to the line which says ``#include "Model\Mannequin.any"``. 
 
 Mannequin file structure
 ------------------------
@@ -13,14 +13,14 @@ Mannequin file structure
 
     ...
 
-    // Using your own Mannequin.any file in the Model folder of your model
-    #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+    // Define desired posture or movement of the model
+    #include "Model\Mannequin.any"
 
     ...
 
 
-**This line means that your model will use the "Mannequin.any" file located in the Model folder, 
-relative to the location of the main file that you're viewing.**
+**This line means that your model will include the "Mannequin.any" file located in the Model folder, 
+within the main file.**
 
 Double-clicking the file name in the editor window after loading
 your model opens the mannequin file in a new tab. Then you see the
@@ -29,27 +29,30 @@ of the lines):
 
 .. code-block:: AnyScriptDoc
 
-     AnyFolder Mannequin = {
-       AnyFolder Posture = {
-         AnyFolder Right = {     
+     // Default mannequin position values
+     HumanModel.Mannequin = {
+       Posture = {
+         Right = {     
          };
-         AnyFolder Left = {
+         Left = {
          };
        };
       
-     AnyFolder PostureVel= { 
-        AnyFolder Right = {     
-         };
-         AnyFolder Left = {
-         };
+       PostureVel= { 
+         Right = {     
+         };
+         Left = {
+         };
        };
      };
 
 
-**The section between each pair of braces is said to be a Folder, with all variables defined therein forming the folder contents.**
+**The section between each pair of braces creates a Folder, with all variables defined within forming the folder contents.**
 
-Once loading is complete, you can see this folder structure being replicated in "Model tree" on the left of your screen. All contents of this file 
+Once the loading process is complete, you can see this folder structure being replicated in "Model tree" on the left of your screen. All contents of this file 
 can be seen by expanding the "Mannequin" folder icon in the tree.
+
+|ModelTree|
 
 There are sub-folders for postural joint angles (in degrees) and angular velocities (in degrees/second), 
 for the right and left halves of the body.
@@ -66,11 +69,14 @@ and "Left" sub-folders are as follows.
         AnyVar SternoClavicularProtraction=-23; //This value is not used for initial position
         AnyVar SternoClavicularElevation=11.5; //This value is not used for initial position
         AnyVar SternoClavicularAxialRotation=-20; //This value is not used for initial position
+        
         AnyVar GlenohumeralFlexion =-0;
         AnyVar GlenohumeralAbduction = 10;
         AnyVar GlenohumeralExternalRotation = 0;
+       
         AnyVar ElbowFlexion = 0.01;
         AnyVar ElbowPronation = -20.0;
+        
         AnyVar WristFlexion =0;
         AnyVar WristAbduction =0;
         
@@ -78,7 +84,9 @@ and "Left" sub-folders are as follows.
         AnyVar HipFlexion = 0.0;
         AnyVar HipAbduction = 5.0;
         AnyVar HipExternalRotation = 0.0;
+       
         AnyVar KneeFlexion = 0.0;
+        
         AnyVar AnklePlantarFlexion =0.0;
         AnyVar SubTalarEversion =0.0;
         
@@ -105,11 +113,10 @@ Simulation based analyses in AnyBody are termed "Studies".
 
 **Step 1**: Click on the operations drop-down menu at the top (see figure). Select “Main.RunApplication”
 
-This is what the other drop-down items do. "RunApplication" is a readymade package of some pre-processing steps and 
-the "InverseDynamics" analysis:
+"RunApplication" is a readymade package of some pre-processing steps and the "InverseDynamics" analysis. Other drop-down operations include:
 
--   **Kinematics**: Kinematic analysis
--   **InverseDynamics**: Inverse dynamic analysis
+-   **Kinematics**: Runs Kinematic analysis
+-   **InverseDynamics**: Runs Inverse dynamic analysis
 -   **InitialConditions**: Runs only the first time step of Kinematics. Useful for testing and debugging.
 -   **Replay**: Replays the last operation that was run.
 
@@ -146,7 +153,9 @@ next lesson, we will examine the effects of posture on the results
 : :doc:`Lesson 3: Reviewing analysis
 results <lesson3>`.
 
-.. |RunApplication| image:: _static/lesson2/image1.png
+.. |ModelTree| image:: _static/lesson2/image1.png
+
+.. |RunApplication| image:: _static/lesson2/image2.png
    
-.. |Run toolbar| image:: _static/lesson2/image2.png
+.. |Run toolbar| image:: _static/lesson2/image3.png
    

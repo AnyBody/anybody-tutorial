@@ -55,7 +55,7 @@ Then run the following commands to install the necesssary packages.
 
     c:\path\to\anybody_tutorials> conda install -c conda-forge sphinx cloud_sptheme pygments_anyscript
 
-Once the packages are install run this command to build the tutorial files. 
+Once the packages are installed run this command to build the tutorial files. 
 
 .. code-block:: bat
 

@@ -27,7 +27,7 @@ button |getting started 8|. It adds a table with values below the chart:
 |Chart view Data button|
 
 
-**This chart shows you that when standing upright, the most active muscle in model is using about 15%
+**This chart shows you that when standing upright, the most active muscle in model is using about 12%
 of that particular muscle's maximum strength.** 
 
 Hip forces – Standing posture
@@ -50,7 +50,7 @@ the Chart View.
 
 |Chartview ProximoDistalForce|
 
-From this chart, we can see that there is about 334N force at the
+From this chart, we can see that there is about 558N force at the
 right hip joint in the proximodistal direction. 
 
 **It is possible to select and plot several outputs simultaneously
@@ -75,16 +75,16 @@ file and change the PelvisThoraxExtension value from 0 to -60.
 
 .. code-block:: AnyScriptDoc
     
-    AnyFolder Mannequin = {
+    Mannequin = {
     
-        AnyFolder Posture = {
+        Posture = {
         
             ...
             
-            §AnyVar PelvisThoraxExtension=-60; §
+            §PelvisThoraxExtension=-60; §
 
-            AnyVar PelvisThoraxLateralBending=0;
-            AnyVar PelvisThoraxRotation=0;
+            PelvisThoraxLateralBending=0;
+            PelvisThoraxRotation=0;
             
             ...
     
@@ -101,7 +101,7 @@ Next, we will check the changes in the right hip joint reaction forces.
 |Chart view: bowing hip reaction forces|
 
 In the above Chart View, the largest hip joint reaction
-force component is the "ProximoDistalForce" at about 919N.
+force component is the "ProximoDistalForce" at about 1263N.
 So compared to the normal standing posture model, the value has more than
 doubled. The forces of the "Mediolateral" and "AnteroPosterior" directions have also
 increased.

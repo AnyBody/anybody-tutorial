@@ -4,8 +4,8 @@ Lesson 1: Creating a Standing Model
 The standing model can be found in the AMMR folder under
 Applications/Examples. The main file is called StandingModel.Main.any.
 
-**While a main file can be opened with the "File->Open" menu in AnyBody, do not do this! This tutorial will teach you an easier way
-to use StandingModel as a starting template.**
+**While this file can be opened with the "File->Open" menu in AnyBody, do not do this! This tutorial will teach you an easier way
+to use the Standing Model as a starting template.**
 
 Key (modifiable) features of the standing model are:
 
@@ -44,7 +44,7 @@ Give the model a name, for example :file:`MyStandingHuman`, and press OK to save
 Your new ‘MyStandingHuman.main.any’ file opens in the script Editor. The
 location of the file is shown in the title bar:
 
-|MyStandingHumanModel.main.any|
+|MyStandingHuman.main.any|
 
 .. warning:: If you saved your model in an other location be 
           sure to modify the :file:`../libdef.any` file so it points 
@@ -102,7 +102,7 @@ functions, so keyboard shortcuts have been provided:
    
 .. |TemplateDialog| image:: _static/lesson1/image_3b.png
    
-.. |MyStandingHumanModel.main.any| image:: _static/lesson1/image_4.png
+.. |MyStandingHuman.main.any| image:: _static/lesson1/image_4.png
    
 .. |Model View| image:: _static/lesson1/image_5.png
    
