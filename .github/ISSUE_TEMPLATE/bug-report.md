@@ -1,11 +1,17 @@
 ---
 name: Tutorial problems...
 about: Create a report to help us improve tutorials
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
-**Describe the issue**
-A clear and concise description of what is not working in the tutorials.
+<!---
+
+NOTE: For general questions about AnyBody and AMMR, please post on forum.anyscript.org
+
+Describe the issue. A clear and concise description of what is not working in the tutorials.
 
 **Other information**
 1. Which tutorial/lesson did not work?
@@ -14,3 +20,6 @@ A clear and concise description of what is not working in the tutorials.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
+just 
+
+--->
