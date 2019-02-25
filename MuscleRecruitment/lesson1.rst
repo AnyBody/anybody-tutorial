@@ -21,7 +21,7 @@ results in a linear system of equations that should be easy to solve.
 Unfortunately, it is not, and this is due to two reasons.
 
 The first reason is that muscles are unilateral element that can only
-pull and not push. So the part of **r** that is muscle forces is
+pull and not push. So the part of **f** that is muscle forces is
 restricted in sign, and only solutions with positive or zero muscle
 forces are physiologically reasonable.
 
