@@ -47,7 +47,7 @@ Time-dependent data
 
 The usual way of looking at data is as a function of time or rather time
 steps. If you expand the Model branch down to the
-HumanModelHumanModel.Right.Leg.Seg section, you can investigate the
+``BodyModel.Right.Leg.Seg`` section, you can investigate the
 movement of e.g. a foot segment. Expand the tree until you get to the
 Talus object as shown to the left. Then click the r property. This
 displays three curves on the screen corresponding to the x, y, and z
@@ -58,7 +58,7 @@ for y, and blue is for z.
 |Chart view with plots|
 
 Let us look at more complex data, let us find the muscles in the tree by
-expanding to Main.Study.Output.Model.HumanModel.Right.Mus. Take the
+expanding to Main.Study.Output.Model.BodyModel.Right.Mus. Take the
 first muscle, SoleusMedialis1SoleusMedialis1, and click the Fm property.
 
 |Chart view, single plot|
