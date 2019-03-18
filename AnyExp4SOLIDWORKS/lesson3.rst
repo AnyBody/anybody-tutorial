@@ -25,7 +25,7 @@ can see that we have a standing full human body model.
 
 |Model view Full body|
 
-To keep things simple, start by switching of the muscles by setting the
+To keep things simple, start by switching off the muscles by setting the
 BM statement for the muscle definitions of arms, legs and trunk in our
 new created file ‘FitnessMachine\_With\_Human.main.any’ to
 ``_MUSCLES_NONE_``:

@@ -133,7 +133,7 @@ you can comment out “Model\\Reactions.any” in the main file:
 
     ...
     AnyFolder Model = {  
-        AnyFolder &HumanModel=.HumanModel.BodyModelWithDefaultDrivers;
+        AnyFolder &BodyModel=.HumanModel.BodyModelWithDefaultDrivers;
         
         #include "Model\Environment.any"   
         
@@ -182,7 +182,7 @@ Now, reload the model and run the "RunApplication" operation from the operations
 
 |InverseDynamics_End|
 
-Plot “Main.Study.Output.Model.HumanModel.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope” (see :ref:`this for help <chart-view>`).
+Plot “Main.Study.Output.Model.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope” (see :ref:`this for help <chart-view>`).
 It expresses the maximum muscle activation level seen across all the muscles
 in the right leg at a given instant:
 

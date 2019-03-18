@@ -141,7 +141,7 @@ other computer operating system.
 Reference objects and the ‘&’ symbol
 ------------------------------------
 
-You can see also see that the Shoulder point on GlobalRef has been given the local name of "GroundNode". 
+You can also see that the Shoulder point on GlobalRef has been given the local name of "GroundNode". 
 This means that, within the current folder, we can simply refer to
 the point as "GroundNode" instead of the longer external reference.
 

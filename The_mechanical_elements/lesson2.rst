@@ -32,7 +32,7 @@ analysis. Each study has the SetInitialConditions operation for the
 particular purpose of resolving the constraints and connecting things.
 The mathematics of that is a nonlinear system of equations. Such a
 system may have multiple solutions or no solutions at all. Even if it
-has a unique solution, it may de impossible to find. This means that if
+has a unique solution, it may be impossible to find. This means that if
 the segments are too disorganized from their final positions when they
 are defined, then the system might not be able to resolve the
 constraints and put them in their correct positions. The remedy is to

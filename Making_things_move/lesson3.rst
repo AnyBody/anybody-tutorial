@@ -7,7 +7,7 @@ plot the position vector of the pendulum as shown below:
 
 |pendulum.r|
 
-The red, green and blue curves designate x, y and z locations
+The blue, orange and green curves designate x, y and z locations
 respectively of the center of mass of the pendulum. We see the expected
 sinusoidal curves for x and y and a z location that is constantly zero.
 It all looks fine and dandy, but closer investigation will reveal that

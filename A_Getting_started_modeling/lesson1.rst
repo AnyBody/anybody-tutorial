@@ -33,7 +33,7 @@ If you press the OK button, it will open an editor window of
       
       AnyFolder Model = {  
         // A link to the human model
-        AnyFolder &HumanModel=.HumanModel.BodyModelWithDefaultDrivers;
+        AnyFolder &BodyModel=.HumanModel.BodyModelWithDefaultDrivers;
         
         // Environment files are used to include objects surrounding human
         #include "Model\Environment.any"   

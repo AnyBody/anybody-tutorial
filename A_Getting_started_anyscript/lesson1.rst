@@ -41,7 +41,7 @@ assigned to a pair of braces, and all the contents between the braces will show 
 folders and sub-folders in the Model Tree.**
 
 **The code creates two objects - "MyModel" & "MyStudy" - which perform very
-specific functions, which depend on the pre-prgrammed object templates** (``AnyFolder`` & ``AnyBodyStudy``) 
+specific functions, which depend on the pre-preprogrammed object templates** (``AnyFolder`` & ``AnyBodyStudy``) 
 **used to create these objects. These inbuilt object templates are also known as CLASSES.**
 
 "MyModel" (of type ``AnyFolder``) is simply an

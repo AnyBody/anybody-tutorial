@@ -125,7 +125,7 @@ mass distribution represented by Jii.  Changing any one component of Jii will al
 Adding point nodes to a segment
 -------------------------------
 
-We to define some nodes in the local coordinate system of the segment, for eventually attaching muscles, joints, forces etc. to
+We define some nodes in the local coordinate system of the segment, for eventually attaching muscles, joints, forces etc. to
 the segment. 
 
 **Figuring out these node locations for the actual human models can be a laborious task, but you can often use ready-made anatomical 
