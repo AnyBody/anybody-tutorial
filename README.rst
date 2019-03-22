@@ -8,13 +8,11 @@
  AnyBody Tutorial repository
 ############################
 
-    This repository is a prof of concept for hosting the AnyBody Modeling System 
-    tutorials on GitHub as reStructuredText and building the tutorial 
-    autmotically with open source continuous integrations servers.
+    This repository hosts the AnyBody Modeling System 
+    tutorials as reStructuredText and building the tutorials is done
+    automatically with [open source continuous integrations servers](https://travis-ci.org/AnyBody/anybody-tutorial).
 
-This is source repository of the tutorials for the AnyBody Modeling System.
-
-This is only the source for the tutorials, the build html are automatically
+The HTML files from building the tutorials are automatically
 published to <https://anyscript.org/tutorials>. 
 
 
