@@ -2,10 +2,10 @@
 * @melund
 
 
-/A_Getting_started/* @ananth-gopalakrishnan
-/A_Getting_started_anyscript/* @ananth-gopalakrishnan 
-/A_Getting_started_modeling/* @ananth-gopalakrishnan
-/Posture_and_movement/* @ananth-gopalakrishnan
+/A_Getting_started/* @Kristofferiversen
+/A_Getting_started_anyscript/* @Kristofferiversen 
+/A_Getting_started_modeling/* @Kristofferiversen
+/Posture_and_movement/* @cdzialo
 
 
 /A_study_of_studies/* @melund
@@ -22,12 +22,12 @@
 
 
 
-/Muscle_modeling/* @melund 
+/Muscle_modeling/* @cdzialo 
 /Parameter_studies_and_optimization/* @melund
 
 
-/ForceDependentKinematics/* @mkjung99
-/AnyExp4SOLIDWORKS/* @mkjung99
+/ForceDependentKinematics/* @cdzialo
+/AnyExp4SOLIDWORKS/* @cdzialo
 
 
 /Finite_element_analysis/* @pgalibarov
