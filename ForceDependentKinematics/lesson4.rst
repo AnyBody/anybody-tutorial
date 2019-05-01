@@ -21,7 +21,7 @@ kinematics by making the implant surfaces slide along each other in the
 simulated motion.
 
 .. warning:: 
-  Please note that in general it is not a good idea to include the backside of thin surfaces.
+  Please note that if the surface has thin parts is a good idea to remove the backside of the surface so that it becomes open. This ensures that the forces will continue to grow as the surfaces are compressed into each other.
 
 
 |Model view Implant surfaces|
