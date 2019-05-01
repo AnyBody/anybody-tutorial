@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - 3.7
+  - 3.6
 
 env:
   global:
@@ -17,7 +17,7 @@ install:
   - conda config --add channels conda-forge # For sphinxcontrib.autoprogram
   - conda update -q conda 
   - conda info -a
-  - conda create -q -n doc-build-environment python=3.7 sphinx<2.0 cloud_sptheme doctr pygments_anyscript ipython
+  - conda create -q -n doc-build-environment python=3.7 "sphinx<2.0" cloud_sptheme doctr pygments_anyscript ipython
   - source activate doc-build-environment
 
 before_script:
