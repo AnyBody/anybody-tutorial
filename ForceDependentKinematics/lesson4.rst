@@ -20,6 +20,10 @@ and use them to calculate a contact force, which changes the joint
 kinematics by making the implant surfaces slide along each other in the
 simulated motion.
 
+.. warning:: 
+  Please note that in general it is not a good idea to include the backside of thin surfaces.
+
+
 |Model view Implant surfaces|
 
 Due to the Force Dependent Kinematics (FDK), the joint axis for the knee
