@@ -348,3 +348,7 @@ else:
     else:
         intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/", None)
 
+
+
+def setup(app):
+    app.add_stylesheet("custom.css")
