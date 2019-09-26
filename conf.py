@@ -31,6 +31,7 @@ import cloud_sptheme
 
 sys.path.insert(0, os.path.abspath("exts"))
 
+tags: set
 
 try:
     import pygments_anyscript
@@ -259,15 +260,21 @@ html_static_path = ["_static"]
 # Custom sidebar templates, maps document names to template names.
 # html_sidebars = {'**': ['searchbox.html', 'globaltoc.html']}
 
+
+
 html_sidebars = {
     "**": [
         "searchbox.html",
         "globaltoc.html",
         "report_problem.html",
-        "sourcelink.html",
-    ],
-    "using/windows": ["windowssidebar.html", "searchbox.html"],
+    ]
 }
+
+if tags.has("offline"):
+    html_sidebars["**"].append("back_to_manual.html")
+else:
+    html_sidebars["**"].append("sourcelink.html")
+
 
 # -- Options for HTMLHelp output ------------------------------------------
 
@@ -342,7 +349,7 @@ intersphinx_mapping = {
 
 if tags.has("offline"):
     # Todo find a way to get intersphinx working for offline builds
-    intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/", None)
+    intersphinx_mapping["ammr"] = ("../../AMMR/Documentation/", ("../.inv/ammr.inv", "https://anyscript.org/ammr-doc/objects.inv"))
 else:
     if tags.has("draft"):
         intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/beta/", None)
