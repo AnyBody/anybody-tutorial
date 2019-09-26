@@ -1,0 +1,25 @@
+########### MACRO #############
+load "BikeModel2D.main.any"
+classoperation Main.BikeParameters.SaddleHeight "Set Value" --value="0.66"
+classoperation Main.BikeParameters.SaddlePos "Set Value" --value="-0.16"
+operation Main.Study.InverseDynamics
+run
+classoperation Main.Study.Output.Pmet "Dump"
+classoperation Main.Study.Output.Abscissa.t "Dump"
+
+######### OUTPUT LOG ##########
+
+AnyBody Console Application
+Edition Name : Beta (Internal version)
+AnyBodyCon.exe version : 7. 2. 0. 6479 (64-bit version) 
+Build : 17830.36240 (alpha)
+Copyright (c) 1999 - 2018 AnyBody Technology A/S
+
+Current path: C:\Users\mel\Documents\AnyBodySource\anybody_tutorials
+
+#### Macro command > load "BikeModel2D.main.any"
+ERROR(SCR.SCN1) :   Cannot open file  :  C:\Users\mel\Documents\AnyBodySource\anybody_tutorials\BikeModel2D.main.any
+Model loading skipped
+
+#### Macro command > classoperation Main.BikeParameters.SaddleHeight "Set Value" --value="0.66"
+Error : Main.BikeParameters.SaddleHeight : Unresolved object.

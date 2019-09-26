@@ -147,10 +147,10 @@ Main = {
 //    };
         
     AnyVar dummy = 1;
-    AnyDesMeasure DummyObj = {
-      Val = .dummy;
-      Type = ObjectiveFun;
-    };
+//    AnyDesMeasure DummyObj = {
+//      Val = .dummy;
+//      Type = ObjectiveFun;
+//    };
   };
 
 };  // Main
