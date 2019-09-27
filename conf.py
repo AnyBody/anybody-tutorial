@@ -261,19 +261,17 @@ html_static_path = ["_static"]
 # html_sidebars = {'**': ['searchbox.html', 'globaltoc.html']}
 
 
-
-html_sidebars = {
-    "**": [
-        "searchbox.html",
-        "globaltoc.html",
-        "report_problem.html",
-    ]
-}
-
 if tags.has("offline"):
-    html_sidebars["**"].append("back_to_manual.html")
+    html_sidebars = {
+        "**": [
+            "searchbox.html",
+            "back_to_manual.html",
+            "globaltoc.html",
+            "report_problem.html",
+        ]
+    }
 else:
-    html_sidebars["**"].append("sourcelink.html")
+    html_sidebars = {"**": ["searchbox.html", "globaltoc.html", "report_problem.html"]}
 
 
 # -- Options for HTMLHelp output ------------------------------------------
@@ -349,13 +347,15 @@ intersphinx_mapping = {
 
 if tags.has("offline"):
     # Todo find a way to get intersphinx working for offline builds
-    intersphinx_mapping["ammr"] = ("../../AMMR/Documentation/", ("../.inv/ammr.inv", "https://anyscript.org/ammr-doc/objects.inv"))
+    intersphinx_mapping["ammr"] = (
+        "../../AMMR/Documentation/",
+        ("../.inv/ammr.inv", "https://anyscript.org/ammr-doc/objects.inv"),
+    )
 else:
     if tags.has("draft"):
         intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/beta/", None)
     else:
         intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/", None)
-
 
 
 def setup(app):
