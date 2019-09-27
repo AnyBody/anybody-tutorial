@@ -54,7 +54,7 @@ Secondly, we will go through and explain the different sections in the file.
             SetValue("Main.BikeParameters.SaddleHeight", saddle_height),
             SetValue("Main.BikeParameters.SaddlePos", saddle_pos),
             OperationRun("Main.Study.InverseDynamics"),
-            Dump("Main.Study.Output.Pmet"),
+            Dump("Main.Study.Output.Pmet_total"),
             Dump("Main.Study.Output.Abscissa.t"),
         ]
         app = AnyPyProcess(silent=silent)
@@ -71,7 +71,7 @@ Secondly, we will go through and explain the different sections in the file.
         if "ERROR" in result:
             raise ValueError("Failed to run model")
 
-        pmet = scipy.integrate.trapz(result["Pmet"], result["Abscissa.t"])
+        pmet = scipy.integrate.trapz(result["Pmet_total"], result["Abscissa.t"])
 
         return float(pmet)
 
@@ -136,7 +136,7 @@ just show how the code looks and not discuss the details.
            SetValue("Main.BikeParameters.SaddleHeight", saddle_height),
            SetValue("Main.BikeParameters.SaddlePos", saddle_pos),
            OperationRun("Main.Study.InverseDynamics"),
-           Dump("Main.Study.Output.Pmet"),
+           Dump("Main.Study.Output.Pmet_total"),
            Dump("Main.Study.Output.Abscissa.t"),
        ]
        app = AnyPyProcess(silent=silent)
@@ -144,7 +144,7 @@ just show how the code looks and not discuss the details.
        return results[0]
 
     result = run_model(0.66, -0.16)
-    print(result["Main.Study.Output.Pmet"])
+    print(result["Main.Study.Output.Pmet_total"])
 
 
 The function :python:`run_model()` takes :python:`saddle_height` and :python:`saddle_pos` as input
@@ -160,9 +160,9 @@ test it and investigate the results:
     [****************100%******************]  1 of 1 completeTotal time: 0.8 seconds
     
     In [5]: print(result.keys())
-    odict_keys(['Main.Study.Output.Pmet', 'Main.Study.Output.Abscissa.t'])
+    odict_keys(['Main.Study.Output.Pmet_total', 'Main.Study.Output.Abscissa.t'])
     
-    In [6]: print(result["Main.Study.Output.Pmet"])
+    In [6]: print(result["Main.Study.Output.Pmet_total"])
     [  17.20903341   73.49291834  209.58490241  379.67002659  559.57715608
       736.92126247  901.88875426 1045.75303378 1162.65470516 1248.32088806
      1299.79539032 1315.38241529 1294.6947524  1238.68684947 1149.59584772
@@ -174,7 +174,7 @@ test it and investigate the results:
       961.51890402  806.51623776  634.74029158  458.00117565  280.40563034
       121.30841553   21.54859903   28.97200722   26.82989147   17.2090334 ]
 
-As we expected the output contains the ``Main.Study.Output.Pmet`` value for each timestep in our model. 
+As we expected the output contains the ``Main.Study.Output.Pmet_total`` value for each timestep in our model. 
 
 Defining the objective function
 -------------------------------
@@ -195,8 +195,8 @@ metabolism variable. So we will do the same here with Scipy's
 
         if "ERROR" in result:
             raise ValueError("Failed to run model")
-        # Integrate Pmet
-        pmet = scipy.integrate.trapz(result["Pmet"], result["Abscissa.t"])
+        # Integrate Pmet_total
+        pmet = scipy.integrate.trapz(result["Pmet_total"], result["Abscissa.t"])
 
         return float(pmet)
 
@@ -216,7 +216,7 @@ Again, we can run this function interactively to test it:
     505.329399532772
 
 
-Now we get the time integral of the ``Pmet`` variable as as single value,
+Now we get the time integral of the ``Pmet_total`` variable as as single value,
 and we are now ready to define the optimization process.
 
 Setting up the optimization study
@@ -272,8 +272,10 @@ Let us try to do this interactively and look at the results.
 
 And there we have it! 
 We can now take advantage of the many different algorithms and settings available for :py:func:`scipy.optimize.minimize`.
-We could also use a different package or customize our own algorithm, constraints etc.
-The possibilities are practically endless.
+We could also use a different package or customize our own algorithm, constraints etc. 
+
+The possibilities are practically endless. The full example from this tutorial can be
+:download:` downloaded here <Downloads/python-optimize.zip>`. 
 
 
 For more information regarding the ``AnyPyTools`` python package follow `this link.
