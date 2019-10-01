@@ -450,7 +450,7 @@ simple to add up the muscle metabolisms in the AnyBody study:
     §// Useful variables for the optimization
     AnyFolder &r = Main.Model.Leg2D.Right.Mus;
     AnyFolder &l = Main.Model.Leg2D.Left.Mus;
-    AnyVar Pmet = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
+    AnyVar Pmet_total = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
     §
         
     AnyOutputFun MaxAct = {
@@ -469,20 +469,20 @@ The area under this curve is the total metabolism combusted over a crank
 revolution. To compute this we must introduce two more elements. The
 first one is an ``AnyOutputFun`` as we have seen it before. The purpose of
 this function is to make it semantically possible to refer to the output
-of the ``Pmet`` variable before is has actually been computed:
+of the ``Pmet_total`` variable before is has actually been computed:
 
 .. code-block:: AnyScriptDoc
 
     // Useful variables for the optimization
     AnyFolder &r = Main.Model.Leg2D.Right.Mus;
     AnyFolder &l = Main.Model.Leg2D.Left.Mus;
-    AnyVar Pmet = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
+    AnyVar Pmet_total = r.Ham.Pmet+r.BiFemSh.Pmet+r.GlutMax.Pmet+r.RectFem.Pmet+r.Vasti.Pmet+r.Gas.Pmet+r.Sol.Pmet+r.TibAnt.Pmet+l.Ham.Pmet+l.BiFemSh.Pmet+l.GlutMax.Pmet+l.RectFem.Pmet+l.Vasti.Pmet+l.Gas.Pmet+l.Sol.Pmet+l.TibAnt.Pmet;
         
     AnyOutputFun MaxAct = {
       Val = .MaxMuscleActivity;
     };
     §AnyOutputFun Metabolism = {
-      Val = .Pmet;
+      Val = .Pmet_total;
     };§
   };   
 
