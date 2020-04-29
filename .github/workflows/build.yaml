@@ -1,0 +1,53 @@
+
+name: Build Tutorials
+
+on:
+  push:
+     branches: [ master ]
+  pull_request:
+     branches: [ master ]
+  
+
+jobs:
+  sphinx-build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Setup conda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          activate-environment: sphinx
+          environment-file: environment.yaml
+          channels: conda-forge
+
+      - uses: ammaraskar/sphinx-problem-matcher@master
+        # if: github.ref != 'refs/heads/master'
+            
+      - name: Build Documentation
+        shell: bash -l {0}
+        run: |
+          set -e
+          make html-dev
+          mkdir -p public/dev
+          cp -rT _build/html public/dev
+          
+      - name: Build last tagged version
+        if: github.ref == 'refs/heads/master'
+        shell: bash -l {0}
+        run: |
+          git checkout $(git describe --tags `git rev-list --tags --max-count=1`);
+          make clean
+          make html
+          cp -rT _build/html public
+           
+      - name: Deploy 🚀
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: AnyBody/tutorials
+          publish_branch: gh-pages
+          publish_dir: ./public
