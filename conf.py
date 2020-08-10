@@ -172,8 +172,8 @@ no_index = """
    :name=robots content=noindex: \ 
 """
 
-# if tags.has('draft'):
-rst_epilog = rst_epilog + no_index
+if tags.has('draft'):
+    rst_epilog = rst_epilog + no_index
 
 
 # General information about the project.
