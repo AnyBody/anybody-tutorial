@@ -128,7 +128,7 @@ place inside the PalmLoad object like this:
             //Flocal = {0, -50, 0};
             AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
             §AnyDrawVector drF = {
-              Vec = .Fout/200;   // Scale the length down
+              Vec = .RefFrameOutput.F[0]/200;   // Scale the length down
               Line = {
                 Style = Line3DStyleFull;
                 Thickness = 0.01;
@@ -284,10 +284,10 @@ and insert a template. You should get this:
     AnyFolder Loads = {
            AnyForce3D PalmLoad = {
              //F = {0, -50, 0};
-             Flocal = {0, -50, 0};
+             Flocal = {0, 0, 0};
              AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
              AnyDrawVector drF = {
-               Vec = .Fout/200;
+               Vec = .RefFrameOutput.F[0]/200;
                Line = {
                  Style = Line3DStyleFull;
                  Thickness = 0.01;
