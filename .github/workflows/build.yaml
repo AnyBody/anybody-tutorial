@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
             
       - name: Setup conda
-        uses: goanpeca/setup-miniconda@v1
+        uses: conda-incubator/setup-miniconda@v2
         with:
           activate-environment: sphinx
           environment-file: environment.yaml
