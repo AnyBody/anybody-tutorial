@@ -1,5 +1,5 @@
-.. image:: https://travis-ci.org/AnyBody/anybody-tutorial.svg?branch=master
-    :target: https://travis-ci.org/AnyBody/anybody-tutorial
+.. image:: https://github.com/AnyBody/anybody-tutorial/workflows/Build%20Tutorials/badge.svg
+    :target: https://github.com/AnyBody/anybody-tutorial/actions
 
 .. image:: https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Tutorial_website   
     :target: https://anyscript.org/tutorials/dev
@@ -10,10 +10,10 @@
 
     This repository hosts the AnyBody Modeling System 
     tutorials as reStructuredText and building the tutorials is done
-    automatically with [open source continuous integrations servers](https://travis-ci.org/AnyBody/anybody-tutorial).
+    automatically with `open source continuous integrations servers <https://github.com/AnyBody/anybody-tutorial/actions>`_.
 
 The HTML files from building the tutorials are automatically
-published to <https://anyscript.org/tutorials>. 
+published to https://anyscript.org/tutorials . 
 
 
 Contributing
