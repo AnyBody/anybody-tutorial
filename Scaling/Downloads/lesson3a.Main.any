@@ -21,6 +21,7 @@ Main = {
       AnyDrawSurf Surface = 
       {
         FileName = "SourceFemur.stl";
+        RGB = {222,202,176}/256;
       };
     };
 
@@ -30,6 +31,7 @@ Main = {
       AnyDrawSurf Surface = 
       {
         FileName = "TargetFemur.stl";
+        RGB = {256,256,0}/256;
       };
     };
     

@@ -227,17 +227,16 @@ our custom scaling law into the model.
 .. image:: _static/lesson4/image2.png
    :width: 60%
 
-If we worked with a bone that does not have a pair, e.g.
-vertebrae, skull, etc., or we just wanted to scale a single side with a
-patient-specific scaling function, we would be finished now and could
+If we worked with a bone that does not have a controlateral pair, e.g.
+vertebrae, skull, etc., or just wanted to personalize a single side, we would 
 continue with running the inverse dynamics. But as an exercise, we want to
 continue and scale the other side as well to ensure symmetry of the model. 
-Normally we would use the patient-specific bones of the other side and 
-copy the code. But in our case only one side is available. We will assume 
-that the body is symmetric, which is typically true up to a certain extent. 
-Thus, we will include a similar scaling for the corresponding mirrored pair. 
+Normally, we would use the contralateral patient-specific bone and 
+copy the scaling code. But, in our case, only one side was available. We will assume 
+that the body is symmetric, which is only true up to a certain extent. 
+So let us include a similar scaling for the corresponding mirrored pair. 
 In the next section we will describe how to introduce mirroring to our
-transformation.
+scaling functions.
 
 Introducing a mirrored custom scaling function
 -----------------------------------------------
@@ -290,7 +289,8 @@ class:
       AnyFunTransform3DSTL STLTransform = 
       {
         PreTransforms = {&.RBFTransform};
-        RBFDef.Type = RBF_ThinPlate;
+        PolynomDegree = 1;
+        RBFDef.Type = RBF_Triharmonic;
         AnyFixedRefFrame Input = {
           AnySurfSTL SourceSurf = {
             FileName = "SourceFemur.stl";
@@ -307,7 +307,7 @@ class:
         SurfaceObjects1 = {&Input.TargetSurf};
         //FileName0 = "SourceFemur.stl";    // such definition was used previously
         //FileName1 = "TargetFemur.stl";    // such definition was used previously
-        NumPoints = 400;
+        NumPoints = 1000;
         BoundingBox.ScaleXYZ = {2, 2, 2};
         BoundingBox.DivisionFactorXYZ = {1, 1, 1};
         BoundingBoxOnOff = On;
