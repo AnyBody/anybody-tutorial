@@ -54,7 +54,7 @@ Germany).
 Next, please download the AnyScript file
 :download:`lesson3a.main.any <Downloads/lesson3a.Main.any>`. This file contains
 a model with two segments which contain the definition of a surface
-each, one for the source and one for the target bone. When we load this
+each, one for the source (bone color) and one for the target (yellow) bone. When we load this
 model, the Model View should show the following picture:
 
 .. image:: _static/lesson3/image1.png
@@ -108,19 +108,20 @@ VFK\_LANDMARK\_AFFINE to use the affine transform:
     {
       //PreTransforms = {};
       Points0 = 
-          §{{0.0138, 0.0014, 0.0274},    // fovea capitis
-          {0.0791,-0.3971,-0.0524},    // lateral anterior condyle
-          {0.094, -0.3954,-0.0183},    // medial anterior condyle
-          {0.0381,-0.1886,-0.0388},    // anterior mid shaft 
-          {0.0188,-0.3965,-0.0205},    // lateral posterior condyle
-          {0.0369,-0.3937, 0.0267}};    // medial posterior condyle§
+          §{{-0.00906139,    0.36453,  0.0175591}, // fovea capitis
+          {0.0358368,   -0.0100391, -0.0162062}, // lateral anterior condyle
+          {0.0295267,   -0.0112881,  0.0194889}, // medial anterior condyle
+          {0.0282045,     0.157599, -0.0172379}, // anterior mid shaft 
+          {-0.0245689, -0.00701566, -0.0238393}, // lateral posterior condyle
+          {-0.0320739, -0.00877602,  0.0244234}};// medial posterior condyle§
+      
       Points1 = 
-          §{{0.2899, 0.4205, 0.0139},    // fovea capitis
-          {0.3220, 0.4332,-0.3786},    // lateral anterior condyle
-          {0.2893, 0.4268,-0.373},     // medial anterior condyle
-          {0.3289, 0.4259,-0.175},     // anterior mid shaft 
-          {0.3063, 0.4872,-0.3703},    // lateral posterior condyle
-          {0.2619, 0.4759,-0.3729}};   // medial posterior condyle
+          §{{0.289913,0.420538,0.0138931},     // fovea capitis
+          {0.322038,0.433232,-0.378636},    // lateral anterior condyle
+          {0.289309,0.426839,-0.372994},    // medial anterior condyle
+          {0.328859,0.425856,-0.175012},    // anterior mid shaft 
+          {0.306293,0.487243,-0.370319},    // lateral posterior condyle
+          {0.261891,0.47585,-0.372696}};    // medial posterior condyle         
       Mode = VTK_LANDMARK_AFFINE;§
     };
 
@@ -139,6 +140,7 @@ to give this transformation a name and apply it to the source surface:
       AnyDrawSurf Surface = 
       {
         FileName = "SourceFemur.stl";
+        RGB = {222,202,176}/256;        
         §AnyFunTransform3D &ref = ..MyTransform;§
       };
     };
@@ -190,6 +192,7 @@ that we just constructed:
       AnyDrawSurf Surface = 
       {
         FileName = "SourceFemur.stl";
+        RGB = {222,202,176}/256;        
         §//AnyFunTransform3D &ref = ..MyTransform;§
       };
       §AnyDrawSurf SurfaceMorphed = 
@@ -280,27 +283,26 @@ of the surfaces:
     §AnyFunTransform3DRBF MyRBFTransform = 
     {
       PreTransforms = {&.MyTransform};
-      RBFDef = 
-      {
-        Type = RBF_ThinPlate;
-        Param = 1;
-      };
+      PolynomDegree = 1;
+      RBFDef.Type = RBF_Triharmonic;
+
       Points0 = {
-        { 0.0138, 0.0014, 0.0274},
-        { 0.0791,-0.3971,-0.0524},
-        { 0.0940,-0.3954,-0.0183},
-        {-0.0242,-0.0304,-0.0628},
-        { 0.0381,-0.1886,-0.0388},
-        { 0.0188,-0.3965,-0.0205},
-        { 0.0369,-0.3937, 0.0267},
-        {-0.0127, 0.0039, 0.0290},
-        { 0.0188, 0.0092,-0.0153},
-        {-0.0012, 0.0263, 0.0048},
-        {-0.0088,-0.0583, 0.0057},
-        {-0.0311,-0.0214,-0.0227},
-        {-0.0462,-0.0078,-0.0064},
-        {-0.0286,-0.0623,-0.0460},
-        { 0.0010, 0.0013, 0.0069} 
+        {-0.00920594,  0.36459700,  0.0174376},  // fovea capitis
+        { 0.03691960, -0.01011610, -0.0197803},  // anterior lateral condyle
+        { 0.03001110, -0.00998133,  0.0186877},  // anterior medial condyle
+        { 0.02009270,  0.34511400, -0.0387426},  // anterior greater trochanter point
+        { 0.02783850,  0.18320400, -0.0217463},  // anterior shaft point
+        {-0.02461770, -0.00623515, -0.0231383},  // posterior lateral condyle
+        {-0.03211040, -0.00908290,  0.0246153},  // posterior medial condyle
+        {-0.02643670,  0.35630800,  0.0014140},  // posterior head point
+        { 0.01780310,  0.36194400,  0.0059740},  // anterior head point
+        {-0.00197744,  0.38387300, -0.0031698},  // superior head point
+        {-0.00316772,  0.34248600,  0.0114698},  // inferior head point
+        {-0.02469710,  0.30335600, -0.0171113},  // medial lesser trochanter
+        {-0.00969883,  0.34826800, -0.0462823},  // distal trochanteric fossa
+        {-0.01959660,  0.36243100, -0.0441186},  // proximal posterior greater trochanter
+        {-0.00084335,  0.32253400, -0.0641596},  // distal trochanteric fossa
+        {-0.00431680,  0.35912600,  0.0036940}   // femoral COR
       };
       PointNames = {
         "Medial_Head_Point",
@@ -313,6 +315,7 @@ of the surfaces:
         "Posterior_Head_Point",
         "Anterior_Head_Point",
         "Proximal_Head_Point",
+        "Infeior_Head_Point",        
         "Medial_LesserTrochanter_Point",
         "Distal_TrochantericFossa_Point",
         "Proximal_Posterior_GreaterTrochanter_Point",
@@ -331,6 +334,7 @@ of the surfaces:
         { 0.2900, 0.4405, 0.0139},
         { 0.3200, 0.4095, 0.0134},
         { 0.3100, 0.4295, 0.0314},
+        { 0.2983, 0.4196,-0.0066},
         { 0.3089, 0.4599,-0.0355},
         { 0.3349, 0.4579, 0.0050},
         { 0.3329, 0.4679, 0.0175},
@@ -359,13 +363,14 @@ allows us improving the model by making some local features more accurate
 for the sensitive analyses. Please note that MyTransform object was
 included as a pre-transform as a rough scaling preceding the nonlinear
 RBF function, and it will be applied to the source entities, i.e. achieving
-the result of the previous step. Target bone is color-coded with the green color, 
-initial linear scaling is grey, RBF-scaled bone is red.
+the result of the previous step. Target bone is color-coded with the yellow color, 
+initial linear scaling is grey, RBF-scaled bone is red. Tip: mouse-over in the Model 
+View helps to see the name of the object.
 
 However, it still possible to improve the fitting of the femur surfaces and, thus,
 improve the accuracy of the model. Looking at the Model View you can notice that 
-the greater trochanter is elevated and makes a sharp corner – this is caused 
-by the nature of the thin-plate interpolation and a low number of control points. 
+the red and yellow surfaces are slightly different, e.g. at the femoral head region.
+This is caused by the nature of the interpolation and a low number of control points. 
 The following section will describe how to utilize surface information for the 
 construction of an improved scaling law.
 
@@ -407,7 +412,8 @@ the model with all modifications :download:`here <Downloads/lesson3c.Main.any>`:
     §    AnyFunTransform3DSTL MySTLTransform = 
     {
       PreTransforms = {&.MyRBFTransform};
-      RBFDef.Type = RBF_ThinPlate;
+      PolynomDegree = 1;
+      RBFDef.Type = RBF_Triharmonic;
       AnyFixedRefFrame Input = {
         AnySurfSTL SourceSurf = {
           FileName = "SourceFemur.stl";
@@ -423,7 +429,7 @@ the model with all modifications :download:`here <Downloads/lesson3c.Main.any>`:
       SurfaceObjects1 = {&Input.TargetSurf};
       //FileName0 = "SourceFemur.stl";    // such definition was used previously
       //FileName1 = "TargetFemur.stl";    // such definition was used previously
-      NumPoints = 400;
+      NumPoints = 1000;
       BoundingBox.ScaleXYZ = {2, 2, 2};
       BoundingBox.DivisionFactorXYZ = {1, 1, 1};
       BoundingBoxOnOff = On;
