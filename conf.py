@@ -88,8 +88,18 @@ extensions = [
     "IPython.sphinxext.ipython_console_highlighting",
     "sphinx.ext.intersphinx",
     # 'sphinx.ext.autosectionlabel'
+    "myst_parser",
 ]
 
+myst_enable_extensions = [
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "amsmath",
+    "substitution",
+    "linkify",
+    "html_image",
+]
 
 numfig = True
 
@@ -106,8 +116,8 @@ templates_path = ["_templates"]
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-# source_suffix = ['.rst', '.md']
-source_suffix = ".rst"
+source_suffix = ['.rst', '.md']
+#source_suffix = ".rst"
 
 # The master toctree document.
 master_doc = "contents"
@@ -131,10 +141,8 @@ gettext_compact = False
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ["_build", "README.rst", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["_build", "README.rst", "Thumbs.db", ".DS_Store", ".github", "README.md"]
 
-# Exclude the following tutorials
-exclude_patterns.extend(["caution_old_tutorial.rst"])
 
 
 # The name of the Pygments (syntax highlighting) style to use.
@@ -167,14 +175,36 @@ rst_epilog = f"""
     :language: python
 """
 
+caution_old_tutorial = """
+:::{caution} **Old tutorial:** 
+This tutorial has not yet been updated to ver. 7 of the AnyBody Modeling System. Some concepts may have changed.
+:::
+"""
+
+myst_substitutions = {
+  "AMS": "AnyBody Modeling System™",
+  "AMS_VERSION_X": ams_version_x,
+  "AMS_VERSION": ams_version_x,
+  "AMS_VERSION_SHORT": ams_version_short,
+  "AMMR_VERSION_SHORT": ams_version_short,
+  "AMMR_VERSION": ammr_version,
+  "CURRENT_YEAR": current_year,
+  "caution_old_tutorial": caution_old_tutorial,
+}
+
+
+
 no_index = """
 .. meta::
    :name=robots content=noindex: \ 
 """
 
+myst_html_meta = {}
+
+
 if tags.has('draft'):
     rst_epilog = rst_epilog + no_index
-
+    myst_html_meta["robots"] = "noindex"
 
 # General information about the project.
 project = "AnyBody Tutorials"

@@ -1,0 +1,11 @@
+language: en
+sphinx: true
+default_domain: ammr
+consecutive_numbering: true
+colon_fences: true
+dollar_math: true
+deflist: true
+
+conversions:
+  sphinx_panels.dropdpwn.DropdownDirective: parse_all
+  docutils.parsers.rst.directives.misc.Class: parse_all
