@@ -1,10 +1,5 @@
-```{image} https://github.com/AnyBody/anybody-tutorial/workflows/Build%20Tutorials/badge.svg
-:target: https://github.com/AnyBody/anybody-tutorial/actions
-```
-
-```{image} https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Tutorial_website
-:target: https://anyscript.org/tutorials/dev
-```
+[![badge](https://github.com/AnyBody/anybody-tutorial/workflows/Build%20Tutorials/badge.svg)](https://github.com/AnyBody/anybody-tutorial/actions)
+[![badge](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Tutorial_website)](https://anyscript.org/tutorials/dev)
 
 # AnyBody Tutorial repository
 
