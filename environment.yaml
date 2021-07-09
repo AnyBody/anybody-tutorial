@@ -5,6 +5,8 @@ channels:
 dependencies:
   - python=3.9
   - sphinx<4
+  - myst-parser
+  - linkify-it-py
   - make
   - cloud_sptheme
   - pygments_anyscript
