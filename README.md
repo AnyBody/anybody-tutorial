@@ -4,7 +4,7 @@
 # AnyBody Tutorial repository
 
 > This repository hosts the AnyBody Modeling System
-> tutorials as reStructuredText and building the tutorials is done
+> tutorials as markdown and building the tutorials is done
 > automatically with [open source continuous integrations servers](https://github.com/AnyBody/anybody-tutorial/actions).
 
 The HTML files from building the tutorials are automatically
