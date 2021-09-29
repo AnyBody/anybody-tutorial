@@ -1,7 +1,6 @@
 # Translating a SOLIDWORKS CAD model to AnyBody
 
-Start by downloading the {download}`example SOLIDWORKS CAD assembly
-<Downloads/FitnessMachine_SolidWorks.zip>`
+Start by downloading the {download}`example SOLIDWORKS CAD assembly<Downloads/FitnessMachine_SolidWorks.zip>`
 
 After having downloaded and opened this model in your SOLIDWORKS
 environment, you will see the following image.

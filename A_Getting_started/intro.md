@@ -13,9 +13,7 @@ tool, or even as the foundations for your own modeling studies.**
 
 Building models from the bottom-up is described further in "{doc}`Getting Started AnyScript Programming </A_Getting_started_anyscript/intro>`".
 
-Modifying the postures and motion of an existing model is introduced in "{doc}`Getting Started:
-Modeling <../A_Getting_started_modeling/intro>`" and the "{doc}`Making
-Things Move <../Making_things_move/intro>`" tutorials.
+Modifying the postures and motion of an existing model is introduced in "{doc}`Getting Started:Modeling <../A_Getting_started_modeling/intro>`" and the "{doc}`MakingThings Move <../Making_things_move/intro>`" tutorials.
 
 ```{rubric} Goals for this tutorial
 ```

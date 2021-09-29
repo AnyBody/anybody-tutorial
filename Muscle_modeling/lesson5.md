@@ -920,11 +920,9 @@ time, where all the muscles in a set are calibrated at the same joint
 postures. This way, all the muscles in a complicated system can be
 calibrated with a reasonable number of operations.
 
-Detailed muscle parameter calibration is covered in the {doc}`Inverse
-Dynamics of Muscle Systems tutorial <../MuscleRecruitment/Inverse_dynamics>`.
+Detailed muscle parameter calibration is covered in the {doc}`Inverse Dynamics of Muscle Systems tutorial <../MuscleRecruitment/Inverse_dynamics>`.
 Calibration of ligaments is much the same type of process and is
-described in detail in the {doc}`Ligament tutorial, Lesson
-7 <lesson7>`.
+described in detail in the {doc}`Ligament tutorial, Lesson 7 <lesson7>`.
 
 But before we come to ligaments we must cover one last aspect of muscle
 modeling, namely General Muscles. They are the topic of the next lesson,

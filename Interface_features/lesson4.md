@@ -9,8 +9,7 @@ These functions make it easier to navigate between the three different
 modes in which the model is represented in AnyBody - the Model View,
 AnyScript, and the Model Tree.
 
-Watch the video mentioned in the {doc}`User Interface Introduction
-tutorial <intro>` to learn more.
+Watch the video mentioned in the {doc}`User Interface Introduction tutorial <intro>` to learn more.
 
 ## The Object Description
 

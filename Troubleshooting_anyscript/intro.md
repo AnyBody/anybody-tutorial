@@ -209,6 +209,5 @@ cannot be assigned a value by the user.
 
 Run-time errors occur during analysis of a successfully loaded model.
 Their nature and remedies are completely dependent on the nature of the
-study. Please refer to the tutorial "{doc}`A study of
-studies </A_study_of_studies/intro>`" for further
+study. Please refer to the tutorial "{doc}`A study of studies </A_study_of_studies/intro>`" for further
 information.

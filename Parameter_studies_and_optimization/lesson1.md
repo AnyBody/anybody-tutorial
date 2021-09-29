@@ -14,14 +14,11 @@ Or you may be interested in knowing how the seat height and horizontal
 position influence the muscle effort and metabolism of the rider. This
 is precisely what we shall do in this tutorial. To make life a bit
 easier for you, we have prepared a bicycle model you can download and
-play around with. {download}`Please click here to download the zip file
-OptimBike.zip <Downloads/OptimBike2.zip>` and unpack it to some
+play around with. {download}`Please click here to download the zip fileOptimBike.zip <Downloads/OptimBike2.zip>` and unpack it to some
 pertinent place on your hard disk.
 
-The bicycle model is pretty much the {ref}`2D Bike
-<ammr:sphx_glr_auto_examples_Sports_plot_BikeModel2D.py>` that you may know from the
-{doc}`AnyBody Managed Model Repository
-<ammr:index>`.
+The bicycle model is pretty much the {ref}`2D Bike <ammr:sphx_glr_auto_examples_Sports_plot_BikeModel2D.py>` that you may know from the
+{doc}`AnyBody Managed Model Repository <ammr:index>`.
 
 ```{image} _static/Defining_a_parameter/bike2D.png
 ```

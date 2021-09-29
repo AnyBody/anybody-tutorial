@@ -172,8 +172,7 @@ studies can easily be made with references to the common part and their
 respective distinctive part. Special studies that are used to initialize
 properties in the model, is also a case where it is indeed useful to be
 able to point to parts of the model. Muscle property calibration is such
-a case, which we shall look at in a special lesson of the {doc}`Inverse
-Dynamics of Muscle Systems tutorial </MuscleRecruitment/index>`.
+a case, which we shall look at in a special lesson of the {doc}`InverseDynamics of Muscle Systems tutorial </MuscleRecruitment/index>`.
 
 ## The elements of a study
 

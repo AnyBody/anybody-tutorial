@@ -66,8 +66,7 @@ general mathematical software. The only viable solution is to use a
 computer system designed for this particular purpose, so here we are.
 With the AnyBody Modeling System you can easily define very complex
 musculoskeletal systems and analyze them dynamically as you have
-probably already done in the {doc}`Getting
-Started <../A_Getting_started/intro>` tutorial. If not, now would
+probably already done in the {doc}`Getting Started <../A_Getting_started/intro>` tutorial. If not, now would
 be a good time to do it and familiarize yourself with the mouse clicks
 necessary to conduct the InverseDynamics operation and inspect the
 results before continuing with the next steps of this tutorial.

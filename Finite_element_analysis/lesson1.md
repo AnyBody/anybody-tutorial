@@ -460,5 +460,4 @@ selected commercial FE packages using small interface tools
 
 Click here to continue to
 
-- {doc}`Lesson 2: ANSYS interface <lesson2>`.
-- {doc}`Lesson 3: ABAQUS interface <lesson3>`
+- {doc}`Lesson 2: ANSYS interface <lesson2>`. - {doc}`Lesson 3: ABAQUS interface <lesson3>`

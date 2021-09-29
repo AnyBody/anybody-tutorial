@@ -14,7 +14,7 @@ for data processing.
 
 :::{note}
 Make sure you have installed your own copy of the AnyBody Model repository (AMMR).
-See the {ammr:ref}`AMMR documentation <installing_ammr>`.
+See the {ref}`AMMR documentation <ammr:installing-ammr>`.
 :::
 
 1. Go to the folder {file}`Application/MocapExamples/Plug-in-gait_Simple`.

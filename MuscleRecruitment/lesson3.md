@@ -30,8 +30,7 @@ energy stored in a muscle would be a quadratic function of the force it
 carries.
 
 Before we try it out, let us set up a model that makes more
-physiological sense than the previous one. Please {download}`download and save
-this zip file <Downloads/Bike2D.zip>` and unpack it into some working
+physiological sense than the previous one. Please {download}`download and savethis zip file <Downloads/Bike2D.zip>` and unpack it into some working
 directory. Then open AnyBody and load the file Bike2D.main.any. After
 you have compiled the model into memory you can open up a Model View
 window and see this picture:

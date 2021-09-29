@@ -3,7 +3,7 @@
 :::{note}
 The following tutorial will explain how to set up your simple
 calibration study. Calibration is already built into the AMMR,
-{ammr:doc}`see the AMMR documentation <index>` for more details.
+{doc}`see the AMMR documentation <ammr:index>` for more details.
 :::
 
 One of the challenges in body modeling is that models must be able to change

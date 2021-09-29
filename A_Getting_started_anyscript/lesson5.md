@@ -113,8 +113,7 @@ AnyDrawMuscle DrwMus = {};
 ```
 
 Upon re-loading the model, you should see a thick, red line connecting the muscle's origin and
-insertion points. There are other ways to visualize muscles, and these are described here in a {doc}`dedicated muscle
-tutorial <../Muscle_modeling/intro>`.
+insertion points. There are other ways to visualize muscles, and these are described here in a {doc}`dedicated muscletutorial <../Muscle_modeling/intro>`.
 
 The muscle path may appear strange because the mechanism hasn't been assembled by a kinematic analysis.
 
@@ -316,8 +315,7 @@ movement and drops off again.
 
 :::{note}
 Applied forces do not have to be constant. They can change with time
-and other properties in the model.  Please refer to the {doc}`tutorial on
-forces <../The_mechanical_elements/intro>` for more
+and other properties in the model.  Please refer to the {doc}`tutorial onforces <../The_mechanical_elements/intro>` for more
 details.
 :::
 

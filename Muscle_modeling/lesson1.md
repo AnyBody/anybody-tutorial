@@ -260,8 +260,7 @@ Notice that we have added an AnyDrawMuscle object to the definition.
 Like other classes in AnyScript, muscles are not drawn in the Model View
 window unless you specifically ask for it. When you load the model and
 run the SetInitialConditions study you will get the following picture
-(if your model does not load, and you cannot find the error, {download}`click
-here to download a model that works <Downloads/MuscleDemo.1.any>`):
+(if your model does not load, and you cannot find the error, {download}`clickhere to download a model that works <Downloads/MuscleDemo.1.any>`):
 
 ![simple model with muscle](_static/lesson1/image4.jpeg)
 

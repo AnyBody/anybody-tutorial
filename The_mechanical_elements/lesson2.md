@@ -36,8 +36,7 @@ are defined, then the system might not be able to resolve the
 constraints and put them in their correct positions. The remedy is to
 define the segments so that their initial positions are not too far away
 from the configuration they will have when the constraints are resolved.
-You can read much more about this subject in the tutorial {doc}`A study of
-Studies <../A_study_of_studies/intro>`.
+You can read much more about this subject in the tutorial {doc}`A study of Studies <../A_study_of_studies/intro>`.
 
 AnyBody provides you with a variety of ways you can connect segments by
 joints. The class tree reveals the following joint class structure:

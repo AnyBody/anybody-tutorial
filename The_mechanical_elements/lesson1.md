@@ -55,8 +55,7 @@ segment:
 ![Drawobjects](_static/lesson1/image3.jpeg)
 
 Please refer to the reference manual for further explanation. The
-{doc}`Getting Started with
-AnyScript <../A_Getting_started_anyscript/intro>` tutorial
+{doc}`Getting Started with AnyScript <../A_Getting_started_anyscript/intro>` tutorial
 provides examples of segment definitions.
 
 :::{rst-class} without-title

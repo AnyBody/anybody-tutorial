@@ -17,8 +17,7 @@ dependents are marked with an **(Editable\*)**. The procedure for
 re-computing these dependencies is described in the next section.
 
 “Set Value” is a Class Operation, which means that it can be summoned
-from the console application if needed, as defined in the {doc}`previous
-chapter <lesson5>`.
+from the console application if needed, as defined in the {doc}`previous chapter <lesson5>`.
 
 ## Resetting values
 
@@ -28,8 +27,7 @@ reset all values in the model. This action is also available from the
 menu Operations > Reset All Values.
 
 “Reset values” is a Class Operation, which means that it can be summoned
-from the console application if needed, as defined in the {doc}`previous
-chapter <lesson5>`.
+from the console application if needed, as defined in the {doc}`previous chapter <lesson5>`.
 
 ![Operations menu](_static/lesson6/image1.png)
 

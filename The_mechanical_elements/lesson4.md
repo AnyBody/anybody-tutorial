@@ -23,8 +23,7 @@ different segments that is driven to be zero. This means that, using
 kinematic measures, you can define types of joints that are not
 available as predefined objects in AnyScript.
 
-Do you remember the simple arm example of the "{doc}`Getting Started:
-AnyScript Programming <../A_Getting_started_anyscript/intro>`"
+Do you remember the simple arm example of the "{doc}`Getting Started: AnyScript Programming <../A_Getting_started_anyscript/intro>`"
 tutorial? That was a 2-D model of an arm where we produced the movement
 by driving the angles of the shoulder and elbow joints directly.
 
@@ -38,8 +37,7 @@ able to put the hand (actually the wrist since this simple model has no
 hand) directly at the desired position in space and have the elbow and
 shoulder joints follow implicitly. This is where the kinematic measures
 come into play. Let's start off with the model just about where we left
-in the "Getting Started with AnyScript" tutorial. Please {download}`click here to
-download the necessary file (Measures.any) <Downloads/Measures.any>`,
+in the "Getting Started with AnyScript" tutorial. Please {download}`click here todownload the necessary file (Measures.any) <Downloads/Measures.any>`,
 and save it in some working directory on your own hard disk.
 
 Let us try initially to create a kinematic measure that will allow us to
@@ -155,8 +153,7 @@ may be difficult to find in more complex cases.
 To conclude, the special feature about kinematic measures is that you
 can drive them. In AnyBody, you can drive anything that you can measure,
 and this is really a unique facility. If something went wrong for you
-along the way, you can {download}`download a commented version of the final result
-here (Measures2.any) <Downloads/Measures2.any>`.
+along the way, you can {download}`download a commented version of the final resulthere (Measures2.any) <Downloads/Measures2.any>`.
 
 :::{rst-class} without-title
 :::

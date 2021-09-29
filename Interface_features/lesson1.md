@@ -105,8 +105,7 @@ If you are unsure on how to write the code for an object of a certain
 class, first position your cursor appropriately in the AnyScript Window.
 Then right click on a class name from the list and select “Insert Class
 Template” (see image below). Remember to replace any placeholder text in
-the inserted template as required. Read more from {doc}`Getting Started:
-AnyScript Programming tutorial <../A_Getting_started_anyscript/intro>`.
+the inserted template as required. Read more from {doc}`Getting Started:AnyScript Programming tutorial <../A_Getting_started_anyscript/intro>`.
 
 ![Class tree](_static/lesson1/image7.png)
 

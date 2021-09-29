@@ -48,5 +48,4 @@ balance the moments exerted about the elbow and shoulder joints by the
 external load.
 
 Much more details about inverse dynamics of musculoskeletal systems are
-found {doc}`the special tutorial on the
-topic <../MuscleRecruitment/Inverse_dynamics>`.
+found {doc}`the special tutorial on the topic <../MuscleRecruitment/Inverse_dynamics>`.

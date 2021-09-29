@@ -30,8 +30,7 @@ option during the export process.
 Since the bone models shown in the above tutorial may be a bit too elaborate for a
 basic tutorial, we will demonstrate this by adding an STL file for the dumbbel in the arm model.
 
-Download the following model {download}`here
-(dumbell.stl) <Downloads/dumbbell.stl>`.
+Download the following model {download}`here(dumbell.stl) <Downloads/dumbbell.stl>`.
 
 The dumbbell STL should be added to the forearm, so add the following code - which imports the STL
 file into AnyBody - within the "ArmModel.Segs.ForeArm" object:

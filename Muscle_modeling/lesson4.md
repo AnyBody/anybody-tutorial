@@ -19,8 +19,7 @@ surface.
 
 Enough talk! Let us prepare for addition of a wrapping muscle to our
 model. If for some reason you do not have a working model from the
-previous lessons, {download}`you can download one
-here <Downloads/MuscleDemo.4.any>`.
+previous lessons, {download}`you can download onehere <Downloads/MuscleDemo.4.any>`.
 
 A wrapping muscle needs one or several surfaces to wrap on, so the first
 thing to do is to define a surface. For convenience we shall attach the
@@ -326,8 +325,7 @@ AnyShortestPathMuscle Muscle2 = {
 Notice that the InitWrapPosVectors like the StringMesh is part of an
 object called SPLine. This is an object in its own right that gets
 defined automatically inside a shortest path muscle. It is a special
-kind of {doc}`kinematic
-measure <../The_mechanical_elements/lesson4>` that is
+kind of {doc}`kinematic measure <../The_mechanical_elements/lesson4>` that is
 really a string that wraps just like a muscle but does nothing else than
 measure its own length. These objects can be used outside the muscle
 definition for various purposes in the model, for instance for
@@ -344,8 +342,7 @@ If you keep pressing the step button you will see how the muscle now
 wraps on the other side of the cylinder.
 
 With the kinematics of muscles well under control, we can proceed to
-another important and interesting topic, {doc}`Lesson 5: Muscle
-models <lesson5>`.
+another important and interesting topic, {doc}`Lesson 5: Muscle models <lesson5>`.
 
 :::{rst-class} without-title
 :::

@@ -40,8 +40,7 @@ going to formulate a very simple problem, but the principle applies to
 much more complex models as well.
 
 Understanding this tutorial requires a-priory knowledge of the tutorial
-on {doc}`Parameter Studies and
-Optimization </Parameter_studies_and_optimization/intro>`.
+on {doc}`Parameter Studies and Optimization </Parameter_studies_and_optimization/intro>`.
 
 ## Definition of the Problem
 
@@ -77,8 +76,7 @@ So we need a simple model to play with. We are going to try to optimize
 a two-dimensional football kick. There are all sorts of reasons why a
 simple model of this task might be totally inadequate, but it will serve
 well to demonstrate the idea. Please download a model to begin on.
-{download}`Right-click the link and save the file
-Kick1.any <Downloads/Kick1.any>` in some working directory. Then open
+{download}`Right-click the link and save the fileKick1.any <Downloads/Kick1.any>` in some working directory. Then open
 it up in the AnyBody Modeling System, load it in and open a Model View
 window to have a look at the model. You should see something like this
 (except the legends):
@@ -113,8 +111,7 @@ are going to need such joint muscles for flexion and extension
 respectively for both of the two joints. The red lines below add such
 muscles with realistic joint strengths in Newton-meter. For an
 explanation of the use of the AnyGeneralMuscle class, please refer to
-the {doc}`muscle modeling
-tutorial </Muscle_modeling/intro>`.
+the {doc}`muscle modeling tutorial </Muscle_modeling/intro>`.
 
 ```AnyScriptDoc
 AnyKinEqSimpleDriver KneeDriver = {

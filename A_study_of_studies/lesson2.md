@@ -67,8 +67,7 @@ is used for positioning muscles wrapping over surfaces. It is just not
 visible in this simple model.
 
 The InitialConditions study can be thought of as the first step of a
-kinematic analysis, which will be the subject of {doc}`the next
-lesson. <lesson3>`
+kinematic analysis, which will be the subject of {doc}`the next lesson. <lesson3>`
 
 :::{rst-class} without-title
 :::

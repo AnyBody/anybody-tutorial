@@ -506,7 +506,5 @@ can still run the kinematics of your model.
 :::
 
 :::{seealso}
-**Next lesson:** Now that the kinematics is in order let us move on to the {doc}`kinetic
-analysis in Lesson 4 and see what the model is good
-for. <lesson4>`
+**Next lesson:** Now that the kinematics is in order let us move on to the {doc}`kineticanalysis in Lesson 4 and see what the model is goodfor. <lesson4>`
 :::

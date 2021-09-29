@@ -213,8 +213,8 @@ and we are now ready to define the optimization process.
 
 ## Setting up the optimization study
 
-We wrap things up by creating a function, {ref}`similar to what we did in
-AnyBody <optimization-contraint>`, as well as defining the bounds and initial guess
+We wrap things up by creating a function, {ref}`similar to what we did in AnyBody <optimization-contraint>`,
+as well as defining the bounds and initial guess
 for the design variables.
 
 ```{code-block} python

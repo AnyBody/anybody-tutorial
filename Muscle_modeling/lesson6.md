@@ -12,10 +12,8 @@ muscles, which are confined to acting along strings.
 The solution is the AnyGeneralMuscle class. This type of muscle is
 capable of acting on *Kinematic Measures*. *Kinematic Measures* is an
 abstract class representing anything you can measure on a model, and
-there is in fact {doc}`an entire tutorial lesson devoted to the
-subject <../The_mechanical_elements/lesson4>` in the
-section on {doc}`The Mechanical
-Elements <../The_mechanical_elements/intro>`. Some
+there is in fact {doc}`an entire tutorial lesson devoted to the subject <../The_mechanical_elements/lesson4>` in the
+section on {doc}`The Mechanical Elements <../The_mechanical_elements/intro>`. Some
 examples are:
 
 - A general muscle working on a distance measure between two points
@@ -47,8 +45,8 @@ This way, the "muscle forces" computed in the general muscles will
 simply be the joint torques.
 
 The example from the preceding lessons is not well suited to play with joint
-torques, so please {download}`download a new example to start on.
-<Downloads/MuscleDemo.6.any>` This is in fact a simplified version of the simple
+torques, so please {download}`download a new example to start on. <Downloads/MuscleDemo.6.any>`
+This is in fact a simplified version of the simple
 arm example from the *Getting Started with AnyScript* tutorial, where the
 muscles have been removed. The model has two segments, an upper arm and a
 forearm, and is attached to the global reference frame at the shoulder. It has a

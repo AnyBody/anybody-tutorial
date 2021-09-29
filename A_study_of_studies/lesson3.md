@@ -105,8 +105,7 @@ the purpose:
 
 ![demo.SliderCrank3D.any](_static/lesson3/image1.png)
 
-When you load it and open a {doc}`Model
-View <../Interface_features/lesson3>` you will see that
+When you load it and open a {doc}`Model View <../Interface_features/lesson3>` you will see that
 this is a very simple mechanism comprising only three segments. They are
 not yet connected correctly at their joints, but they will be if you run
 the Kinematics operation. Go to the Study tree, pick Kinematics and

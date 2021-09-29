@@ -7,8 +7,7 @@ substitutions:
 
 # Using the AnyBody Modeling System
 
-Please complete the “{doc}`Getting Started: AnyScript
-Programming” tutorial </A_Getting_started_anyscript/intro>`
+Please complete the “{doc}`Getting Started: AnyScript Programming” tutorial </A_Getting_started_anyscript/intro>`
 before proceeding.
 
 :::{note}
@@ -48,12 +47,10 @@ following lessons:
 - {doc}`Lesson 1: Editor Window Facilities <lesson1>`
 - {doc}`Lesson 2: The Model View Window <lesson2>`
 - {doc}`Lesson 3: The Chart View <lesson3>`
-- {doc}`Lesson 4: Browsing the Model via Model Tree and Object
-  Description <lesson4>`
+- {doc}`Lesson 4: Browsing the Model via Model Tree and Object Description <lesson4>`
 - {doc}`Lesson 5: The Command Line Application <lesson5>`
 - {doc}`Lesson 6: Modifying the Loaded Model <lesson6>`
-- {doc}`Lesson 7: Wrapping the Model with AnyBody
-  Project <lesson7>`
+- {doc}`Lesson 7: Wrapping the Model with AnyBody Project <lesson7>`
 
 :::{rst-class} without-title
 :::

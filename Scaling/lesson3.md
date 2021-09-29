@@ -374,8 +374,7 @@ For the latter option, we require an acceptable pre-registration
 transform, e.g. the RBF transform that was described previously, in
 order for the closest point search to make sense. Due to the implementation
 specifics most of the RBF recommendations apply to this class as well.
-More details about how to create this kind of transforms are described in {doc}`appendix
-tutorial <lesson3_appendix>`. However, for this example the
+More details about how to create this kind of transforms are described in {doc}`appendix tutorial <lesson3_appendix>`. However, for this example the
 recommended settings mentioned before will be used again.
 
 Let us repeat the step from the previous section by adding one more
@@ -435,8 +434,7 @@ to hide affine and RBF scaled femurs to see the final results:
 If we just look at the green target surface and the blue STL-transformed
 surface, we can see that the surfaces now match each other very well. That means
 that now the subject-specificity will be taken into account in the inverse
-dynamics simulation. The final model can be downloaded {download}`here
-<Downloads/lesson3d.Main.any>`.
+dynamics simulation. The final model can be downloaded {download}`here <Downloads/lesson3d.Main.any>`.
 
 ```{toctree}
 :hidden: true
