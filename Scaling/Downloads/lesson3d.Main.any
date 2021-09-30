@@ -1,19 +1,20 @@
- // Todo: Write a small description of your model here
+  // Todo: Write a small description of your model here
 
 Main = {
-  
+
   // The actual body model goes in this folder
   AnyFolder MyModel = {
-    
+
     // Global Reference Frame
     AnyFixedRefFrame GlobalRef = {
-      
+
       // Todo: Add points for grounding of the model here
-      
+
     };  // Global reference frame
-    
+
     // Todo. Add the model elements such as
     //       segments, joints, and muscles here.
+
     AnySeg SourceFemur = 
     {
       Mass = 0; Jii = {0, 0, 0};
@@ -21,24 +22,26 @@ Main = {
       {
         FileName = "SourceFemur.stl";
         RGB = {222,202,176}/256;
+        Opacity=0.3;
       };
-      AnyDrawSurf SurfaceMorphed = 
+      AnyDrawSurf SurfaceMorphed =
       {
         FileName = "SourceFemur.stl";
         AnyFunTransform3D &ref = ..MyTransform3;
       };
-      AnyDrawSurf SurfaceMorphedRBF = 
+      AnyDrawSurf SurfaceMorphedRBF =
       {
         FileName = "SourceFemur.stl";
         AnyFunTransform3D &ref = ..MyRBFTransform;
         RGB={1,0,0};
-      };
-      AnyDrawSurf SurfaceMorphedSTL = 
+      };      
+      AnyDrawSurf SurfaceMorphedSTL =
       {
         FileName = "SourceFemur.stl";
         AnyFunTransform3D &ref = ..MySTLTransform;
         RGB={0,0,1};
       };
+
     };
     
     AnySeg TargetFemur = 
@@ -47,143 +50,145 @@ Main = {
       AnyDrawSurf Surface = 
       {
         FileName = "TargetFemur.stl";
-        RGB = {0,1,0};
+        RGB = {256,256,0}/256;
       };
-      
     };
     
-    AnyFunTransform3DLin2 MyTransform = 
-    {
-      //PreTransforms = {};
-      Points0 = 
+   AnyFunTransform3DLin2 MyTransform =
+   {
+     //PreTransforms = {};
+     Points0 =       
       {{-0.00906139,    0.36453,  0.0175591}, // fovea capitis
-       {0.0358368,   -0.0100391, -0.0162062}, // lateral anterior condyle
-       {0.0295267,   -0.0112881,  0.0194889}, // medial anterior condyle
-       {0.0282045,     0.157599, -0.0172379}, // anterior mid shaft 
-       {-0.0245689, -0.00701566, -0.0238393}, // lateral posterior condyle
-       {-0.0320739, -0.00877602,  0.0244234}};// medial posterior condyle
-      Points1 = 
+      {0.0358368,   -0.0100391, -0.0162062}, // lateral anterior condyle
+      {0.0295267,   -0.0112881,  0.0194889}, // medial anterior condyle
+      {0.0282045,     0.157599, -0.0172379}, // anterior mid shaft
+      {-0.0245689, -0.00701566, -0.0238393}, // lateral posterior condyle
+      {-0.0320739, -0.00877602,  0.0244234}};// medial posterior condyle
+     
+    Points1 = 
       {{0.289913,0.420538,0.0138931},     // fovea capitis
-        {0.322038,0.433232,-0.378636},    // lateral anterior condyle
-        {0.289309,0.426839,-0.372994},    // medial anterior condyle
-        {0.328859,0.425856,-0.175012},    // anterior mid shaft 
-        {0.306293,0.487243,-0.370319},    // lateral posterior condyle
-        {0.261891,0.47585,-0.372696}};    // medial posterior condyle
-      Mode = VTK_LANDMARK_AFFINE;
-    };
-    
-    AnyFunTransform3DLin2 MyTransform2 = {
-      Points0 = .MyTransform.Points1;
-      Points1 = .MyTransform.Points0;
-      Mode = VTK_LANDMARK_RIGIDBODY;
-    };
-    
-    AnyFunTransform3DIdentity MyTransform3 = 
-    {
-      PreTransforms = {&.MyTransform/*,&.MyTransform2*/};
-    };
-    AnyFunTransform3DRBF MyRBFTransform = 
-    {
-      PreTransforms = {&.MyTransform};
-      PolynomDegree = 1;
-      RBFDef.Type = RBF_Triharmonic;
+      {0.322038,0.433232,-0.378636},    // lateral anterior condyle
+      {0.289309,0.426839,-0.372994},    // medial anterior condyle
+      {0.328859,0.425856,-0.175012},    // anterior mid shaft
+      {0.306293,0.487243,-0.370319},    // lateral posterior condyle
+      {0.261891,0.47585,-0.372696}};    // medial posterior condyle
 
-      Points0 = {
-        {-0.00920594,  0.36459700,  0.0174376},  // fovea capitis
-        { 0.03691960, -0.01011610, -0.0197803},  // anterior lateral condyle
-        { 0.03001110, -0.00998133,  0.0186877},  // anterior medial condyle
-        { 0.02009270,  0.34511400, -0.0387426},  // anterior greater trochanter point
-        { 0.02783850,  0.18320400, -0.0217463},  // anterior shaft point
-        {-0.02461770, -0.00623515, -0.0231383},  // posterior lateral condyle
-        {-0.03211040, -0.00908290,  0.0246153},  // posterior medial condyle
-        {-0.02643670,  0.35630800,  0.0014140},  // posterior head point
-        { 0.01780310,  0.36194400,  0.0059740},  // anterior head point
-        {-0.00197744,  0.38387300, -0.0031698},  // superior head point
-        {-0.00316772,  0.34248600,  0.0114698},  // inferior head point
-        {-0.02469710,  0.30335600, -0.0171113},  // medial lesser trochanter
-        {-0.00969883,  0.34826800, -0.0462823},  // distal trochanteric fossa
-        {-0.01959660,  0.36243100, -0.0441186},  // proximal posterior greater trochanter
-        {-0.00084335,  0.32253400, -0.0641596},  // distal trochanteric fossa
-        {-0.00431680,  0.35912600,  0.0036940}   // femoral COR
-      };
-      PointNames = {
-        "Medial_Head_Point",
-        "Anterior_LateralCondyle_Point",
-        "Anterior_MedialCondyle_Point",
-        "Anterior_GreaterTrochanter_Point",
-        "Anterior_Shaft_Point",
-        "Posterior_LateralCondyle_Point",
-        "Posterior_MedialCondyle_Point",
-        "Posterior_Head_Point",
-        "Anterior_Head_Point",
-        "Proximal_Head_Point",
-        "Infeior_Head_Point",        
-        "Medial_LesserTrochanter_Point",
-        "Distal_TrochantericFossa_Point",
-        "Proximal_Posterior_GreaterTrochanter_Point",
-        "Lateral_Lesser_Trochanter_Point",
-        "Femoral_COR"
-      };
+    Mode = VTK_LANDMARK_AFFINE;
+   };
+   AnyFunTransform3DLin2 MyTransform2 = {
+     Points0 = .MyTransform.Points1;
+     Points1 = .MyTransform.Points0;
+     Mode = VTK_LANDMARK_RIGIDBODY;
+   };
+   AnyFunTransform3DIdentity MyTransform3 =
+   {
+     PreTransforms = {&.MyTransform};
+   };
 
-      Points1 = {
-        { 0.2900, 0.4205, 0.0139},
-        { 0.3220, 0.4332,-0.3786},
-        { 0.2893, 0.4268,-0.3730},
-        { 0.3599, 0.4429,-0.0050},
-        { 0.3289, 0.4259,-0.1750},
-        { 0.3062, 0.4872,-0.3703},
-        { 0.2619, 0.4759,-0.3727},
-        { 0.2900, 0.4405, 0.0139},
-        { 0.3200, 0.4095, 0.0134},
-        { 0.3100, 0.4295, 0.0314},
-        { 0.2983, 0.4196,-0.0066},
-        { 0.3089, 0.4599,-0.0355},
-        { 0.3349, 0.4579, 0.0050},
-        { 0.3329, 0.4679, 0.0175},
-        { 0.3519, 0.4599,-0.0355},
-        { 0.3075, 0.4235, 0.0139}
-      };
-      BoundingBox = 
-      {
-        Type = BB_Cartesian;
-        ScaleXYZ = {2, 2, 2};
-        DivisionFactorXYZ = 5*{1, 1, 1};
-      };
-      BoundingBoxOnOff = On;
-    };
-    
-    AnyFunTransform3DSTL MySTLTransform = 
-    {
-      PreTransforms = {&.MyRBFTransform};
-      PolynomDegree = 1;
-      RBFDef.Type = RBF_Triharmonic;
-      AnyFixedRefFrame Input = {
-        AnySurfSTL SourceSurf = {
-          FileName = "SourceFemur.stl";
-          ScaleXYZ = {1, 1, 1};
-        };
-        AnySurfSTL TargetSurf = {
-          FileName = "TargetFemur.stl";
-          ScaleXYZ = {1, 1, 1};
-        };
-      };
-      
-      SurfaceObjects0 = {&Input.SourceSurf};
-      SurfaceObjects1 = {&Input.TargetSurf};
-      //FileName0 = "SourceFemur.stl";    // such definition was used previously
-      //FileName1 = "TargetFemur.stl";    // such definition was used previously
-      NumPoints = 1000;
-      BoundingBox.ScaleXYZ = {2, 2, 2};
-      BoundingBox.DivisionFactorXYZ = {1, 1, 1};
-      BoundingBoxOnOff = On;
-    };
+   AnyFunTransform3DRBF MyRBFTransform =
+   {
+     PreTransforms = {&.MyTransform};
+     PolynomDegree = 1;
+     RBFDef.Type = RBF_Triharmonic;
+   
+     Points0 = {
+       {-0.00920594,  0.36459700,  0.0174376},  // fovea capitis
+       { 0.03691960, -0.01011610, -0.0197803},  // anterior lateral condyle
+       { 0.03001110, -0.00998133,  0.0186877},  // anterior medial condyle
+       { 0.02009270,  0.34511400, -0.0387426},  // anterior greater trochanter point
+       { 0.02783850,  0.18320400, -0.0217463},  // anterior shaft point
+       {-0.02461770, -0.00623515, -0.0231383},  // posterior lateral condyle
+       {-0.03211040, -0.00908290,  0.0246153},  // posterior medial condyle
+       {-0.02643670,  0.35630800,  0.0014140},  // posterior head point
+       { 0.01780310,  0.36194400,  0.0059740},  // anterior head point
+       {-0.00197744,  0.38387300, -0.0031698},  // superior head point
+       {-0.00316772,  0.34248600,  0.0114698},  // inferior head point
+       {-0.02469710,  0.30335600, -0.0171113},  // medial lesser trochanter
+       {-0.00969883,  0.34826800, -0.0462823},  // distal trochanteric fossa
+       {-0.01959660,  0.36243100, -0.0441186},  // proximal posterior greater trochanter
+       {-0.00084335,  0.32253400, -0.0641596},  // distal trochanteric fossa
+       {-0.00431680,  0.35912600,  0.0036940}   // femoral COR
+     };
+     PointNames = {
+       "Medial_Head_Point",
+       "Anterior_LateralCondyle_Point",
+       "Anterior_MedialCondyle_Point",
+       "Anterior_GreaterTrochanter_Point",
+       "Anterior_Shaft_Point",
+       "Posterior_LateralCondyle_Point",
+       "Posterior_MedialCondyle_Point",
+       "Posterior_Head_Point",
+       "Anterior_Head_Point",
+       "Proximal_Head_Point",
+       "Infeior_Head_Point",
+       "Medial_LesserTrochanter_Point",
+       "Distal_TrochantericFossa_Point",
+       "Proximal_Posterior_GreaterTrochanter_Point",
+       "Lateral_Lesser_Trochanter_Point",
+       "Femoral_COR"
+     };
+   
+     Points1 = {
+       { 0.2900, 0.4205, 0.0139},
+       { 0.3220, 0.4332,-0.3786},
+       { 0.2893, 0.4268,-0.3730},
+       { 0.3599, 0.4429,-0.0050},
+       { 0.3289, 0.4259,-0.1750},
+       { 0.3062, 0.4872,-0.3703},
+       { 0.2619, 0.4759,-0.3727},
+       { 0.2900, 0.4405, 0.0139},
+       { 0.3200, 0.4095, 0.0134},
+       { 0.3100, 0.4295, 0.0314},
+       { 0.2983, 0.4196,-0.0066},
+       { 0.3089, 0.4599,-0.0355},
+       { 0.3349, 0.4579, 0.0050},
+       { 0.3329, 0.4679, 0.0175},
+       { 0.3519, 0.4599,-0.0355},
+       { 0.3075, 0.4235, 0.0139}
+     };
+     BoundingBox =
+     {
+       Type = BB_Cartesian;
+       ScaleXYZ = {2, 2, 2};
+       DivisionFactorXYZ = 5*{1, 1, 1};
+     };
+     BoundingBoxOnOff = On;
+   };
+   
+   
+   AnyFunTransform3DSTL MySTLTransform =
+   {
+     PreTransforms = {&.MyRBFTransform};
+     PolynomDegree = 1;
+     RBFDef.Type = RBF_Triharmonic;
+     AnyFixedRefFrame Input = {
+       AnySurfSTL SourceSurf = {
+         FileName = "SourceFemur.stl";
+         ScaleXYZ = {1, 1, 1};
+       };
+       AnySurfSTL TargetSurf = {
+         FileName = "TargetFemur.stl";
+         ScaleXYZ = {1, 1, 1};
+       };
+     };
+   
+     SurfaceObjects0 = {&Input.SourceSurf};
+     SurfaceObjects1 = {&Input.TargetSurf};
+     //FileName0 = "SourceFemur.stl";    // such definition was used previously
+     //FileName1 = "TargetFemur.stl";    // such definition was used previously
+     NumPoints = 1000;
+     BoundingBox.ScaleXYZ = {2, 2, 2};
+     BoundingBox.DivisionFactorXYZ = {1, 1, 1};
+     BoundingBoxOnOff = On;
+   };
+   
 
   }; // MyModel
-  
+
   // The study: Operations to be performed on the model
   AnyBodyStudy MyStudy = {
     AnyFolder &Model = .MyModel;
     Gravity = {0.0, -9.81, 0.0};
   };
-  
+
 };  // Main
