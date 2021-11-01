@@ -83,7 +83,7 @@ AnyFolder Segs = {
 ```
 
 Every object in AnyBody defined by some properties that are both mandatory (the
-template contains some default values) or optional (these properties are commented out).
+template contains some) or optional (these properties are commented out).
 You can delete all optional properties except for r0 and Axes0.
 
 For an `AnySeg` object `Mass` (segment mass) and `Jii` (diagonal elements of the inertia tensor) are the mandatory properties. Note that by default,
