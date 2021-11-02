@@ -249,7 +249,7 @@ muscles or other force elements to enforce the constraints. The driver reactions
 inverse dynamic simulations at the intermediate model stages, by ensuring dynamic consistency.
 
 The single `Off` is encapsulated in braces, `{Off}` because it is a vector.
-A driver by can theoretically have any number of total DOF from all the measures
+A driver can theoretically have any number of total DOF from all the measures
 that it drives. Therefore all data in a driver are vector quantities, even when it is a 1 DOF driver .
 
 ## The InverseDynamicAnalysis and plotting muscle forces
@@ -265,7 +265,7 @@ You should get a curve that looks like the one below.
 
 {{ image2 }}
 
-The drop in muscle force with movement progression is due to the decreasing moment arm of the gravity
+The drop in muscle force with movement progression is due to the decreasing moment arm of the
 gravity vector about the elbow joint, as the elbow flexes. Therefore lesser the muscle force.
 
 If you look at the muscle force in the BicepsLong, you see a different pattern:
