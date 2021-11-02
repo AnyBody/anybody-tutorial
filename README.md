@@ -12,7 +12,7 @@ published to <https://anyscript.org/tutorials> .
 
 ## Contributing
 
-See the guide for [how to contribute].
+See the guide for [how to contribute](contributing.md).
 
 ## License
 
