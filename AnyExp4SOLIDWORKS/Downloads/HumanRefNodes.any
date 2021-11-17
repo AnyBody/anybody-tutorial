@@ -56,11 +56,8 @@ AnyFolder Human_RefNodes =
           .ToeMedialContactNode.sRel)/3;
            
            sRel = (.GroundJoint.sRel+.BigToeNode.sRel)/2;
-           //sRel = .GroundJoint.sRel;
-//           ARel = RotMat(ToeNode_Avg, .ToeMedialContactNode.sRel, .BigToeNode.sRel)
-//           *RotMat(-pi/2,x)*RotMat(-pi/2,y); 
-           ARel = RotMat(ToeNode_Avg, .ExtensorHallucisLongus2Node.sRel, .ToeMedialContactNode.sRel)
-                   *RotMat(pi/2,x);
+           ARel = RotMat(.HeelContactNodeLow.sRel, .BigToeNode.sRel, .ToeLateralContactNode.sRel)*RotMat(-pi/2,x);
+
            AnyDrawRefFrame drw = 
            {
              ScaleXYZ = 0.1 * {1,1,1};
@@ -81,11 +78,8 @@ AnyFolder Human_RefNodes =
           .ToeMedialContactNode.sRel)/3;
           
            sRel = (.GroundJoint.sRel+.BigToeNode.sRel)/2;
-           //sRel = .GroundJoint.sRel;
-//           ARel = RotMat(ToeNode_Avg, .ToeMedialContactNode.sRel, .BigToeNode.sRel)
-//           *RotMat(pi/2,x)*RotMat(pi/2,y);  
-           ARel = RotMat(ToeNode_Avg, .ExtensorHallucisLongus2Node.sRel, .ToeMedialContactNode.sRel)
-                   *RotMat(-pi/2,x);
+           ARel = RotMat(.HeelContactNodeLow.sRel, .BigToeNode.sRel, .ToeLateralContactNode.sRel)*RotMat(pi/2,x);
+
            AnyDrawRefFrame drw = 
            {
              ScaleXYZ = 0.1 * {1,1,1};
