@@ -14,9 +14,11 @@ body parts: legs, arms, and trunk.
 .. todo:: Add a intersphinx link to AMMMR documentation on BM statments
 ```
 
-**Body model configuration refers to the selection of limb segments to include, muscle model types,
+:::{note}
+Body model configuration refers to the selection of limb segments to include, muscle model types,
 scaling algorithms etc. These are done by setting switches known as Body model (BM) parameters.
-The configuration process is described in greater detail in this** [document](https://anyscript.org/ammr-doc/bm_config/index)
+The configuration process is described in greater detail in this [document](https://anyscript.org/ammr-doc/bm_config/index)
+:::
 
 ## Body model configuration
 
@@ -32,9 +34,11 @@ the inclusion of the “HumanModel.any” file.
 
 ```AnyScriptDoc
 Main = {
-  //#path BM_DRAWSETTINGS_FILE "Model\DrawSettings.any"
 
-  #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+  // Body Model configuration:
+  #include "Model/BodyModelConfiguration.any"
+  // Using your own Mannequin.any file in the Model folder of your model
+  #include "Model\Mannequin.any"
 
   //-->BM statements
   // Excluding the muscles in the trunk segments

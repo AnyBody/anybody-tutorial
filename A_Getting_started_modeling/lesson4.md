@@ -118,19 +118,20 @@ on the pelvis is to provide the necessary supports on the human pelvis
 to run the inverse dynamics if users may not define enough support
 forces on either both feet or pelvis.
 
-Since your model has a joined named "SeatPelvis" between ground and pelvis (which will apply the default reaction forces),
+Since your model has a joint named "SeatPelvis" between ground and pelvis (which will apply the default reaction forces),
 you can comment out “Model\\Reactions.any” in the main file:
 
 ```AnyScriptDoc
 ...
 AnyFolder Model = {
-    AnyFolder &BodyModel=.HumanModel.BodyModelWithDefaultDrivers;
+    AnyFolder &BodyModel = .HumanModel.BodyModel;
+    AnyFolder &DefaultMannequinDrivers = .HumanModel.DefaultMannequinDrivers;
 
     #include "Model\Environment.any"
 
     AnyFolder ModelEnvironmentConnection = {
-    #include "Model\JointsAndDrivers.any"
-    §//#include "Model\Reactions.any"§
+      #include "Model\JointsAndDrivers.any"
+      §//#include "Model\Reactions.any"§
     };
 };
 ...

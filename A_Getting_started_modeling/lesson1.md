@@ -16,44 +16,51 @@ If you press the OK button, it will open an editor window of
 “MyPedal.main.any” file that includes the following lines:
 
 ```AnyScriptDoc
-#include "../libdef.any"
+#include "libdef.any"
 
-Main = {
-  //If you want to use your own draw settings, please outcomment the next line
-  //#path BM_DRAWSETTINGS_FILE "Model\DrawSettings.any"
+Main = 
+{  
+
+  // Body Model configuration:
+  #include "Model/BodyModelConfiguration.any"
 
   // Using your own Mannequin.any file in the Model folder of your model
-  #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+  #include "Model\Mannequin.any"
 
   // Include default human model
   #include "<ANYBODY_PATH_BODY>\HumanModel.any"
 
-  AnyFolder Model = {
+  AnyFolder Model = 
+  {
     // A link to the human model
-    AnyFolder &BodyModel=.HumanModel.BodyModelWithDefaultDrivers;
-
+    AnyFolder &BodyModel = .HumanModel.BodyModel;
+    AnyFolder &DefaultMannequinDrivers = .HumanModel.DefaultMannequinDrivers;
+ 
     // Environment files are used to include objects surrounding human
-    #include "Model\Environment.any"
-
-    AnyFolder ModelEnvironmentConnection = {
+    #include "Model\Environment.any"   
+ 
+    AnyFolder ModelEnvironmentConnection = 
+    {
       //'JointsAndDrivers.any' file can include all kinematic constraints such as joints and drivers
       #include "Model\JointsAndDrivers.any"
       // Additional reactions which are required to run the inverse dynamics analysis
       #include "Model\Reactions.any"
     };
   };
-
-  AnyBodyStudy Study = {
-    AnyFolder &Model = .Model;
+ 
+  AnyBodyStudy Study = 
+  {
+    AnyFolder &Model = .Model;  
+    
     Gravity={0.0, -9.81, 0.0};
     nStep = 11;
-
-    // these settings are needed for adding drivers without removing the default set
+    // Overdeterminate solver is needed while using the 
+    // soft default mannequin drivers.
     Kinematics.SolverType = KinSolOverDeterminate;
     InitialConditions.SolverType = Kinematics.SolverType ;
   };
 
-  #include "Model\RunAppSequence.any"
+    #include "Model\RunAppSequence.any"
 }; //Main
 ```
 

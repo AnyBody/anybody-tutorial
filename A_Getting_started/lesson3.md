@@ -83,7 +83,6 @@ Mannequin = {
         ...
 
         §PelvisThoraxExtension=-60; §
-
         PelvisThoraxLateralBending=0;
         PelvisThoraxRotation=0;
 

@@ -14,9 +14,9 @@ At the end of the ArmModel folder you will find that we have added an
 empty folder named Loads:
 
 ```AnyScriptDoc
-   §AnyFolder Loads = {
-
-      };  // Loads folder§
+    §AnyFolder Loads = {
+    
+    };  // Loads folder§
 }; // ArmModel
 ```
 
@@ -38,24 +38,23 @@ will give you:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-      §AnyForce3D <ObjectName> =
-       {
-         //F = {0, 0, 0};
-         //Flocal = {0, 0, 0};
-         AnyRefFrame &<Insert name0> = <Insert object reference (or full object definition)>;
-       };§
- };  // Loads folder
+    §AnyForce3D <ObjectName> = {
+        //F = {0, 0, 0};
+        //Flocal = {0, 0, 0};
+        AnyRefFrame &<Insert name0> = <Insert object reference (or full object definition)>;
+    };§
+};  // Loads folder
 ```
 
 Let us initially give the force a descriptive name:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-     AnyForce3D §PalmLoad§ = {
-        //F = {0, 0, 0};
-        //Flocal = {0, 0, 0};
-        AnyRefFrame &<Insert name0> = <Insert object reference (or full object definition)>;
-      };
+    AnyForce3D §PalmLoad§ = {
+        //F = {0, 0, 0};
+        //Flocal = {0, 0, 0};
+        AnyRefFrame &<Insert name0> = <Insert object reference (or full object definition)>;
+    };
 };  // Loads folder
 ```
 
@@ -65,12 +64,12 @@ prepare for inserting the name of the node:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-      AnyForce3D PalmLoad = {
-         //F = {0, 0, 0};
-         //Flocal = {0, 0, 0};
-         AnyRefFrame §&PointOfAttack = §;
-       };
- };  // Loads folder
+    AnyForce3D PalmLoad = {
+        //F = {0, 0, 0};
+        //Flocal = {0, 0, 0};
+        AnyRefFrame §&PointOfAttack = §;
+    };
+};  // Loads folder
 ```
 
 Now, please place the cursor just before the semicolon at the end of the
@@ -80,12 +79,12 @@ locate the PalmNode, right-click it and select Insert Object Name. You
 should get the following result:
 
 ```AnyScriptDoc
- AnyFolder Loads = {
-      AnyForce3D PalmLoad = {
-        //F = {0, 0, 0};
-        //Flocal = {0, 0, 0};
-        AnyRefFrame &PointOfAttack = §Main.ArmModel.Segs.ForeArm.PalmNode§;
-      };
+AnyFolder Loads = {
+    AnyForce3D PalmLoad = {
+        //F = {0, 0, 0};
+        //Flocal = {0, 0, 0};
+        AnyRefFrame &PointOfAttack = §Main.ArmModel.Segs.ForeArm.PalmNode§;
+    };
 };  // Loads folder
 ```
 
@@ -95,13 +94,12 @@ with the first one, specifying also a non-zero force vector:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-       AnyForce3D PalmLoad = {
-         §F = {0, -50, 0};§
-         //Flocal = {0, 0, 0};
-         AnyRefFrame &PointOfAttack =
-  Main.ArmModel.Segs.ForeArm.PalmNode;
-       };
- };  // Loads folder
+    AnyForce3D PalmLoad = {
+        §F = {0, -50, 0};§
+        //Flocal = {0, 0, 0};
+        AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
+    };
+};  // Loads folder
 ```
 
 When this specification is used, the force vector gets defined in global
@@ -123,21 +121,22 @@ AnyFolder Loads = {
         //Flocal = {0, -50, 0};
         AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
         §AnyDrawVector drF = {
-          Vec = .RefFrameOutput.F[0]/200;   // Scale the length down
-          Line = {
-            Style = Line3DStyleFull;
-            Thickness = 0.01;
-            RGB = {1, 0, 0};
-            End = {
-              Style = Line3DCapStyleArrow;  // This specifies the end to be an arrowhead
-              RGB = {1, 0, 0};
-              Thickness = 0.02;  // The head begins with twice the thickness of the shaft
-              Length = 0.05;
-            };
-          };
-    // attach the arrow to the hand
-        AnyRefFrame &Palm = Main.ArmModel.Segs.ForeArm.PalmNode;
-    };§
+            Vec = .RefFrameOutput.F[0]/200;   // Scale the length down
+            Line = {
+                Style = Line3DStyleFull;
+                Thickness = 0.01;
+                RGB = {1, 0, 0};
+                End = {
+                    Style = Line3DCapStyleArrow;  // This specifies the end to be an arrowhead
+                    RGB = {1, 0, 0};
+                    Thickness = 0.02;  // The head begins with twice the thickness of the shaft
+                    Length = 0.05;
+                };
+            };
+        // attach the arrow to the hand
+        AnyRefFrame &Palm = Main.ArmModel.Segs.ForeArm.PalmNode;
+        };§
+    };
 };
 ```
 
@@ -156,12 +155,12 @@ constant force vector we can write a function of time, for instance:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-       AnyForce3D PalmLoad = {
-         F = {0, -50, 0}§*sin(2*pi*t)§;
-         //Flocal = {0, 0, 0};
-         AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
-       };
- };  // Loads folder
+    AnyForce3D PalmLoad = {
+        F = {0, -50, 0}§*sin(2*pi*t)§;
+        //Flocal = {0, 0, 0};
+        AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
+    };
+};  // Loads folder
 ```
 
 If you reload and run the InverseDynamicAnalysis again you will see the
@@ -174,11 +173,11 @@ elbow driver:
 
 ```AnyScriptDoc
 AnyKinEqSimpleDriver ElbowMotion = {
-         AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
-         DriverPos = {1.5};
-         DriverVel = {§60*pi/180§};
-         Reaction.Type = {Off};
-   }; // Elbow driver
+    AnyRevoluteJoint &Jnt = ..Jnts.Elbow;
+    DriverPos = {1.5};
+    DriverVel = {§60*pi/180§};
+    Reaction.Type = {Off};
+}; // Elbow driver
 ```
 
 After this change try reloading the model and running the inverse
@@ -189,13 +188,12 @@ value:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-       AnyForce3D PalmLoad = {
-         F = §{0, -50, 0}§;
-         //Flocal = {0, 0, 0};
-         AnyRefFrame &PointOfAttack =
-  Main.ArmModel.Segs.ForeArm.PalmNode;
-       };
- };  // Loads folder
+    AnyForce3D PalmLoad = {
+        F = §{0, -50, 0}§;
+        //Flocal = {0, 0, 0};
+        AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
+    };
+};  // Loads folder
 ```
 
 Please load and run again and notice how the external force is vertical
@@ -207,20 +205,19 @@ a small change in the force specification:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-       AnyForce3D PalmLoad = {
-         §//§F = {0, -50, 0};
-         §Flocal = {0, -50, 0};§
-         AnyRefFrame &PointOfAttack =
-  Main.ArmModel.Segs.ForeArm.PalmNode;
-       };
- };  // Loads folder
+    AnyForce3D PalmLoad = {
+        §//§F = {0, -50, 0};
+        §Flocal = {0, -50, 0};§
+        AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
+    };
+};  // Loads folder
 ```
 
 The only change here is that we are using the Flocal property rather
 than F to specify the force. Loading and running the model again will
-show the force now changind direction with the movement of the arm but
+show the force now changing direction with the movement of the arm but
 maintaining its direction perpendicular to the forearm, i.e. in the
-negative *y* axis of the PalmNode to which it is attached.
+negative *y* axis of the PalmNode reference system to which it is attached.
 
 ![Arm model with force 2](_static/lesson5/image2.png)
 
@@ -263,9 +260,9 @@ We start by disabling the external forces from before:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-       AnyForce3D PalmLoad = {
-         //F = {0, -50, 0};
-     Flocal = {0, §0§, 0};
+    AnyForce3D PalmLoad = {
+        //F = {0, -50, 0};
+        Flocal = {0, §0§, 0};
 ```
 
 Instead, we define an AnyForce. Place the cursor inside the Loads folder
@@ -276,34 +273,33 @@ and insert a template. You should get this:
 
 ```AnyScriptDoc
 AnyFolder Loads = {
-       AnyForce3D PalmLoad = {
-         //F = {0, -50, 0};
-         Flocal = {0, 0, 0};
-         AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
-         AnyDrawVector drF = {
-           Vec = .RefFrameOutput.F[0]/200;
-           Line = {
-             Style = Line3DStyleFull;
-             Thickness = 0.01;
-             RGB = {1, 0, 0};
-             End = {
-               Style = Line3DCapStyleArrow;
-               RGB = {1, 0, 0};
-               Thickness = 0.02;
-               Length = 0.05;
-             };
-           };
-           AnyRefFrame &Palm = Main.ArmModel.Segs.ForeArm.PalmNode;
-         };
-       };
+    AnyForce3D PalmLoad = {
+        //F = {0, -50, 0};
+        Flocal = {0, 0, 0};
+        AnyRefFrame &PointOfAttack = Main.ArmModel.Segs.ForeArm.PalmNode;
+        AnyDrawVector drF = {
+            Vec = .RefFrameOutput.F[0]/200;
+            Line = {
+                Style = Line3DStyleFull;
+                Thickness = 0.01;
+                RGB = {1, 0, 0};
+                End = {
+                    Style = Line3DCapStyleArrow;
+                    RGB = {1, 0, 0};
+                    Thickness = 0.02;
+                    Length = 0.05;
+                };
+            };
+            AnyRefFrame &Palm = Main.ArmModel.Segs.ForeArm.PalmNode;
+        };
+    };
 
-       §AnyForce <ObjectName> =
-       {
-         F = ;
-         //AnyKinMeasure &<Insert name0> = <Insert object reference (or full object definition)>;
-       };§
-
- };  // Loads folder
+    §AnyForce <ObjectName> =
+    {
+        F = ;
+        //AnyKinMeasure &<Insert name0> = <Insert object reference (or full object definition)>;
+    };§
+};  // Loads folder
 ```
 
 The structure of the AnyForce class is obviously very simple. This is
@@ -312,8 +308,8 @@ definition. Let's apply a moment to the elbow:
 
 ```AnyScriptDoc
 AnyForce §ElbowMoment§ = {
-         F = §{-50}§;
-         AnyKinMeasure &§Elbow§ = §Main.ArmModel.Jnts.Elbow§;
+    F = §{-50}§;
+    AnyKinMeasure &§Elbow§ = §Main.ArmModel.Jnts.Elbow§;
 };
 ```
 
@@ -361,7 +357,7 @@ AnyBody.
 2. {download}`Demo.AnyForce.any <Downloads/Demo.AnyForce.any>`
 
 The first example is a rather basic application of time-varying forces
-to the aimple arm model. In addition to the subjects covered in the
+to the simple arm model. In addition to the subjects covered in the
 sections above it shows forces defined directly as interpolated values a
 set of measured data points, for instance from a force platform.
 

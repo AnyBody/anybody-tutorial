@@ -47,7 +47,7 @@ The easiest way to install needed packages tools, is to have the [Anaconda Pytho
 Then run the following commands to install the necesssary packages.
 
 ```bat
-c:\path\to\anybody_tutorials> conda create -f  environment.yaml
+c:\path\to\anybody_tutorials> conda env create -f  environment.yaml
 ```
 
 afterwards activate the environment where the sphinx has been installed:
