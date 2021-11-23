@@ -34,9 +34,11 @@ the inclusion of the “HumanModel.any” file.
 
 ```AnyScriptDoc
 Main = {
-  //#path BM_DRAWSETTINGS_FILE "Model\DrawSettings.any"
 
-  #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+  // Body Model configuration:
+  #include "Model/BodyModelConfiguration.any"
+  // Using your own Mannequin.any file in the Model folder of your model
+  #include "Model\Mannequin.any"
 
   //-->BM statements
   // Excluding the muscles in the trunk segments

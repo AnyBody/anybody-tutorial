@@ -9,7 +9,7 @@ various equipment and other items, segments are also used to model
 cranks, pedals, handles, tools, sports equipment, tables, chairs, and
 all the other environmental objects a body may be connected to.
 
-In fact, An AnyBody model does not have to entail a living body. You can
+In fact, an AnyBody model does not have to entail a living body. You can
 easily create an AnyBody model of a machine in which no biological
 elements take part.
 
@@ -45,14 +45,14 @@ Notice that the AnyDrawSeg is just an empty pair of braces signifying
 that we are using the standard settings. This will produce the following
 image:
 
-![Potato segment](_static/lesson1/image2.jpeg)
+![Potato segment](_static/lesson1/image2.png)
 
 The AnyDrawSeg always represents segments as ellipsoids with axis ratios
 corresponding to the inertia properties. But the AnyDrawSeg class has
 multiple settings that can be used to control the appearence of the
 segment:
 
-![Drawobjects](_static/lesson1/image3.jpeg)
+![Drawobjects](_static/lesson1/image3.png)
 
 Please refer to the reference manual for further explanation. The
 {doc}`Getting Started with AnyScript <../A_Getting_started_anyscript/intro>` tutorial

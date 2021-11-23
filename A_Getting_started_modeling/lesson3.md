@@ -91,10 +91,12 @@ Then you can see the following structure inside:
 ```AnyScriptDoc
 AnyFolder Joints =
 {
+
 };
 
 AnyFolder Drivers =
 {
+
 };
 ```
 
@@ -142,18 +144,19 @@ by double-clicking the following line, and make the changes show in red:
 
 ```AnyScriptDoc
 ...
-#path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+#include "Model\Mannequin.any"
 ...
 ```
 
 ```AnyScriptDoc
-AnyFolder Mannequin = {
+HumanModel.Mannequin = {
+  
+  Posture = {
+    //This controls the position of the pelvi wrt. to the global reference frame
+    PelvisPosX=§-0.7§;
+    PelvisPosY=§0.5§;
+    PelvisPosZ=0;
 
-  AnyFolder Posture = {
-    //This controls the position of the pelvis wrt. to the global reference frame
-    AnyVar PelvisPosX = §-0.7§;
-    AnyVar PelvisPosY = §0.5§;
-    AnyVar PelvisPosZ = 0;
 ...
 ```
 
@@ -163,31 +166,32 @@ in the leg so that the foot is closer to the pedal. This can be done further dow
 in the Mannequin file:
 
 ```AnyScriptDoc
-    AnyFolder Right = {
-      //Arm
-      AnyVar SternoClavicularProtraction=-23;   //This value is not used for initial position
-      AnyVar SternoClavicularElevation=11.5;    //This value is not used for initial position
-      AnyVar SternoClavicularAxialRotation=-20; //This value is not used for initial position
-
-      AnyVar GlenohumeralFlexion =-0;
-      AnyVar GlenohumeralAbduction = 10;
-      AnyVar GlenohumeralExternalRotation = 0;
-
-      AnyVar ElbowFlexion = 0.01;
-      AnyVar ElbowPronation = -20.0;
-
-      AnyVar WristFlexion =0;
-      AnyVar WristAbduction =0;
-
+    Right = {
+      //Arm 
+      SternoClavicularProtraction=-23;   //This value is not used for initial position
+      SternoClavicularElevation=11.5;    //This value is not used for initial position
+      SternoClavicularAxialRotation=-20; ///< Only used when the clavicular axial rotation rhythm is diabled
+      
+      GlenohumeralFlexion =-0; 
+      GlenohumeralAbduction = 10; 
+      GlenohumeralExternalRotation = 0; 
+      
+      ElbowFlexion = 0.01; 
+      ElbowPronation = -20.0;
+      
+      WristFlexion =0;
+      WristAbduction =0;
+            
       //Leg
-      AnyVar HipFlexion = §110.0§;
-      AnyVar HipAbduction = 5.0;
-      AnyVar HipExternalRotation = 0.0;
+      HipFlexion = §110.0§; 
+      HipAbduction = 5.0; 
+      HipExternalRotation = 0.0;
+      
+      KneeFlexion = §100.0§;
+      
+      AnklePlantarFlexion =0.0; 
+      SubTalarEversion =0.0; 
 
-      AnyVar KneeFlexion = §100.0§;
-
-      AnyVar AnklePlantarFlexion =0.0;
-      AnyVar SubTalarEversion =0.0;
 ...
 ```
 
@@ -227,7 +231,7 @@ AnyFolder Drivers =
 };
 ```
 
-Insert a"PelvisThoraxDriver" into the Drivers folder, created using the `AnyKinEqSimpleDriver` class.
+Insert a "PelvisThoraxDriver" into the Drivers folder, created using the `AnyKinEqSimpleDriver` class.
 You already know how to create model objects from scratch by using the
 the "Class Inserter" ({ref}`described here <class-inserter>`). More details on properties
 such as DriverPos, DriverVel etc. can be ({ref}`found here <anykineqsimpledriver>`) :
@@ -237,9 +241,9 @@ AnyFolder Drivers =
 {
   §AnyKinEqSimpleDriver PelvisThoraxDriver =
   {
-    AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxExtension;
-    AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxLateralBending;
-    AnyKinMeasure& ref2 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxRotation;
+    AnyKinMeasure& ref0 = ....HumanModel.BodyModel.Interface.Trunk.PelvisThoraxExtension;
+    AnyKinMeasure& ref1 = ....HumanModel.BodyModel.Interface.Trunk.PelvisThoraxLateralBending;
+    AnyKinMeasure& ref2 = ....HumanModel.BodyModel.Interface.Trunk.PelvisThoraxRotation;
 
     DriverPos = pi/180*{0,0,0};
     DriverVel = pi/180*{0,0,0};
@@ -257,9 +261,9 @@ AnyFolder Drivers =
 {
   AnyKinEqSimpleDriver PelvisThoraxDriver =
   {
-    AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxExtension;
-    AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxLateralBending;
-    AnyKinMeasure& ref2 = ...HumanModel.BodyModel.Interface.Trunk.PelvisThoraxRotation;
+    AnyKinMeasure& ref0 = ....HumanModel.BodyModel.Interface.Trunk.PelvisThoraxExtension;
+    AnyKinMeasure& ref1 = ....HumanModel.BodyModel.Interface.Trunk.PelvisThoraxLateralBending;
+    AnyKinMeasure& ref2 = ....HumanModel.BodyModel.Interface.Trunk.PelvisThoraxRotation;
 
     DriverPos = pi/180*{0,0,0};
     DriverVel = pi/180*{0,0,0};
@@ -268,9 +272,9 @@ AnyFolder Drivers =
 
   §AnyKinEqSimpleDriver SkullThoraxDriver =
   {
-    AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxFlexion;
-    AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxLateralBending;
-    AnyKinMeasure& ref2 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxRotation;
+    AnyKinMeasure& ref0 = ....HumanModel.BodyModel.Interface.Trunk.SkullThoraxFlexion;
+    AnyKinMeasure& ref1 = ....HumanModel.BodyModel.Interface.Trunk.SkullThoraxLateralBending;
+    AnyKinMeasure& ref2 = ....HumanModel.BodyModel.Interface.Trunk.SkullThoraxRotation;
 
     DriverPos = pi/180*{0,0,0};
     DriverVel = pi/180*{0,0,0};
@@ -312,9 +316,9 @@ AnyFolder Drivers =
 ...
   AnyKinEqSimpleDriver SkullThoraxDriver =
   {
-    AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxFlexion;
-    AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxLateralBending;
-    AnyKinMeasure& ref2 = ...HumanModel.BodyModel.Interface.Trunk.SkullThoraxRotation;
+    AnyKinMeasure& ref0 = ....HumanModel.BodyModel.Interface.Trunk.SkullThoraxFlexion;
+    AnyKinMeasure& ref1 = ....HumanModel.BodyModel.Interface.Trunk.SkullThoraxLateralBending;
+    AnyKinMeasure& ref2 = ....HumanModel.BodyModel.Interface.Trunk.SkullThoraxRotation;
 
     DriverPos = pi/180*{0,0,0};
     DriverVel = pi/180*{0,0,0};
@@ -322,8 +326,8 @@ AnyFolder Drivers =
 
   §AnyKinEqSimpleDriver AnkleDriver =
   {
-    AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Right.AnklePlantarFlexion;
-    AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Right.SubTalarEversion;
+    AnyKinMeasure& ref0 = ....HumanModel.BodyModel.Interface.Right.AnklePlantarFlexion;
+    AnyKinMeasure& ref1 = ....HumanModel.BodyModel.Interface.Right.SubTalarEversion;
 
     DriverPos = pi/180*{0, 0};
     DriverVel = pi/180*{0, 0};
@@ -348,8 +352,8 @@ AnyFolder Drivers =
 ...
   AnyKinEqSimpleDriver AnkleDriver =
   {
-    AnyKinMeasure& ref0 = ...HumanModel.BodyModel.Interface.Right.AnklePlantarFlexion;
-    AnyKinMeasure& ref1 = ...HumanModel.BodyModel.Interface.Right.SubTalarEversion;
+    AnyKinMeasure& ref0 = ....HumanModel.BodyModel.Interface.Right.AnklePlantarFlexion;
+    AnyKinMeasure& ref1 = ....HumanModel.BodyModel.Interface.Right.SubTalarEversion;
 
     DriverPos = pi/180*{0, 0};
     DriverVel = pi/180*{0, 0};
@@ -437,7 +441,7 @@ Then you see the Object Description dialog will open.
 ![ObjectDescription DOFs](_static/lesson3/image5.png)
 
 **This indicates that the total number of DOFs(degrees of freedom) in your
-model is 132. It makes sense because there are 21 segments in your model
+model is 132. It makes sense because there are 22 segments in your model
 and each segment has 6 DOFs.**
 
 If you scroll down this dialog a little bit more, then you can see the

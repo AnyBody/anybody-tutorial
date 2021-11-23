@@ -14,7 +14,7 @@ freedom in space: 3 translations and 3 rotations. So two disjoint
 segments give us 12 degrees of freedom. If we connect them by a ball and
 socket joint, then we eliminate 3 degrees of freedom because they can no
 longer translate freely with respect to each other, and we are left with
-a mechanism with 12 - 3 = 9 degrees of freedom. AnyBody will keep rack
+a mechanism with 12 - 3 = 9 degrees of freedom. AnyBody will keep track
 of all this for you, but it makes things much easier to understand if
 you get used to thinking of joints as constraints.
 
@@ -41,7 +41,7 @@ You can read much more about this subject in the tutorial {doc}`A study of Studi
 AnyBody provides you with a variety of ways you can connect segments by
 joints. The class tree reveals the following joint class structure:
 
-![Class tree joints](_static/lesson2/image1.gif)
+![Class tree joints](_static/lesson2/image1.png)
 
 The different types are described in detail in the AnyScript Reference
 manual (Find it in AnyBody->Help). For examples on how to use joints,

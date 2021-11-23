@@ -8,7 +8,7 @@ or some other kinematic measure at any given time through the simulation
 period.
 
 There are various drivers available to create different types of time
-dependency. For a demonstration of the different types, please {download}`downloadand study the Driver demo <Downloads/Demo.Drivers.any>`.
+dependency. For a demonstration of the different types, please {download}`download and study the Driver demo <Downloads/Demo.Drivers.any>`.
 
 :::{rst-class} without-title
 :::

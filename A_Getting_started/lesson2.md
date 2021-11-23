@@ -58,32 +58,31 @@ and "Left" sub-folders are as follows.
 
 ```AnyScriptDoc
 ...
-AnyFolder Right = {
-
-    //Arm
-    AnyVar SternoClavicularProtraction=-23; //This value is not used for initial position
-    AnyVar SternoClavicularElevation=11.5; //This value is not used for initial position
-    AnyVar SternoClavicularAxialRotation=-20; //This value is not used for initial position
-
-    AnyVar GlenohumeralFlexion =-0;
-    AnyVar GlenohumeralAbduction = 10;
-    AnyVar GlenohumeralExternalRotation = 0;
-
-    AnyVar ElbowFlexion = 0.01;
-    AnyVar ElbowPronation = -20.0;
-
-    AnyVar WristFlexion =0;
-    AnyVar WristAbduction =0;
-
+Right = {
+    //Arm 
+    SternoClavicularProtraction=-23;   //This value is not used for initial position
+    SternoClavicularElevation=11.5;    //This value is not used for initial position
+    SternoClavicularAxialRotation=-20; ///< Only used when the clavicular axial rotation rhythm is diabled
+      
+    GlenohumeralFlexion =-0; 
+    GlenohumeralAbduction = 4; 
+    GlenohumeralExternalRotation = 2; 
+      
+    ElbowFlexion = 0.01; 
+    ElbowPronation = -20.0;
+      
+    WristFlexion =0;
+    WristAbduction =0;
+            
     //Leg
-    AnyVar HipFlexion = 0.0;
-    AnyVar HipAbduction = 5.0;
-    AnyVar HipExternalRotation = 0.0;
-
-    AnyVar KneeFlexion = 0.0;
-
-    AnyVar AnklePlantarFlexion =0.0;
-    AnyVar SubTalarEversion =0.0;
+    HipFlexion = 0.0; 
+    HipAbduction = 5.0; 
+    HipExternalRotation = 0.0;
+      
+    KneeFlexion = 4.0;
+      
+    AnklePlantarFlexion =0.0; 
+    SubTalarEversion =0.0; 
 
 ...
 ```
