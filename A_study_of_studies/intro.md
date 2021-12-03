@@ -249,7 +249,7 @@ functionality in an AnyBodyStudy.
 
 We need a model with a bit more substance than the template we created
 above. If you do not already have our trusted arm model stored
-somewhere, {download}`please download it here <Downloads/arm2d.any>`, save it to your disk, and load it
+somewhere, {download}`please download it here <Downloads/arm2d.zip>`, save it to your disk, and load it
 into AnyBody.
 
 :::{rst-class} without-title

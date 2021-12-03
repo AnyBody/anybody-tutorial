@@ -2,7 +2,7 @@
 
 In this lesson we are presuming that you have the arm2d.any file loaded
 into AnyBody. If you do not have the model on file, please download and
-save a copy from this link: {download}`arm2d.any <Downloads/arm2d.any>`. It should look like this when
+save a copy from this link: {download}`arm2d.any <Downloads/arm2d.zip>`. It should look like this when
 you have loaded the model, run InitialConditions operation, and opened a
 Model View:
 
