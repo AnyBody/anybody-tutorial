@@ -47,7 +47,7 @@ specific functions, which depend on the pre-preprogrammed object templates** (`A
 organizational folder for containing the entire model you are going to
 build. Let us change the folder name "MyModel" to "ArmModel".
 
-The object named "MyStudy" (of type `AnyBodyStudy`) is a collection of
+The object named `MyStudy` (of type `AnyBodyStudy`) is a collection of
 simulation tasks that you want to perform with your model. The {doc}`Study of Studies <../A_study_of_studies/intro>` tutorial
 contains much more information on simulation studies.
 
