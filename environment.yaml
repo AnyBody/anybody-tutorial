@@ -4,6 +4,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
+  - pip
   - sphinx
   - myst-parser
   - linkify-it-py
@@ -11,3 +12,6 @@ dependencies:
   - cloud_sptheme
   - pygments_anyscript
   - ipython
+  - jinja2=3.0.3
+  - pip:
+    - sphinxext-opengraph

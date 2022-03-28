@@ -89,6 +89,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     # 'sphinx.ext.autosectionlabel'
     "myst_parser",
+    "sphinxext.opengraph",
 ]
 
 myst_enable_extensions = [
@@ -386,6 +387,16 @@ else:
         intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/beta/", None)
     else:
         intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/", None)
+
+
+# -- Options for OpenGraph Ext. ----------------------------------------------
+# settings to control how the OpenGraph extension generates meta tags
+ogp_site_url = "https://anyscript.org/"
+ogp_site_name = "AnyScript Tutorials"
+ogp_image = "https://anyscript.org/tutorials/_static/anybody_tutorials_logo.png"
+ogp_use_first_image = True # if not found defaults to 'ogp_image'
+
+
 
 
 def setup(app):
