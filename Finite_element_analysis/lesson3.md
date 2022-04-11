@@ -13,8 +13,7 @@ boundary conditions to a FE Models generated for Abaqus.
 Below you see the flowchart from the introduction of this tutorial
 extended with a converter step that converts the AnyFE output file to a
 format readable by Abaqus. This step is carried out by a small tool,
-called AnyFE2Abaqus.exe, which is available at
-<http://www.anybodytech.com/download.html?did=FEtools.overview>.
+called AnyFE2Abaqus.exe, which is available at [AnyBody Technology webpage](https://www.anybodytech.com/resources/customer-downloads#fe-interface-tools).
 
 The model we will have a look at is a model of the claviclebone. We will
 analyze the muscle forces acting on the clavicle during lifting an arm
@@ -190,8 +189,8 @@ steps in one xml file.
 
 We are now ready to execute the AnyFE converter and transform the
 generic AnyFE XML file to an Abaqus readable INP file. The AneFE
-converter tool is available at
-<http://www.anybodytech.com/download.html?did=FEtools.overview>. Unpack
+converter tool is available at 
+the [AnyBody Technology webpage](https://www.anybodytech.com/resources/customer-downloads#fe-interface-tools). Unpack
 the files in your model folder. These files include the AnyFE converter,
 which is an executable called AnyFE2Abq.exe. It can convert the xml code
 to Abaqus keyword sequence and combine it with the FE model.

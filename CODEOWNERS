@@ -5,7 +5,7 @@
 /A_Getting_started/* @Kristofferiversen
 /A_Getting_started_anyscript/* @Kristofferiversen 
 /A_Getting_started_modeling/* @Kristofferiversen
-/Posture_and_movement/* @cdzialo
+/Posture_and_movement/* @bkje14
 
 
 /A_study_of_studies/* @melund
@@ -22,23 +22,23 @@
 
 
 
-/Muscle_modeling/* @cdzialo 
+/Muscle_modeling/* @bkje14 
 /Parameter_studies_and_optimization/* @melund
 
 
-/ForceDependentKinematics/* @cdzialo
-/AnyExp4SOLIDWORKS/* @cdzialo
+/ForceDependentKinematics/* @toerholm
+/AnyExp4SOLIDWORKS/* @divyaksh-chander
 
 
 /Finite_element_analysis/* @pgalibarov
 /Scaling/* @pgalibarov
 
 # GUI
-/Interface_features/intro.rst @rolesen
+/Interface_features/intro.rst @JDThomsen
 # Editor
-/Interface_features/lesson1.rst @rolesen
+/Interface_features/lesson1.rst @JDThomsen
 # Model tree
-/Interface_features/lesson4.rst @rolesen
+/Interface_features/lesson4.rst @JDThomsen
 
 # Model view window
 /Interface_features/lesson2.rst @JDThomsen

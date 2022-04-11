@@ -81,7 +81,7 @@ problem. We are going to take a deductive approach because it is
 necessary for a reasonable understanding of the physiological
 assumptions behind the entire field of muscle recruitment. More on this
 topic can be found in the recorded previous [webcast on “Features of
-muscle recruitment algorithms“](https://www.anybodytech.com/anybody.html?fwd=webcasts#2009625).
+muscle recruitment algorithms“](https://www.anybodytech.com/features-of-muscle-recruitment-algorithms/).
 
 :::{rst-class} without-title
 :::
