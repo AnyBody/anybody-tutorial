@@ -23,7 +23,7 @@ You can think of joints in two different ways:
 two independent segments in AnyBody, they will have 2 x 6 = 12 degrees of freedom
 in total.
 
-Joints in AnyBody take away (or constrain) some of these degrees of freedom with the different joint types (eg. revolute, spherical etc.)
+Joints in AnyBody take away (or constrain) some of these degrees of freedom with the different joint types (e.g. revolute, spherical, prismatic etc.)
 differing only in the number and type of degrees of freedom they constrain.
 
 ## The global reference frame
