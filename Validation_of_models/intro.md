@@ -19,7 +19,7 @@ More precisely, you can expect to find the following in this tutorial:
 2. Examples of models that have been validated previously.
 
 Several [previous
-webcasts](https://www.anybodytech.com/anybody.html?fwd=webcasts) have
+webcasts](https://www.anybodytech.com/resources/webcasts/) have
 presented validation studies and results, the most recent one was
 “Seated Human Model Validation”.
 
@@ -50,7 +50,7 @@ of the population?
 ### Model Data Uncertainties
 
 In general, the models in the [AnyScript Managed Model
-Repository](http://www.anybodytech.com/anybody.html?fwd=modelrepository)
+Repository](https://www.anybodytech.com/software/ammr/)
 are based on data reported in the literature. They often come from
 studies of one or few subjects or cadavers, and the data has little or
 no statistical significance. You will find the references of the data
@@ -155,7 +155,7 @@ AnyBody Modeling System. However, in terms of muscle recruitment, the
 validity of the software was validated independently in 2004 in a Ph.D.
 thesis by Erik Forster from the University of Ulm, Germany. The thesis
 is available from the list of [publications in the AnyScript
-Forum](https://www.anybodytech.com/anybody.html?fwd=publications).
+Forum](https://www.anybodytech.com/resources/anybodypublications/).
 The basic idea was to program an independent special-purpose application
 for gait simulation and then compare it to an identical gait model in
 AnyBody. If the results were identical, it would prove the correctness

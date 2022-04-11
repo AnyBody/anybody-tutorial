@@ -322,7 +322,7 @@ details.
 **The model you've built here was anatomically simplified, and it can be a
 difficult job to define a realistic body model from scratch. We recommend that users
 start out with the body models available in the** [AnyBody Managed Model
-Repository](http://www.anybodytech.com/anybody.html?fwd=modelrepository).
+Repository](https://www.anybodytech.com/software/ammr/).
 
 :::{rst-class} without-title
 :::

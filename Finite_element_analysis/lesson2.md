@@ -10,8 +10,8 @@ conditions to a Finite Element Model generated in ANSYS. This is current
 work in progress; we assume the workflow will be even smoother in the
 future. You need an additional add-on to the AnyBody Modeling System to
 run this tutorial. This is needed to convert the AnyBody output to ANSYS
-APDL code. Please get it from
-<http://www.anybodytech.com/download.html?did=FEtools.overview>.
+APDL code. Please get it from the 
+[AnyBody Technology webpage](https://www.anybodytech.com/resources/customer-downloads#fe-interface-tools).
 
 The model we will have a look at is a clavicle midshaft fracture. We
 will analyze the muscle forces acting on the clavicle during lifting his
@@ -179,9 +179,9 @@ This class will write all the muscle and joint forces for all time steps
 in one xml file. Please create a folder names `files_in` in your
 Application folder. We need one more step to convert the xml file to
 ANSYS APDL language. An additional add-on to the AnyBody Modeling System
-is necessary to do so. This tool is available at
-<http://www.anybodytech.com/download.html?did=FEtools.overview>. Save the
-files in your model folder. In these files, an executable is included
+is necessary to do so. This tool is available at the 
+[AnyBody Technology webpage](https://www.anybodytech.com/resources/customer-downloads#fe-interface-tools).
+Save the files in your model folder. In these files, an executable is included
 that will translate the xml code to APDL and a template for the APDL
 specification. You can call this code either by a shell prompt or from
 inside AnyBody. You can use the class AnyOperationShellExec for this.

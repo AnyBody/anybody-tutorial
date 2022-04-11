@@ -18,8 +18,7 @@ With the AnyBody Modeling System you already have a repository of models
 available, for details please see the AnyBody Assistant available from
 the menu. This tutorial has been written using the AnyBody Managed Model
 Repository Ver. 1.6 (AMMRV1.6) if you see differences between the
-tutorial text and your own results please download AMMRV1.6 from
-[www.anybodytech.com/anybody.html?fwd=modelrepository](http://www.anybodytech.com/anybody.html?fwd=modelrepository)
+tutorial text and your own results please [report or help fix it here] ](https://www.github.com/anybody/anybody-tutorial)
 
 The starting point for this tutorial is the model:
 
@@ -221,7 +220,7 @@ detailed analysis. But of course you are free to import your own .stl
 file into the AnyBody Modeling System to substitute existing bones.
 You will have to tweak your CAD file a bit in order to make it fit.
 [Donation of better quality CAD files of bones to the models is most
-welcome.](mailto:anybody@anybodytech.com)
+welcome.](mailto:support@anybodytech.com)
 
 Based on the exported forces and `.stl` file we can now build and analyze
 a FE model. Below we shall build an FE model applying the loads and
