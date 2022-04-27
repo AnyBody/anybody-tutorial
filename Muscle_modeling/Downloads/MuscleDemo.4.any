@@ -49,7 +49,7 @@ AnySeg Arm = {
     {
       F0 = 100;
     };
-    AnyViaPointMuscle Muscle = 
+    AnyMuscleViaPoint Muscle = 
     {
       AnyMuscleModel &Model = .SimpleModel;
       AnyRefFrame &Orig = .GlobalRef.M1Origin;

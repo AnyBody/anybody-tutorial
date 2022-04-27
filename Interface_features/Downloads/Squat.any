@@ -284,7 +284,7 @@ Main = {
     // Definitions of leg muscles    
     AnyFolder LegMuscles = {
       
-      AnyViaPointMuscle Ham = {
+      AnyMuscleViaPoint Ham = {
         AnyMuscleModel &MusMdl = ..MuscleParametersLeg.HamMdl;
         AnyRefNode &Ins = ..SegmentsLegRight.ShankSeg.HamNodeR;
         AnyRefNode &Via1 = ..SegmentsLegRight.ThighSeg.HamsViaNode1R;
@@ -294,7 +294,7 @@ Main = {
         };
       };
       
-      AnyViaPointMuscle BiFemSh = {
+      AnyMuscleViaPoint BiFemSh = {
         AnyMuscleModel &MusMdl = ..MuscleParametersLeg.BiFemShMdl;
         AnyRefNode &Ins = ..SegmentsLegRight.ShankSeg.BiFemShNodeR;
         AnyRefNode &Org = ..SegmentsLegRight.ThighSeg.BiFemShNodeR;
@@ -303,7 +303,7 @@ Main = {
         };
       };
       
-      AnyViaPointMuscle GlutMax = {
+      AnyMuscleViaPoint GlutMax = {
         AnyMuscleModel &MusMdl = ..MuscleParametersLeg.GlutMaxMdl;
         AnyRefNode &Ins = ..SegmentsLegRight.ThighSeg.GlutMaxNodeR;
         AnyRefNode &Via3 = ..SegmentsLegRight.ThighSeg.GlutMaxViaNode2R;
@@ -315,7 +315,7 @@ Main = {
         };
       };
       
-      AnyViaPointMuscle RectFem = {
+      AnyMuscleViaPoint RectFem = {
         AnyMuscleModel &MusMdl = ..MuscleParametersLeg.RectFemMdl;
         AnyRefNode &Ins = ..SegmentsLegRight.ShankSeg.Rect_FemNodeR;
         AnyRefNode &Via2 = ..SegmentsLegRight.ThighSeg.Rect_FemViaNode2R;
@@ -325,7 +325,7 @@ Main = {
         };
       };
       
-      AnyViaPointMuscle Vasti = {
+      AnyMuscleViaPoint Vasti = {
         AnyMuscleModel &MusMdl = ..MuscleParametersLeg.VastiMdl;
         AnyRefNode &Ins = ..SegmentsLegRight.ShankSeg.VastiNodeR;
         AnyRefNode &Via2 = ..SegmentsLegRight.ThighSeg.VastiViaNode2R; //In SIMM one can define in which range this ViaPoint is working, which is not possible in AnyBody   
@@ -336,7 +336,7 @@ Main = {
         };
       };
       
-      AnyViaPointMuscle Gas = {
+      AnyMuscleViaPoint Gas = {
         AnyMuscleModel &MusMdl = ..MuscleParametersLeg.GasMdl;
         AnyRefNode &Ins = ..SegmentsLegRight.FootSeg.GasNodeR;
         AnyRefNode &Via2 = ..SegmentsLegRight.ShankSeg.GasViaNode2R;
@@ -347,7 +347,7 @@ Main = {
         };
       };
       
-      AnyViaPointMuscle Sol = {
+      AnyMuscleViaPoint Sol = {
         AnyMuscleModel &MusMdl = ..MuscleParametersLeg.SolMdl;
         AnyRefNode &Ins = ..SegmentsLegRight.FootSeg.SolNodeR;
         AnyRefNode &Org = ..SegmentsLegRight.ShankSeg.SolNodeR;
@@ -356,7 +356,7 @@ Main = {
         };
       };
       
-      AnyViaPointMuscle TibAnt = {
+      AnyMuscleViaPoint TibAnt = {
         AnyMuscleModel &MusMdl = ..MuscleParametersLeg.TibAntMdl;
         AnyRefNode &Ins = ..SegmentsLegRight.FootSeg.Tib_AntNodeR;
         AnyRefNode &Via1 = ..SegmentsLegRight.ShankSeg.Tib_AntViaNode1R;
@@ -376,37 +376,37 @@ Main = {
         F0 = 100000;
       };
       
-      AnyViaPointMuscle ArtificialFront = {
+      AnyMuscleViaPoint ArtificialFront = {
         AnyMuscleModel &MusMdl = .Artificial;
         AnyRefNode &Ins = Main.ShrineLegModel.GlobalRef.musclefront;
         AnyRefNode &Org = ..SegmentsLegRight.FootSeg.ArtificialMuscleNode;
       };
       
-      AnyViaPointMuscle ArtificialBack = {
+      AnyMuscleViaPoint ArtificialBack = {
         AnyMuscleModel &MusMdl = .Artificial;
         AnyRefNode &Ins = Main.ShrineLegModel.GlobalRef.muscleback;
         AnyRefNode &Org = ..SegmentsLegRight.FootSeg.ArtificialMuscleNode;
       };
       
-      AnyViaPointMuscle ArtificialShoulder1 = {
+      AnyMuscleViaPoint ArtificialShoulder1 = {
         AnyMuscleModel &MusMdl = .Artificial;
         AnyRefNode &Ins = ..SegmentsTrunk.ArmSeg.MusNode1;
         AnyRefNode &Org = ..SegmentsTrunk.HATSeg.MusNode;
       };
       
-      AnyViaPointMuscle ArtificialShoulder2 = {
+      AnyMuscleViaPoint ArtificialShoulder2 = {
         AnyMuscleModel &MusMdl = .Artificial;
         AnyRefNode &Ins = ..SegmentsTrunk.ArmSeg.MusNode2;
         AnyRefNode &Org = ..SegmentsTrunk.HATSeg.MusNode;
       };
       
-      AnyViaPointMuscle ArtificialHip1 = {
+      AnyMuscleViaPoint ArtificialHip1 = {
         AnyMuscleModel &MusMdl = .Artificial;
         AnyRefNode &Ins = ..SegmentsTrunk.PelvisSeg.MusNode1;
         AnyRefNode &Org = ..SegmentsTrunk.HATSeg.MusNode1;
       };
       
-      AnyViaPointMuscle ArtificialHip2 = {
+      AnyMuscleViaPoint ArtificialHip2 = {
         AnyMuscleModel &MusMdl = .Artificial;
         AnyRefNode &Ins = ..SegmentsTrunk.PelvisSeg.MusNode2;
         AnyRefNode &Org = ..SegmentsTrunk.HATSeg.MusNode2;

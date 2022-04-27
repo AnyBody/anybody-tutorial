@@ -52,7 +52,7 @@ Main = {
     };
     
     
-    AnyViaPointMuscle M1 = {
+    AnyMuscleViaPoint M1 = {
       AnyMuscleModel Model = {
         F0 = 100;
       };

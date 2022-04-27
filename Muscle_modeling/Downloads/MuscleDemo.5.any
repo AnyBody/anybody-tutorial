@@ -70,7 +70,7 @@ Main = {
       F0 = 100;
     };
     
-    AnyShortestPathMuscle Muscle1 = {
+    AnyMuscleShortestPath Muscle1 = {
       AnyMuscleModel &Model = .SimpleModel;
       AnyRefFrame &Orig = .GlobalRef.M1Origin;
       AnyRefFrame &Via = .Arm.ViaPoint;
@@ -84,7 +84,7 @@ Main = {
       };
     };
       
-    AnyShortestPathMuscle Muscle2 = {
+    AnyMuscleShortestPath Muscle2 = {
       AnyMuscleModel &Model = .SimpleModel;
       AnyRefFrame &Orig = .GlobalRef.M2Origin;
       AnySurface &srf = .GlobalRef.CylCenter.WrapSurf;

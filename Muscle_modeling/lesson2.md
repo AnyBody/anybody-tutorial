@@ -23,7 +23,7 @@ Erase the previous AnyDrawMuscle, right-click the AnyDrawMuscle in the
 tree view, and insert an instance:
 
 ```AnyScriptDoc
-AnyViaPointMuscle Muscle1 = {
+AnyMuscleViaPoint Muscle1 = {
   AnyMuscleModel &Model = .SimpleModel;
   AnyRefFrame &Orig = .GlobalRef.M1Origin;
   AnyRefFrame &Ins = .Arm.M1Insertion;

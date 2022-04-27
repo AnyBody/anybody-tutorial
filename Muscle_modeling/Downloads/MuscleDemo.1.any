@@ -47,7 +47,7 @@ Main = {
       F0 = 100;
     };
     
-    AnyViaPointMuscle Muscle1 = {
+    AnyMuscleViaPoint Muscle1 = {
       AnyMuscleModel &Model = .SimpleModel;
       AnyRefFrame &Orig = .GlobalRef.M1Origin;
       AnyRefFrame &Ins = .Arm.M1Insertion;

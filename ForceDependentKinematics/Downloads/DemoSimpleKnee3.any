@@ -161,7 +161,7 @@ Main = {
     };
     
     // Muscle
-    AnyShortestPathMuscle Quadriceps = {
+    AnyMuscleShortestPath Quadriceps = {
       AnyMuscleModel MuscleModel = {
         F0 = 6000;
       };

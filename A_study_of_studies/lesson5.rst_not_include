@@ -98,7 +98,7 @@ be changed:
 .. code-block:: AnyScriptDoc
 
      //---------------------------------
-     AnyViaPointMuscle BicepsLong = {
+     AnyMuscleViaPoint BicepsLong = {
      §AnyMuscleModel &MusMdl = .BicepsLongModel;§
      AnyRefNode &Org = Main.ArmModel.GlobalRef.BicepsLong;
      AnyRefNode &Ins = ..Segs.LowerArm.Biceps;
@@ -387,7 +387,7 @@ another position.
 
 .. code-block:: AnyScriptDoc
 
-    AnyViaPointMuscle TricepsLong = {
+    AnyMuscleViaPoint TricepsLong = {
         §AnyMuscleModel &MusMdl = .TricepsLongModel;§
         AnyRefNode &Org = ..GlobalRef.TricpesLong;
         AnyRefNode &Ins = ..Segs.ForeArmArm.Tricpes;
@@ -442,7 +442,7 @@ we simply make a new study that looks like this:
          AnyFixedRefFrame &GlobalRef = Main.ArmModel.GlobalRef;
          AnyFolder &Segs = Main.ArmModel.Segs;
          AnyFolder &Jnts = Main.ArmModel.Jnts;
-         AnyViaPointMuscle &TricepsLong = Main.ArmModel.Muscles.TricepsLong;
+         AnyMuscleViaPoint &TricepsLong = Main.ArmModel.Muscles.TricepsLong;
          AnyFolder& Drivers = Main.TricepsCalibrationDrivers;
          nStep = 1;
    }; // End of study§

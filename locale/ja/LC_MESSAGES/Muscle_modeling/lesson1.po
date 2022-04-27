@@ -163,12 +163,12 @@ msgstr ""
 #: ../../Muscle_modeling/lesson1.rst:182
 msgid ""
 "Place the cursor right after the end brace of the musle model, right-"
-"click the AnyViaPointMuscle class in the tree, and insert an instance of "
+"click the AnyMuscleViaPoint class in the tree, and insert an instance of "
 "it:"
 msgstr ""
 
 #: ../../Muscle_modeling/lesson1.rst:186
-msgid "|class tree AnyViaPointMuscle|"
+msgid "|class tree AnyMuscleViaPoint|"
 msgstr ""
 
 #: ../../Muscle_modeling/lesson1.rst:206

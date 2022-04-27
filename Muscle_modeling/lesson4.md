@@ -12,7 +12,7 @@ A wrapping muscle is presumed to have an origin and an insertion just
 like the via point muscle. However, instead of interior via points it
 passes a set of surfaces. If the surfaces are blocking the way then the
 muscles finds the shortest geodetic path around the surface. For that reason, the
-name of the class is AnyShortestPathMuscle. The fact that the muscle
+name of the class is AnyMuscleShortestPath. The fact that the muscle
 always uses the shortest path means that it slides effortlessly on the
 surfaces, and hence there is no friction between the muscle and the
 surface.
@@ -170,7 +170,7 @@ easiest way to do it is to make a copy of the via point muscle, Muscle1,
 and then make the necessary changes:
 
 ```AnyScriptDoc
-  AnyViaPointMuscle Muscle1 = {
+  AnyMuscleViaPoint Muscle1 = {
     AnyMuscleModel &Model = .SimpleModel;
     AnyRefFrame &Orig = .GlobalRef.M1Origin;
     AnyRefFrame &Via = .Arm.ViaPoint;
@@ -186,7 +186,7 @@ and then make the necessary changes:
     };
   };
 
-§AnyShortestPathMuscle Muscle2 = {
+§AnyMuscleShortestPath Muscle2 = {
     AnyMuscleModel &Model = .SimpleModel;
     AnyRefFrame &Orig = .GlobalRef.M2Origin;
     AnySurface &srf = .GlobalRef.CylCenter.WrapSurf;
@@ -262,7 +262,7 @@ Any§ShortestPath§Muscle Muscle1 = {
 ```
 
 The definition of the two muscle types is very similar, so we only had
-to change the type from AnyViaPointMuscle to AnyShortestPathMuscle and
+to change the type from AnyMuscleViaPoint to AnyMuscleShortestPath and
 insert the wrapping surface and the StringMesh specification. This gives
 us the following result:
 
@@ -307,7 +307,7 @@ through. You can specify as many of these points as you like. In the
 example below we have used two:
 
 ```AnyScriptDoc
-AnyShortestPathMuscle Muscle2 = {
+AnyMuscleShortestPath Muscle2 = {
   AnyMuscleModel &Model = .SimpleModel;
   AnyRefFrame &Orig = .GlobalRef.M2Origin;
   AnySurface &srf = .GlobalRef.CylCenter.WrapSurf;

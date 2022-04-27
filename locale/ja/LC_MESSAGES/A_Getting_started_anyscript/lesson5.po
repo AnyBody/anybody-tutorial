@@ -96,7 +96,7 @@ msgstr ""
 #: ../../A_Getting_started_anyscript/lesson5.rst:83
 msgid ""
 "This is a definition of the elbow flexor, brachialis. The type of this "
-"muscle is AnyViaPointMuscle. It means that it goes from its origin to "
+"muscle is AnyMuscleViaPoint. It means that it goes from its origin to "
 "insertion via a number of predefined points. The via-points are the "
 "AnyRefNodes defined in the second and third property lines. If you have a"
 " muscle that goes in a straight line from origin to insertion, then you "

@@ -85,7 +85,7 @@ AnyFolder Muscles = {
   }; // End of BicepsLongModel§
 
   //---------------------------------
-  AnyViaPointMuscle Brachialis = {
+  AnyMuscleViaPoint Brachialis = {
 ```
 
 As you can see from the comments, the muscle has many parameters you
@@ -96,7 +96,7 @@ file, where the red line must be changed:
 
 ```AnyScriptDoc
 //---------------------------------
-AnyViaPointMuscle BicepsLong = {
+AnyMuscleViaPoint BicepsLong = {
   §AnyMuscleModel &MusMdl = .BicepsLongModel;§
   AnyRefNode &Org = ..GlobalRef.BicepsLong;
   AnyRefNode &Ins = ..Segs.ForeArm.Biceps;
