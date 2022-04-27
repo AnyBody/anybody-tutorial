@@ -266,8 +266,8 @@ And there we have it!
 We can now take advantage of the many different algorithms and settings available for {py:func}`scipy.optimize.minimize`.
 We could also use a different package or customize our own algorithm, constraints etc.
 
-The possibilities are practically endless. The full example from this tutorial can be
-\:download:\` downloaded here \<Downloads/python-optimize.zip>\`.
+The possibilities are practically endless. The full example from this tutorial can be 
+{download}`downloaded here <Downloads/python-optimize.zip>`.
 
 For more information regarding the `AnyPyTools` python package follow [this link.](https://anybody-research-group.github.io/anypytools-docs/)
 You can also check out this [webcast.](https://www.youtube.com/results?search_query=anybody+webcast+batch)
