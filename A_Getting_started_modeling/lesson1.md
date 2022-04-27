@@ -79,7 +79,8 @@ Double-clicking the following line:,:
 Opens up the “Environment.any” file which is created by the Human template.
 
 ```AnyScriptDoc
-AnyFolder Environment =
+//This is a place holder for the modeling of the environment.
+AnyFolder Environment = 
 {
 
 };
@@ -95,7 +96,8 @@ AnyFolder Environment =
 {
   §AnyFixedRefFrame GlobalRef =
   {
-   AnyDrawRefFrame drw={};
+   viewRefFrame.Visible=On;
+   viewRefFrame.ScaleXYZ = 0.5*{1,1,1};
   };§
 };
 ```
@@ -139,9 +141,11 @@ AnyFolder Environment =
 {
   AnyFixedRefFrame GlobalRef =
   {
-   AnyDrawRefFrame drw={};
+   viewRefFrame.Visible=On;
+   viewRefFrame.ScaleXYZ = 0.5*{1,1,1};
   };
   §AnySeg Pedal = {
+    viewInertia.Visible = On;
     Mass = 2;
     Jii = {0.05, 0.001, 0.05};
     AnyRefNode Hinge = {
@@ -150,7 +154,6 @@ AnyFolder Environment =
     AnyRefNode FootNode = {
       sRel = {0, 0.15, 0};
     };
-    AnyDrawSeg drw = {};
   };
   AnyRevoluteJoint HingeJoint = {
     Axis = z;

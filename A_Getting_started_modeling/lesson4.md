@@ -8,21 +8,23 @@ by step define the spring force and look at its effect on the leg.
 
 ## Generalized forces
 
-**When you say "a support torque applied to a joint", in AnyBody terms, you are saying -
-"A generalized force applied to a kinematic measure of the joint angle".**
+When you say "a support torque applied to a joint", in AnyBody terms, you are saying -
+"A generalized force applied to a kinematic measure of the joint angle".
 
 Similarly "a force applied to a segment along Y axis" becomes - "A generalized force
 applied to the Y component of a measure of the segment's position".
 
-**Since AnyBody speaks the language of generalized forces, we will simply call them "forces" henceforth. Physically speaking,
-this generalized force will manifest as a rotational torque or a linear force, depending on the type of measure it is applied to.**
+```{note} 
+Since AnyBody speaks the language of generalized forces, we will simply call them "forces" henceforth. Physically speaking,
+this generalized force will manifest as a rotational torque or a linear force, depending on the type of measure it is applied to.
+```
 
 You must create an `AnyForce` object in order to apply a generalized force to a measure.
 
 ## Include pedal spring force
 
 We will therefore create an `AnyForce` object, for applying the spring force.
-Since this is not a part of the human body, it is logical to place it in the Environment.any file. Here's what
+Since this is not a part of the human body, it is logical to place it in the `Environment.any` file. Here's what
 to add:
 
 ```AnyScriptDoc
@@ -43,7 +45,7 @@ The `AnyForce` object named "Spring" contains a reference to the "HingeJoint". S
 is a rotational measure, the force is actually a torque applied to the hinge.
 
 `F` is the actual generalized force vector, with each vector component corresponding to a
-component of the kinematic measure. `F` is proportional to "HingeJoint.Pos",
+component of the kinematic measure. `F` is proportional to `HingeJoint.Pos`,
 which is the hinge angle. Stiffness is initially set to 0.0 (Nm/rad), to investigate the effect of having
 no spring. The minus sign in the expression means that the spring will always oppose motions away from the neutral angle.
 
@@ -131,7 +133,7 @@ AnyFolder Model = {
 
     AnyFolder ModelEnvironmentConnection = {
       #include "Model\JointsAndDrivers.any"
-      §//#include "Model\Reactions.any"§
+      §//§#include "Model\Reactions.any"
     };
 };
 ...
@@ -141,10 +143,9 @@ AnyFolder Model = {
 
 There is one more thing we have to do: The human model has no muscles at
 the moment. This can be corrected by a simple change of BM statements in
-the main file:
+the `Model/BodyModelConfiguration.any` file:
 
 ```AnyScriptDoc
-//-->BM statements
 // Excluding the muscles in the trunk segments
 #define BM_TRUNK_MUSCLES §_MUSCLES_SIMPLE_§
 // Excluding the left arm segments
@@ -153,22 +154,19 @@ the main file:
 #define BM_ARM_RIGHT OFF
 // Excluding the left leg segments
 #define BM_LEG_LEFT OFF
-// Using the right leg as 'TLEM' model
-#define BM_LEG_RIGHT _LEG_MODEL_TLEM1_
 // Excluding the muscles in the right leg segments
 #define BM_LEG_MUSCLES_RIGHT §_MUSCLES_SIMPLE_§
-// Excluding the default drivers for the human model
+//Excluding the default drivers for the human model
 #define BM_MANNEQUIN_DRIVER_DEFAULT OFF
-//<--
 ```
 
 ## Investigating results
 
-Now, reload the model and run the "RunApplication" operation from the operations drop-down menu:
+Now, reload the model and run the `RunApplication` operation from the operations drop-down menu:
 
 ![InverseDynamics_End](_static/lesson4/image2.png)
 
-Plot “Main.Study.Output.Model.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope” (see {ref}`this for help <chart-view>`).
+Plot `Main.Study.Output.Model.BodyModel.SelectedOutput.Right.Leg.Muscles.Envelope` (see {ref}`this for help <chart-view>`).
 It expresses the maximum muscle activation level seen across all the muscles
 in the right leg at a given instant:
 
@@ -178,7 +176,7 @@ Obviously holding the leg out in the air like that without the support
 of a pedal spring and holding up the weight of the pedal as well
 requires about 6% to 9% of the leg’s strength.
 
-Now, let us study the effect of spring stiffness. In "Environment.any", we change the spring stiffness:
+Now, let us study the effect of spring stiffness. In `Environment.any`, we change the spring stiffness:
 
 ```AnyScriptDoc
 F = §-10§*.HingeJoint.Pos;

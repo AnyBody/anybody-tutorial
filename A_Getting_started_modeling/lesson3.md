@@ -21,8 +21,10 @@ With no environmental constraints defined so far, the human body has the followi
 - 1 DOF of the revolute joint at the knee
 - 2 DOF of rotation (flexion + eversion) at the ankle
 
-**Total Human + pedal DOFs adds up to 19. In other words, we to need to specify 19 constraints before the model is kinematically determinate.
+```{admonition} Counting DOFs
+Total Human + pedal DOFs adds up to 19. In other words, we to need to specify 19 constraints before the model is kinematically determinate.
 We will do this using the concepts of "Measures and Drivers" introduced in** {ref}`this previous chapter <measures-and-drivers>`.
+```
 
 The following steps specify a total of 19 driver constraints for the model:
 
@@ -59,14 +61,18 @@ The pedal is currently hinged at the origin of the global reference
 frame. A "seat" node to which we fix the pelvis must therefore
 be displaced by a suitable distance from the origin.
 
-In the "Environment.any" file, add the following within the "GlobalReferenceFrame" object:
+In the `Environment.any` file, add the following within the `GlobalReferenceFrame` object:
 
-```AnyScriptDoc
-AnyFixedRefFrame GlobalRef = {
-  §AnyRefNode Hpoint = {
-     sRel = {-0.7, 0.5, 0};
-   };§
- }; // Global reference frame
+```{code-block} AnyScriptDoc
+  AnyFixedRefFrame GlobalRef =
+  {
+    viewRefFrame.Visible=On;
+    viewRefFrame.ScaleXYZ = 0.5*{1,1,1};
+
+    §AnyRefNode Hpoint = {
+     sRel = {-0.7, 0.5, 0};
+   };§   
+  };
 ```
 
 **Reload the model (F7).**
@@ -75,10 +81,10 @@ Hpoint is a term used in the seating industry to characterize
 the position of the pelvis in a seat. Here we shall simply attach the
 pelvis to this point by means of a rigid connection.
 
-**Drivers which connect the human and environment are traditionally placed in a folder called
+Drivers which connect the human and environment are traditionally placed in a folder called
 "ModelEnvironmentConnection" (** {ref}`explained here <model-structure>` **), and for historical reasons, it is placed in
 an** `#include` **file called "JointsAndDrivers.any". Let’s open this file by
-double-clicking of the following line in the main file**:
+double-clicking of the following line in the main file:
 
 ```AnyScriptDoc
 ...
@@ -116,9 +122,11 @@ AnyFolder Joints =
 As you'd realize by now, both "Seat" and "Pelvis" are references to the two nodes that
 are being connected by the joint.
 
-**The "Seat" node must point to the "Hpoint" node attached to "GlobalRef"
-frame. "Pelvis" must point to the origin of "PelvisSeg", which you can find in the model tree at
-"HumanModel->BodyModel->Trunk->SegmentsLumbar->PelvisSeg".**
+```{note}
+The "Seat" node must point to the `Hpoint` node attached to `GlobalRef`
+frame. `Pelvis` must point to the origin of `PelvisSeg`, which you can find in the model tree at
+"HumanModel->BodyModel->Trunk->SegmentsLumbar->PelvisSeg".
+``` 
 
 To find and insert the absolute paths for these nodes into AnyScript, quickly refer back
 to {ref}`this previous section <absolute-folder-path>`.
@@ -161,7 +169,7 @@ HumanModel.Mannequin = {
 ```
 
 You have specified the load-time position of the
-pelvis to the coordinates of the "Hpoint" node. It is also a good idea to specify the initial joint angles
+pelvis to the coordinates of the `Hpoint` node. It is also a good idea to specify the initial joint angles
 in the leg so that the foot is closer to the pedal. This can be done further down
 in the Mannequin file:
 
@@ -195,11 +203,11 @@ in the Mannequin file:
 ...
 ```
 
-**On reload, you will see that the body now loads in pretty much the
+On reload, you will see that the body now loads in pretty much the
 desired position. Notice that this is only to bring the body close to
 where it will eventually be. It is not necessary to align the model
 exactly with the pedal. The kinematic constraints will take care of this
-once they are properly defined.**
+once they are properly defined.
 
 ```{image} _static/lesson3/image1.png
 :alt: Posture Adjustment1
@@ -378,9 +386,9 @@ The `AnyKinLinear` object measures the 3D position vector between the two refere
 frames `ref0` and `ref1` which it refers to, i.e., in this case, the position of the knee
 with respect to the global reference frame.
 
-**We however, only wish to constrain the medio-lateral component of this vector, which is the global
+We however, only wish to constrain the medio-lateral component of this vector, which is the global
 "Z" component. We hence specify the** `MeasureOrganizer` **property to specify that only the 3rd component of the measure
-which is given by the index 2 (0 being X, 1 being Y component) must be constrained by the driver.**
+which is given by the index 2 (0 being X, 1 being Y component) must be constrained by the driver.
 
 ## Step 7: Specify pedal movement
 
@@ -416,12 +424,12 @@ AnyFolder Drivers =
 This puts the pedal in an initial 100-degree angle compared to vertical, from where
 this angle increases as a rate of 45 degrees per second.
 
-**For now, hit F7 again to reload the model. Notice that the system no
-longer complains about the model being kinematically indeterminate.**
+For now, hit F7 again to reload the model. Notice that the system no
+longer complains about the model being kinematically indeterminate.
 
 ## Running kinematics
 
-Select and run the ‘Main.Study.Kinematics’ operation from the operations dropdown menu ({ref}`more info here <running-analysis>`).
+Select and run the `Main.Study.Kinematics` operation from the operations dropdown menu ({ref}`more info here <running-analysis>`).
 This will show you the movement of the entire system as the pedal is rotating.
 
 ![Operation Result Kinematics](_static/lesson3/image3.png)
@@ -449,16 +457,18 @@ following section:
 
 ![ObjectDescription Constraints1](_static/lesson3/image6.png)
 
-**The last message in the above screenshot lets us know that there are 150
-constraints from the joints and the drivers in the model.**
+The last message in the above screenshot lets us know that there are 150
+constraints from the joints and the drivers in the model.
 
 In general, the total number of DOFs in the model should be exactly as
 same as the total number of kinematic constraints in the model. But at
 the moment, the number of kinematic constraints is larger than that of
 DOFs.
 
-**In some cases, having more constraints than DOFs (also called a redundant set of constraints) results in a failed kinematic simulation,
-because the system is over-constrained.**
+```{warning}
+In some cases, having more constraints than DOFs (also called a redundant set of constraints) results in a failed kinematic simulation,
+because the system is over-constrained.
+```
 
 However our AnyBody model seems to work despite this constraint redundancy. Why?
 
@@ -476,25 +486,21 @@ favour of the "Hard" constraints specified in Steps 1 to 7 in this document.
 This avoided an over-constrained situation and kinematics could therefore be solved.
 
 Since you could define all necessary “Hard” constraints,
-the default drivers can now be removed by just adding one more BM statement to the main file:
+the default drivers can now be removed by just adding one more BM statement to the file `Model/BodyModelConfiguration.any`:
 
-```AnyScriptDoc
-//-->BM statements
-  // Excluding the muscles in the trunk segments
-  #define BM_TRUNK_MUSCLES _MUSCLES_NONE_
-  // Excluding the left arm segments
-  #define BM_ARM_LEFT OFF
-  // Excluding the right arm segments
-  #define BM_ARM_RIGHT OFF
-  // Excluding the left leg segments
-  #define BM_LEG_LEFT OFF
-  // Using the right leg as 'TLEM' model
-  #define BM_LEG_RIGHT _LEG_MODEL_TLEM1_
-  // Excluding the muscles in the right leg segments
-  #define BM_LEG_MUSCLES_RIGHT _MUSCLES_NONE_
-  // Excluding the default drivers for the human model
-  §#define BM_MANNEQUIN_DRIVER_DEFAULT OFF§
-  //<--
+```{code-block} AnyScriptDoc
+// Excluding the muscles in the trunk segments
+#define BM_TRUNK_MUSCLES OFF
+// Excluding the left arm segments
+#define BM_ARM_LEFT OFF
+// Excluding the right arm segments
+#define BM_ARM_RIGHT OFF
+// Excluding the left leg segments
+#define BM_LEG_LEFT OFF
+// Excluding the muscles in the right leg segments
+#define BM_LEG_MUSCLES_RIGHT OFF
+// Excluding the default drivers for the human model
+§#define BM_MANNEQUIN_DRIVER_DEFAULT OFF§
 ```
 
 Save the main file and press F7 button to reload the model. And try to

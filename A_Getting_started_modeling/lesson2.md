@@ -29,34 +29,52 @@ For this pedal model, you will configure the human model as follows:
 - The left leg segments will be excluded.
 - There will be no muscles in the right leg.
 
-This is implemented by declaring the corresponding BM statements just before
-the inclusion of the “HumanModel.any” file.
+This is implemented by declaring a number of `BM_*` configuraiton statements.
 
-```AnyScriptDoc
+These can be included anywhere before the inclusion of the `HumanModel.any` file. But it is good practize to collect them in a single place so we will add them to the file `Model/BodyModelConfiguration.any`. 
+
+```{code-block} AnyScriptDoc
+---
+emphasize-lines: 4
+---
 Main = {
 
   // Body Model configuration:
   #include "Model/BodyModelConfiguration.any"
-  // Using your own Mannequin.any file in the Model folder of your model
-  #include "Model\Mannequin.any"
 
-  //-->BM statements
-  // Excluding the muscles in the trunk segments
-  §#define BM_TRUNK_MUSCLES _MUSCLES_NONE_§
-  // Excluding the left arm segments
-  §#define BM_ARM_LEFT OFF§
-  // Excluding the right arm segments
-  §#define BM_ARM_RIGHT OFF§
-  // Excluding the left leg segments
-  §#define BM_LEG_LEFT OFF§
-  // Using the right leg as 'TLEM' model
-  §#define BM_LEG_RIGHT _LEG_MODEL_TLEM1_§
-  // Excluding the muscles in the right leg segments
-  §#define BM_LEG_MUSCLES_RIGHT _MUSCLES_NONE_§
-  //<--
+```
 
-  // Include default human model
-  #include "<ANYBODY_PATH_BODY>\HumanModel.any"
+Dobble click the line  `#include "Model/BodyModelConfiguration.any"` to quickly open the file.
+
+Then add the BM configurations marked in red. 
+
+```{code-block} AnyScriptDoc
+#path __BM_PLUGIN_FILE__ "BodyModelConfiguration.any"
+#define BM_CONFIG_PLUGIN __BM_PLUGIN_FILE__
+
+// -----------------------------------------------------------------------------------
+// The BodyModel configuration can be modified using BodyModel GUI plugin
+// or by manually editing this file.
+//
+// Please see this this file for more information on the options:
+// #path HTML_DOC "<AMMR_PATH_DOC>/bm_config/index.html"
+// -----------------------------------------------------------------------------------
+
+// Enable the TLEM2 lower extremity model
+#define BM_LEG_MODEL _LEG_MODEL_TLEM2_
+
+
+// Excluding the muscles in the trunk segments
+§#define BM_TRUNK_MUSCLES OFF§
+// Excluding the left arm segments
+§#define BM_ARM_LEFT OFF§
+// Excluding the right arm segments
+§#define BM_ARM_RIGHT OFF§
+// Excluding the left leg segments
+§#define BM_LEG_LEFT OFF§
+// Excluding the muscles in the right leg segments
+§#define BM_LEG_MUSCLES_RIGHT OFF§
+
 ```
 
 Loading the model (F7 key) should produce the following message:
