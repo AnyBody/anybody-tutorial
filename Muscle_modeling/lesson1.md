@@ -179,10 +179,10 @@ spine. You can, in fact, make a pretty decent model of the legs entirely
 with via point muscles.
 
 Place the cursor right after the end brace of the musle model,
-right-click the AnyViaPointMuscle class in the tree, and insert an
+right-click the AnyMuscleViaPoint class in the tree, and insert an
 instance of it:
 
-![class tree AnyViaPointMuscle](_static/lesson1/image3.png)
+![class tree AnyMuscleViaPoint](_static/lesson1/image3.png)
 
 ```AnyScriptDoc
 AnyMuscleModel SimpleModel = {
@@ -191,7 +191,7 @@ AnyMuscleModel SimpleModel = {
       //Vol0 = 0;
    };
 
-   § AnyViaPointMuscle <ObjectName> = {
+   § AnyMuscleViaPoint <ObjectName> = {
       //RefFrames = ;
       //Surfaces = ;
       AnyMuscleModel &<Insert name0> = <Insert object reference (or full object definition)>;
@@ -205,7 +205,7 @@ Let us start by filling out what we can and removing what we have no use
 for:
 
 ```AnyScriptDoc
-AnyViaPointMuscle §Muscle1§ = {
+AnyMuscleViaPoint §Muscle1§ = {
   AnyMuscleModel &§Model§ = §.SimpleModel§;
   AnyRefFrame &<Insert name0> = <Insert object reference (or full object definition)>;
   AnyRefFrame &<Insert name1> = <Insert object reference (or full object definition)>;
@@ -248,7 +248,7 @@ AnySeg Arm = {
 &#160;With these two points, we can complete the definition of the muscle:
 
 ```AnyScriptDoc
-AnyViaPointMuscle Muscle1 = {
+AnyMuscleViaPoint Muscle1 = {
     AnyMuscleModel &Model = .SimpleModel;
     AnyRefFrame &§Orig = .GlobalRef.M1Origin§;
     AnyRefFrame &§Ins = .Arm.M1Insertion§;

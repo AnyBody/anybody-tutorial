@@ -30,7 +30,7 @@ Main = {
     };
     
     // Definition of the ligament and its model
-    AnyViaPointLigament Lig = {
+    AnyLigamentViaPoint Lig = {
       AnyRefNode &Ori = .Ground.OriNode;
       AnyRefNode &Via = .Arm.ViaNode;
       AnyRefNode &Ins = .Arm.InsNode;

@@ -1,7 +1,7 @@
 # Lesson 3: Via-point Muscles
 
 Although the name of the muscle class we have used so far is
-AnyViaPointMuscle, the example has only shown the muscle passing in a
+AnyMuscleViaPoint, the example has only shown the muscle passing in a
 straight line between two points. Real muscles in the body rarely do so.
 They are usually constrained by various obstacles on their way from
 origin to insertion, either by connective tissues or by the contact with
@@ -9,12 +9,12 @@ bone surfaces.
 
 In the former case, the muscle tends to pass as a piecewise straight
 line between the constrained points, and this is relatively easy to
-accomplish by means of an AnyViaPointMuscle. In the latter case, the
+accomplish by means of an AnyMuscleViaPoint. In the latter case, the
 muscle may engage and release contact with the bone surfaces it
 encounters. This wrapping over bones is a problem of contact mechanics
 and optimization. It requires a different muscle class and it is
 computationally much more demanding. In this lesson we shall look at
-AnyViaPointMuscles and postpone the discussion of wrapping to the next
+AnyMuscleViaPoints and postpone the discussion of wrapping to the next
 lesson.
 
 Anatomically, via point muscles are mostly found in the lower
@@ -103,7 +103,7 @@ We can then introduce the new point in the sequence of points defining
 the muscle:
 
 ```AnyScriptDoc
-AnyViaPointMuscle Muscle1 = {
+AnyMuscleViaPoint Muscle1 = {
   AnyMuscleModel &Model = .SimpleModel;
   AnyRefFrame &Orig = .GlobalRef.M1Origin;
  §AnyRefFrame &Via = .Arm.ViaPoint;§

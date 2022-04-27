@@ -31,9 +31,9 @@ information about the available muscle models:
 
 The muscle models can be linked to different types of muscles:
 
-1. AnyViaPointMuscle - a muscle that passes through any number of nodes
+1. AnyMuscleViaPoint - a muscle that passes through any number of nodes
    on segments on its way from origin to insertion
-2. AnyShortestPathMuscle - a muscle that can wrap over geometries such
+2. AnyMuscleShortestPath - a muscle that can wrap over geometries such
    as cylinders and ellipsoids and even CAD-defined surfaces. Please
    beware that this muscle type is very computationally demanding and
    requires careful adjustment.

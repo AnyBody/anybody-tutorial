@@ -81,7 +81,7 @@ Let's add just one muscle to start with, the elbow-flexor muscle named Brachiali
    };
 
    §//---------------------------------
-   AnyViaPointMuscle Brachialis = {
+   AnyMuscleViaPoint Brachialis = {
      AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
      AnyRefNode &Org = ..Segs.UpperArm.Brachialis;
      AnyRefNode &Ins = ..Segs.ForeArm.Brachialis;
@@ -90,7 +90,7 @@ Let's add just one muscle to start with, the elbow-flexor muscle named Brachiali
 }; // Muscles folder
 ```
 
-**This muscle is created by the** `AnyViaPointMuscle` **class. These are muscles which begin at
+**This muscle is created by the** `AnyMuscleViaPoint` **class. These are muscles which begin at
 an origin point, pass through a number of pre-defined via points, and finally terminate
 at the insertion.**
 
@@ -123,7 +123,7 @@ All the other muscles are defined in the same way. Your model should resemble th
 
 ```AnyScriptDoc
 //---------------------------------
-AnyViaPointMuscle Brachialis = {
+AnyMuscleViaPoint Brachialis = {
   AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
   AnyRefNode &Org = ..Segs.UpperArm.Brachialis;
   AnyRefNode &Ins = ..Segs.ForeArm.Brachialis;
@@ -131,7 +131,7 @@ AnyViaPointMuscle Brachialis = {
 };
 
 §//---------------------------------
-AnyViaPointMuscle DeltodeusA = {
+AnyMuscleViaPoint DeltodeusA = {
   AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
   AnyRefNode &Org = ..GlobalRef.DeltodeusA;
   AnyRefNode &Ins = ..Segs.UpperArm.DeltodeusA;
@@ -139,7 +139,7 @@ AnyViaPointMuscle DeltodeusA = {
 };
 
 //---------------------------------
-AnyViaPointMuscle DeltodeusB = {
+AnyMuscleViaPoint DeltodeusB = {
   AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
   AnyRefNode &Org = ..GlobalRef.DeltodeusB;
   AnyRefNode &Ins = ..Segs.UpperArm.DeltodeusB;
@@ -147,7 +147,7 @@ AnyViaPointMuscle DeltodeusB = {
 };
 
 //---------------------------------
-AnyViaPointMuscle Brachioradialis = {
+AnyMuscleViaPoint Brachioradialis = {
   AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
   AnyRefNode &Org = ..Segs.UpperArm.Brachioradialis;
   AnyRefNode &Ins = ..Segs.ForeArm.Brachioradialis;
@@ -155,7 +155,7 @@ AnyViaPointMuscle Brachioradialis = {
 };
 
 //---------------------------------
-AnyViaPointMuscle BicepsShort = {
+AnyMuscleViaPoint BicepsShort = {
   AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
   AnyRefNode &Org = ..Segs.UpperArm.BicepsShort;
   AnyRefNode &Ins = ..Segs.ForeArm.Biceps;
@@ -163,7 +163,7 @@ AnyViaPointMuscle BicepsShort = {
 };
 
 //---------------------------------
-AnyViaPointMuscle TricepsShort = {
+AnyMuscleViaPoint TricepsShort = {
   AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
   AnyRefNode &Org = ..Segs.UpperArm.TricepsShort;
   AnyRefNode &Ins = ..Segs.ForeArm.Triceps;
@@ -171,7 +171,7 @@ AnyViaPointMuscle TricepsShort = {
 };
 
 //---------------------------------
-AnyViaPointMuscle BicepsLong = {
+AnyMuscleViaPoint BicepsLong = {
   AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
   AnyRefNode &Org = ..GlobalRef.BicepsLong;
   AnyRefNode &Ins = ..Segs.ForeArm.Biceps;
@@ -179,7 +179,7 @@ AnyViaPointMuscle BicepsLong = {
 };
 
 //---------------------------------
-AnyViaPointMuscle TricepsLong = {
+AnyMuscleViaPoint TricepsLong = {
   AnyMuscleModel &MusMdl = ..Muscles.MusMdl;
   AnyRefNode &Org = ..GlobalRef.TricepsLong;
   AnyRefNode &Ins = ..Segs.ForeArm.Triceps;

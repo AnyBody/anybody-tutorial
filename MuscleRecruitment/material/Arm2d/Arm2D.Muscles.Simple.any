@@ -36,7 +36,7 @@ AnyFolder Muscles = {
   AnyFolder  MuscleTopology = { 
     
     //---------------------------------
-    AnyViaPointMuscle DeltoideusA = {
+    AnyMuscleViaPoint DeltoideusA = {
       AnyMuscleModel &MusMdl = ..MuscleModel.DeltoideusA;
       AnyRefNode &Org = ...GlobalRef.DeltoideusA;
       AnyRefNode &Ins = ...Segs.UpperArm.DeltoideusA;
@@ -44,7 +44,7 @@ AnyFolder Muscles = {
     };
     
     //---------------------------------
-    AnyViaPointMuscle DeltodeusB = {
+    AnyMuscleViaPoint DeltodeusB = {
       AnyMuscleModel &MusMdl = ..MuscleModel.DeltoideusB;
       AnyRefNode &Org = ...GlobalRef.DeltoideusB;
       AnyRefNode &Ins = ...Segs.UpperArm.DeltoideusB;
@@ -53,7 +53,7 @@ AnyFolder Muscles = {
     
     
     //---------------------------------
-    AnyViaPointMuscle Brachialis = {
+    AnyMuscleViaPoint Brachialis = {
       AnyMuscleModel &MusMdl = ..MuscleModel.Brachialis;
       AnyRefNode &Org = ...Segs.UpperArm.Brachialis;
       AnyRefNode &Ins = ...Segs.LowerArm.Brachialis;
@@ -61,7 +61,7 @@ AnyFolder Muscles = {
     };
     
     //---------------------------------
-    AnyViaPointMuscle Brachioradialis = {
+    AnyMuscleViaPoint Brachioradialis = {
       AnyMuscleModel &MusMdl = ..MuscleModel.Brachioradialis;
       AnyRefNode &Org = ...Segs.UpperArm.Brachioradialis;
       AnyRefNode &Ins = ...Segs.LowerArm.Brachioradialis;
@@ -69,7 +69,7 @@ AnyFolder Muscles = {
     };
     
     //---------------------------------
-    AnyViaPointMuscle BicepsShort = {
+    AnyMuscleViaPoint BicepsShort = {
       AnyMuscleModel &MusMdl = ..MuscleModel.BicepsShort;
       AnyRefNode &Org = ...Segs.UpperArm.BicepsShort;
       AnyRefNode &Ins = ...Segs.LowerArm.Biceps;
@@ -77,7 +77,7 @@ AnyFolder Muscles = {
     };
     
     //---------------------------------
-    AnyViaPointMuscle TricepsShort = {
+    AnyMuscleViaPoint TricepsShort = {
       AnyMuscleModel &MusMdl = ..MuscleModel.TricepsShort;
       AnyRefNode &Org = ...Segs.UpperArm.TricepsShort;
       AnyRefNode &Ins = ...Segs.LowerArm.Triceps;
@@ -85,7 +85,7 @@ AnyFolder Muscles = {
     };
     
     //---------------------------------
-    AnyViaPointMuscle BicepsLong = {
+    AnyMuscleViaPoint BicepsLong = {
       AnyMuscleModel &MusMdl = ..MuscleModel.BicepsLong;
       AnyRefNode &Org = ...GlobalRef.BicepsLong;
       AnyRefNode &Ins = ...Segs.LowerArm.Biceps;
@@ -93,7 +93,7 @@ AnyFolder Muscles = {
     };
     
     //---------------------------------
-    AnyViaPointMuscle TricepsLong = {
+    AnyMuscleViaPoint TricepsLong = {
       AnyMuscleModel &MusMdl = ..MuscleModel.TricepsLong;
       AnyRefNode &Org = ...GlobalRef.TricepsLong;
       AnyRefNode &Ins = ...Segs.LowerArm.Triceps;

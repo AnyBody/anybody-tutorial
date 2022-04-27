@@ -133,7 +133,7 @@ changes. Notice that the strength of the second muscle is set to half of
 the strength of the first one:
 
 ```AnyScriptDoc
-AnyViaPointMuscle M1 = {
+AnyMuscleViaPoint M1 = {
   AnyMuscleModel Model = {
     F0 = 100;
   };
@@ -144,7 +144,7 @@ AnyViaPointMuscle M1 = {
     MaxStress = 1e5;
   };
 };
-§AnyViaPointMuscle M2 = {
+§AnyMuscleViaPoint M2 = {
   AnyMuscleModel Model = {
     F0 = 50;
   };

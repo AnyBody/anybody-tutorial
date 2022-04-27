@@ -153,7 +153,7 @@ shall explain the ones that are less random, but first we must assign
 the new model to Muscle1:
 
 ```AnyScriptDoc
-AnyShortestPathMuscle Muscle1 = {
+AnyMuscleShortestPath Muscle1 = {
   AnyMuscleModel &Model = §.Model2§;
   AnyRefFrame &Orig = .GlobalRef.M1Origin;
   AnyRefFrame &Via = .Arm.ViaPoint;
@@ -551,7 +551,7 @@ reasonable chance of spanning the origin-insertion length.
 We also have to associate Muscle2 with the new muscle model:
 
 ```AnyScriptDoc
-AnyShortestPathMuscle Muscle2 = {
+AnyMuscleShortestPath Muscle2 = {
   AnyMuscleModel &Model = .§Model3§;
   AnyRefFrame &Orig = .GlobalRef.M2Origin;
   AnySurface &srf = .GlobalRef.CylCenter.WrapSurf;

@@ -81,13 +81,13 @@ msgstr ""
 
 #: ../../Muscle_modeling/intro.rst:38
 msgid ""
-"AnyViaPointMuscle - a muscle that passes through any number of nodes on "
+"AnyMuscleViaPoint - a muscle that passes through any number of nodes on "
 "segments on its way from origin to insertion"
 msgstr ""
 
 #: ../../Muscle_modeling/intro.rst:41
 msgid ""
-"AnyShortestPathMuscle - a muscle that can wrap over geometries such as "
+"AnyMuscleShortestPath - a muscle that can wrap over geometries such as "
 "cylinders and ellipsoids and even CAD-defined surfaces. Please beware "
 "that this muscle type is very computationally demanding and requires "
 "careful adjustment."
