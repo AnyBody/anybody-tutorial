@@ -173,7 +173,7 @@ The next step is to define the objective function. The objective function should
 take a list of design values as input and return the objective function value.
 In {doc}`Lesson 2 <lesson2>` the objective function was the time integral of the
 metabolism variable. So we will do the same here with Scipy's
-{py:func}`scipy.integrate.trapz`: function.
+{func}`numpy.trapz`: function.
 
 ```{code-block} python
 :lineno-start: 23

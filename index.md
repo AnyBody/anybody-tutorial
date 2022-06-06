@@ -1,39 +1,170 @@
-# AnyBody Tutorials!
+---
+sd_hide_title: true
+---
+# Overview!
 
-Welcome to the AnyBody Tutorials. This is a good place to start learning how to
+::::{grid}
+:reverse:
+:gutter: 3 4 4 4
+:margin: 1 2 1 2
+
+:::{grid-item}
+:columns: 12 4 4 4
+
+```{image} _static/AnyBodyTutorials.svg
+:width: 200px
+:class: sd-m-auto
+```
+
+:::
+
+:::{grid-item}
+:columns: 12 8 8 8
+:child-align: justify
+:class: sd-fs-5
+
+```{rubric} Tutorials for the AnyBody Modeling System
+```
+
+The Tutorials cover a wide range of topics and are a good place to start learning how to
 do musculoskeletal modeling in the AnyBody Modeling System.
 
-```{raw} html
-<video width="80%" style="display:block; margin: 0 auto;" controls>
-    <source src="_static/IntroVideoTour.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+```{button-ref} A_Getting_started/intro
+:ref-type: doc
+:color: primary
+:class: sd-rounded-pill
+
+Get Started
 ```
+
+:::
+
+::::
+
+
 
 You can find the available tutorials in the sidebar. The tutorials are ordered in a suitable sequence for
 new users who are unfamiliar with AnyBody, but this sequence may not be optimal
 for you depending on your background and interests.
 
-It is recommended to start with the three Getting Started tutorials.
+It is recommended to start with the four Getting Started tutorials.
 
-:::{note}
-If you are a new user, please spend 7 minutes to watch the introductory video above, before beginning the tutorials.
+
+::::{grid} 1 2 2 3
+:gutter: 1 1 1 2
+
+
+:::{grid-item-card} {octicon}`youtube;1.5em;sd-mr-1` CommonMark-plus
+:link: syntax/core
+:link-type: ref
+
+MyST extends the CommonMark syntax specification, to support technical authoring features such as tables and footnotes.
+
++++
+[Learn more »](syntax/core)
 :::
 
-```{rubric} Contributing
+:::{grid-item-card} {octicon}`plug;1.5em;sd-mr-1` Sphinx compatible
+:link: roles-directives
+:link-type: ref
+
+Use the MyST role and directive syntax to harness the full capability of Sphinx, such as admonitions and figures, and all existing Sphinx extensions.
+
++++
+[Learn more »](roles-directives)
+:::
+
+:::{grid-item-card} {octicon}`tools;1.5em;sd-mr-1` Highly configurable
+:link: configuration
+:link-type: doc
+
+MyST-parser can be configured at both the global and individual document level,
+to modify parsing behaviour and access extended syntax features.
+
++++
+[Learn more »](configuration)
+:::
+
+::::
+
+
+
+
+
+```{rubric} Help make tutorials better!
 ```
 
 We highly appreciate any contributions to Tutorials!
 
 If you find typos, missing links or anything else wrong, don't hesitate to fix
-it. It is as easy as forking [the repository on GitHub](https://github.com/AnyBody/anybody-tutorial) , making your changes, and
-issuing a pull request.
+it your self or report the problem. Just click the link header bar. 
+
+```{image} ./_static/suggest_edits.png
+:alt: Suggesting edits
+:class: bg-primary
+:width: 30%
+:align: center
+```
 
 More details are in the {doc}`how to contribute section <contributing>`.
 
+
+
 ```{toctree}
-:hidden: true
+:caption: Getting started
+:includehidden: true
 :maxdepth: 2
+:numbered: 1
+:hidden: true
+:titlesonly: true
+
+First steps <A_Getting_started/index>
+A_Getting_started_anyscript/index
+A_Getting_started_modeling/index
+A_Getting_started_AMMR/index
+
+```
+
+```{toctree}
+:caption: Tutorials
+:includehidden: true
+:maxdepth: 2
+:hidden: true
+:titlesonly: true
+
+A_study_of_studies/index
+Making_things_move/index
+MuscleRecruitment/index
+ForceDependentKinematics/index
+Muscle_modeling/index
+The_mechanical_elements/index
+Finite_element_analysis/index
+AnyExp4SOLIDWORKS/index
+Scaling/index
+Validation_of_models/index
+Parameter_studies_and_optimization/index
+Posture_and_movement/intro
+```
+
+```{toctree}
+:caption: Internals of AnyBody
+:includehidden: true
+:maxdepth: 2
+:hidden: true
+:titlesonly: true
+
+Interface_features/index
+Advanced_script_features/index
+Troubleshooting_anyscript/intro
+```
+
+
+```{toctree}
+:caption: Others
+:maxdepth: 1
+:hidden: true
+
 
 contributing
+legal
 ```

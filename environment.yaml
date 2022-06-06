@@ -3,15 +3,20 @@ name: sphinx
 channels:
   - conda-forge
 dependencies:
-  - python=3.9
+  - python
   - pip
   - sphinx
   - myst-parser
-  - linkify-it-py
   - make
-  - cloud_sptheme
+  - sphinx-book-theme
+  - sphinx-design
+  - sphinx-togglebutton
   - pygments_anyscript
+  - jinja2
   - ipython
-  - jinja2=3.0.3
+  - linkify-it-py 
+  - tomli
+  - sphinx-copybutton
   - pip:
     - sphinxext-opengraph
+    - python-frontmatter
