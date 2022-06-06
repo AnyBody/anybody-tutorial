@@ -3,7 +3,6 @@ name: Build Tutorials
 
 on:
   push:
-    branches: [ master ]
     tags: ['*']
   pull_request:
     branches: [ master ]
@@ -47,6 +46,15 @@ jobs:
           make clean
           make html
           cp -rT _build/html public
+
+      - name: Build new theme version
+        if: github.ref == 'refs/heads/master'
+        shell: bash -l {0}
+        run: |
+          git checkout newtheme;
+          make clean
+          make html-dev
+          cp -rT _build/html public/new          
            
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
