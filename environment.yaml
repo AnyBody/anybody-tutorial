@@ -13,5 +13,10 @@ dependencies:
   - pygments_anyscript
   - ipython
   - jinja2=3.0.3
+  - sphinx-book-theme
+  - sphinx-design
+  - sphinx-togglebutton
+  - sphinx-copybutton
+
   - pip:
     - sphinxext-opengraph
