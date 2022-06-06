@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="163.33139mm"
-   height="52.111691mm"
-   viewBox="0 0 163.33139 52.111691"
+   width="157.81377mm"
+   height="56.202312mm"
+   viewBox="0 0 157.81377 56.202314"
    version="1.1"
    id="svg130"
    inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0536413"
-     inkscape:cx="352.11223"
-     inkscape:cy="-15.185433"
+     inkscape:cx="331.23226"
+     inkscape:cy="15.185433"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -44,22 +44,22 @@
      inkscape:deskcolor="#d1d1d1"
      showguides="true">
     <sodipodi:guide
-       position="155.76434,78.119533"
+       position="150.24671,74.218776"
        orientation="1,0"
        id="guide1102"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="101.76981,22.146137"
+       position="96.252186,18.245378"
        orientation="0,-1"
        id="guide1104"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="63.155029,4.101753"
+       position="57.637404,0.2009944"
        orientation="0,-1"
        id="guide1106"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="63.912284,19.398295"
+       position="58.394659,15.497536"
        orientation="0,-1"
        id="guide1110"
        inkscape:locked="false" />
@@ -79,10 +79,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-26.047376,-46.016158)">
+     transform="translate(-31.565002,-38.024777)">
     <g
        id="g7924"
-       transform="matrix(0.96621821,0,0,0.96621821,6.3975531,2.5589611)">
+       transform="matrix(0.96621821,0,0,0.96621821,6.3975531,-2.7327057)">
       <path
          inkscape:connector-curvature="0"
          id="path143"

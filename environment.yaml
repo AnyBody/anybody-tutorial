@@ -19,4 +19,3 @@ dependencies:
   - sphinx-copybutton
   - pip:
     - sphinxext-opengraph
-    - python-frontmatter
