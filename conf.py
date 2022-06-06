@@ -169,7 +169,9 @@ rst_epilog = f"""
 """
 
 caution_old_tutorial = """
-:::{caution} **Old tutorial:** 
+
+:::{admonition} **Old tutorial:**
+:class: caution margin 
 This tutorial has not yet been updated to ver. 7 of the AnyBody Modeling System. Some concepts may have changed.
 :::
 """

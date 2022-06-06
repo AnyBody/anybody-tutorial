@@ -50,42 +50,28 @@ for you depending on your background and interests.
 It is recommended to start with the four Getting Started tutorials.
 
 
-::::{grid} 1 2 2 3
-:gutter: 1 1 1 2
+
+```{rubric} Other resources!
+```
+[AnyScript forums](https://forum.anyscript.org/)
+: The Forum is a place to give and get help from other users. Get help and and learn from the experts.
 
 
-:::{grid-item-card} {octicon}`youtube;1.5em;sd-mr-1` CommonMark-plus
-:link: syntax/core
-:link-type: ref
+[Wiki](https://github.com/AnyBody/support/wiki)
+: The wiki has a wealth of information, tips&tricks and FAQs for working with the AnyBody Modeling System.
 
-MyST extends the CommonMark syntax specification, to support technical authoring features such as tables and footnotes.
 
-+++
-[Learn more »](syntax/core)
-:::
+[AMMR documenation](https://anyscript.org/ammr-doc)
+: Browse documentation on AMMR models and learn about possible settings
 
-:::{grid-item-card} {octicon}`plug;1.5em;sd-mr-1` Sphinx compatible
-:link: roles-directives
-:link-type: ref
+[The AnyBodyTech channel](https://www.youtube.com/user/anybodytech)
+: AnyBody Technology Youtube channel watch webcasts and other videos
 
-Use the MyST role and directive syntax to harness the full capability of Sphinx, such as admonitions and figures, and all existing Sphinx extensions.
+[AnyPyTools](https://anybody-research-group.github.io/anypytools-docs/)
+: AnyPyTools is a toolkit for working with the AnyBody Modeling System (AMS) from Python.
 
-+++
-[Learn more »](roles-directives)
-:::
-
-:::{grid-item-card} {octicon}`tools;1.5em;sd-mr-1` Highly configurable
-:link: configuration
-:link-type: doc
-
-MyST-parser can be configured at both the global and individual document level,
-to modify parsing behaviour and access extended syntax features.
-
-+++
-[Learn more »](configuration)
-:::
-
-::::
+[GitHub repositories](https://github.com/anybody)
+: The repositories on Github has large and small models under development. Download cutting edge models and join development.
 
 
 
