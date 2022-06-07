@@ -80,9 +80,5 @@ functions, so keyboard shortcuts have been provided:
 - If you have a scrolling wheel on your mouse, this will zoom the model
   in and out.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
 You can now proceed to {doc}`lesson2`.
-:::
+

@@ -324,9 +324,4 @@ difficult job to define a realistic body model from scratch. We recommend that u
 start out with the body models available in the** [AnyBody Managed Model
 Repository](https://www.anybodytech.com/software/ammr/).
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** Now, let's continue to {doc}`Lesson 6: Adding real bone geometrics <lesson6>`
-:::
+Now, let's continue to {doc}`Lesson 6: Adding real bone geometrics <lesson6>`.

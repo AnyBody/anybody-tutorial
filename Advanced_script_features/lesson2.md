@@ -62,9 +62,3 @@ interconnected files:
 Right-click the files and save them in a directory of your choice. Then
 start AnyBody and load the main file, demo.include.any.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::

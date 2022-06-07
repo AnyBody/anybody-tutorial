@@ -43,9 +43,3 @@ The muscle models can be linked to different types of muscles:
 Please refer to the AnyScript Reference for more information, or proceed
 to the basics of muscle modeling in {doc}`Lesson 1 <lesson1>`.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson1`.
-:::

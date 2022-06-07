@@ -19,11 +19,6 @@ application's model files and then modify them as required.
 
 This tutorial is based on version {{ AMMR_VERSION_SHORT }} of the AnyBody Managed Model
 Repository. This the latest AMMR version and the tutorial may not be fully relevant
-if you are using an AnyBody Modeling System prior to version {{ AMS_VERSION_SHORT }}.
+if you are using an AnyBody Modeling System prior to version {{ AMS_VERSION_SHORT }}. 
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** With that done, please proceed to Lesson 1: {doc}`Starting with a new Model <lesson1>` using a template.
-:::
+With that done, please proceed to Lesson 1: {doc}`Starting with a new Model <lesson1>` using a template.

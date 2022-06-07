@@ -11,10 +11,7 @@ longer explanation.
 
 So, brace yourself, and let's venture on to...
 
-:::{rst-class} html-toggle
-:::
-
-## The long explanation
+::::{dropdown} **The long explanation**
 
 An AnyBody model is really a collection of rigid segments. You can think
 of them as a bunch of potatoes floating around in space. Technically,
@@ -96,6 +93,8 @@ wedge inseparably into each other. Computer systems that model the real
 world will have them too, and just like the real world it can sometimes
 be difficult to find out what the problem is.
 
+::::
+
 ## Running kinematic analysis
 
 Now that you know the basics of kinematic analysis, let us look at how
@@ -159,10 +158,3 @@ model grabs something with both hands.
 Although the kinematic analysis is useful in its own right for lots of
 purposes, it is also the first step of the InverseDynamics operation,
 the subject of {doc}`the next lesson <lesson4>`.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson4`.
-:::

@@ -188,9 +188,4 @@ with Opacity = 0, the object becomes completely invisible. All values in
 between causes the object to be semi-transparent. You can also turn of
 the display of the object entirely off by setting DrawOnOff = 0;
 
-:::{rst-class} without-title
-:::
 
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::

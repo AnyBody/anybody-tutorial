@@ -167,12 +167,5 @@ If you reload the model, you will see the new segment in the model:
 
 ![Model view new segment](_static/lesson1/image5.png)
 
-**In the next lesson, we shall look at how you can customize the human model to fit the purpose of your
-simulation using AnyBody.**
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** Next up is {doc}`Lesson 2: Adjusting the human model <lesson2>`.
-:::
+In the next lesson, we shall look at how you can customize the human model to fit the purpose of your
+simulation using AnyBody.

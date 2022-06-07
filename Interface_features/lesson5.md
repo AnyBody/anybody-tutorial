@@ -329,9 +329,3 @@ aliases by the following procedure:
    files, so the bat file names are working as aliases for the real .exe
    files.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson6`.
-:::

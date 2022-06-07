@@ -512,9 +512,4 @@ You see that now the total number of constraints has been changed to 132
 and this is exactly as same as the total number of DOFs. Of course, you
 can still run the kinematics of your model.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** Now that the kinematics is in order let us move on to the {doc}`kineticanalysis in Lesson 4 and see what the model is goodfor. <lesson4>`
-:::
+Now that the kinematics is in order let us move on to the kinetic analysis in {doc}`Lesson 4 <lesson4>` and see what the model is good for.

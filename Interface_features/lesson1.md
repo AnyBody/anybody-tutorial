@@ -140,13 +140,3 @@ author your models, as long as it saves the files in an ASCII text
 format. Please refer to the Wiki at
 [anyscript.org](http://www.anyscript.org) for more details.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson2`.
-:::
-
-% images
-
-% icons

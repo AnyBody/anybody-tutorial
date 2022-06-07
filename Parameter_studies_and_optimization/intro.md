@@ -64,9 +64,3 @@ This tutorial devotes one lesson to each of the two study types:
 1. {doc}`Defining a parameter study <lesson1>`
 2. {doc}`Optimization studies <lesson2>`
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson1`.
-:::

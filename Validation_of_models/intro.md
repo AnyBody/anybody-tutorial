@@ -188,9 +188,3 @@ accelerations oscillate or attain unrealistic values, then the input
 positional information definitely needs careful reviewing and probably
 smoothing with a low-pass filter.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`Kinematic input validation <Kinematic_input>`.
-:::

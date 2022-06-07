@@ -482,10 +482,3 @@ objects.
 
 In {doc}`Lesson 3 <lesson3>` we investigate how to filter noise out of
 the measured data.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::

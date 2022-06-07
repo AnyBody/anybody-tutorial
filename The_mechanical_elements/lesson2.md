@@ -50,9 +50,4 @@ please download and study the following two examples:
 - {download}`Slider crank in 2D <Downloads/Demo.SliderCrank2D.any>`
 - {download}`Slider crank in 3D <Downloads/Demo.SliderCrank3D.any>`
 
-:::{rst-class} without-title
-:::
 
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::

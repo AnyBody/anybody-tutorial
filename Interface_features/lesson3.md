@@ -127,13 +127,3 @@ these 3D graphs are used in parameter studies and optimizations. More
 detailed information is available in the “Parameter studies and
 optimization“ tutorial.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson4`.
-:::
-
-% photos
-
-% icons

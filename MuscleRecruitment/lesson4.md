@@ -129,11 +129,4 @@ If it were in fact possible to increase the polynomial power towards
 infinity, then the muscle recruitment criterion would approach a min/max
 formulation that, in a biomechanical context, can be interpreted as a
 minimum fatigue criterion, and this is not without physiological
-relevance, so it is the topic of…
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson5`.
-:::
+relevance, so it is the topic of {doc}`lesson5`.
