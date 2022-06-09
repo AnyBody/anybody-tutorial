@@ -38,7 +38,13 @@ jobs:
           make html-dev
           mkdir -p public/dev
           cp -rT _build/html public/dev
-          
+
+      - name: Link check
+        shell: bash -l {0}
+        run: |
+          set -e
+          make linkcheck
+
       - name: Build last tagged version
         if: github.ref == 'refs/heads/master'
         shell: bash -l {0}
