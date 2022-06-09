@@ -12,7 +12,7 @@
 The AnyBody Managed Model Repository (AMMR), is an open library of musculoskeletal
 models and examples ready to be used with the AnyBody Modeling System.
 
-The [AMMR documentation](https://anyscript.org/ammr-doc) is hosted
+The [AMMR documentation](https://anyscript.org/ammr-doc/) is hosted
 separately, and contains a few tutorials and other usefull information. The
 [Creating a Human Model from scratch](https://anyscript.org/ammr-doc/creating_model_from_scratch.html) tutorial is
 recommended for new users.

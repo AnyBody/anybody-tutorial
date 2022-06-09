@@ -68,7 +68,7 @@ order. The flow of the model is illustrated in the following figure.
 :::{figure} _static/lesson5/flow.png
 Illustration of the three processes for the Mocap models. Parameter
 identification, Marker tracking, and Inverse Dynamic analysis. See
-[Lund et al. 2015](http://www.tandfonline.com/doi/full/10.1080/23335432.2014.993706)
+[Lund et al. 2015](https://doi.org/10.1080/23335432.2014.993706)
 for a detailed dicussion on different approches to MoCap analysis.
 :::
 

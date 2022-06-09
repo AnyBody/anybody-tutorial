@@ -8,7 +8,7 @@
 > automatically with [open source continuous integrations servers](https://github.com/AnyBody/anybody-tutorial/actions).
 
 The HTML files from building the tutorials are automatically
-published to <https://anyscript.org/tutorials> .
+published to <https://anyscript.org/tutorials/> .
 
 ## Contributing
 

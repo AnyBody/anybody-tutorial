@@ -3,7 +3,7 @@
 
 Developing accurate models of the human body from scratch is an enormous task.
 It is thus practical to use the models in the [The AnyBody Managed Model
-Repository](https://anyscript.org/ammr-doc)
+Repository](https://anyscript.org/ammr-doc/)
 as a starting template for a new application.
 
 The following elements of the AnyScript language make such templating easier:

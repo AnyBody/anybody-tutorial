@@ -15,7 +15,7 @@ could also have been achived with other optimization frameworks (like [NLopt](ht
 Before we begin you need to install the Anaconda Python distribution.
 It is free and comes with most of the necessary packages preinstalled.
 
-- [Download and install Anaconda Python Distribution (>3.6)](https://www.anaconda.com/download/)
+- [Download and install Anaconda Python Distribution](https://www.anaconda.com/products/distribution#Downloads)
 
 We also need one additional Python library (AnyPyTools) which will make it
 easier to work with AnyBody from Python. [AnyPyTools](https://anybody-research-group.github.io/anypytools-docs/) can be easily

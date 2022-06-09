@@ -10,7 +10,7 @@ hesitate to ask.
 
 ## Building the tutorials
 
-The tutorials are created using [sphinx](http://www.sphinx-doc.org/), a tool for software
+The tutorials are created using [sphinx](https://www.sphinx-doc.org/), a tool for software
 documentation. Sphinx converts markup text files into html, pdf or other
 formats.
 
@@ -29,11 +29,11 @@ master branch the tutorials becomes availble online.
 
 The newest released version of the tutorials are available at:
 
-- <https://anyscript.org/tutorials>
+- <https://anyscript.org/tutorials/>
 
 The newest development version (current master branch) is availble at:
 
-- <https://anyscript.org/tutorials/dev>
+- <https://anyscript.org/tutorials/dev/>
 
 ### Building the tutorials locally
 
@@ -42,7 +42,7 @@ them locally to view the layout and see results before pushing changes to the
 server. It is often not necesssary when making small fixes to existing
 tutorials. But when writing major new sections it nice to view how things look.
 
-The easiest way to install needed packages tools, is to have the [Anaconda Python distribution](https://www.continuum.io/downloads).
+The easiest way to install needed packages tools, is to have the [Anaconda Python distribution](https://www.anaconda.com/products/distribution#Downloads).
 
 Then run the following commands to install the necesssary packages.
 
@@ -173,4 +173,4 @@ Valid values for the highlighting languages are:
 - `AnyBodyDoc` AnyScript (Allows invalid syntax)
 - `python/c++/ruby` Different known programming languages
 - `markdown` Markdown
-- ... and any other [lexer alias that Pygments supports](http://pygments.org/docs/lexers/).
+- ... and any other [lexer alias that Pygments supports](https://pygments.org/docs/lexers/).

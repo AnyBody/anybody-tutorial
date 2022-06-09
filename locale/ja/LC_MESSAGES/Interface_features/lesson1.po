@@ -243,7 +243,7 @@ msgid ""
 "Modeling System allows you to use any text editor like Notepad++ to "
 "author your models, as long as it saves the files in an ASCII text "
 "format. Please refer to the Wiki at `anyscript.org "
-"<http://www.anyscript.org>`__ for more details."
+"<https://www.anyscript.org>`__ for more details."
 msgstr ""
 
 #: ../../Interface_features/lesson1.rst:158

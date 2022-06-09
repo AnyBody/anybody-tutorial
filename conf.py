@@ -393,6 +393,20 @@ ogp_use_first_image = True # if not found defaults to 'ogp_image'
 
 
 
+linkcheck_ignore = [
+    r'.*linkcheck_ignore',
+    "https://doi.org/10.1115/1.4037100", # asme.org prevents the linkcheck 
+    "https://doi.org/10.1115/1.4052115", # asme.org prevents the linkcheck 
+    "https://dx.doi.org/10.1115/1.4001678", # asme.org prevents the linkcheck 
+    "https://dx.doi.org/10.1115/1.4029258", # asme.org prevents the linkcheck 
+    ]
+
+linkcheck_allowed_redirects = {
+   r"https://doi\.org.*":  ".*",
+   r"https://www\.sphinx-doc\.org/": r"https://www\.sphinx-doc\.org/en/master/",
+   r"https://www\.anybodytech\.com/anybody\.html\?fwd=.*": ".*",
+   r"https://www\.youtube.com/.*": "https://consent\.youtube.com/.*"
+}
 
 def setup(app):
     app.add_css_file("custom.css")

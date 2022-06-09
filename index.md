@@ -61,7 +61,7 @@ It is recommended to start with the four Getting Started tutorials.
 : The wiki has a wealth of information, tips&tricks and FAQs for working with the AnyBody Modeling System.
 
 
-[AMMR documenation](https://anyscript.org/ammr-doc)
+[AMMR documenation](https://anyscript.org/ammr-doc/)
 : Browse documentation on AMMR models and learn about possible settings
 
 [The AnyBodyTech channel](https://www.youtube.com/user/anybodytech)
