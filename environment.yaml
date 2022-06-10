@@ -17,5 +17,7 @@ dependencies:
   - linkify-it-py 
   - tomli
   - sphinx-copybutton
+  - pydata_sphinx_theme
   - pip:
     - sphinxext-opengraph
+    - sphinxcontrib-youtube

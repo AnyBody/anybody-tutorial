@@ -3,26 +3,54 @@
 
 If you are a new user, please spend 7 minutes to watch the introductory video above, before beginning the tutorials.
 
+:::{only} offline 
+
 ```{raw} html
 <video width="80%" style="display:block; margin: 0 auto;" controls>
-    <source src="_static/IntroVideoTour.mp4" type="video/mp4">
+    <source src="../_static/IntroVideoTour.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 ```
+:::
+
+:::{only} not offline
+
+```{youtube} Y4H-8FMJlis
+:width: 80%
+:align: center
+
+```
+
+:::
 
 ## The AnyBody Managed Model Repository (AMMR)
 
 The AnyBody software comes along with an inbuilt model repository. This
-is the AMMR, a collection of human body models that are based on the
+is a collection of human body models that are based on the
 latest research studies.
 
-**Most importantly, it comes with a set of demo models (eg: MoCap
-based walking model, cycling etc.) that can serve as a useful learning
-tool, or even as the foundations for your own modeling studies.**
+:::{seealso}
+:class: margin
+The [AMMR documentation](https://anyscript.org/ammr-doc) has more information about the body models and examples
+:::
 
-Building models from the bottom-up is described further in "{doc}`Getting Started AnyScript Programming </A_Getting_started_anyscript/intro>`".
+Open body models
+: All models are open and editable with the AnyScript model language
 
-Modifying the postures and motion of an existing model is introduced in "{doc}`Getting Started:Modeling <../A_Getting_started_modeling/intro>`" and the "{doc}`MakingThings Move <../Making_things_move/intro>`" tutorials.
+Configurable Human model
+: Configure and combine different body models into a full body model
+
+Lots of Application examples
+: Gallery of example models provide a good starting point for modeling
+
+Community effort
+: Models are combined effort of many research groups over two decades
+
+
+
+* Building models from the bottom-up is described further in "{doc}`Getting Started AnyScript Programming </A_Getting_started_anyscript/intro>`".
+
+* Modifying the postures and motion of an existing model is introduced in "{doc}`Getting Started:Modeling <../A_Getting_started_modeling/intro>`" and the "{doc}`MakingThings Move <../Making_things_move/intro>`" tutorials.
 
 ## Goals for this tutorial
 
