@@ -3,7 +3,7 @@ name: Build Tutorials
 
 on:
   push:
-    tags: ['*']
+    branches: [ master ]
   pull_request:
     branches: [ master ]
   workflow_dispatch:
@@ -75,7 +75,7 @@ jobs:
       - name: Build Documentation
         shell: bash -l {0}
         run: |
-          make html-dev
+          make html -W
 
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
@@ -114,7 +114,7 @@ jobs:
       - name: Build Documentation
         shell: bash -l {0}
         run: |
-          make html-dev
+          make html-dev -W
 
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
