@@ -1,13 +1,14 @@
 ---
-substitutions:
-  Matetype_1: |-
-    <img src="_static/lesson2/lesson2_image4.PNG" alt="Matetype 1" >
-  Matetype_2: |-
-    <img src="_static/lesson2/lesson2_image5.png" alt="Matetype 2">
-  Matetype_3: |-
-    <img src="_static/lesson2/lesson2_image6.PNG" alt="Matetype 3">
-  Matetype_4: |-
-    <img src="_static/lesson2/lesson2_image5.png" alt="Matetype 4">
+myst:
+  substitutions:
+    Matetype_1: |-
+      <img src="_static/lesson2/lesson2_image4.PNG" alt="Matetype 1" >
+    Matetype_2: |-
+      <img src="_static/lesson2/lesson2_image5.png" alt="Matetype 2">
+    Matetype_3: |-
+      <img src="_static/lesson2/lesson2_image6.PNG" alt="Matetype 3">
+    Matetype_4: |-
+      <img src="_static/lesson2/lesson2_image5.png" alt="Matetype 4">
 ---
 
 # Making the translated AnyScript model move

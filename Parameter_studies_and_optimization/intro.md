@@ -1,8 +1,9 @@
 ---
-substitutions:
-  efficiency.gif: |-
-    ```{image} _static/intro/image1.gif
-    ```
+myst:
+  substitutions:
+    efficiency.gif: |-
+      ```{image} _static/intro/image1.gif
+      ```
 ---
 
 # Parameter Studies and Optimization
