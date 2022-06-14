@@ -1,0 +1,30 @@
+
+{doc}`A Study of Studies </A_study_of_studies/index>`
+: Explains the sequence of a typical study/simulation from initial conditions, kinematics to the
+  inverse dynamic analysis.
+
+{doc}`Making things move </Making_things_move/index>`
+: Overview of the different
+  possibilities to apply a motion to a body model.
+  From simple drivers to motion caputure data.
+
+
+{doc}`Muscle modeling </Muscle_modeling/index>`
+: Introduces the many facilities for modeling muscles, including different
+  muscle types and models, as well as ligament modeling.
+
+
+{doc}`The mechanical elements </The_mechanical_elements/index>`
+: Demonstration the mechanical objects available in
+  AnyScript, such as segments, joints, drivers, forces, and the very versatile kinematic measures.
+
+
+{doc}`Force dependent kinematics </ForceDependentKinematics/index>`
+: Deep dive into force dependent kinematics which allows the user to alter motion in a joint depending on the acting forces from muscles, ligaments, surfaces, etc.
+
+
+{doc}`Parameter studies and optimization </Parameter_studies_and_optimization/index>`
+: Introduces parameter and optimization studies, which are used to investigate the influence of model parameters and optimize them to obtain a desired model behavior.
+
+
+

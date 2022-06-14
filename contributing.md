@@ -1,6 +1,6 @@
-# Contributing
+# Help improve tutorials
 
-We highly appreciate any contributions to Tutorials!
+We highly appreciate any contributions to the Tutorials!
 
 If you find typos, missing links or anything else wrong, don't hesitate to fix it.
 
@@ -8,6 +8,7 @@ It is as easy as forking [the repository on GitHub](https://github.com/AnyBody/a
 issuing a pull request.  If you have any questions about this process don’t
 hesitate to ask.
 
+:::::{only} draft
 ## Building the tutorials
 
 The tutorials are created using [sphinx](https://www.sphinx-doc.org/), a tool for software
@@ -174,3 +175,6 @@ Valid values for the highlighting languages are:
 - `python/c++/ruby` Different known programming languages
 - `markdown` Markdown
 - ... and any other [lexer alias that Pygments supports](https://pygments.org/docs/lexers/).
+
+
+:::::

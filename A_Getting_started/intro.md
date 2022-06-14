@@ -1,56 +1,9 @@
 # Getting Started Tutorial
 
-
-If you are a new user, please spend 7 minutes to watch the introductory video above, before beginning the tutorials.
-
-:::{only} offline 
-
-```{raw} html
-<video width="80%" style="display:block; margin: 0 auto;" controls>
-    <source src="../_static/IntroVideoTour.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-```
+:::{note}
+The AnyBody software comes with an inbuilt model repository - The AnyBody Managed Model Repository (AMMR). This tutorial starts with unpacking a local version of the AMMR. You can skip to {doc}`lesson 1 <lesson1>` if you have already done this. 
 :::
 
-:::{only} not offline
-
-```{youtube} Y4H-8FMJlis
-:width: 80%
-:align: center
-
-```
-
-:::
-
-## The AnyBody Managed Model Repository (AMMR)
-
-The AnyBody software comes along with an inbuilt model repository. This
-is a collection of human body models that are based on the
-latest research studies.
-
-:::{seealso}
-:class: margin
-The [AMMR documentation](https://anyscript.org/ammr-doc) has more information about the body models and examples
-:::
-
-Open body models
-: All models are open and editable with the AnyScript model language
-
-Configurable Human model
-: Configure and combine different body models into a full body model
-
-Lots of Application examples
-: Gallery of example models provide a good starting point for modeling
-
-Community effort
-: Models are combined effort of many research groups over two decades
-
-
-
-* Building models from the bottom-up is described further in "{doc}`Getting Started AnyScript Programming </A_Getting_started_anyscript/intro>`".
-
-* Modifying the postures and motion of an existing model is introduced in "{doc}`Getting Started:Modeling <../A_Getting_started_modeling/intro>`" and the "{doc}`MakingThings Move <../Making_things_move/intro>`" tutorials.
 
 ## Goals for this tutorial
 
@@ -60,9 +13,10 @@ This tutorial takes the top-down approach and aims to accomplish the following:
 2. Learn how to load & change the posture of the human model, and use the model view window
 3. Run an inverse dynamics analysis and review the results.
 
-This entire tutorial relies heavily on using the AMMR described above.
+This entire tutorial relies heavily on using the AnyBody Managed Model Respository (AMMR). 
+Follow the steps below to unpack a local version of the AMMR.
 
-## Setup the AMMR
+# Setup the AMMR
 
 
 Before you continue you must unpack the entire repository and save it on
@@ -75,7 +29,7 @@ Following the instructions in the Demo tab will install a copy of the AMMR in yo
 default. It is good practice to create a second local copy of the AMMR
 so that you do not overwrite the original AMMR folder by accident.
 
-## AMMR structure
+# AMMR structure
 
 Open a file manager and navigate to the directory where you unpacked the
 repository. You should see a folder structure that includes the

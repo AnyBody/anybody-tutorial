@@ -49,10 +49,42 @@ for you depending on your background and interests.
 
 It is recommended to start with the four Getting Started tutorials.
 
+::::{grid}
+
+:::{grid-item-card} Getting started tutorials
+:link: GettingStarted
+:link-type: doc
+
+Set of tutorials for new users of AnyBody. Gives a relatively fast introduction to AnyScript and the AnyBody Managed Model Repository.
++++
+[See more](GettingStarted.md)
+:::
+
+:::{grid-item-card} Core Tutorials
+:link: Tutorials
+:link-type: doc
+
+Set of tutorials for many different aspects of the Anybody Modeling System. Select the totorials that makes sense for your projects to quickly get up to speed.
++++
+[See more](Tutorials.md)
+:::
+
+:::{grid-item-card} AMMR Tutorials
+:link: A_Getting_started_AMMR/index
+:link-type: doc
+
+Look up the AMMR tutorials if you need help and guides for using the AnyBody Managed Model Repository. 
++++
+[See more](A_Getting_started_AMMR/index.md)
+:::
 
 
-```{rubric} Other resources!
-```
+
+::::
+
+## Other resources!
+
+
 [AnyScript forums](https://forum.anyscript.org/)
 : The Forum is a place to give and get help from other users. Get help and and learn from the experts.
 
@@ -74,7 +106,24 @@ It is recommended to start with the four Getting Started tutorials.
 : The repositories on Github has large and small models under development. Download cutting edge models and join development.
 
 
+```{toctree}
+:includehidden: True
+:maxdepth: 2
+:hidden: True
+:titlesonly: True
 
+GettingStarted
+```
+
+```{toctree}
+:includehidden: True
+:maxdepth: 2
+:hidden: True
+:titlesonly: True
+
+Tutorials
+About <about>
+```
 
 
 ```{rubric} Help make tutorials better!
@@ -96,61 +145,6 @@ More details are in the {doc}`how to contribute section <contributing>`.
 
 
 
-```{toctree}
-:caption: Getting started
-:includehidden: true
-:maxdepth: 2
-:numbered: 1
-:hidden: true
-:titlesonly: true
-
-First steps <A_Getting_started/index>
-A_Getting_started_anyscript/index
-A_Getting_started_modeling/index
-A_Getting_started_AMMR/index
-
-```
-
-```{toctree}
-:caption: Tutorials
-:includehidden: true
-:maxdepth: 2
-:hidden: true
-:titlesonly: true
-
-A_study_of_studies/index
-Making_things_move/index
-MuscleRecruitment/index
-ForceDependentKinematics/index
-Muscle_modeling/index
-The_mechanical_elements/index
-Finite_element_analysis/index
-AnyExp4SOLIDWORKS/index
-Scaling/index
-Validation_of_models/index
-Parameter_studies_and_optimization/index
-Posture_and_movement/intro
-```
-
-```{toctree}
-:caption: Internals of AnyBody
-:includehidden: true
-:maxdepth: 2
-:hidden: true
-:titlesonly: true
-
-Interface_features/index
-Advanced_script_features/index
-Troubleshooting_anyscript/intro
-```
 
 
-```{toctree}
-:caption: Others
-:maxdepth: 1
-:hidden: true
 
-
-contributing
-legal
-```

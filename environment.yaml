@@ -8,7 +8,7 @@ dependencies:
   - sphinx
   - myst-parser
   - make
-  - sphinx-book-theme
+#  - sphinx-book-theme
   - sphinx-design
   - sphinx-togglebutton
   - pygments_anyscript
@@ -17,7 +17,9 @@ dependencies:
   - linkify-it-py 
   - tomli
   - sphinx-copybutton
-  - pydata_sphinx_theme
   - pip:
     - sphinxext-opengraph
     - sphinxcontrib-youtube
+    - git+https://github.com/pydata/pydata-sphinx-theme.git@main
+    - git+https://github.com/executablebooks/sphinx-design.git@main
+

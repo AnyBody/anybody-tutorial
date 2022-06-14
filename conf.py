@@ -142,6 +142,7 @@ exclude_patterns = [
     ".DS_Store",
     ".github",
     "README.md",
+    "galleries/*",
 ]
 
 
@@ -258,9 +259,46 @@ html_title = "%s v%s" % (project, release)
 # }
 
 
-html_theme = "sphinx_book_theme"
+html_theme = "pydata_sphinx_theme"
 
 html_theme_options = {
+    # "external_links": [
+    #     {
+    #         "url": "https://anyscript.org/ammr-doc/",
+    #         "name": "AMMR Documentation",
+    #     },
+    # ],
+    "github_url": "https://github.com/anybody/anybody-tutorial/",
+    # "logo": {
+    #     "text": "PyData Theme",
+    #     "image_dark": "logo-dark.svg",
+    # },
+    "use_edit_page_button": True,
+    "show_toc_level": 2,
+    "show_nav_level": 1,
+    # "search_bar_position": "navbar",  # TODO: Deprecated - remove in future version
+    # "navbar_align": "left",  # [left, content, right] For testing that the navbar items align properly
+    # "navbar_start": ["navbar-logo"],
+    # "navbar_center": ["navbar-nav", "navbar-version"],  # Just for testing
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+    # "left_sidebar_end": ["custom-template.html", "sidebar-ethical-ads.html"],
+    # "footer_items": ["copyright", "sphinx-version", ""]
+}
+
+html_sidebars = {
+    "index": [],  # Remove sidebars on landing page to save space
+}
+
+myst_heading_anchors = 2
+
+html_context = {
+    "github_user": "anybody",
+    "github_repo": "anybody-tutorial",
+    "github_version": "master",
+    "doc_path": ".",
+}
+
+booK_html_theme_options = {
     "logo_only": True,
     "repository_url": "https://github.com/anybody/anybody-tutorial",
     "use_repository_button": False,
@@ -286,17 +324,26 @@ html_favicon = "_static/favicon.ico"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
-html_css_files = ["custom.css"]
+html_css_files = [("custom.css", {"priority": 1000})]
 
 
 # Custom sidebar templates, maps document names to template names.
 # html_sidebars = {'**': ['searchbox.html', 'globaltoc.html']}
 
+
 html_sidebars = {
+    "**": [
+        "search-field",
+        "back_to_manual.html",
+        "sidebar-nav-bs",
+        "sidebar-ethical-ads",
+    ]
+}
+
+book_html_sidebars = {
     "**": [
         "sidebar-logo.html",
         "search-field.html",
-        "back_to_manual.html",
         "sbt-sidebar-nav.html",
     ]
 }
@@ -414,4 +461,4 @@ linkcheck_allowed_redirects = {
 
 
 def setup(app):
-    app.add_css_file("custom.css", priority=900)
+   ...
