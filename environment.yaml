@@ -6,7 +6,7 @@ dependencies:
   - python
   - pip
   - sphinx
-  - myst-parser
+  - myst-parser>=0.18
   - make
 #  - sphinx-book-theme
   - sphinx-design
