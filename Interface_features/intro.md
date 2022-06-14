@@ -1,6 +1,6 @@
 ---
 myst:
-   substitutions:
+  substitutions:
    GUI elements: |-
       ```{image} _static/intro/image3.png
       ```
