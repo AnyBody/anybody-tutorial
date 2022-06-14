@@ -1,9 +1,8 @@
 ---
-myst:
-   substitutions:
-   GUI elements: |-
-      ```{image} _static/intro/image3.png
-      ```
+substitutions:
+  GUI elements: |-
+    ```{image} _static/intro/image3.png
+    ```
 ---
 
 # Using the AnyBody Modeling System

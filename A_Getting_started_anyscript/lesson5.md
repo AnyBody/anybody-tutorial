@@ -1,21 +1,20 @@
 ---
-myst:
-  substitutions:
-    image0: |-
-      ```{image} _static/lesson5/image1.png
-      ```
-    image1: |-
-      ```{image} _static/lesson5/image2.png
-      ```
-    image2: |-
-      ```{image} _static/lesson5/image3.png
-      ```
-    image3: |-
-      ```{image} _static/lesson5/image4.png
-      ```
-    image4: |-
-      ```{image} _static/lesson5/image5.png
-      ```
+substitutions:
+  image0: |-
+    ```{image} _static/lesson5/image1.png
+    ```
+  image1: |-
+    ```{image} _static/lesson5/image2.png
+    ```
+  image2: |-
+    ```{image} _static/lesson5/image3.png
+    ```
+  image3: |-
+    ```{image} _static/lesson5/image4.png
+    ```
+  image4: |-
+    ```{image} _static/lesson5/image5.png
+    ```
 ---
 
 # Lesson 5: Definition of Muscles and External Forces

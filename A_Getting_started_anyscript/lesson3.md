@@ -1,9 +1,8 @@
 ---
-myst:
-    substitutions:
-    Model tree ElbowNode: |-
-        ```{image} _static/lesson3/image1.png
-        ```
+substitutions:
+  Model tree ElbowNode: |-
+    ```{image} _static/lesson3/image1.png
+    ```
 ---
 
 # Lesson 3: Connecting Segments by Joints

@@ -1,38 +1,37 @@
 ---
-myst:
-  substitutions:
-    image1: |-
-      ```{image} _static/lesson3_appendix/image2.png
-      :width: 80%
-      ```
-    image10: |-
-      ```{image} _static/lesson3_appendix/image11.png
-      :width: 80%
-      ```
-    image11: |-
-      ```{image} _static/lesson3_appendix/image12.png
-      :width: 80%
-      ```
-    image12: |-
-      ```{image} _static/lesson3_appendix/image13.png
-      :width: 80%
-      ```
-    image13: |-
-      ```{image} _static/lesson3_appendix/image14.png
-      :width: 80%
-      ```
-    image2: |-
-      ```{image} _static/lesson3_appendix/image3.png
-      :width: 80%
-      ```
-    image3: |-
-      ```{image} _static/lesson3_appendix/image4.png
-      :width: 80%
-      ```
-    image4: |-
-      ```{image} _static/lesson3_appendix/image5.png
-      :width: 80%
-      ```
+substitutions:
+  image1: |-
+    ```{image} _static/lesson3_appendix/image2.png
+    :width: 80%
+    ```
+  image10: |-
+    ```{image} _static/lesson3_appendix/image11.png
+    :width: 80%
+    ```
+  image11: |-
+    ```{image} _static/lesson3_appendix/image12.png
+    :width: 80%
+    ```
+  image12: |-
+    ```{image} _static/lesson3_appendix/image13.png
+    :width: 80%
+    ```
+  image13: |-
+    ```{image} _static/lesson3_appendix/image14.png
+    :width: 80%
+    ```
+  image2: |-
+    ```{image} _static/lesson3_appendix/image3.png
+    :width: 80%
+    ```
+  image3: |-
+    ```{image} _static/lesson3_appendix/image4.png
+    :width: 80%
+    ```
+  image4: |-
+    ```{image} _static/lesson3_appendix/image5.png
+    :width: 80%
+    ```
 ---
 
 # Appendix: Morphing based on landmarks

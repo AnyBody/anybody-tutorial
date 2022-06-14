@@ -1,8 +1,7 @@
 ---
-myst:
-  substitutions:
-    getting_started_8: |-
-      <img src="_static/lesson3/image3.png">
+substitutions:
+  getting_started_8: |-
+    <img src="_static/lesson3/image3.png">
 ---
 
 # Lesson 3: Reviewing Analysis Results
