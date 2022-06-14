@@ -5,18 +5,14 @@ channels:
 dependencies:
   - python=3.9
   - pip
-  - sphinx
-  - myst-parser
-  - linkify-it-py
+  - sphinx<4.0
+  - myst-parser=0.17.2
+  - linkify-it-py=2.0.0
   - make
-  - cloud_sptheme
+  - cloud_sptheme=1.10.1.post20200504175005
   - pygments_anyscript
-  - ipython
+  - ipython=8.4.0
   - jinja2=3.0.3
-  - sphinx-book-theme
-  - sphinx-design
-  - sphinx-togglebutton
-  - sphinx-copybutton
 
   - pip:
     - sphinxext-opengraph

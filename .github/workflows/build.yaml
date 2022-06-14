@@ -74,7 +74,7 @@ jobs:
       - name: Build Documentation
         shell: bash -l {0}
         run: |
-          make html -W
+          make html
 
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
@@ -113,7 +113,7 @@ jobs:
       - name: Build Documentation
         shell: bash -l {0}
         run: |
-          make html-dev -W
+          make html-dev
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
