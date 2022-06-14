@@ -6,7 +6,7 @@ dependencies:
   - python=3.9
   - pip
   - sphinx
-  - myst-parser<0.18
+  - myst-parser
   - linkify-it-py
   - make
   - cloud_sptheme
