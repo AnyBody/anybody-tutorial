@@ -1,10 +1,11 @@
 ---
-substitutions:
-  Load_button_image: |-
-    <img src="_static/lesson2/image1.png">
+myst:
+  substitutions:
+    Load_button_image: |-
+      <img src="_static/lesson2/image1.png">
 
-  Zoom_button_image: |-
-     <img src="_static/lesson2/image3.png">
+    Zoom_button_image: |-
+      <img src="_static/lesson2/image3.png">
 
 ---
 

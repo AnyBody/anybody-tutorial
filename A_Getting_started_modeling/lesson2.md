@@ -1,8 +1,9 @@
 ---
-substitutions:
-  ModelView_Human_Adjusted: |-
-    ```{image} _static/lesson2/image1.png
-    ```
+myst:
+  substitutions:
+    ModelView_Human_Adjusted: |-
+      ```{image} _static/lesson2/image1.png
+      ```
 ---
 
 # Lesson 2: Adjusting the Human Model
