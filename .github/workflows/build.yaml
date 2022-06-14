@@ -7,16 +7,58 @@ on:
   pull_request:
     branches: [ master ]
   workflow_dispatch:
+    inputs:
+      run_deploy:
+        description: 'Should newest tag be deployed?'
+        required: false
+        default: ""
 
   
 
 jobs:
-  sphinx-build:
+
+  build-last-tagged:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    if: "github.event.inputs.run_deploy"
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+    
+      - name: Checkout last tagged
+        run: |
+          git checkout $(git describe --tags `git rev-list --tags --max-count=1`);
+
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: sphinx
+          environment-file: environment.yaml
+          channels: conda-forge
+
+      - name: Build last tagged version
+        shell: bash -l {0}
+        run: |
+          make clean
+          make html
+
+      - name: Deploy 🚀
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: AnyBody/tutorials
+          publish_branch: gh-pages
+          publish_dir: _build/html
+
+
+  sphinx-build-master:
+    runs-on: ubuntu-latest
+    if: "!github.event.inputs.run_deploy"
     
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
             
@@ -33,29 +75,8 @@ jobs:
       - name: Build Documentation
         shell: bash -l {0}
         run: |
-          set -e
           make html-dev
-          mkdir -p public/dev
-          cp -rT _build/html public/dev
-          
-      - name: Build last tagged version
-        if: github.ref == 'refs/heads/master'
-        shell: bash -l {0}
-        run: |
-          git checkout $(git describe --tags `git rev-list --tags --max-count=1`);
-          make clean
-          make html
-          cp -rT _build/html public
 
-      - name: Build new theme version
-        if: github.ref == 'refs/heads/master'
-        shell: bash -l {0}
-        run: |
-          git checkout newtheme;
-          make clean
-          make html-dev
-          cp -rT _build/html public/new          
-           
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
@@ -63,4 +84,45 @@ jobs:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           external_repository: AnyBody/tutorials
           publish_branch: gh-pages
-          publish_dir: ./public
+          publish_dir: _build/html
+          destination_dir: dev
+
+
+  sphinx-build-new-theme:
+    runs-on: ubuntu-latest
+    if: "!github.event.inputs.run_deploy"
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Checkout new theme branch
+        run: |
+          git checkout newtheme
+            
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: sphinx
+          environment-file: environment.yaml
+          channels: conda-forge
+
+      - uses: ammaraskar/sphinx-problem-matcher@master
+        # if: github.ref != 'refs/heads/master'
+            
+      - name: Build Documentation
+        shell: bash -l {0}
+        run: |
+          make html-dev
+
+      - name: Deploy 🚀
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: AnyBody/tutorials
+          publish_branch: gh-pages
+          publish_dir: _build/html
+          destination_dir: new
+
