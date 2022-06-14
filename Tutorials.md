@@ -1,9 +1,16 @@
-# AnyBody Tutorials
+---
+sd_hide_title: true
+---
+
+# **Tutorials**
+
+
+```{rubric} All Tutorials
+:class: sd-fs-4
+```
 
 You can find the available tutorials in the sidebar. The tutorials are ordered in a suitable sequence for new users who are unfamiliar with AnyBody, but this sequence may not be optimal for you depending on your background and interests.
 
-:::{rubric} Tutorial overview
-:::
 
 
 :::{include} core-tutorial-descriptions.txt
@@ -12,6 +19,7 @@ You can find the available tutorials in the sidebar. The tutorials are ordered i
 
 :::{include} special-topics-descriptions.txt
 :::
+
 
 
 

@@ -1,14 +1,15 @@
-# About the AnyBody Tutorials
+---
+sd_hide_title: true
+---
+# **About**
 
-
-
-
+```{rubric} About the AnyBody Tutorials
+:class: sd-fs-4
+```
 
 ```{toctree}
-:caption: Others
 :maxdepth: 1
 
-
-legal
 contributing
+legal
 ```

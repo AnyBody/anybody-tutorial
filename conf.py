@@ -259,9 +259,9 @@ html_title = "%s v%s" % (project, release)
 # }
 
 
-html_theme = "pydata_sphinx_theme"
+html_theme = "sphinx_book_theme"
 
-html_theme_options = {
+pydata_html_theme_options = {
     # "external_links": [
     #     {
     #         "url": "https://anyscript.org/ammr-doc/",
@@ -285,9 +285,9 @@ html_theme_options = {
     # "footer_items": ["copyright", "sphinx-version", ""]
 }
 
-html_sidebars = {
-    "index": [],  # Remove sidebars on landing page to save space
-}
+# html_sidebars = {
+#     "index": [],  # Remove sidebars on landing page to save space
+# }
 
 myst_heading_anchors = 2
 
@@ -298,7 +298,7 @@ html_context = {
     "doc_path": ".",
 }
 
-booK_html_theme_options = {
+html_theme_options = {
     "logo_only": True,
     "repository_url": "https://github.com/anybody/anybody-tutorial",
     "use_repository_button": False,
@@ -308,6 +308,7 @@ booK_html_theme_options = {
     "use_download_button": False,
     "use_edit_page_button": True,
     "use_issues_button": True,
+    "show_navbar_depth":2,
 }
 
 
@@ -331,7 +332,7 @@ html_css_files = [("custom.css", {"priority": 1000})]
 # html_sidebars = {'**': ['searchbox.html', 'globaltoc.html']}
 
 
-html_sidebars = {
+pydata_html_sidebars = {
     "**": [
         "search-field",
         "back_to_manual.html",
@@ -340,10 +341,11 @@ html_sidebars = {
     ]
 }
 
-book_html_sidebars = {
+html_sidebars = {
     "**": [
         "sidebar-logo.html",
         "search-field.html",
+        "back_to_manual.html",
         "sbt-sidebar-nav.html",
     ]
 }

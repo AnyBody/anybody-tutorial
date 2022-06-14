@@ -21,7 +21,7 @@ sd_hide_title: true
 :::{grid-item}
 :columns: 12 8 8 8
 :child-align: justify
-:class: sd-fs-5
+:class: sd-fs-3
 
 ```{rubric} Tutorials for the AnyBody Modeling System
 ```
@@ -121,8 +121,9 @@ GettingStarted
 :hidden: True
 :titlesonly: True
 
+
 Tutorials
-About <about>
+about
 ```
 
 

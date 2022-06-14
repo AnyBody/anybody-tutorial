@@ -1,4 +1,4 @@
-{doc}`Getting Started <A_Getting_started/index>`
+{doc}`A_Getting_started/index`
 : Getting started tutorial for new users. Introduces the basics concepts in the AnyBody Modeling system. 
 
 
