@@ -18,7 +18,7 @@ With the AnyBody Modeling System you already have a repository of models
 available, for details please see the AnyBody Assistant available from
 the menu. This tutorial has been written using the AnyBody Managed Model
 Repository Ver. 1.6 (AMMRV1.6) if you see differences between the
-tutorial text and your own results please [report or help fix it here] ](https://www.github.com/anybody/anybody-tutorial)
+tutorial text and your own results please [report or help fix it here] ](https://github.com/anybody/anybody-tutorial/)
 
 The starting point for this tutorial is the model:
 

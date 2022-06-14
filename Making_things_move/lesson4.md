@@ -609,9 +609,3 @@ Now, let us change our focus to a top-down approach
 and see what the technology can do with real motion capture data. That
 will be the subject of {doc}`Lesson 5 <lesson5>`.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson5`.
-:::

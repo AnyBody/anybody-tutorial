@@ -1,4 +1,4 @@
-# Personalizing Your Model
+# Scaling and Personalizing your model
 
 Musculoskeletal models must be adaptable to sizes and anatomy of various individuals
 to be useful for product design and to be used for applications, where high geometric

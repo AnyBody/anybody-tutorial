@@ -124,11 +124,6 @@ Clicking the error code, e.g: ERROR(SCR.PRS11) opens a pop-up window with a comp
 ```
 
 We now assume that you have removed the errors and have loaded the model
-successfully.
+successfully. If you are up to it, let's continue onward to {doc}`Lesson 2: Segments <lesson2>`
 
-:::{rst-class} without-title
-:::
 
-:::{seealso}
-**Next lesson:** If you are up to it, let's continue onward to {doc}`Lesson 2: Segments <lesson2>`.
-:::

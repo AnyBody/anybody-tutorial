@@ -1,19 +1,64 @@
 
+/* :root {
 
-th > p:first-child,
-td > p:first-child,
-li > p:first-child,
-dt > p:first-child,
-dd > p:first-child,
-dl > p:first-child {
-    margin-top: 0px;
+    --sd-color-primary: #953337  !important; 
+    --sd-color-secondary: #52556f  !important;
+    --sd-color-success: #2f8350  !important;
+    --sd-color-info: #eae6ef  !important;
+    --sd-color-warning: #f8cc73  !important;
+    --sd-color-danger: #EBC511  !important;
+    --sd-color-light: #f8f9fa  !important;
+    --sd-color-muted: #6c757d  !important;
+    --sd-color-dark: #212529  !important;
+    --sd-color-primary-highlight: #622124  !important;
+    --sd-color-secondary-highlight: #2c2d3c  !important;
+    --sd-color-success-highlight: #1c4f30  !important;
+    --sd-color-info-highlight: #b8b4bc  !important;
+    --sd-color-warning-highlight: #c4a25b  !important;
+    --sd-color-danger-highlight: #b79a0d  !important;
+    --sd-color-light-highlight: #d3d4d5  !important;
+    --sd-color-muted-highlight: #5c636a  !important;
+    --sd-color-dark-highlight: #1c1f23  !important;
+    --sd-color-primary-text: #fff  !important;
+    --sd-color-secondary-text: #fff  !important;
+    --sd-color-success-text: #fff  !important;
+    --sd-color-info-text: #fff  !important;
+    --sd-color-warning-text: #212529  !important;
+    --sd-color-danger-text: #fff  !important;
+    --sd-color-light-text: #212529  !important;
+    --sd-color-muted-text: #fff  !important;
+    --sd-color-dark-text: #fff  !important;
+    --sd-color-shadow: rgba(0, 0, 0, 0.15)  !important;
+    --sd-color-card-border: rgba(0, 0, 0, 0.125)  !important;
+    --sd-color-card-border-hover: hsla(231, 99%, 66%, 1)  !important;
+    --sd-color-card-background: transparent  !important;
+    --sd-color-card-text: inherit  !important;
+    --sd-color-card-header: transparent  !important;
+    --sd-color-card-footer: transparent  !important;
+    --sd-color-tabs-label-active: #953337  !important;
+    --sd-color-tabs-label-hover: #953337  !important;
+    --sd-color-tabs-label-inactive: hsl(0, 0%, 66%)  !important;
+    --sd-color-tabs-underline-active: #953337  !important;
+    --sd-color-tabs-underline-hover: rgba(178, 206, 245, 0.62)  !important;
+    --sd-color-tabs-underline-inactive: transparent  !important;
+    --sd-color-tabs-overline: rgb(222, 222, 222)  !important;
+    --sd-color-tabs-underline: rgb(222, 222, 222)  !important;
+    --sd-fontsize-tabs-label: 1rem
+} */
+
+/* .sd-card-footer {
+    border-top: 1px solid var(--pst-color-border) !important;
 }
 
-th > p:last-child,
-td > p:last-child,
-li > p:last-child,
-dt > p:last-child,
-dd > p:last-child,
-dl > p:last-child {
-    margin-bottom: 0px;
+.sd-card {
+    background-color: var(--pst-color-on-background) !important;
+    border: 1px solid var(--pst-color-border) !important;
+} */
+
+[data-theme="dark"] .sd-card {
+    border-color: #00000000;
+}
+
+[data-theme="dark"] .sd-card-hover:hover { 
+    border-color: var(--sd-color-card-border-hover) !important;
 }

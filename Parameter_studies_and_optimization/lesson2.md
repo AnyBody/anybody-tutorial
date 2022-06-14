@@ -415,11 +415,6 @@ picture below:
 
 This completes the introduction to optimization studies.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson3`. We will look at how to use external (3rd. party) optimizers with
+In {doc}`lesson 3 <lesson3>` we will look at how to use external (3rd. party) optimizers with
 AnyBody. In particular we will show how to use the Python programming language to run the
 same optimizations as we have done in this Tutorial.
-:::

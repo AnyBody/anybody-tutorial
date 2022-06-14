@@ -1,8 +1,9 @@
 ---
-substitutions:
-  GUI elements: |-
-    ```{image} _static/intro/image3.png
-    ```
+myst:
+  substitutions:
+   GUI elements: |-
+      ```{image} _static/intro/image3.png
+      ```
 ---
 
 # Using the AnyBody Modeling System
@@ -52,9 +53,3 @@ following lessons:
 - {doc}`Lesson 6: Modifying the Loaded Model <lesson6>`
 - {doc}`Lesson 7: Wrapping the Model with AnyBody Project <lesson7>`
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson1`.
-:::

@@ -72,11 +72,5 @@ collective effect of the menisci and the ligaments in providing
 anterio-posterior stability.
 
 Please go ahead and download a template of the model here, and then
-proceed to:
+proceed to the next {doc}`lesson 1 <lesson1>`.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson1`.
-:::

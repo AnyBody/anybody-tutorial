@@ -142,9 +142,3 @@ of freedom. The additional information in the redundant constraints can
 be used to our advantage for other purposes too, as we shall see in
 {doc}`Lesson 4 <lesson4>`.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson4`.
-:::

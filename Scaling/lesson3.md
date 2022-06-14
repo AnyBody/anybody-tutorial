@@ -468,10 +468,3 @@ dynamics simulation. The final model can be downloaded {download}`here <Download
 Finally, the only thing left is to include this scaling function into an
 actual model. {doc}`Lesson 2 <lesson4>` describes how this can be
 done.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson4`.
-:::

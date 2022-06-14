@@ -186,11 +186,4 @@ You can read more on calibration in “Muscle Modeling, Lesson 7:
 Ligaments” and “Inverse Dynamics of Muscle Systems, Lesson 7:
 Calibration”.
 
-In the next lesson we investigate the results in more detail.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::
+In the next {doc}`lesson <lesson3>` we investigate the results in more detail.

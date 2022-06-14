@@ -281,11 +281,3 @@ later in this tutorial.
 
 [^cite_happee_van_der_hel_1995]: Happee, R., & Van der Helm, F. C. T. (1995). The control of shoulder muscles during goal
     directed movements, an inverse dynamic analysis. Journal of biomechanics, 28(10), 1179-1191.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** For now, {doc}`let's proceed to the next lesson <lesson2>` to learn
-how to control the way a muscle is displayed.
-:::

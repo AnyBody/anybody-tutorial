@@ -8,11 +8,11 @@ and Gait Analysis laboratories to record synchronized 3D and analog data
 since the mid 1980's. It is supported by all major Motion Capture System
 manufacturers, as well as other companies in the Biomechanics, Motion
 Capture and Animation Industries, and there is a web site and community
-devoted to its maintenance: [www.c3d.org](http://www.c3d.org/).
+devoted to its maintenance: [c3d.org](https://www.c3d.org/).
 
 The fact that the format is binary means that you cannot open a C3D file
 and read it unless you have a special reader. There are readers
-available at the c3d.org website, and most motion capture systems come
+available at the [c3d.org website](https://www.c3d.org/), and most motion capture systems come
 with software that reads and manipulates C3D files.
 
 The fact that the file format is old and also designed to work on just

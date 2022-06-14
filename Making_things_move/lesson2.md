@@ -358,7 +358,7 @@ InitialConditions and Kinematics operations that will accept more
 kinematic constraints than the system has DoFs.
 
 :::{note}
-See [Andersen MS, Damsgaard M, and Rasmussen J. 2007](http://www.tandfonline.com/doi/abs/10.1080/10255840802459412)
+See [Andersen MS, Damsgaard M, and Rasmussen J. 2007](https://doi.org/10.1080/10255840802459412)
 for detailed information about the algorithm behind the overdeterminate kinematic analysis.
 :::
 
@@ -482,10 +482,3 @@ objects.
 
 In {doc}`Lesson 3 <lesson3>` we investigate how to filter noise out of
 the measured data.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::

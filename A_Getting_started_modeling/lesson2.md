@@ -1,8 +1,9 @@
 ---
-substitutions:
-  ModelView_Human_Adjusted: |-
-    ```{image} _static/lesson2/image1.png
-    ```
+myst:
+  substitutions:
+    ModelView_Human_Adjusted: |-
+      ```{image} _static/lesson2/image1.png
+      ```
 ---
 
 # Lesson 2: Adjusting the Human Model
@@ -96,9 +97,3 @@ constraints, which means that AnyBody lacks the full information needed to perfo
 This is because we are yet to specify how the human and environment are connected in this model.
 This will be the topic of the next lesson.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** Next up is {doc}`Lesson 3: Making Ends Meet <lesson3>`.
-:::

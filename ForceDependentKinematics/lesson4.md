@@ -233,9 +233,3 @@ complete model {download}`here <Downloads/DemoSimpleKnee3.any>`.
 In {doc}`Lesson5 <lesson5>` we can see how this kind of joint can be
 included into an existing model based on an AMMR body model.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson5`.
-:::

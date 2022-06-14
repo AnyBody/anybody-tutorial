@@ -298,7 +298,7 @@ msgstr ""
 #: ../../Making_things_move/lesson2.rst:382
 msgid ""
 "See `Andersen MS, Damsgaard M, and Rasmussen J. 2007 "
-"<http://www.tandfonline.com/doi/abs/10.1080/10255840802459412>`_ for "
+"<https://doi.org/10.1080/10255840802459412>`_ for "
 "detailed information about the algorithm behind the overdeterminate "
 "kinematic analysis."
 msgstr ""

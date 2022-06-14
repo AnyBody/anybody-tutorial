@@ -134,9 +134,3 @@ From-the-point of view of kinematic robustness, the wrapping muscles are
 easier to handle than via point muscles, but the price is much higher
 computationally. Wrapping muscles is the subject of {doc}`Lesson 4 <lesson4>`.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson4`.
-:::

@@ -517,9 +517,3 @@ We shall return to the capabilities of the Chart view in more detail in
 the {doc}`next lesson <lesson2>`, which deals with the
 definition of optimization studies.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson2`.
-:::

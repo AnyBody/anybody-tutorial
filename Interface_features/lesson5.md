@@ -55,17 +55,17 @@ AnyBody console.
 
 | **Command name**     | **Functionality**                                                                                                                                   |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| load "\<filename>"   | Loads an AnyScript model into the system and compiles it.Example: `load "demo.outputfile.any"`                                                      |
-| operation \<op.name> | This command sets the active operation. This must be the first thing you do after loading.> Example: 
+| `load "<filename>"`   | Loads an AnyScript model into the system and compiles it. Example: `load "demo.outputfile.any"`                                                      |
+| `operation <op.name>` | This command sets the active operation. This must be the first thing you do after loading.> Example: 
 >
 > `operation Main.ArmStudy.InverseDynamics` |
-| Run                  | Runs the active operation.Example: `run`                                                                                                            |
-| Runmacro             | This command loads and executes an anymcr file.Example: `runmacro "filename.anymcr"`                                                                |
-| Step                 | Solves a single time step of the active operation.Example: `step`                                                                                   |
-| Reset                | Resets the active operation.Example: `reset`                                                                                                        |
-| print \<object>      | Prints the value of a single object.Example: `print Main.ArmModel.Jnts.Shoulder.Pos`                                                                |
-| printdown \<object>  | Recursively prints the values of all elements in an object folder.Example: `printdown Main.ArmModel.Jnts`                                           |
-| exit                 | Exits and returns to the command prompt.Example: `exit`                                                                                             |
+| Run                  | Runs the active operation. Example: `run`                                                                                                            |
+| Runmacro             | This command loads and executes an anymcr file. Example: `runmacro "filename.anymcr"`                                                                |
+| Step                 | Solves a single time step of the active operation. Example: `step`                                                                                   |
+| Reset                | Resets the active operation. Example: `reset`                                                                                                        |
+| `print <object>`      | Prints the value of a single object. Example: `print Main.ArmModel.Jnts.Shoulder.Pos`                                                                |
+| `printdown <object>`  | Recursively prints the values of all elements in an object folder. Example: `printdown Main.ArmModel.Jnts`                                           |
+| `exit`                 | Exits and returns to the command prompt. Example: `exit`                                                                                             |
 
 ## Using the console application
 
@@ -329,9 +329,3 @@ aliases by the following procedure:
    files, so the bat file names are working as aliases for the real .exe
    files.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson6`.
-:::

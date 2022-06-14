@@ -87,34 +87,37 @@ following:
 
 Let us briefly review the parameters:
 
-```{eval-rst}
-.. list-table::
-   :widths: 3 10
-   :header-rows: 1
 
-   * - Parameter
-     - Function
-   * - F0
-     - In the simple muscle model, F0 is simply the strength of the muscle.
-       In this two-parameter model, F0   is the ideal strength, i.e. the strength
-       of the muscle at neutral fiber length and zero contraction velocity.
-       F0 is measured in force units, i.e. Newton.
-   * - Lf0
-     - The neutral fiber length, i.e. the length of the contractile element at which the muscle has the strength of F0. Lf0 is measured in length units, i.e. meters.
-   * - Vol0
-     - Ensemble volume of the muscle fibers, which can be used during muscle recruitment. Volume must be positive; zero or negative values are ignored.
-   * - Lt0
-     - The muscle's total length from origin to insertion can be divided into two parts: the length of the muscle's contractile element plus the length of the tendon. The tendon is considered in this model to be linearly elastic, and Lt0 is the slack length of the tendon, i.e. the length when it is taut but carrying no force. Lt0 is measured in length units, i.e. meters.
-   * - Epsilon0
-     - This parameter controls the elasticity of the tendon. The physical interpretation is that it is the tendon's strain when subjected to a force of F0. Prescribing a strain rather than an ordinary spring stiffness is based on the idea that the tendon thickness must be related to the strength of the muscle: strong muscles need strong tendons. Hence, Epsilon0 can be presumed with good accuracy to be the same for a wide variety of very different muscles. Epsilon0 is measured in fractions and is therefore dimensionless.
-   * - V0
-     - This model presumes that the muscle's strength depends linearly on its contraction velocity. V0 is measured in absolute velocity, i.e. m/s.
-   * - Lfbar
-     - This is the deprecated parameter replaced by Lf0.
-   * - Epsilonbar
-     - This is the deprecated parameter replaced by Epsilon0.
 
-```
+`````{list-table}
+---
+header-rows: 1
+widths: 3 10
+---
+
+* - Parameter
+  - Function
+* - F0
+  - In the simple muscle model, F0 is simply the strength of the muscle.
+    In this two-parameter model, F0   is the ideal strength, i.e. the strength
+    of the muscle at neutral fiber length and zero contraction velocity.
+    F0 is measured in force units, i.e. Newton.
+* - Lf0
+  - The neutral fiber length, i.e. the length of the contractile element at which the muscle has the strength of F0. Lf0 is measured in length units, i.e. meters.
+* - Vol0
+  - Ensemble volume of the muscle fibers, which can be used during muscle recruitment. Volume must be positive; zero or negative values are ignored.
+* - Lt0
+  - The muscle's total length from origin to insertion can be divided into two parts: the length of the muscle's contractile element plus the length of the tendon. The tendon is considered in this model to be linearly elastic, and Lt0 is the slack length of the tendon, i.e. the length when it is taut but carrying no force. Lt0 is measured in length units, i.e. meters.
+* - Epsilon0
+  - This parameter controls the elasticity of the tendon. The physical interpretation is that it is the tendon's strain when subjected to a force of F0. Prescribing a strain rather than an ordinary spring stiffness is based on the idea that the tendon thickness must be related to the strength of the muscle: strong muscles need strong tendons. Hence, Epsilon0 can be presumed with good accuracy to be the same for a wide variety of very different muscles. Epsilon0 is measured in fractions and is therefore dimensionless.
+* - V0
+  - This model presumes that the muscle's strength depends linearly on its contraction velocity. V0 is measured in absolute velocity, i.e. m/s.
+* - Lfbar
+  - This is the deprecated parameter replaced by Lf0.
+* - Epsilonbar
+  - This is the deprecated parameter replaced by Epsilon0.
+
+`````
 
 We can study the significance of the parameters in more detail, if we
 formulate the strength mathematically:
@@ -200,97 +203,101 @@ parameters presented in the Chart View:
 
 ![Muscle parameters](_static/lesson5/image4.png)
 
-```{eval-rst}
-.. list-table::
-  :widths: 3 10
-  :header-rows: 1
+
+
+`````{list-table}
+---
+header-rows: 1
+widths: 3 10
+---
 
   * - Variable
     - Description
 
-  * - ``Fin`` and ``Fout``
+  * - `Fin` and `Fout`
     - are forces, but they have less physiological reference than other quatities below and they are mainly there for internal purposes. They are inherited from the AnyScript classes that the muscle class is derived from, in which they represent the force with direct reference to the associated kinematic measure of the muscle object. "Fin" means that it is the "input force" to dynamic analysis, which for the muscle implies that it holds the passive forces at a specific activity. "Fout" means that it is the "output force" from dynamic analysis, which for the muscle implies that it holds passive as well as active forces of the muscle-tendon unit.
 
-  * - ``Lmt``
+  * - `Lmt`
     - The total length of the muscle-tendon unit, i.e. the
       origin-insertion length.
 
-  * - ``Lm``
+  * - `Lm`
     - The length of the muscle's contractile element.
 
-  * - ``Lt``
+  * - `Lt`
     - The length of the tendon. This is not necessarily the same
       as Lt0 because the tendon is elastic and therefore stretches
       slightly with the force.
 
-  * - ``LmtDot``
+  * - `LmtDot`
     - The rate of change of Lmt, i.e. the length change
       velocity of the total muscle-tendon unit.
 
-  * - ``LmDot``
+  * - `LmDot`
     - The contraction velocity of the contractile element.
 
-  * - ``Activity``
+  * - `Activity`
     - The muscle active state in fractions of maxmum
       voluntary contraction.
 
-  * - ``CorrectedActivity``
+  * - `CorrectedActivity`
     - For this muscle model this  is the same as Activity.
 
-  * - ``Fm``
+  * - `Fm`
     - The force in the muscle's contractile element. For this
       muscle type it is equal to the total force in the muscle-tendon unit
       because the muscle does not have any parallel components.
 
-  * - ``Ft``
+  * - `Ft`
     - The force in the tendon. For this muscle model it is the
       same as Fm.
 
-  * - ``Fp``
+  * - `Fp`
     - is not relevant for this type of muscle model.
 
-  * - ``Strength``
+  * - `Strength`
     - The muscle's strength at each moment of the movement.
 
-  * - ``Ft0``
+  * - `Ft0`
     - is not relevant for this type of muscle model.
 
-  * - ``Ft0Grad``
+  * - `Ft0Grad`
     - The derivative of tendon force with respect to active
       state. For this muscle model it amounts to exactly the same as the
       Strength variable, but for muscles with parallel elasticity the two
       properties will be different.
 
-  * - ``PennationAngle``
+  * - `PennationAngle`
     - This is not relevant for this muscle model type.
 
-  * - ``EPOTt``
+  * - `EPOTt`
     - The potential elastic energy in the tendon.
 
-  * - ``EPOTp``
+  * - `EPOTp`
     - The potential elastic energy in the parallel-elastic
       element, which is not included in this muscle model.
 
-  * - ``EPOTmt``
+  * - `EPOTmt`
     - The total elastic potential energy in the muscle-tendon
       unit.
 
-  * - ``Pt``
+  * - `Pt`
     - This is not relevant for this muscle model.
 
-  * - ``Pm``
+  * - `Pm`
     - The mechanical power exerted by the muscle's contractile
       element.
 
-  * - ``Pmt``
+  * - `Pmt`
     - The mechanical power of the muscle-tendon unit on the
       skeleton.
 
-  * - ``Pmet``
+  * - `Pmet`
     - This is a crude estimate of the metabolic power consumption of
       the muscle taking different efficiencies for concentric and eccentric
       work into account.
-```
+
+`````
 
 We have seen how the length of the muscle affects its strength, but what
 about the velocity? Well, the specified values of -8 m/s is a reasonable
@@ -681,122 +688,125 @@ the previously inactive Muscle2 to become active:
 With this we can run the InverseDynamics analysis again and get the muscle
 to do some work. Let us systematically investigate the output:
 
-```{eval-rst}
-.. list-table::
-  :widths: 4 8 3
-  :header-rows: 1
-
-  * - Variable
-    - Description
-    - Plot
-
-  * - ``Fin`` and ``Fout``
-    - are forces, but they have less physiological reference than other quatities below and they are mainly there for internal purposes. They are inherited from the AnyScript classes that the muscle class is derived from, in which they represent the force with direct reference to the associated kinematic measure of the muscle object. "Fin" means that it is the "input force" to dynamic analysis, which for the muscle implies that it holds the passive forces at a specific activity. "Fout" means that it is the "output force" from dynamic analysis, which for the muscle implies that it holds passive as well as active forces of the muscle-tendon unit.
-    -
-
-  * - ``Lmt``
-    - The length of the muscle-tendon unit. If you plot this property you will see that it rises almost linearly as the muscle is extended. Closer investigation, however, will reveal that it is offset slightly by the nonlinearity caused by the elongation of the tendon due to the varying force.
-    - <img src="_static/lesson5/image12.png">
-
-  * - ``Lm``
-    - The length of the contractile element.
-    - <img src="_static/lesson5/image13.png">
 
 
-  * - ``Lt``
-    - The length of the tendon. This appears to be constant, but the tendon length actually changes slightly over the movement with the changes of muscle force as described above.
-    - <img src="_static/lesson5/image14.png">
+`````{list-table}
+---
+widths: 4 8 3
+header-rows: 1
+---
+
+* - Variable
+  - Description
+  - Plot
+
+* - `Fin` and `Fout`
+  - are forces, but they have less physiological reference than other quatities below and they are mainly there for internal purposes. They are inherited from the AnyScript classes that the muscle class is derived from, in which they represent the force with direct reference to the associated kinematic measure of the muscle object. "Fin" means that it is the "input force" to dynamic analysis, which for the muscle implies that it holds the passive forces at a specific activity. "Fout" means that it is the "output force" from dynamic analysis, which for the muscle implies that it holds passive as well as active forces of the muscle-tendon unit.
+  -
+
+* - `Lmt`
+  - The length of the muscle-tendon unit. If you plot this property you will see that it rises almost linearly as the muscle is extended. Closer investigation, however, will reveal that it is offset slightly by the nonlinearity caused by the elongation of the tendon due to the varying force.
+  - ![...](_static/lesson5/image12.png)
+
+* - `Lm`
+  - The length of the contractile element.
+  - ![...](_static/lesson5/image13.png)
 
 
-  * - ``LmtDot``
-    - The contraction velocity of the muscle-tendon unit. The value is positive because the muscle is getting longer.
-    - <img src="_static/lesson5/image15.png">
+* - `Lt`
+  - The length of the tendon. This appears to be constant, but the tendon length actually changes slightly over the movement with the changes of muscle force as described above.
+  - ![...](_static/lesson5/image14.png)
 
 
-  * - ``LmDot``
-    - The contraction velocity of the contractile element of the muscle. The value is positive because the muscle is getting longer.
-    - <img src="_static/lesson5/image15.png">
+* - `LmtDot`
+  - The contraction velocity of the muscle-tendon unit. The value is positive because the muscle is getting longer.
+  - ![...](_static/lesson5/image15.png)
 
 
-  * - ``Activity``
-    - This is the muscle activity before correction for the change in muscle length caused by the elastic elongation of the muscle. The complicated variation is caused by the interplay between change of moment arm of the applied force, the passive force in the muscle and the change of muscle strength with the contraction.
-    - <img src="_static/lesson5/image16.png">
+* - `LmDot`
+  - The contraction velocity of the contractile element of the muscle. The value is positive because the muscle is getting longer.
+  - ![...](_static/lesson5/image15.png)
 
 
-  * - ``Corrected-Activity``
-    - This is the muscle activity after correction for the tendon elongation. The difference between this graph and the one above is that the activity toward the end is higher after correction. This can be difficult to understand and illustrates the complexity of muscle modeling. The reason is the following: The force in the muscle decreases towards the end of the movement. When the force is reduced, the tendon contracts, and this means that the muscle must elongate even more. Since the muscle length is already in the interval where further elongation will cause decreased strength, the tendon contraction has the effect of increasing the muscle activity.
-    - <img src="_static/lesson5/image17.png">
+* - `Activity`
+  - This is the muscle activity before correction for the change in muscle length caused by the elastic elongation of the muscle. The complicated variation is caused by the interplay between change of moment arm of the applied force, the passive force in the muscle and the change of muscle strength with the contraction.
+  - ![...](_static/lesson5/image16.png)
 
 
-  * - ``Fm``
-    - The force in the contractile element is decreasing throughout the movement because the moment arm of the external force is decreasing and also because the passive force in the muscle is contributing more and more to balancing the load.
-    - <img src="_static/lesson5/image18.png">
+* - `Corrected-Activity`
+  - This is the muscle activity after correction for the tendon elongation. The difference between this graph and the one above is that the activity toward the end is higher after correction. This can be difficult to understand and illustrates the complexity of muscle modeling. The reason is the following: The force in the muscle decreases towards the end of the movement. When the force is reduced, the tendon contracts, and this means that the muscle must elongate even more. Since the muscle length is already in the interval where further elongation will cause decreased strength, the tendon contraction has the effect of increasing the muscle activity.
+  - ![...](_static/lesson5/image17.png)
 
 
-  * - ``Ft``
-    - The tendon force shows the reduction of the mucle action by virtue of the reduced external force's moment arm alone. A simplified explanation is that Ft = Fm + Fp, but this is not entirely true because we also have to account for the pennation angle.
-    - <img src="_static/lesson5/image19.png">
+* - `Fm`
+  - The force in the contractile element is decreasing throughout the movement because the moment arm of the external force is decreasing and also because the passive force in the muscle is contributing more and more to balancing the load.
+  - ![...](_static/lesson5/image18.png)
 
 
-  * - ``Fp``
-    - The passive force in the muscle increases as the muscle is stretched.
-    - <img src="_static/lesson5/image20.png">
+* - `Ft`
+  - The tendon force shows the reduction of the mucle action by virtue of the reduced external force's moment arm alone. A simplified explanation is that Ft = Fm + Fp, but this is not entirely true because we also have to account for the pennation angle.
+  - ![...](_static/lesson5/image19.png)
 
 
-  * - ``Strength``
-    - This is the strength of the muscle. It is not corrected for the tendon elongation.
-    - <img src="_static/lesson5/image21.png">
+* - `Fp`
+  - The passive force in the muscle increases as the muscle is stretched.
+  - ![...](_static/lesson5/image20.png)
 
 
-  * - ``Ft0``
-    - The hypothetical force that the tendon would have if the activity of the muscle were zero. The reason why this is slightly different from Fp is that Ft0 acts directly along the action line of the muscle while Fp is diverted by the pennation angle. This property is mostly interesting to scientists involved in detailed modeling of single muscles.
-    - <img src="_static/lesson5/image22.png">
+* - `Strength`
+  - This is the strength of the muscle. It is not corrected for the tendon elongation.
+  - ![...](_static/lesson5/image21.png)
 
 
-  * - ``Ft0Grad``
-    - The gradient of Ft0 with respect to the muscle activity. For mathematical reasons this is equal to the Strength, and the two graphs are identical. The reason why this property is included under to different names is that the simple muscle model, from which this model is derived, does not have Ft0Grad and hence needs a Strength property.
-    - <img src="_static/lesson5/image23.png">
-
-  * - ``Pennation-Angle``
-    - The pennation angle is the angle between the muscle fiber direction and the muscle line of action. This angle changes when the muscle contracts and elongates, and the model takes this effect into account.
-    - <img src="_static/lesson5/image24.png">
+* - `Ft0`
+  - The hypothetical force that the tendon would have if the activity of the muscle were zero. The reason why this is slightly different from Fp is that Ft0 acts directly along the action line of the muscle while Fp is diverted by the pennation angle. This property is mostly interesting to scientists involved in detailed modeling of single muscles.
+  - ![...](_static/lesson5/image22.png)
 
 
-  * - ``EPOTt``
-    - The elastic potential energy stored in the tendon.
-    - <img src="_static/lesson5/image25.png">
+* - `Ft0Grad`
+  - The gradient of Ft0 with respect to the muscle activity. For mathematical reasons this is equal to the Strength, and the two graphs are identical. The reason why this property is included under to different names is that the simple muscle model, from which this model is derived, does not have Ft0Grad and hence needs a Strength property.
+  - ![...](_static/lesson5/image23.png)
+
+* - `Pennation-Angle`
+  - The pennation angle is the angle between the muscle fiber direction and the muscle line of action. This angle changes when the muscle contracts and elongates, and the model takes this effect into account.
+  - ![...](_static/lesson5/image24.png)
 
 
-  * - ``EPOTp``
-    - The elastic potential energy stored in the parallel-elastic element of the muscle.
-    - <img src="_static/lesson5/image26.png" alt="">
+* - `EPOTt`
+  - The elastic potential energy stored in the tendon.
+  - ![...](_static/lesson5/image25.png)
 
 
-  * - ``EPOTmt``
-    - The elastic potential energy stored in the entire muscle-tendon unit. This can have some practical significance for investigation of movement economy and sports activities in general.
-    - <img src="_static/lesson5/image27.png" alt="">
+* - `EPOTp`
+  - The elastic potential energy stored in the parallel-elastic element of the muscle.
+  - <img src="_static/lesson5/image26.png" alt="">
 
 
-  * - ``Pt``
-    - The rate of change of elastic potential energy in the tendon.
-    -
+* - `EPOTmt`
+  - The elastic potential energy stored in the entire muscle-tendon unit. This can have some practical significance for investigation of movement economy and sports activities in general.
+  - <img src="_static/lesson5/image27.png" alt="">
 
 
-  * - ``Pm``
-    - The mechanical power of the contractile element.
-    - <img src="_static/lesson5/image14.png">
+* - `Pt`
+  - The rate of change of elastic potential energy in the tendon.
+  -
 
 
-  * - ``Pmt``
-    - The mechanical power of the entire muscle-tendon unit, i.e. the rate of work performed on the skeleton. Notice that the power is negative because the muscle is extending against the force. Muscles behaving like this in the human body are often termed antagonistic muscles.
-    - <img src="_static/lesson5/image29.png">
+* - `Pm`
+  - The mechanical power of the contractile element.
+  - ![...](_static/lesson5/image14.png)
 
 
-  * - ``Pmet``
-    - A crude estimate of the metabolism in the muscle. The estimate is based on presumed efficiencies of the contractile element of 25% for concentric work and -120% for eccentric work. The model does not take the metabolism of isometric force into account.
-    - <img src="_static/lesson5/image30.png">
+* - `Pmt`
+  - The mechanical power of the entire muscle-tendon unit, i.e. the rate of work performed on the skeleton. Notice that the power is negative because the muscle is extending against the force. Muscles behaving like this in the human body are often termed antagonistic muscles.
+  - ![...](_static/lesson5/image29.png)
 
-```
+
+* - `Pmet`
+  - A crude estimate of the metabolism in the muscle. The estimate is based on presumed efficiencies of the contractile element of 25% for concentric work and -120% for eccentric work. The model does not take the metabolism of isometric force into account.
+  - ![...](_static/lesson5/image30.png)
+
+`````
 
 ## Calibration
 
@@ -928,12 +938,6 @@ But before we come to ligaments we must cover one last aspect of muscle
 modeling, namely General Muscles. They are the topic of the next lesson,
 {doc}`Lesson 6 <lesson6>`.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson6`.
-:::
 
 ## References
 

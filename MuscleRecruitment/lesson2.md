@@ -90,11 +90,4 @@ despite being non-physiological:
    decisions on tendon transfer surgery.
 
 For normal purposes, however, the linear criterion is not a good choice,
-and we shall therefore proceed to investigate another option in
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::
+and we shall therefore proceed to investigate another option in {doc}`lesson3`.

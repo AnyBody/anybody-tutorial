@@ -46,7 +46,7 @@ msgstr ""
 
 #: ../../contributing.rst:18
 msgid ""
-"The tutorials are created using `sphinx <http://www.sphinx-doc.org/>`_, a"
+"The tutorials are created using `sphinx <https://www.sphinx-doc.org/>`_, a"
 " tool for software documentation. Sphinx converts ReStructuredText(.rst) "
 "files into html, pdf or other formats. ReStructuredTexts are simple text "
 "files with extra markup to define headers and formating. Having the "
@@ -230,7 +230,7 @@ msgstr ""
 #: ../../contributing.rst:174
 msgid ""
 "... and any other `lexer alias that Pygments supports "
-"<http://pygments.org/docs/lexers/>`_."
+"<https://pygments.org/docs/lexers/>`_."
 msgstr ""
 
 #: ../../contributing.rst:188

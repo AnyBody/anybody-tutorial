@@ -41,7 +41,7 @@ AnySurf-file fulfils some requirements to obtain good results.
   penetration.
 
 - To check the above mentioned requirements, you can use an external
-  tool such as MeshLab (<http://meshlab.sourceforge.net> ). To smooth
+  tool such as MeshLab (<https://www.meshlab.net/> ). To smooth
   sharp edges and large curvatures, filters, such as Laplacian
   filters, or others can be used, depending on the surface. Checking
   the face normals can be done by using the function Render->Show Face

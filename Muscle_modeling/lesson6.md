@@ -433,9 +433,3 @@ This completes the part of this tutorial dealing with muscles. But we
 are not completely finished yet. The {doc}`next lesson <lesson7>`
 deals with the important topic of ligament modeling.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson7`.
-:::

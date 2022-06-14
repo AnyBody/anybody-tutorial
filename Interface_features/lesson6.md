@@ -64,9 +64,3 @@ these value objects as modified. It will basically be as if you apply
 “Set Value” manually to all the value-objects in question. This means
 that no automatic updating is carried out by the loading operation.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson7`.
-:::

@@ -83,9 +83,5 @@ assumptions behind the entire field of muscle recruitment. More on this
 topic can be found in the recorded previous [webcast on “Features of
 muscle recruitment algorithms“](https://www.anybodytech.com/features-of-muscle-recruitment-algorithms/).
 
-:::{rst-class} without-title
-:::
+Let us begin with {doc}`Lesson 1: The basics of muscle recruitment <lesson1>`.
 
-:::{seealso}
-**Next lesson:** Let us begin with {doc}`Lesson 1: The basics of muscle recruitment <lesson1>`.
-:::

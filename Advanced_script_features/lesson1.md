@@ -52,9 +52,3 @@ This demo example illustrates some of the important uses of pointer
 variables:
 {download}`demo.creatingandreferringtoobjects.any <Downloads/demo.creatingandreferringtoobjects.any>`
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson2`.
-:::

@@ -12,9 +12,4 @@ Each lesson (after lesson 1) begins with a link to a file containing the
 AnyScript code that has been introduced until that point. If you have a problem getting your to code work, simply
 download the file and start from there.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
 Let's get started with {doc}`Lesson 1: Basic concepts <lesson1>`
-:::

@@ -124,11 +124,4 @@ properties of both strategies, i.e. get close to the minimum activation
 or fatigue of the muscle system and also have relatively smooth
 activation curves. In the next tutorial we shall look at composite
 criteria that might combine some of the attractive features of the pure
-criteria we have investigated so far. This takes place in
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson6`.
-:::
+criteria we have investigated so far. This takes place in {doc}`lesson6`.

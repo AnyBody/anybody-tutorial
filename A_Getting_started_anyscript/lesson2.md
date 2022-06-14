@@ -1,10 +1,11 @@
 ---
-substitutions:
-  Load_button_image: |-
-    <img src="_static/lesson2/image1.png">
+myst:
+  substitutions:
+    Load_button_image: |-
+      <img src="_static/lesson2/image1.png">
 
-  Zoom_button_image: |-
-     <img src="_static/lesson2/image3.png">
+    Zoom_button_image: |-
+      <img src="_static/lesson2/image3.png">
 
 ---
 
@@ -283,15 +284,10 @@ rotations as radians, hence the multiplication of the 90 degree angle by pi/180.
 Angles in AnyBody are always in radians.
 :::
 
-In the next section, we will look at how joints can be used to constrain
+In the next lesson, we will look at how joints can be used to constrain
 the movement of segments and allow them to articulate the way we desire.
 
-:::{rst-class} without-title
-:::
 
-:::{seealso}
-**Next lesson:** So if you are up to it, let's continue onward to {doc}`Lesson 3: Connecting segments by joints <lesson3>`.
-:::
 
 ```{rubric} Footnotes
 ```

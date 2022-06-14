@@ -193,11 +193,5 @@ the maximum strength from the organism, the same upper bounds tend to
 produce activation curves with kinks that seem to leave a
 non-physiological impression. It seems like the key to avoiding this
 would be to get the muscles to be more synergistic. How that might be
-done is the topic of
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson4`.
+done is the topic of {doc}`lesson4`.
 :::
