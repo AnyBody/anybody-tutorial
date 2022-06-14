@@ -44,7 +44,6 @@ jobs:
           make html
 
       - name: Deploy 🚀
-        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
@@ -53,7 +52,7 @@ jobs:
           publish_dir: _build/html
 
 
-  sphinx-build-master:
+  sphinx-build:
     runs-on: ubuntu-latest
     if: "!github.event.inputs.run_deploy"
     
@@ -117,7 +116,6 @@ jobs:
           make html-dev -W
 
       - name: Deploy 🚀
-        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
