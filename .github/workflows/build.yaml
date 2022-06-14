@@ -17,9 +17,8 @@ on:
 
 jobs:
 
-  build-last-tagged:
+  build-official-version:
     runs-on: ubuntu-latest
-    if: "github.event.inputs.run_deploy"
 
     steps:
       - uses: actions/checkout@v3
@@ -27,10 +26,12 @@ jobs:
           fetch-depth: 0
     
       - name: Checkout last tagged
+        if: "github.event.inputs.run_deploy"
         run: |
           git checkout $(git describe --tags `git rev-list --tags --max-count=1`);
 
       - name: Setup conda
+        if: "github.event.inputs.run_deploy"
         uses: conda-incubator/setup-miniconda@v2
         with:
           activate-environment: sphinx
@@ -38,12 +39,14 @@ jobs:
           channels: conda-forge
 
       - name: Build last tagged version
+        if: "github.event.inputs.run_deploy"
         shell: bash -l {0}
         run: |
           make clean
-          make html
+          make html O="-W"
 
       - name: Deploy 🚀
+        if: "github.event.inputs.run_deploy"
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
@@ -54,8 +57,7 @@ jobs:
 
   sphinx-build:
     runs-on: ubuntu-latest
-    if: "!github.event.inputs.run_deploy"
-    
+    needs: [build-official-version]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -74,7 +76,7 @@ jobs:
       - name: Build Documentation
         shell: bash -l {0}
         run: |
-          make html
+          make html O="-W"
 
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
@@ -89,8 +91,7 @@ jobs:
 
   sphinx-build-new-theme:
     runs-on: ubuntu-latest
-    if: "!github.event.inputs.run_deploy"
-    
+    needs: [build-official-version]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -113,7 +114,7 @@ jobs:
       - name: Build Documentation
         shell: bash -l {0}
         run: |
-          make html-dev
+          make html-dev O="-W"
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
