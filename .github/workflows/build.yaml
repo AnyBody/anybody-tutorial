@@ -94,39 +94,3 @@ jobs:
           destination_dir: dev
 
 
-  sphinx-build-new-theme:
-    runs-on: ubuntu-latest
-    needs: [build-official-version]
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Checkout new theme branch
-        run: |
-          git checkout newtheme
-            
-      - name: Setup conda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          activate-environment: sphinx
-          environment-file: environment.yaml
-          channels: conda-forge
-
-      - uses: ammaraskar/sphinx-problem-matcher@master
-        # if: github.ref != 'refs/heads/master'
-            
-      - name: Build Documentation
-        shell: bash -l {0}
-        run: |
-          make html-dev O="-W"
-
-      - name: Deploy 🚀
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          external_repository: AnyBody/tutorials
-          publish_branch: gh-pages
-          publish_dir: _build/html
-          destination_dir: new
-
