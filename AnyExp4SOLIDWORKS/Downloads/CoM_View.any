@@ -9,8 +9,8 @@ AnyFolder Human_CoM =
   {
     Mass = 0;
     Jii = {0, 0, 0};
-    r0 = ..HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.r0;
-    Axes0 = ..HumanModel.BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Axes0;
+    r0 = ..BodyModel.Trunk.SegmentsLumbar.PelvisSeg.r0;
+    Axes0 = ..BodyModel.Trunk.SegmentsLumbar.PelvisSeg.Axes0;
     AnyDrawNode drw = 
     { 
       ScaleXYZ={1,1,1}*0.02; 

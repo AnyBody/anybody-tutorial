@@ -1,7 +1,7 @@
 AnyFolder Drivers = 
 {
   // Aliases for convenient referencing
-  AnyFolder &RefHM = Main.Model.HumanModel;
+  AnyFolder &RefHM = Main.Model.BodyModel;
     
   AnyFolder &JntPos= Main.HumanModel.Mannequin.Posture;  
   AnyFolder &JntVel= Main.HumanModel.Mannequin.PostureVel;  
@@ -60,7 +60,11 @@ AnyFolder Drivers =
     Reaction.Type={Off};
   };
 
-  AnyCylindricalJoint Pelsvis_Driver = 
+  // ************************************
+  // Drivers for the trunk
+  // ************************************
+
+  AnyCylindricalJoint Pelvis_Driver = 
   {
       AnyRefFrame &Base = Main.Model.FitnessMachine._ANY_INTERFACE_.ANY_PELVIS;
       AnyRefFrame &Target = Main.Model.Human_RefNodes.Pelvis_Node; 
@@ -68,11 +72,7 @@ AnyFolder Drivers =
       Ref = 0;
       Constraints.Reaction.Type = {Off, Off, Off, Off};
   };
-  
-  // ************************************
-  // Drivers for the trunk
-  // ************************************
-    
+      
   //Thorax pelvis rotation driver
   AnyKinEqSimpleDriver PelvisThorax_Driver =
   {

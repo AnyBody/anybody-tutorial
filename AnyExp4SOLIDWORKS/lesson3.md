@@ -30,12 +30,14 @@ new created file ‘FitnessMachine_With_Human.main.any’ to
 ```AnyScriptDoc
 #include "../libdef.any"
 
-Main = {
-  //If you want to use your own draw settings, please outcomment the next line
-  //#path BM_DRAWSETTINGS_FILE "Model\DrawSettings.any"
+Main = 
+{  
+
+  // Body Model configuration:
+  #include "Model/BodyModelConfiguration.any"
 
   // Using your own Mannequin.any file in the Model folder of your model
-  #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+  #include "Model\Mannequin.any"
 
   // Switch off all muscles of the body model
   §#define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
@@ -62,21 +64,23 @@ which we may want to control. We add nodes (AnyRefNode) at the palms of
 the hands, the toes of the feet and at the center of the pelvis. Please
 see {download}`HumanRefNodes.any <Downloads/HumanRefNodes.any>`.
 
-Let us edit the main file in order to include these additional AnyScript
-files like this:
+Please save these files in the Model subfolder and let us edit the main file 
+in order to include these additional AnyScript files like this:
 
 ```AnyScriptDoc
- AnyFolder Model = {
-  // A link to the human model
-  AnyFolder &HumanModel=.HumanModel.BodyModelWithDefaultDrivers;
+ AnyFolder Model = 
+  {
+    // A link to the human model
+    AnyFolder &BodyModel = .HumanModel.BodyModel;
+    AnyFolder &DefaultMannequinDrivers = .HumanModel.DefaultMannequinDrivers;
 
-   // Definition for CoM(Center of Mass) of Human Model
-  §#include "Model\CoM_View.any"§
+    // Definition for CoM(Center of Mass) of Human Model
+    §#include "Model\CoM_View.any"§
 
-  // Definition of additional AnyRefNode object in the human model
-  §#include "Model\HumanRefNodes.any"§
+    // Definition of additional AnyRefNode object in the human model
+    §#include "Model\HumanRefNodes.any"§
   ...
-};
+  };
 ```
 
 If you reload the model, then you will see the dummy CoM segment and
@@ -87,7 +91,7 @@ some AnyRefNode objects like this:
 ## Insert the fitness machine into the model
 
 We are now ready to include the fitness machine. The first step is to
-copy the fitness machine we created in the previous lesson to the Model
+copy the fitness machine we created in the previous lesson to the Input
 subfolder of our model. Next, we will add the fitness machine to the
 model by including the ‘FitnessMachine.any’ file again. You should put
 all the files (including FitnessMachine.any file) from the previous
@@ -96,44 +100,46 @@ template. In addition, we will modify the predefined AnyBodyStudy object
 like we did in Lesson 2 to prepare for an actual dynamic analysis.
 
 ```AnyScriptDoc
- AnyFolder Model = {
-   // A link to the human model
-   AnyFolder &HumanModel=.HumanModel.BodyModelWithDefaultDrivers;
+  AnyFolder Model = 
+  {
+    // A link to the human model
+    AnyFolder &BodyModel = .HumanModel.BodyModel;
+    AnyFolder &DefaultMannequinDrivers = .HumanModel.DefaultMannequinDrivers;
 
     // Definition for CoM(Center of Mass) of Human Model
-   #include "Model\CoM_View.any"
+     #include "Model\CoM_View.any"
 
-   // Definition of additional AnyRefNode object in the human model
-   #include "Model\HumanRefNodes.any"
+    // Definition of additional AnyRefNode object in the human model
+    #include "Model\HumanRefNodes.any"
 
-   // AnyScript file for the fitness machine from SolidWorks
-   §#include "Input\FitnessMachine.any"§
+    // AnyScript file for the fitness machine from SolidWorks
+    §#include "Input\FitnessMachine.any"§
 
-   // Environment files are used to include objects surrounding human
-   #include "Model\Environment.any"
+    // Environment files are used to include objects surrounding human
+    #include "Model\Environment.any"
 
-   AnyFolder ModelEnvironmentConnection = {
-     //'JointsAndDrivers.any' file can include all kinematic constraints such as joints and drivers
-     #include "Model\JointsAndDrivers.any"
-     // Additional reactions which are required to run the inverse dynamics analysis
-     #include "Model\Reactions.any"
-   };
+    AnyFolder ModelEnvironmentConnection = 
+    {
+      //'JointsAndDrivers.any' file can include all kinematic constraints such as joints and drivers
+      #include "Model\JointsAndDrivers.any"
+      // Additional reactions which are required to run the inverse dynamics analysis
+      #include "Model\Reactions.any"
+    };
+  };
 
- };
+  AnyBodyStudy Study =
+  {
+    AnyFolder& Model = .Model;
 
-AnyBodyStudy Study =
- {
-   AnyFolder& Model = .Model;
-   Gravity = {0, -9.81, 0};
-   §tStart = 0;
-   tEnd = 1; §
-   nStep = §61;§
-
-
-   // these settings are needed for adding drivers without removing the default set
-   Kinematics.SolverType = KinSolOverDeterminate;
-   InitialConditions.SolverType = Kinematics.SolverType ;
- };
+    Gravity = {0, -9.81, 0};
+    §tStart = 0;
+    tEnd = 1; §
+    nStep = §61;§
+    // Overdeterminate solver is needed while using the 
+    // soft default mannequin drivers.
+    Kinematics.SolverType = KinSolOverDeterminate;
+    InitialConditions.SolverType = Kinematics.SolverType ;
+  };
 ```
 
 Similar to the previous lesson, we will add a driver for the fitness machine to
@@ -166,44 +172,49 @@ AnyFolder MachineOperation =
 };
 ```
 
-We will copy this file to the Model subfolder our model and include it
+We will copy this file to the Model subfolder of our model and include it
 into our model.
 
 ```AnyScriptDoc
-AnyFolder Model = {
- // A link to the human model
- AnyFolder &HumanModel=.HumanModel.BodyModelWithDefaultDrivers;
+AnyFolder Model = 
+  {
+    // A link to the human model
+    AnyFolder &BodyModel = .HumanModel.BodyModel;
+    AnyFolder &DefaultMannequinDrivers = .HumanModel.DefaultMannequinDrivers;
+    
+    // Definition for CoM(Center of Mass) of Human Model
+    #include "Model\CoM_View.any"
 
-     // Definition for CoM(Center of Mass) of Human Model
- #include "Model\CoM_View.any"
-
- // Definition of additional AnyRefNode object in the human model
- #include " Model\HumanRefNodes.any"
-
- // AnyScript file for the fitness machine from SolidWorks
- #include "Input\FitnessMachine.any"
-
- AnyFolder ModelEnvironmentConnection = {
-   //'JointsAndDrivers.any' file can include all kinematic constraints such as joints and drivers
-   #include "Model\JointsAndDrivers.any"
-   // Additional reactions which are required to run the inverse dynamics analysis
-   #include "Model\Reactions.any"
-   // Include drivers of the fitness machine
-   §#include "Model\MachineOperation.any"§
- };
-};
+    // Definition of additional AnyRefNode object in the human model
+    #include "Model\HumanRefNodes.any"
+    
+    // AnyScript file for the fitness machine from SolidWorks
+    #include "Input\FitnessMachine.any"
+ 
+    // Environment files are used to include objects surrounding human
+    #include "Model\Environment.any"   
+ 
+    AnyFolder ModelEnvironmentConnection = 
+    {
+      //'JointsAndDrivers.any' file can include all kinematic constraints such as joints and drivers
+      #include "Model\JointsAndDrivers.any"
+      // Additional reactions which are required to run the inverse dynamics analysis
+      #include "Model\Reactions.any"
+      // Include drivers of the fitness machine
+      §#include "Model\MachineOperation.any"§
+    };
+  };
 ```
 
 Notice that the drivers have been placed in a separate folder called '
 ModelEnvironmentConnection'. This is a typical setup used in most
 models.
 
-When we now load the model, we will see that our human is sitting on the
-machine, but because he was not designed to sit on the machine, we need
-to change his position so it is relative to the fitness machine. We do
-this by changing the mannequin of the model. Since we do not want to
+When we now load the model, we will see that our human is positioned forward of the
+machine. We need to change his position so it is relative to the fitness machine. 
+We do this by changing the mannequin of the model. Since we do not want to
 spend too much time positioning the human model in this tutorial, we
-will use the file {download}`Mannequin.any <Downloads/Mannequin.any>` (click to download). Copy the file to the Model subfolder
+will use the file {download}`Mannequin.any <Downloads/Mannequin.any>`. Copy the file to the Model subfolder
 to overwrite it.
 
 When we now load the model and run the Kinematics, we will see that out
@@ -219,13 +230,15 @@ setting a BM statement in the Main folder:
 ```AnyScriptDoc
 #include "../libdef.any"
 
-Main = {
-  //If you want to use your own draw settings, please outcomment the next line
-  //#path BM_DRAWSETTINGS_FILE "Model\DrawSettings.any"
+Main = 
+{  
+
+  // Body Model configuration:
+  #include "Model/BodyModelConfiguration.any"
 
   // Using your own Mannequin.any file in the Model folder of your model
-  #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
-
+  #include "Model\Mannequin.any"
+  
   // Switch off all muscles of the body model
   #define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
   #define BM_TRUNK_MUSCLES _MUSCLES_NONE_
@@ -249,18 +262,18 @@ can find the information about the number of DOFs and constraints of the
 model.
 
 ```none
-Total number of rigid-body d.o.f.: 378
+Total number of rigid-body d.o.f.: 414
 Total number of constraints:
-Joints: 224
-Drivers: 76
-Other: 34
-Total: 334
+Joints: 264
+Drivers: 98
+Other: 10
+Total: 372
 ```
 
-This means that we are missing 44 constraints. These were the degrees
+This means that we are missing 42 constraints. These were the degrees
 of freedom released when we removed the default drivers.
-This implies that the AnyBody human model contains 44
-degrees of freedom. So we have to define 44 other constraints for the human
+This implies that the AnyBody human model contains 42
+degrees of freedom. So we have to define 42 other constraints for the human
 model.
 
 The AnyExp4SOLIDWORKS translator searches for user-defined reference
@@ -293,7 +306,7 @@ AnyFolder FitnessMachine =
   };
 ```
 
-Now we will create the missing 44 constraints to govern the motion.
+Now we will create the missing 42 constraints to govern the motion.
 
 We shall prepare this as a separate AnyScript file, which we will name
 ‘JointsAndDrivers.any’. You can download this file here:
@@ -302,11 +315,13 @@ the Model subfolder of your model folder to overwrite. Starting from the bottom
 of the human (the top of the file) the constraints applied are as follows:
 
 - Feet are fixed to the pedals, though with a unilateral force normal to the pedal, since the feet are not “glued” to the pedal.
-- Hands are fixed to the handles.
-- Pelvis thorax rotation is driven to fixed value.
 - Hip abduction is fixed at its initial condition value.
+- Pelvis is constrained to the fitness machine with a cylindrical joint along the vertical axis.
+- Pelvis thorax angles are driven to their initial condition values.
+- Neck rotation angles are driven to their initial condition values.
 - The sterno-clavicular joint angles are fixed at their initial condition values (however, if the shoulder rhythm is used, this driver is excluded).
-- The glenohumeral abduction is fixed at its initial condition value.
+- Glenohumeral abduction is fixed at its initial condition value.
+- Hands are fixed to the handles.
 
 In this JointAndDrivers.any file, you will see that only the connections
 at the hands and feet have reaction types set to ‘On’. The other
@@ -315,13 +330,14 @@ not associated with any reaction forces; this motion is kinetically
 produced by the muscles of the human.
 
 Finally, we should remove the supporting reaction forces and moments at
-the hip segments because this model now has the enough supporting forces
+the hip segments because this model now has enough supporting forces
 and moments at hands and feet. You can simply just comment out the
 “Reactions.any” file as follows:
 
 ```AnyScriptDoc
 ...
-    AnyFolder ModelEnvironmentConnection = {
+    AnyFolder ModelEnvironmentConnection = 
+    {
       //'JointsAndDrivers.any' file can include all kinematic constraints such as joints and drivers
       #include "Model\JointsAndDrivers.any"
       // Additional reactions which are required to run the inverse dynamics analysis
@@ -346,12 +362,14 @@ beginning of this lesson.
 ```AnyScriptDoc
 #include "../libdef.any"
 
-Main = {
-  //If you want to use your own draw settings, please outcomment the next line
-  //#path BM_DRAWSETTINGS_FILE "Model\DrawSettings.any"
+Main = 
+{  
+
+  // Body Model configuration:
+  #include "Model/BodyModelConfiguration.any"
 
   // Using your own Mannequin.any file in the Model folder of your model
-  #path BM_MANNEQUIN_FILE "Model\Mannequin.any"
+  #include "Model\Mannequin.any"
 
   // Switch off all muscles of the body model
   §//#define BM_LEG_MUSCLES_BOTH _MUSCLES_NONE_
@@ -361,7 +379,7 @@ Main = {
   #define BM_MANNEQUIN_DRIVER_DEFAULT OFF
 
   // Include default human model
-#include "<ANYBODY_PATH_BODY>\HumanModel.any"
+  #include "<ANYBODY_PATH_BODY>\HumanModel.any"
 ...
 ```
 
