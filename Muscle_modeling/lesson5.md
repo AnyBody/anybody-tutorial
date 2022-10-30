@@ -414,9 +414,7 @@ following fashion:
 ![Muscle length plot](_static/lesson5/image8.png)
 
 The interesting point here is that with the long tendon and the high
-load, the muscle no longer contracts uniformly. In fact, the muscle
-extends for much of the movement due to the decreasing load which causes
-the elastic tendon to contract instead.
+load, the muscle no longer contracts uniformly. 
 
 While the two-parameter muscle model captures many of the properties of
 real muscles it also fails to reflect important parts of muscle
