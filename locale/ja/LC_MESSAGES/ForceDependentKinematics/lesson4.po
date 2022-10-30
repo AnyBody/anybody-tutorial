@@ -152,7 +152,7 @@ msgid ""
 " by changing e.g. the pressure module to change the penetration of the "
 "implants or the positions of the tibial part to change the motion. If you"
 " couldn’t make your model run up to this point, you can find the complete"
-" model :download:`here <Downloads/DemoSimpleKnee3.any>`."
+" model :download:`here <Downloads/DemoSimpleKnee4.any>`."
 msgstr ""
 
 #: ../../ForceDependentKinematics/lesson4.rst:239

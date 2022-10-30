@@ -49,7 +49,7 @@ AnySeg Shank = {
     sRel = {0.0, 0.4, 0.0};
   };
     AnyRefNode Quadriceps = {
-    sRel={§0.00§, 0.3, 0.0};
+    sRel={§0.00, 0.3, 0.0§};
   };
 };
 ```
