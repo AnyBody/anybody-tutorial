@@ -8,9 +8,9 @@ simple and does not resemble the geometry of a real anatomical knee very
 well. However, AnyBody also contains facilities for development of more
 realistic geometries of surfaces such as the femoral condyles, and we
 shall explore those in this lesson. We start from the model developed in
-the second lesson. If you did not manage to obtain a working model from
-the second lesson, then please download a new one
-{download}`here <Downloads/DemoSimpleKnee2.any>`.
+the third lesson. If you did not manage to obtain a working model from
+the third lesson, then please download a new one
+{download}`here <Downloads/DemoSimpleKnee3.any>`.
 
 In this example, we are modeling the knee joint using some simplified
 2-D implants (see picture) for the femoral head and the tibial plateau.
@@ -59,7 +59,7 @@ AnySeg Thigh = {
     };
 
     AnyRefNode Quadriceps = {
-      sRel = {0.06, 0.0, 0.0};
+      sRel = {0.00, 0.3, 0.0};
     };
     AnyDrawSeg drw ={
       Opacity = 0.5;
@@ -136,7 +136,7 @@ AnySeg Thigh = {
         sRel = {0.0, 0.4, 0.0};
       };
       AnyRefNode Quadriceps = {
-        sRel = {0.06, 0.0, 0.0};
+        sRel = {0.00, 0.3, 0.0};
       };
       AnyDrawSeg drw ={
         Opacity = 0.5;
@@ -228,7 +228,7 @@ We are now done with this lesson. You can now play around with this
 model by changing e.g. the pressure module to change the penetration of
 the implants or the positions of the tibial part to change the motion.
 If you couldn’t make your model run up to this point, you can find the
-complete model {download}`here <Downloads/DemoSimpleKnee3.any>`.
+complete model {download}`here <Downloads/DemoSimpleKnee4.any>`.
 
 In {doc}`Lesson5 <lesson5>` we can see how this kind of joint can be
 included into an existing model based on an AMMR body model.
