@@ -8,8 +8,8 @@ simple and does not resemble the geometry of a real anatomical knee very
 well. However, AnyBody also contains facilities for development of more
 realistic geometries of surfaces such as the femoral condyles, and we
 shall explore those in this lesson. We start from the model developed in
-the second lesson. If you did not manage to obtain a working model from
-the second lesson, then please download a new one
+the third lesson. If you did not manage to obtain a working model from
+the third lesson, then please download a new one
 {download}`here <Downloads/DemoSimpleKnee3.any>`.
 
 In this example, we are modeling the knee joint using some simplified
