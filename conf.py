@@ -288,6 +288,8 @@ html_favicon = "_static/favicon.ico"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
+html_copy_source = False
+
 # Custom sidebar templates, maps document names to template names.
 # html_sidebars = {'**': ['searchbox.html', 'globaltoc.html']}
 
