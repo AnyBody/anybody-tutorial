@@ -56,13 +56,3 @@ are being applied.
 
 This concludes this lesson on browsing the model.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson5`.
-:::
-
-% photos
-
-% icons

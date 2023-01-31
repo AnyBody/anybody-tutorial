@@ -1,4 +1,4 @@
-# Getting Started with Modeling
+# Modelling the Human body
 
 This tutorial explains the construction of a complex biomechanical model,
 starting from a full body model from the model repository.

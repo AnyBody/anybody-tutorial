@@ -45,7 +45,7 @@ msgid ""
 "Repository Ver. 1.6 (AMMRV1.6) if you see differences between the "
 "tutorial text and your own results please download AMMRV1.6 from "
 "`www.anybodytech.com/anybody.html?fwd=modelrepository "
-"<http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__"
+"<https://www.anybodytech.com/anybody.html?fwd=modelrepository>`__"
 msgstr ""
 
 #: ../../Finite_element_analysis/lesson1.rst:24

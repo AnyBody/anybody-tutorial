@@ -217,9 +217,3 @@ Having familiarized ourselves with the Mechanical System Information in
 the Object Description of the study, let us proceed to Initial
 Conditions in the {doc}`next lesson <lesson2>`.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson2`.
-:::

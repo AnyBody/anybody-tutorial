@@ -1,21 +1,23 @@
-# Getting started: The Model Repository
+:::{figure} ammr_bodyparts.png
+:align: center
+:alt: The AnyBody Model Repository
+:figclass: margin
 
-The AnyBody Model Repository (AMMR), is an open library of musculoskeletal
+*The AnyBody Model Repository is a unique open collection of human body parts*.
+:::
+
+# The AnyBody Model Repository
+
+
+The AnyBody Managed Model Repository (AMMR), is an open library of musculoskeletal
 models and examples ready to be used with the AnyBody Modeling System.
 
-The [AMMR documentation](https://anyscript.org/ammr-doc) is hosted
+The [AMMR documentation](https://anyscript.org/ammr-doc/) is hosted
 separately, and contains a few tutorials and other usefull information. The
 [Creating a Human Model from scratch](https://anyscript.org/ammr-doc/creating_model_from_scratch.html) tutorial is
 recommended for new users.
 
-:::{figure} ammr_bodyparts.png
-:align: center
-:alt: The AnyBody Model Repository
-:figwidth: 85 %
-:width: 70 %
 
-*The AnyBody Model Repository is a unique open collection of human body parts*.
-:::
 
 ```{rubric} AMMR documentation
 ```

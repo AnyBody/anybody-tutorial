@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started - First steps
 
 The objective of this tutorial is to demonstrate some of the features of
 the AnyBody Modeling System using an existing model.

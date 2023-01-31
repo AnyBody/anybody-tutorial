@@ -173,11 +173,5 @@ weaker M2. This seems immediately reasonable from a physiological
 point-of-view, and this is what you get from AnyBody if you do not make
 any special specifications. We shall get back to the precise nature of
 AnyBody’s standard criterion a little later. For now, let us proceed and
-speculate a bit about what may or may not make physiological sense in
+speculate a bit about what may or may not make physiological sense in {doc}`lesson 2 <lesson2>`.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson2`.
-:::

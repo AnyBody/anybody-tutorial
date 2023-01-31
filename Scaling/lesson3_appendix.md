@@ -1,37 +1,38 @@
 ---
-substitutions:
-  image1: |-
-    ```{image} _static/lesson3_appendix/image2.png
-    :width: 80%
-    ```
-  image10: |-
-    ```{image} _static/lesson3_appendix/image11.png
-    :width: 80%
-    ```
-  image11: |-
-    ```{image} _static/lesson3_appendix/image12.png
-    :width: 80%
-    ```
-  image12: |-
-    ```{image} _static/lesson3_appendix/image13.png
-    :width: 80%
-    ```
-  image13: |-
-    ```{image} _static/lesson3_appendix/image14.png
-    :width: 80%
-    ```
-  image2: |-
-    ```{image} _static/lesson3_appendix/image3.png
-    :width: 80%
-    ```
-  image3: |-
-    ```{image} _static/lesson3_appendix/image4.png
-    :width: 80%
-    ```
-  image4: |-
-    ```{image} _static/lesson3_appendix/image5.png
-    :width: 80%
-    ```
+myst:
+  substitutions:
+    image1: |-
+      ```{image} _static/lesson3_appendix/image2.png
+      :width: 80%
+      ```
+    image10: |-
+      ```{image} _static/lesson3_appendix/image11.png
+      :width: 80%
+      ```
+    image11: |-
+      ```{image} _static/lesson3_appendix/image12.png
+      :width: 80%
+      ```
+    image12: |-
+      ```{image} _static/lesson3_appendix/image13.png
+      :width: 80%
+      ```
+    image13: |-
+      ```{image} _static/lesson3_appendix/image14.png
+      :width: 80%
+      ```
+    image2: |-
+      ```{image} _static/lesson3_appendix/image3.png
+      :width: 80%
+      ```
+    image3: |-
+      ```{image} _static/lesson3_appendix/image4.png
+      :width: 80%
+      ```
+    image4: |-
+      ```{image} _static/lesson3_appendix/image5.png
+      :width: 80%
+      ```
 ---
 
 # Appendix: Morphing based on landmarks
@@ -60,7 +61,7 @@ is constructed:
 
 $f\left( y \right) = \sum_{j = 1}^{n}{c_{j}\phi(\left\| y - x_{j} \right\|)} + p_{q}(y)$,
 
-where$\ c_{j}$ are the coefficients of the RBF functions
+where $c_{j}$ are the coefficients of the RBF functions
 $\phi$, computed based on the source and target landmarks,
 $p$ is the polynomial of order $q$, and $\phi$ is the
 RBF function, which can take different forms. Here, we are just looking
@@ -105,7 +106,7 @@ part of the transform that is being constructed. The pre-transforms will
 be applied on both, source landmarks, Points0, and on the object that
 will be processed using this transform.
 
-The Points0 variable is a $3\  \times \ k$ matrix of the source
+The Points0 variable is a $3\times k$ matrix of the source
 landmark coordinates, where k is the number of source points. Points1 is
 the matrix of target landmarks of the same size. These two entities
 alone define a 3D RBF transform.
@@ -305,7 +306,7 @@ We can see strange behaviour of the deformation field that is hard to
 explain, however, you can notice that the deformed grid is approaching
 the origin of the coordinate system, when the parameter increases. Let
 us look back at the definition of the Gaussian radial basis function:
-$\phi\left( r \right) = e^{- \text{ar}^{2}}\$. We can see that
+$\phi\left( r \right) = e^{- \text{ar}^{2}}$. We can see that
 the exponential nature will decrease the influence of the *r* component.
 However, if the parameter is too large the influence of radial distances
 will be minor and insignificant. Thus, it is necessary to keep the

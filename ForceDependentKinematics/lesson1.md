@@ -26,9 +26,4 @@ In the next lesson we shall see how this model can be upgraded with a
 more realistic knee joint using the Force dependent kinematics (FDK)
 solver of the system:
 
-:::{rst-class} without-title
-:::
 
-:::{seealso}
-**Next lesson:** {doc}`lesson2`.
-:::

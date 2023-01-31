@@ -474,7 +474,7 @@ msgid ""
 "Optimization studies can be used for many purposes. A previous webcast on"
 " “How to synthesize posture and movement with inverse dynamics” is "
 "available for download and replay `here "
-"<http://www.anybodytech.com/info.html?f=webcasts-on-demand>`__."
+"<https://www.anybodytech.com/info.html?f=webcasts-on-demand>`__."
 msgstr ""
 
 #: ../../Parameter_studies_and_optimization/lesson2.rst:430

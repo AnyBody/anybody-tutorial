@@ -252,9 +252,4 @@ above. If you do not already have our trusted arm model stored
 somewhere, {download}`please download it here <Downloads/arm2d.zip>`, save it to your disk, and load it
 into AnyBody.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** We are then ready to proceed to {doc}`Lesson1: Mechanical System Information <lesson1>`.
-:::
+We are then ready to proceed to {doc}`Lesson1: Mechanical System Information <lesson1>`.

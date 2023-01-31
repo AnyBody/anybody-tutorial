@@ -1,8 +1,9 @@
 ---
-substitutions:
-  Model tree ElbowNode: |-
-    ```{image} _static/lesson3/image1.png
-    ```
+myst:
+  substitutions:
+    Model tree ElbowNode: |-
+        ```{image} _static/lesson3/image1.png
+        ```
 ---
 
 # Lesson 3: Connecting Segments by Joints
@@ -242,10 +243,4 @@ specified the joint posture yet. The shoulder and elbow joints can still take an
 angular position, so there are two degrees of freedom whose kinematic
 states need to specified before AnyBody can solve for the mechanism's
 kinematics. This is taken care of by kinematic drivers.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** They are one of the subjects of {doc}`Lesson 4: Imparting Movement with Drivers <lesson4>`.
-:::
+They are one of the subjects of {doc}`Lesson 4: Imparting Movement with Drivers <lesson4>`.

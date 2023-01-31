@@ -63,10 +63,3 @@ determining which movement to perform before we have specified it.
 In the following lessons we will look at simple and more advanced ways
 to drive a model. For simplicity, we’ll stick with the simple pendulum,
 but exactly the same principles apply to much more complex models.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`Let’s initially review simple drivers in Lesson 1 <lesson1>`.
-:::

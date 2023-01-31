@@ -1,20 +1,21 @@
 ---
-substitutions:
-  image0: |-
-    ```{image} _static/lesson5/image1.png
-    ```
-  image1: |-
-    ```{image} _static/lesson5/image2.png
-    ```
-  image2: |-
-    ```{image} _static/lesson5/image3.png
-    ```
-  image3: |-
-    ```{image} _static/lesson5/image4.png
-    ```
-  image4: |-
-    ```{image} _static/lesson5/image5.png
-    ```
+myst:
+  substitutions:
+    image0: |-
+      ```{image} _static/lesson5/image1.png
+      ```
+    image1: |-
+      ```{image} _static/lesson5/image2.png
+      ```
+    image2: |-
+      ```{image} _static/lesson5/image3.png
+      ```
+    image3: |-
+      ```{image} _static/lesson5/image4.png
+      ```
+    image4: |-
+      ```{image} _static/lesson5/image5.png
+      ```
 ---
 
 # Lesson 5: Definition of Muscles and External Forces
@@ -324,9 +325,4 @@ difficult job to define a realistic body model from scratch. We recommend that u
 start out with the body models available in the** [AnyBody Managed Model
 Repository](https://www.anybodytech.com/software/ammr/).
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** Now, let's continue to {doc}`Lesson 6: Adding real bone geometrics <lesson6>`
-:::
+Now, let's continue to {doc}`Lesson 6: Adding real bone geometrics <lesson6>`.

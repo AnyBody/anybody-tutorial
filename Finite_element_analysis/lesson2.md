@@ -241,10 +241,3 @@ Alternatively you can run all models in one go by reading in the
 outputfileList file. Each loadstep will be written in a new result file.
 You can look at the results by loading them one on one in the
 post-processor.
-
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::

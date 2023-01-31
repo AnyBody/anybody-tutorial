@@ -188,12 +188,8 @@ So the conclusion is that the MinMaxAux criterion, despite its
 attractive features, should be used with care in models where there is a
 chance that some model parts are independent of each other.
 
-:::{rst-class} without-title
-:::
+Let us carry on with {doc}`Lesson 7: Calibration <lesson_calibration>`. 
 
-:::{seealso}
-**Next lesson:** Let us carry on with {doc}`Lesson 7: Calibration <lesson_calibration>`
-:::
 
 ## References
 

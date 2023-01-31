@@ -157,9 +157,3 @@ If you're having trouble finding the correct output variable in the chart view's
 
 ![Chart view HandNod](_static/lesson4/image6.png)
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** This is the subject of {doc}`Lesson 5: Definition of muscles and external forces <lesson5>`.
-:::

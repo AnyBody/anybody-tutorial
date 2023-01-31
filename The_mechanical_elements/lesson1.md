@@ -58,9 +58,4 @@ Please refer to the reference manual for further explanation. The
 {doc}`Getting Started with AnyScript <../A_Getting_started_anyscript/intro>` tutorial
 provides examples of segment definitions.
 
-:::{rst-class} without-title
-:::
 
-:::{seealso}
-**Next lesson:** Next up is {doc}`lesson2`.
-:::

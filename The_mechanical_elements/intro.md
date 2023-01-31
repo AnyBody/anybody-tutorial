@@ -35,9 +35,4 @@ This tutorial consists of the following lessons:
 - {doc}`Lesson 4: Kinematic Measures <lesson4>`
 - {doc}`Lesson 5: Forces <lesson5>`
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** Let's head for {doc}`lesson1`.
-:::
+Let's head for {doc}`lesson1`.

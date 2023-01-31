@@ -174,13 +174,3 @@ using “draw groups” that can be created by the class AnyDrawGroup.
 Please refer to {doc}`Lesson 7 <lesson7>` for an example of their
 usage.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson3`.
-:::
-
-% photos
-
-% icons

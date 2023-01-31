@@ -118,9 +118,3 @@ In the fourth lesson of this tutorial, we shall have a look at how to
 use the simple surface contact force model also available in AnyBody to
 improve on the kinematical behavior in combination with the FDK solver.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson4`.
-:::

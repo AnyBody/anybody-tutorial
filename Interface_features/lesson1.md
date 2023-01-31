@@ -138,15 +138,5 @@ Some users have strong preferences when it comes to editors. The AnyBody
 Modeling System allows you to use any text editor like Notepad++ to
 author your models, as long as it saves the files in an ASCII text
 format. Please refer to the Wiki at
-[anyscript.org](http://www.anyscript.org) for more details.
+[anyscript.org](https://anyscript.org/) for more details.
 
-:::{rst-class} without-title
-:::
-
-:::{seealso}
-**Next lesson:** {doc}`lesson2`.
-:::
-
-% images
-
-% icons

@@ -1,4 +1,4 @@
-# Getting started: AnyScript Programming
+# How to write AnyScript
 
 This tutorial introduces the AnyScript modeling language, which is used
 for all modeling in AnyBody.

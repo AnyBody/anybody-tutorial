@@ -114,7 +114,7 @@ msgstr ""
 #: ../../Validation_of_models/intro.rst:59
 msgid ""
 "In general, the models in the `*AnyScript Managed Model Repository* "
-"<http://www.anybodytech.com/anybody.html?fwd=modelrepository>`__ are "
+"<https://www.anybodytech.com/anybody.html?fwd=modelrepository>`__ are "
 "based on data reported in the literature. They often come from studies of"
 " one or few subjects or cadavers, and the data has little or no "
 "statistical significance. You will find the references of the data listed"

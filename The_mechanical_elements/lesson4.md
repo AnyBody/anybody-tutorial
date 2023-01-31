@@ -155,9 +155,5 @@ can drive them. In AnyBody, you can drive anything that you can measure,
 and this is really a unique facility. If something went wrong for you
 along the way, you can {download}`download a commented version of the final result here (Measures2.any) <Downloads/Measures2.any>`.
 
-:::{rst-class} without-title
-:::
+he last lesson in the tutorial on mechanical elements is {doc}`lesson5`.
 
-:::{seealso}
-**Next lesson:** The last lesson in the tutorial on mechanical elements is {doc}`lesson5`.
-:::

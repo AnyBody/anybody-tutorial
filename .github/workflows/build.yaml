@@ -78,6 +78,11 @@ jobs:
         run: |
           make html O="-W"
 
+      - name: Check links
+        shell: bash -l {0}
+        run: |
+          make linkcheck
+
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
