@@ -13,6 +13,5 @@ dependencies:
   - pygments_anyscript
   - ipython=8.4.0
   - jinja2=3.0.3
+  - sphinxext-opengraph
 
-  - pip:
-    - sphinxext-opengraph
