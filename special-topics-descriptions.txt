@@ -1,0 +1,16 @@
+
+{doc}`Finite element analysis interface </Finite_element_analysis/index>`
+: Shows how forces in a model can be exported to provide the
+  boundary conditions of a finite element model.
+
+{doc}`Making Models using SOLIDWORKS </AnyExp4SOLIDWORKS/index>`
+: Shows how  a CAD model designed in SOLIDWORKS can be
+  imported into AnyBody and interact with the human model.
+
+
+{doc}`Scaling and Personalizing your Model </Scaling/index>`
+: Shows advanced scaling in AnyBody using MRI scans and morphing.
+
+
+{doc}`Posture and Movement Prediction </Posture_and_movement/intro>`
+: Shows how simple example of movement optimization.
