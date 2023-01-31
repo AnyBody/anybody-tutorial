@@ -277,15 +277,18 @@ html_context = {
 
 html_theme_options = {
     "logo_only": True,
+
     "repository_url": "https://github.com/anybody/anybody-tutorial",
     "use_repository_button": False,
-    "extra_navbar": 'Tutorials by <a href="https://anybodytech.com">AnyBody Technology</a>',
+    # "extra_navbar": 'Tutorials by <a href="https://anybodytech.com">AnyBody Technology</a>',
     "home_page_in_toc": False,
     "show_navbar_depth": 1,
     "use_download_button": False,
     "use_edit_page_button": True,
     "use_issues_button": True,
     "show_navbar_depth": 2,
+    "search_bar_text": "",
+
 }
 
 
@@ -323,7 +326,7 @@ pydata_html_sidebars = {
 
 html_sidebars = {
     "**": [
-        "sidebar-logo.html",
+        "navbar-logo.html",
         "search-field.html",
         "back_to_manual.html",
         "sbt-sidebar-nav.html",

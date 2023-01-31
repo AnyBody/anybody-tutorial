@@ -19,6 +19,6 @@ dependencies:
   - sphinxext-opengraph
   - pip:
     - sphinxcontrib-youtube
-    - git+https://github.com/executablebooks/sphinx-book-theme.git@master
-    - git+https://github.com/executablebooks/sphinx-design.git@main
+    - git+https://github.com/melund/sphinx-book-theme.git@anybody-tutorials
+    - git+https://github.com/executablebooks/sphinx-design.git@6df47513e9
 
