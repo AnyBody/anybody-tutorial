@@ -15,12 +15,26 @@ before proceeding.
 We also strongly recommend watching the introductory video.
 :::
 
+:::{only} offline 
+
 ```{raw} html
 <video width="50%" style="display:block; margin: 0 auto;" controls>
-    <source src="../_static/IntroVideoTour.mp4" type="video/mp4">
+    <source src="../../_static/IntroVideoTour.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 ```
+:::
+
+
+:::{only} not offline
+
+```{youtube} Y4H-8FMJlis
+:width: 50%
+:align: center
+
+```
+:::
+
 
 Please go to the CrossTrainer example from the AnyBody Managed Model
 Repository and open the CrossTrainer.main.any file. **Load the model
