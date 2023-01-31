@@ -276,8 +276,8 @@ html_context = {
 }
 
 html_theme_options = {
-    "logo_only": True,
-
+    # "logo_only": True,
+    
     "repository_url": "https://github.com/anybody/anybody-tutorial",
     "use_repository_button": False,
     # "extra_navbar": 'Tutorials by <a href="https://anybodytech.com">AnyBody Technology</a>',
