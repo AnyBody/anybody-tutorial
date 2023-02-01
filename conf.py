@@ -440,6 +440,7 @@ linkcheck_ignore = [
     "https://doi.org/10.1115/1.4052115",  # asme.org prevents the linkcheck
     "https://dx.doi.org/10.1115/1.4001678",  # asme.org prevents the linkcheck
     "https://dx.doi.org/10.1115/1.4029258",  # asme.org prevents the linkcheck
+    "https://anyscript.org/tutorials/dev/", # The dev sides can sometimes be missing.
 ]
 
 linkcheck_allowed_redirects = {
