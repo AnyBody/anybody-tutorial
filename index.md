@@ -13,7 +13,8 @@ sd_hide_title: true
 
 ```{image} _static/AnyBodyTutorials.svg
 :width: 200px
-:class: sd-m-auto
+:class: sd-bg-transparent
+
 ```
 
 :::
