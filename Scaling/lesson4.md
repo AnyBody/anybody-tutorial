@@ -22,7 +22,9 @@ from a CT-scan of one of his left femur. To increase the accuracy of our model,
 let us improve it using a subject-specific scaling for the femur.
 
 First of all, let us prepare a model matching the standard size man to
-be the basis for further subject-specific improvements. Therefore we use the [StandingModelScalingDisplay](ammr:sphx_glr_auto_examples_other_plot_standingmodelscalingdisplay.py) from the AnyBody Managed Model Repository (AMMR), with the `_SCALING_STANDARD_`, option. This is well suited to show how
+be the basis for further subject-specific improvements. Therefore we use the 
+{ref}`StandingModelScalingDisplay <ammr:sphx_glr_auto_examples_Other_plot_StandingModelScalingDisplay.py>`
+from the AnyBody Managed Model Repository (AMMR), with the `_SCALING_STANDARD_`, option. This is well suited to show how
 to use subject-specific geometry in a model.
 
 ## Including custom scaling for a single segment
