@@ -301,9 +301,9 @@ html_logo = "_static/AnyBodyTutorials2.svg"
 # pixels large.
 html_favicon = "_static/favicon.ico"
 
-html_js_files = [
-    'js/custom.js',
-]
+# html_js_files = [
+#     'js/custom.js',
+# ]
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -452,4 +452,4 @@ linkcheck_allowed_redirects = {
 
 
 def setup(app):
-    ...
+    ... 

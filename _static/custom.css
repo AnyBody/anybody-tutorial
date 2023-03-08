@@ -55,10 +55,15 @@
     border: 1px solid var(--pst-color-border) !important;
 } */
 
-[data-theme="dark"] .sd-card {
+#rtd-footer-container {
+    margin: 0px !important;
+}
+
+
+/* [data-theme="dark"] .sd-card {
     border-color: #00000000;
 }
 
 [data-theme="dark"] .sd-card-hover:hover { 
     border-color: var(--sd-color-card-border-hover) !important;
-}
+} */
