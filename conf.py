@@ -55,7 +55,6 @@ extensions = [
     "sphinx.ext.githubpages",
     # 3rd party extensions
     # 'sphinxcontrib.fulltoc',
-    "inline_highlight",
     "IPython.sphinxext.ipython_console_highlighting",
     "sphinx.ext.intersphinx",
     # 'sphinx.ext.autosectionlabel'
