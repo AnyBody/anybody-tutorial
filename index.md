@@ -94,7 +94,7 @@ Look up the AMMR tutorials if you need help and guides for using the AnyBody Man
 : The wiki has a wealth of information, tips&tricks and FAQs for working with the AnyBody Modeling System.
 
 
-[AMMR documenation](https://anyscript.org/ammr-doc/)
+[AMMR documenation](https://anyscript.org/ammr/)
 : Browse documentation on AMMR models and learn about possible settings
 
 [The AnyBodyTech channel](https://www.youtube.com/user/anybodytech)

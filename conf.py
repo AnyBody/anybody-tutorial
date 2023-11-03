@@ -240,7 +240,7 @@ html_theme = "sphinx_book_theme"
 pydata_html_theme_options = {
     # "external_links": [
     #     {
-    #         "url": "https://anyscript.org/ammr-doc/",
+    #         "url": "https://anyscript.org/ammr/",
     #         "name": "AMMR Documentation",
     #     },
     # ],
@@ -419,13 +419,13 @@ if tags.has("offline"):
     # Todo find a way to get intersphinx working for offline builds
     intersphinx_mapping["ammr"] = (
         "../../AMMR/Documentation/",
-        ("../.inv/ammr.inv", "https://anyscript.org/ammr-doc/objects.inv"),
+        ("../.inv/ammr.inv", "https://anyscript.org/ammr/objects.inv"),
     )
 else:
     if tags.has("draft"):
-        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/beta/", None)
+        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr/beta/", None)
     else:
-        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/", None)
+        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr/", None)
 
 
 # -- Options for OpenGraph Ext. ----------------------------------------------
