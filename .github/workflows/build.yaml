@@ -13,40 +13,38 @@ on:
         required: false
         default: ""
 
-  
+defaults:
+  run:
+    shell: bash -leo pipefail {0} {0}
+
 
 jobs:
 
   build-official-version:
+    if: github.event.inputs.run_deploy
+
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
     
       - name: Checkout last tagged
-        if: "github.event.inputs.run_deploy"
         run: |
           git checkout $(git describe --tags `git rev-list --tags --max-count=1`);
 
-      - name: Setup conda
-        if: "github.event.inputs.run_deploy"
-        uses: conda-incubator/setup-miniconda@v2
+      - name: Install mamba
+        uses: mamba-org/setup-micromamba@v1
         with:
-          activate-environment: sphinx
           environment-file: environment.yaml
-          channels: conda-forge
-
+  
       - name: Build last tagged version
-        if: "github.event.inputs.run_deploy"
-        shell: bash -l {0}
         run: |
           make clean
           make html O="-W"
 
       - name: Deploy 🚀
-        if: "github.event.inputs.run_deploy"
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
@@ -56,35 +54,24 @@ jobs:
 
 
   sphinx-build:
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     needs: [build-official-version]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+       
+      - name: Install mamba
+        uses: mamba-org/setup-micromamba@v1
         with:
-          fetch-depth: 0
-            
-      - name: Setup conda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          activate-environment: sphinx
           environment-file: environment.yaml
-          channels: conda-forge
-
-      - uses: ammaraskar/sphinx-problem-matcher@master
-        # if: github.ref != 'refs/heads/master'
-            
+    
       - name: Build Documentation
-        shell: bash -l {0}
-        run: |
-          make html O="-W"
+        run:  make html O="-W"
 
       - name: Check links
-        shell: bash -l {0}
-        run: |
-          make linkcheck
+        run: sphinx-build -M linkcheck . _build -W --keep-going -a -q 
 
       - name: Deploy 🚀
-        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
