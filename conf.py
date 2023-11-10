@@ -129,14 +129,14 @@ pygments_style = "AnyScript"
 current_year = os.environ.get("YEAR", datetime.now().year)
 
 ams_version = os.environ.get("AMS_VERSION", "7.4.3")
-if not re.match("^\d\.\d\.\d", ams_version):
+if not re.match(r"^\d\.\d\.\d", ams_version):
     raise ValueError("Wrong format for AMS version, environment variable")
 ams_version_short = ams_version.rpartition(".")[0]
 ams_version_x = ams_version_short + ".x"
 
 
 ammr_version = os.environ.get("AMMR_VERSION", "2.4.3")
-if not re.match("^\d\.\d\.\d", ammr_version):
+if not re.match(r"^\d\.\d\.\d", ammr_version):
     raise ValueError("Wrong format for AMMR version, environment variable")
 ammr_version_short = ammr_version.rpartition(".")[0]
 
@@ -172,7 +172,7 @@ myst_substitutions = {
 }
 
 
-no_index = """
+no_index = r"""
 .. meta::
    :name=robots content=noindex: \ 
 """
@@ -448,10 +448,11 @@ linkcheck_ignore = [
 ]
 
 linkcheck_allowed_redirects = {
-    r"https://doi\.org.*": ".*",
+    "https://doi.org.*": ".*",
+    "https://dx.doi.org.*": ".*",
     r"https://www\.sphinx-doc\.org/": r"https://www\.sphinx-doc\.org/en/master/",
     r"https://www\.anybodytech\.com/anybody\.html\?fwd=.*": ".*",
-    r"https://www\.youtube.com/.*": "https://consent\.youtube.com/.*",
+    r"https://www\.youtube.com/.*": r"https://consent\.youtube.com/.*",
 }
 
 
