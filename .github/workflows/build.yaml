@@ -48,7 +48,7 @@ jobs:
       - run: sphinx-build -M linkcheck . _build -W --keep-going -a -q 
       
 
-  link-check-official:
+  link-check-last-tagged:
 
     runs-on: ubuntu-latest
     needs: find-tag
@@ -93,7 +93,7 @@ jobs:
 
       - name: Build last tagged version
         run: |
-          microconda activate tutorial-tagged
+          micromamba activate tutorial-tagged
           sphinx-build -M html . _build -W --keep-going -a
 
       - name: Prepare html for upload
