@@ -1,5 +1,5 @@
-[![badge](https://github.com/AnyBody/anybody-tutorial/workflows/Build%20Tutorials/badge.svg)](https://github.com/AnyBody/anybody-tutorial/actions)
-[![badge](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=Tutorial_website)](https://anyscript.org/tutorials/dev)
+>[!IMPORTANT]
+> This repository has moved to: https://github.com/anybody/tutorials
 
 # AnyBody Tutorial repository
 
