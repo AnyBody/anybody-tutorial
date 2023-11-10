@@ -30,11 +30,8 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Find latest tag
-        id: find-tag
-        run: | 
-          $LASTTAG="$(git describe --tags `git rev-list --tags --max-count=1`)"
-          echo "tag=$LASTTAG)" >> "$GITHUB_OUTPUT"
+      - id: find-tag
+        run: echo "tag=$(git describe --tags `git rev-list --tags --max-count=1`)" >> "$GITHUB_OUTPUT"
 
 
   link-check:
