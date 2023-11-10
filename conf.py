@@ -240,7 +240,7 @@ html_theme = "sphinx_book_theme"
 pydata_html_theme_options = {
     # "external_links": [
     #     {
-    #         "url": "https://anyscript.org/ammr-doc/",
+    #         "url": "https://anyscript.org/ammr/",
     #         "name": "AMMR Documentation",
     #     },
     # ],
@@ -419,13 +419,13 @@ if tags.has("offline"):
     # Todo find a way to get intersphinx working for offline builds
     intersphinx_mapping["ammr"] = (
         "../../AMMR/Documentation/",
-        ("../.inv/ammr.inv", "https://anyscript.org/ammr-doc/objects.inv"),
+        ("../.inv/ammr.inv", "https://anyscript.org/ammr/objects.inv"),
     )
 else:
     if tags.has("draft"):
-        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/beta/", None)
+        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr/beta/", None)
     else:
-        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr-doc/", None)
+        intersphinx_mapping["ammr"] = ("https://anyscript.org/ammr/", None)
 
 
 # -- Options for OpenGraph Ext. ----------------------------------------------
@@ -442,6 +442,8 @@ linkcheck_ignore = [
     "https://doi.org/10.1115/1.4052115",  # asme.org prevents the linkcheck
     "https://dx.doi.org/10.1115/1.4001678",  # asme.org prevents the linkcheck
     "https://dx.doi.org/10.1115/1.4029258",  # asme.org prevents the linkcheck
+    "https://doi.org/10.1080/10255840802459412", # tandfonline sometimes blocks linkcheck
+    "https://doi.org/10.1080/23335432.2014.993706", # tandfonline sometimes blocks linkcheck
     "https://anyscript.org/tutorials/dev/", # The dev sides can sometimes be missing.
 ]
 
