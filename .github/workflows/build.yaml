@@ -21,7 +21,6 @@ defaults:
 jobs:
 
   build-official-version:
-    if: github.event.inputs.run_deploy
 
     runs-on: ubuntu-latest
 
@@ -44,7 +43,11 @@ jobs:
           make clean
           make html O="-W"
 
+      - name: Check links
+        run: sphinx-build -M linkcheck . _build -W --keep-going -a -q 
+
       - name: Deploy 🚀
+        if: github.event.inputs.run_deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
