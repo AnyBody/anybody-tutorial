@@ -442,6 +442,8 @@ linkcheck_ignore = [
     "https://doi.org/10.1115/1.4052115",  # asme.org prevents the linkcheck
     "https://dx.doi.org/10.1115/1.4001678",  # asme.org prevents the linkcheck
     "https://dx.doi.org/10.1115/1.4029258",  # asme.org prevents the linkcheck
+    "https://doi.org/10.1080/10255840802459412", # tandfonline sometimes blocks linkcheck
+    "https://doi.org/10.1080/23335432.2014.993706", # tandfonline sometimes blocks linkcheck
     "https://anyscript.org/tutorials/dev/", # The dev sides can sometimes be missing.
 ]
 
