@@ -33,7 +33,7 @@ jobs:
       - name: Find latest tag
         id: find-tag
         run: | 
-          $LASTTAG = $(git describe --tags `git rev-list --tags --max-count=1`)
+          $LASTTAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           echo "tag=$LASTTAG)" >> "$GITHUB_OUTPUT"
 
 
