@@ -93,7 +93,7 @@ jobs:
 
       - name: Build last tagged version
         run: |
-          conda activate tutorial-tagged
+          microconda activate tutorial-tagged
           sphinx-build -M html . _build -W --keep-going -a
 
       - name: Prepare html for upload
